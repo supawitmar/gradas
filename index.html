@@ -198,6 +198,11 @@ section{padding:56px 0}
 .chip-link:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
 .chip-link .i{width:14px;height:14px;stroke-width:2.4}
 .skip{opacity:.55} .skip .dot{background:#b9c0cf}
+.step.opt .dot{background:#fff;border:2px dashed var(--gold);color:var(--gold-d)}
+.step.opt .dot .i{width:18px;height:18px}
+.step.opt .card{background:var(--cream);border-color:var(--cream-line);border-style:dashed}
+.step.opt .card h3{color:var(--gold-d)}
+.step.opt .chip{background:#fff8e8}
 
 /* table */
 .tbl-scroll{overflow-x:auto;background:#fff;border-radius:18px;border:1px solid var(--line)}
@@ -348,9 +353,8 @@ const EFORM = {label:"ระบบ e-Form",
 
 /* ขั้นตอนที่ใช้ร่วมกันหลายแผน */
 const S = {
-  topic: {t:"การได้มาซึ่งหัวข้อ",tag:"ก่อนสอบฯ",
-    li:["เป็นตัวเลือก จะทำหรือไม่ทำก็ได้",
-        "<b>บฑ.39</b> สำหรับนักศึกษาแบบหน่วยกิต",
+  topic: {t:"การได้มาซึ่งหัวข้อ (Optional)",tag:"ก่อนสอบฯ",optional:true,
+    li:["<b>บฑ.39</b> สำหรับนักศึกษาแบบหน่วยกิต",
         "<b>บฑกศ.39</b> สำหรับนักศึกษาแบบหน่วยกิตและนักศึกษาแบบเหมาจ่าย"],
     meta:["แบบฟอร์ม: บฑ.39 / บฑกศ.39 (ถ้ามี)",EFORM]},
   gr1: {t:"บฑ.1 การอนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา",tag:"ก่อนสอบฯ",
@@ -549,7 +553,8 @@ const ICONS = {
   fileDown:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/>',
   alert:'<path d="m21.7 18-8-14a2 2 0 0 0-3.5 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
   arrow:'<path d="M7 17 17 7"/><path d="M7 7h10v10"/>',
-  check:'<path d="M20 6 9 17l-5-5"/>'
+  check:'<path d="M20 6 9 17l-5-5"/>',
+  star:'<path d="M12 3.5l2.4 5 5.6.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.6-.8z"/>'
 };
 const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[k]||ICONS.file}</svg>`;
 
@@ -559,7 +564,7 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    ========================================================= */
 const EN = {
   /* ---------- ขั้นตอนที่ใช้ร่วมกัน / แผน ก / แผน ข ---------- */
-  "การได้มาซึ่งหัวข้อ":"Obtaining the topic",
+  "การได้มาซึ่งหัวข้อ (Optional)":"Obtaining the topic (Optional)",
   "เป็นตัวเลือก จะทำหรือไม่ทำก็ได้":"Optional step.",
   "บฑ.1 การอนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา":"GR.1 Topic approval and appointment of the advisory committee",
   "ยื่นเสนออนุมัติหัวข้ออย่างเป็นทางการ":"Submit the topic for official approval.",
@@ -946,11 +951,13 @@ function setTrack(tr){ track = tr; $("dBody").innerHTML = renderContent(activeLi
 function renderContent(c){
   switch(c.type){
     case "timeline": {
+      let n = 0;
+      const numOf = PATH[track].map(s => s.optional ? null : ++n);
       const tabs = [["phd","ปริญญาเอก"],["mscA","ปริญญาโท แผน ก (วิทยานิพนธ์)"],["mscB","ปริญญาโท แผน ข (สารนิพนธ์ / IS)"]];
       return `<div class="tabs">${tabs.map(([k,v])=>`<button class="tab ${k===track?'on':''}" onclick="setTrack('${k}')">${t(v)}</button>`).join("")}</div>
       <div class="timeline">${PATH[track].map((s,i,arr)=>`
         ${(i===0||arr[i-1].tag!==s.tag)?`<div class="phase"><span>${t(s.tag)}</span></div>`:""}
-        <div class="step ${s.skip?'skip':''}"><div class="dot">${i+1}</div>
+        <div class="step ${s.skip?'skip':''} ${s.optional?'opt':''}"><div class="dot">${numOf[i]===null?svg("star"):numOf[i]}</div>
           <div class="card"><h3>${t(s.t)}</h3>
             <ul>${s.li.map(x=>`<li>${t(x)}</li>`).join("")}</ul>
             <div class="meta">${s.meta.map(m=>typeof m==="string"
