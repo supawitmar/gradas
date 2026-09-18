@@ -249,6 +249,13 @@ footer{background:#102d69;color:#fff;border-radius:30px 30px 0 0;padding:26px 0}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;font-size:.8125rem;letter-spacing:1px;line-height:1.7}
 .footer-inner small{display:block;font-size:.75rem;letter-spacing:.3px;color:#d5dff2;margin-top:4px}
 .hide{display:none}
+
+/* ---------- ANIMATION: ค่อย ๆ เลื่อนเข้ามาเมื่อเลื่อนถึง ---------- */
+.reveal{opacity:0;transform:translateY(22px);will-change:opacity,transform}
+.reveal.in{opacity:1;transform:none;
+  transition:opacity .6s cubic-bezier(.22,.8,.3,1),transform .6s cubic-bezier(.22,.8,.3,1)}
+.hero .reveal{transform:translateY(14px)}
+@media (prefers-reduced-motion:reduce){.reveal,.reveal.in{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -895,7 +902,7 @@ function setLang(l){
                                  : "งานบริการการศึกษา | บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล";
   document.querySelectorAll("[data-lang]").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
   try{ localStorage.setItem("gs-lang", lang); }catch(e){}
-  applyStatic(); renderRoles(); renderQuick();
+  applyStatic(); renderRoles(); renderQuick(); reveal();
   if(activeLink) renderDetail();
 }
 
@@ -904,6 +911,31 @@ function setLang(l){
    ========================================================= */
 let role = ROLES[0], track = "phd", activeLink = null;
 const $ = id => document.getElementById(id);
+
+/* ---------- ANIMATION: ใส่คลาสและสั่งเล่นเมื่อเลื่อนถึง ---------- */
+const REVEAL_SEL = ".hero-pill,.hero h1,.hero p,.sec-head,.ql-head,.role,.qcard,.d-head,.phase,.step,.gcard,.box,.tbl-scroll,.faq details,.tabs,.contact>div,.cbox";
+const io = ("IntersectionObserver" in window)
+  ? new IntersectionObserver((es,o)=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); o.unobserve(e.target); } }),{rootMargin:"0px 0px -8% 0px",threshold:.08})
+  : null;
+function reveal(root){
+  /* ถ้าไม่มี IntersectionObserver หรือแท็บไม่ได้เปิดอยู่ ให้แสดงเนื้อหาตามปกติ ไม่ต้องมีอนิเมชัน */
+  if(!io || document.visibilityState !== "visible") return;
+  const els = [...(root||document).querySelectorAll(REVEAL_SEL)].filter(e=>!e.classList.contains("reveal"));
+  /* กันพลาด: ถ้าด้วยเหตุใดก็ตามยังไม่แสดงภายใน 6 วินาที ให้แสดงทั้งหมด */
+  setTimeout(()=>els.forEach(el=>el.classList.add("in")),6000);
+  els.forEach((el,i)=>{
+    el.classList.add("reveal");
+    el.style.transitionDelay = Math.min(i,6)*70 + "ms";
+    if(el.getBoundingClientRect().top < innerHeight*0.92){ setTimeout(()=>el.classList.add("in"),30); return; }
+    io.observe(el);
+    /* กันเหนียว: ถ้า observer ไม่ทำงาน (บางเบราว์เซอร์/แท็บพื้นหลัง) ให้แสดงผลเมื่อเลื่อนถึง */
+    setTimeout(function chk(){
+      if(el.classList.contains("in")) return;
+      if(el.getBoundingClientRect().top < innerHeight) el.classList.add("in");
+      else setTimeout(chk,400);
+    },1200);
+  });
+}
 
 function renderRoles(){
   $("roles").innerHTML = ROLES.map(r=>`
@@ -930,7 +962,7 @@ function renderQuick(){
 function setRole(id){
   role = ROLES.find(r=>r.id===id); activeLink = null;
   $("detail").classList.add("hide");
-  renderRoles(); renderQuick();
+  renderRoles(); renderQuick(); reveal($("quick"));
   $("quick").scrollIntoView({behavior:"smooth"});
 }
 function renderDetail(){
@@ -944,10 +976,11 @@ function openLink(i){
   activeLink = role.links[i];
   renderQuick(); renderDetail();
   $("detail").classList.remove("hide");
+  reveal($("detail"));
   $("detail").scrollIntoView({behavior:"smooth"});
 }
 function goQuick(){ $("quick").scrollIntoView({behavior:"smooth"}); }
-function setTrack(tr){ track = tr; $("dBody").innerHTML = renderContent(activeLink.content); }
+function setTrack(tr){ track = tr; $("dBody").innerHTML = renderContent(activeLink.content); reveal($("dBody")); }
 
 function renderContent(c){
   switch(c.type){
@@ -987,6 +1020,8 @@ function renderContent(c){
   return "";
 }
 
+reveal();
+document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==="visible") reveal(); });
 let saved = "th";
 try{ saved = localStorage.getItem("gs-lang") || "th"; }catch(e){}
 setLang(saved);
