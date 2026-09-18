@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>งานบริการการศึกษา | บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   THEME — แก้ไขสีหลักของเว็บไซต์ได้ที่นี่
+   ========================================================= */
+:root{
+  /* ธีมสีตาม Canva: ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์ (Navy / Blue / Gold) */
+  --navy:#102d69; --navy-2:#173d8b; --blue:#2457aa; --blue-soft:#edf3fc;
+  --gold:#e8bd50; --gold-2:#edc55f; --gold-soft:#fff5d9; --gold-d:#6f5313;
+  --cream:#fffaf0; --cream-line:#f3e3b8;
+  --mint-bg:#eaf4ff;
+  --grey:#f4f7fb; --line:#dce7f5; --text:#203653; --muted:#5f718c;
+  --radius:22px;
+  /* สีการ์ด Shortcuts (โทน navy / blue / gold) */
+  --q1:linear-gradient(160deg,#102d69,#173d8b);
+  --q2:linear-gradient(160deg,#0f2550,#183f88);
+  --q3:linear-gradient(150deg,#e8bd50,#f1d47b);
+  --q4:linear-gradient(120deg,#173d8b,#2f6fd0);
+  --q5:linear-gradient(120deg,#2457aa,#5b8def);
+  --q6:linear-gradient(120deg,#153879,#10459d);
+  --q7:linear-gradient(120deg,#edc55f,#f4d47f);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:150px}
+body{font-family:'Inter','IBM Plex Sans Thai',Tahoma,sans-serif;color:var(--text);background:#f8faff;line-height:1.7}
+h1,h2,h3,.qcard h3{font-family:'Inter','IBM Plex Sans Thai',sans-serif;font-weight:600}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+a{color:var(--blue);text-decoration:none}
+button{font-family:inherit}
+
+/* ---------- HEADER + NAV (ตาม Canva) ---------- */
+.site-header{position:sticky;top:0;z-index:50}
+header.top{background:#102d69;color:#fff;border-top:4px solid var(--gold)}
+.masthead{width:min(1320px,calc(100% - 40px));margin:auto;display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:96px}
+.brand{display:flex;align-items:center;gap:23px;color:#fff;min-width:0}
+.brand-name{font-family:'Montserrat','Inter',Arial,sans-serif;font-weight:700;font-size:24px;letter-spacing:3px;line-height:1;color:#fff}
+.brand-name span{display:block;font-family:'Montserrat','Inter',Arial,sans-serif;font-weight:500;font-size:10px;letter-spacing:8px;margin-top:8px;opacity:.9}
+.brand-divider{height:43px;width:1px;background:#ffffff40}
+.brand-logo{display:flex;align-items:center;background:#fff;border-radius:16px;padding:8px 16px;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.brand-logo img{display:block;height:48px;width:auto}
+.faculty{font-weight:600;font-size:1.125rem;line-height:1.55;color:#fff}
+.faculty small{display:block;font-size:.875rem;font-weight:400;color:#d5dff2;margin-top:2px}
+.language{display:flex;align-items:center;gap:2px;padding:4px;border-radius:999px;background:#ffffff14;color:#e3eaf8;font-family:'Inter',sans-serif;font-size:.875rem;font-weight:600}
+.language span{color:#b7c7e3;padding:0 1px}
+.language button{font:inherit;color:inherit;background:transparent;border:0;border-radius:999px;min-width:42px;min-height:36px;padding:6px 10px;cursor:pointer}
+.language button[aria-pressed="true"]{background:var(--gold-2);color:#172c52}
+nav.menu{background:#f4f6fa;border-bottom:1px solid #e6ebf2}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:0 max(20px,calc((100% - 1320px)/2));font-size:.875rem}
+.service{font-weight:600;color:#173d8b;border-left:3px solid var(--gold);padding-left:12px}
+.nav-inner>div{display:flex;gap:6px;margin-right:-15px}
+.nav-inner a{color:#244777;font-weight:500;padding:8px 15px;border-radius:999px;transition:background .2s,color .2s}
+.nav-inner a:hover{background:var(--gold-soft);color:var(--gold-d)}
+@media(max-width:520px){.brand-divider,.faculty{display:none}}
+@media(max-width:700px){
+  .masthead{min-height:76px;padding:12px 0}.brand{gap:12px}
+  .brand-name{font-size:18px;letter-spacing:2px}.brand-name span{font-size:7.5px;letter-spacing:6px;margin-top:6px}
+  .brand-divider{height:33px}.faculty{font-size:.875rem}.faculty small{font-size:.75rem}
+  .brand-logo{padding:6px 10px;border-radius:12px}.brand-logo img{height:34px}
+  .service{display:none}.nav-inner>div{width:100%;justify-content:center;flex-wrap:wrap;margin:0}.nav-inner a{padding:9px 10px}
+}
+
+/* ---------- HERO ---------- */
+.hero{background:linear-gradient(135deg,#f7faff 0%,#eaf4ff 55%,#f4f8ff 100%);padding:64px 0 40px;text-align:center}
+.hero h1{color:var(--navy);line-height:1.25;font-weight:700}
+.hero h1 .h-pre,.hero h1 .h-sub{display:block;font-size:clamp(1.15rem,2.4vw,1.6rem);font-weight:500;color:var(--navy-2);letter-spacing:0}
+.hero h1 .h-main{display:block;font-family:'IBM Plex Sans Thai','Inter',sans-serif;font-size:clamp(2.6rem,7.5vw,5rem);font-weight:700;line-height:1.2;margin:6px 0 4px;letter-spacing:-.01em;
+  background:linear-gradient(100deg,#102d69 0%,#2457aa 55%,#102d69 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  padding-bottom:.08em}
+.hero h1 .h-main::after{content:"";display:block;width:clamp(90px,14vw,160px);height:6px;border-radius:999px;margin:10px auto 0;background:linear-gradient(90deg,var(--gold),#f4d47f)}
+.hero{padding:72px 0 52px}
+.hero p{color:var(--muted);max-width:660px;margin:14px auto 0}
+.hero{position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 1px 1px,rgba(36,87,170,.12) 1px,transparent 0) 0 0/22px 22px;mask-image:radial-gradient(ellipse at center,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at center,#000 20%,transparent 70%)}
+.hero .wrap{position:relative}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:.82rem;color:var(--navy-2);font-weight:500;margin-bottom:18px;box-shadow:0 6px 16px -10px rgba(16,45,105,.35)}
+.dot-live{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(232,189,80,.25)}
+
+/* ---------- SECTION HEAD ---------- */
+section{padding:56px 0}
+.sec-head{text-align:center;margin-bottom:34px}
+.kicker{display:inline-block;background:var(--gold-soft);color:var(--gold-d);font-size:.8rem;font-weight:600;padding:5px 16px;border-radius:999px;letter-spacing:.03em}
+.sec-head h2{font-size:clamp(1.4rem,3vw,1.8rem);color:var(--navy);margin-top:12px}
+.sec-head p{color:var(--muted);font-size:.97rem;margin-top:4px}
+
+/* ---------- STEP 1 : ROLES ---------- */
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:760px){.roles{grid-template-columns:1fr}}
+.role{border:1.5px solid var(--line);border-radius:18px;padding:30px 28px;cursor:pointer;background:#fff;transition:.18s;text-align:left;font:inherit;color:inherit}
+.role:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(27,42,74,.08)}
+.role{position:relative;overflow:hidden}
+.role-top{display:flex;justify-content:space-between;align-items:flex-start}
+.role .ico{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#173d8b,#2f6fd0);box-shadow:0 10px 22px -8px rgba(36,87,170,.55)}
+.role .ico .i{width:28px;height:28px}
+.role .tick{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--line);color:transparent;transition:.2s}
+.role .tick .i{width:16px;height:16px;stroke-width:2.6}
+.role.on .tick{background:var(--gold);border-color:var(--gold);color:#172c52}
+.role:nth-child(2) .ico{background:linear-gradient(135deg,#b8871f,#e8bd50)}
+.role:nth-child(3) .ico{background:linear-gradient(135deg,#0f2550,#2457aa)}
+.role h3{font-size:1.15rem;color:var(--navy);margin:14px 0 4px}
+.role p{font-size:.9rem;color:var(--muted)}
+.role.on{border-color:var(--blue);background:linear-gradient(180deg,#fff,var(--blue-soft));box-shadow:0 14px 30px -12px rgba(36,87,170,.35)}
+
+/* ---------- STEP 2 : QUICK LINKS ---------- */
+#quick{background:linear-gradient(180deg,var(--mint-bg) 0%,#fff 100%)}
+.ql-head{border-left:6px solid var(--gold);padding-left:14px;margin-bottom:34px}
+.ql-head .kicker{margin-bottom:6px}
+.ql-head h2{font-size:clamp(1.6rem,3.4vw,2.2rem);color:var(--navy);line-height:1.1}
+.ql-head p{color:var(--navy-2);font-family:'Inter','IBM Plex Sans Thai';font-size:1.05rem}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:22px}
+.bento .qcard:nth-child(1){grid-row:span 2}
+.bento .qcard:nth-child(6){grid-column:span 2}
+@media(max-width:980px){.bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}.bento .qcard:nth-child(6){grid-column:auto}}
+@media(max-width:520px){.bento{grid-template-columns:1fr;grid-auto-rows:auto}.bento .qcard:nth-child(1){grid-row:auto;min-height:320px}.qcard{min-height:180px}.qcard .go{opacity:1;transform:none}}
+.qcard{position:relative;border:0;border-radius:28px;padding:24px;color:#fff;text-align:left;cursor:pointer;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .2s, box-shadow .2s;font:inherit}
+.qcard:hover{transform:translateY(-4px);box-shadow:0 22px 40px -14px rgba(16,45,105,.5)}
+.qcard.on{outline:3px solid #fff;outline-offset:-3px;box-shadow:0 0 0 4px var(--gold),0 18px 36px -10px rgba(16,45,105,.45)}
+.i{width:1em;height:1em;display:block}
+.qcard::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 1px 1px,rgba(255,255,255,.14) 1px,transparent 0) 0 0/18px 18px;mask-image:linear-gradient(135deg,#000 0%,transparent 60%);-webkit-mask-image:linear-gradient(135deg,#000 0%,transparent 60%);pointer-events:none}
+.qcard .glow{position:absolute;width:220px;height:220px;right:-70px;top:-80px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.28),transparent 65%);transition:transform .4s;pointer-events:none}
+.qcard:hover .glow{transform:scale(1.25)}
+.qcard .qicon{position:absolute;top:18px;right:18px;width:64px;height:64px;border-radius:20px;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 10px 24px -10px rgba(0,0,0,.4);transition:transform .3s}
+.qcard .qicon .i{width:32px;height:32px}
+.qcard:hover .qicon{transform:translateY(-3px) rotate(-6deg)}
+.qcard .go{position:absolute;right:18px;bottom:18px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#102d69;opacity:0;transform:translate(-6px,6px);transition:.25s}
+.qcard .go .i{width:18px;height:18px;stroke-width:2.2}
+.qcard:hover .go,.qcard.on .go{opacity:1;transform:none}
+.qcard h3,.qcard p,.qcard ul{padding-right:44px}
+.bg3 .qicon{background:rgba(255,255,255,.45);border-color:rgba(255,255,255,.7)}
+.bg3 .go{background:#102d69;color:#fff}
+.qcard .no{position:absolute;top:22px;left:24px;font-weight:600;letter-spacing:.05em;font-family:'Inter','IBM Plex Sans Thai';font-size:.8rem;background:rgba(255,255,255,.18);padding:2px 11px;border-radius:999px}
+.qcard h3{font-size:clamp(1.15rem,1.8vw,1.45rem);line-height:1.25;position:relative}
+.qcard p{font-size:.86rem;opacity:.85;margin-top:6px;line-height:1.5;position:relative}
+.qcard:nth-child(1) .qicon{width:96px;height:96px;border-radius:28px;top:56px;left:24px;right:auto}
+.qcard:nth-child(1) .qicon .i{width:48px;height:48px;stroke-width:1.5}
+.qcard:nth-child(1) .glow{width:360px;height:360px;right:-140px;top:-120px}
+.qcard:nth-child(1) ul{list-style:none;margin-top:14px;font-size:.9rem;position:relative}
+.qcard:nth-child(1) li{padding-left:20px;position:relative;margin-bottom:6px;line-height:1.4}
+.qcard:nth-child(1) li::before{content:"";position:absolute;left:2px;top:.45em;width:9px;height:9px;border-radius:50%;background:#fff}
+.bg1{background:var(--q1)} .bg2{background:var(--q2)} .bg3{background:var(--q3);color:#172c52} .bg3 .no{background:rgba(23,44,82,.1)}
+.bg4{background:var(--q4)} .bg5{background:var(--q5)} .bg6{background:var(--q6)} .bg7{background:var(--q7);color:#1b2a4a}
+
+/* ---------- STEP 3 : DETAIL ---------- */
+#detail{background:var(--grey);scroll-margin-top:160px}
+.d-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+.d-head .eyebrow{font-size:.8rem;font-weight:600;letter-spacing:.14em;color:var(--navy-2)}
+.d-head h2{font-size:clamp(1.5rem,3vw,2rem);color:var(--navy);line-height:1.3}
+.d-head p{color:var(--muted);font-size:.95rem}
+.back{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 18px;cursor:pointer;color:var(--navy);font-size:.9rem}
+
+/* guide cards (ภาพตัวอย่างที่ 2) */
+.gcards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+@media(max-width:900px){.gcards{grid-template-columns:1fr}}
+.gcard{background:#fff;border:1.5px solid var(--line);border-radius:26px;padding:34px 36px;display:flex;flex-direction:column;min-height:330px;transition:.2s;color:inherit}
+.gcard:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(27,42,74,.08)}
+.gcard .top{display:flex;justify-content:space-between;align-items:center}
+.gcard .icon{width:60px;height:60px;border-radius:18px;background:var(--blue-soft);display:grid;place-items:center;color:var(--blue);transition:.25s}
+.gcard .icon .i{width:28px;height:28px}
+.gcard:hover .icon{background:var(--blue);color:#fff;transform:rotate(-6deg)}
+.gcard.gold:hover .icon{background:var(--gold);color:#172c52}
+.gcard .arrow .i{width:18px;height:18px;stroke-width:2.2}
+.gcard.gold .icon{color:#8a5d0c}
+.gcard .pill{font-size:.8rem;color:var(--muted);background:var(--grey);border-radius:999px;padding:5px 14px}
+.gcard h3{color:var(--navy-2);font-size:1.4rem;line-height:1.35;margin-top:26px}
+.gcard .desc{color:var(--muted);font-size:.95rem;margin-top:12px;flex:1}
+.gcard .foot{display:flex;justify-content:space-between;align-items:center;margin-top:22px;font-weight:600;color:var(--navy-2);font-size:.95rem}
+.gcard .arrow{width:46px;height:46px;border-radius:50%;background:var(--blue-soft);display:grid;place-items:center;font-size:1.1rem;transition:.2s}
+.gcard:hover .arrow{background:var(--blue);color:#fff}
+.gcard.gold{background:var(--cream);border-color:var(--cream-line)}
+.gcard.gold .icon,.gcard.gold .arrow{background:var(--gold)}
+.gcard.gold .pill{background:var(--gold);color:var(--gold-d)}
+
+/* tabs + timeline */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 22px;font-size:.93rem;cursor:pointer;color:var(--navy)}
+.tab.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.timeline{position:relative;padding-left:52px}
+.timeline::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.step{position:relative;margin-bottom:20px}
+.dot{position:absolute;left:-52px;top:4px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:'Inter','IBM Plex Sans Thai';font-weight:600;color:#fff;background:var(--blue)}
+.card{border:1px solid var(--line);border-radius:18px;padding:20px 24px;background:#fff}
+.card h3{font-size:1.1rem;color:var(--navy)}
+.card ul{margin:8px 0 0 18px;font-size:.93rem}
+.tag{display:inline-block;font-family:'IBM Plex Sans Thai';font-size:.74rem;font-weight:500;padding:2px 10px;border-radius:999px;margin-left:8px;vertical-align:middle;background:var(--blue-soft);color:var(--blue)}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.chip{font-size:.8rem;background:var(--grey);border-radius:10px;padding:5px 12px}
+.skip{opacity:.55} .skip .dot{background:#b9c0cf}
+
+/* table */
+.tbl-scroll{overflow-x:auto;background:#fff;border-radius:18px;border:1px solid var(--line)}
+.tbl{width:100%;border-collapse:collapse;font-size:.93rem;min-width:640px}
+.tbl th{background:var(--navy);color:#fff;text-align:left;padding:13px 16px;font-weight:600}
+.tbl td{padding:13px 16px;border-top:1px solid var(--line);vertical-align:top}
+.tbl tr:nth-child(even) td{background:#fbfcfe}
+.dl{display:inline-block;background:var(--blue-soft);border-radius:999px;padding:3px 14px;font-size:.85rem;white-space:nowrap}
+
+/* boxes / spec */
+.boxes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.boxes{grid-template-columns:1fr}}
+.box{border-radius:20px;padding:24px;border:1px solid var(--line);background:#fff}
+.box h4{font-family:'Inter','IBM Plex Sans Thai';font-weight:600;color:var(--navy);font-size:1.08rem;margin-bottom:10px;display:flex;align-items:center;gap:12px}
+.box .bi{flex:0 0 40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--blue-soft);color:var(--blue)}
+.box .bi .i{width:20px;height:20px}
+.box.warn .bi{background:#ffe7d3;color:#c2531a}
+.box{transition:.2s} .box:hover{box-shadow:0 12px 26px -14px rgba(16,45,105,.3);transform:translateY(-2px)}
+.box ul{margin-left:18px;font-size:.92rem}
+.box li{margin-bottom:4px}
+.box.warn{background:#fff4ec;border-color:#f7dcc6}
+
+/* faq */
+.faq{max-width:860px}
+details{border:1px solid var(--line);border-radius:16px;padding:15px 20px;margin-bottom:10px;background:#fff}
+summary{cursor:pointer;font-weight:600;color:var(--navy);list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";float:right;color:var(--blue);font-size:1.2rem;line-height:1.4}
+details[open] summary::after{content:"−"}
+details p{font-size:.93rem;color:var(--muted);margin-top:8px}
+
+/* contact / footer */
+.contact{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.contact .eyebrow{font-size:.8rem;font-weight:600;letter-spacing:.14em;color:var(--navy-2)}
+.contact h2{font-size:clamp(1.5rem,3vw,1.9rem);color:var(--navy);line-height:1.3}
+.contact p{color:var(--muted);font-size:.95rem}
+.cbox{display:flex;gap:33px;flex-wrap:wrap;background:#f0f5fd;border:1px solid #e0e9f7;border-radius:22px;padding:20px 26px}
+.cbox small{display:block;color:var(--muted);font-size:.92rem}
+.cbox a{font-size:1.1875rem;font-weight:500;color:var(--blue);white-space:nowrap}
+.cbox a span{font-size:.875rem}
+@media(max-width:520px){.cbox{padding:22px;gap:18px}.cbox a{font-size:1.3rem}}
+footer{background:#102d69;color:#fff;border-radius:30px 30px 0 0;padding:26px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;font-size:.8125rem;letter-spacing:1px;line-height:1.7}
+.footer-inner small{display:block;font-size:.75rem;letter-spacing:.3px;color:#d5dff2;margin-top:4px}
+.hide{display:none}
+</style>
+</head>
+<body>
+
+<div class="site-header">
+<header class="top">
+  <div class="masthead">
+    <a class="brand" href="#"><span class="brand-logo"><img src="data:image/png;base64,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" alt="Mahidol University · Faculty of Graduate Studies (MUGR)"></span><span class="brand-divider"></span><span class="faculty" data-i18n>บัณฑิตวิทยาลัย<small>มหาวิทยาลัยมหิดล</small></span></a>
+    <div class="language" role="group" aria-label="เลือกภาษา / Language">
+      <button type="button" data-lang="th" aria-pressed="true" aria-label="ภาษาไทย" onclick="setLang('th')">TH</button><span aria-hidden="true">/</span><button type="button" data-lang="en" aria-pressed="false" aria-label="English" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</header>
+<nav class="menu" aria-label="เมนูหลัก">
+  <div class="nav-inner">
+    <span class="service" data-i18n>งานบริการการศึกษา</span>
+    <div><a href="#role" data-i18n>เลือกบทบาท</a><a href="#quick">Shortcuts</a><a href="#contact" data-i18n>ติดต่อเรา</a></div>
+  </div>
+</nav>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="hero-pill"><span class="dot-live"></span><span data-i18n>Academic Service Section · บัณฑิตวิทยาลัย</span></span>
+    <h1 data-i18n><span class="h-pre">ศูนย์รวมข้อมูล</span><span class="h-main">งานบริการการศึกษา</span><span class="h-sub">สำหรับนักศึกษา อาจารย์ และเจ้าหน้าที่</span></h1>
+    <p data-i18n>เลือกบทบาทของคุณ แล้วเลือกหัวข้อที่ต้องการ ระบบจะแสดงเฉพาะข้อมูลที่เกี่ยวข้องกับคุณ</p>
+  </div>
+</div>
+
+<!-- STEP 1 -->
+<section id="role">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">STEP 1</span>
+      <h2 data-i18n>คุณเข้ามาในฐานะใคร</h2>
+      <p data-i18n>เลือกบทบาท เพื่อให้คำแนะนำในแต่ละขั้นตอนตรงกับหน้าที่ของคุณ</p>
+    </div>
+    <div class="roles" id="roles"></div>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section id="quick">
+  <div class="wrap">
+    <div class="ql-head">
+      <span class="kicker">STEP 2</span>
+      <h2>Shortcuts</h2>
+      <p id="qlSub">สำหรับนักศึกษา</p>
+    </div>
+    <div class="bento" id="bento"></div>
+  </div>
+</section>
+
+<!-- STEP 3 -->
+<section id="detail" class="hide">
+  <div class="wrap">
+    <div class="d-head">
+      <div>
+        <div class="eyebrow" id="dEyebrow"></div>
+        <h2 id="dTitle"></h2>
+        <p id="dDesc"></p>
+      </div>
+      <button class="back" onclick="goQuick()" data-i18n>← กลับไปเลือกหัวข้อ</button>
+    </div>
+    <div id="dBody"></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <div class="eyebrow">WE'RE HERE TO HELP</div>
+        <h2 data-i18n>สอบถามข้อมูลเพิ่มเติม</h2>
+        <p data-i18n>งานบริการการศึกษา บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล</p>
+      </div>
+      <div class="cbox">
+        <div><small data-i18n>โทรศัพท์</small><a href="tel:024414125,106">02-441-4125 <span data-i18n>ต่อ 106</span></a></div>
+        <div><small>LINE</small><a href="https://line.me/R/ti/p/@600qubzh" target="_blank" rel="noopener">@600qubzh</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap footer-inner"><span>MAHIDOL UNIVERSITY <small data-i18n>บัณฑิตวิทยาลัย · งานบริการการศึกษา</small></span></div></footer>
+
+<script>
+/* =========================================================
+   DATA — แก้ไขเนื้อหา/ลิงก์ทั้งหมดได้ในส่วนนี้
+   type ที่รองรับ: timeline | guides | table | boxes | faq
+   ========================================================= */
+
+/* ---------- ไทม์ไลน์ตามหลักสูตร ---------- */
+/* ---------- ไทม์ไลน์ ป.เอก (ตามเอกสารสรุปเส้นทางการทำวิทยานิพนธ์) ---------- */
+const PHD = [
+  {t:"บฑ.35 การสอบวัดคุณสมบัติ",tag:"ก่อนสอบฯ",
+   li:["นักศึกษาระดับปริญญาเอกทุกคนต้องสอบวัดคุณสมบัติ และต้องได้ผล “ผ่าน”",
+       "ต้องผ่านก่อน จึงจะเสนอหัวข้อวิทยานิพนธ์และขอแต่งตั้งคณะกรรมการที่ปรึกษา (<b>บฑ.1</b>) ได้"],
+   meta:["แบบฟอร์ม: บฑ.35"]},
+  {t:"ลงทะเบียนวิทยานิพนธ์",tag:"ก่อนสอบฯ",
+   li:["ลงทะเบียนวิทยานิพนธ์ตามแผนการศึกษา",
+       "การได้มาซึ่งหัวข้อวิทยานิพนธ์ (เป็นตัวเลือก จะทำหรือไม่ทำก็ได้)",
+       "<b>บฑ.39</b> สำหรับนักศึกษาแบบหน่วยกิต",
+       "<b>บฑกศ.39</b> สำหรับนักศึกษาแบบหน่วยกิตและนักศึกษาแบบเหมาจ่าย"],
+   meta:["แบบฟอร์ม: บฑ.39 / บฑกศ.39 (ถ้ามี)"]},
+  {t:"บฑ.1 การอนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา",tag:"ก่อนสอบฯ",
+   li:["ยื่นเสนออนุมัติหัวข้อวิทยานิพนธ์อย่างเป็นทางการ",
+       "เสนอแต่งตั้งอาจารย์ที่ปรึกษาหลักและอาจารย์ที่ปรึกษาร่วม"],
+   meta:["แบบฟอร์ม: บฑ.1"]},
+  {t:"ดำเนินการวิจัย จริยธรรม และเก็บข้อมูล",tag:"ก่อนสอบฯ",
+   li:["อบรมจริยธรรมการวิจัยในคน ใบประกาศมีอายุ 2 ปี",
+       "ยื่น <b>IRB</b> เสนอโครงการเพื่อขอรับรองจริยธรรม ต้องผ่านการรับรองก่อนเริ่มเก็บข้อมูล",
+       "ขอหนังสืออนุญาตเพื่อลงพื้นที่เก็บข้อมูล (ถ้ามี)"],
+   meta:["ต้องได้ IRB ก่อนเก็บข้อมูล"]},
+  {t:"บฑ.2 การสอบวิทยานิพนธ์",tag:"ก่อนสอบฯ",
+   li:["ต้องได้รับการแต่งตั้งคณะกรรมการที่ปรึกษาวิทยานิพนธ์ (<b>บฑ.1</b>) มาแล้ว<b>ไม่น้อยกว่า 90 วัน</b> นับตั้งแต่วันที่ได้รับการแต่งตั้ง"],
+   meta:["แบบฟอร์ม: บฑ.2","หลัง บฑ.1 ไม่น้อยกว่า 90 วัน"]},
+  {t:"การส่งรูปเล่มอิเล็กทรอนิกส์",tag:"หลังสอบฯ",
+   li:["เมื่อผลสอบวิทยานิพนธ์ “ผ่าน” ต้องส่งรูปเล่มอิเล็กทรอนิกส์ภายใน <b>21 วัน</b> หากส่งล่าช้าจะมีค่าปรับ",
+       "ดูแนวปฏิบัติขั้นตอนการส่ง / คู่มือการจัดรูปเล่ม / Template ตัวอย่าง ได้ที่หัวข้อ “ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์”"],
+   meta:["ภายใน 21 วันหลังสอบผ่าน"]},
+  {t:"บฑ.5 ยื่นขอสำเร็จการศึกษา",tag:"หลังสอบฯ",
+   li:["ยื่นคำร้องขอสำเร็จการศึกษาเมื่อดำเนินการครบทุกขั้นตอน"],
+   meta:["แบบฟอร์ม: บฑ.5"]}
+];
+const PATH = {
+  phd:PHD,
+  base:[
+    {t:"เรียน Coursework",tag:"ทุกหลักสูตร",li:["ลงทะเบียนรายวิชาให้ครบตามโครงสร้างหลักสูตร","วางแผนหัวข้อวิจัยร่วมกับอาจารย์ที่ปรึกษา"],meta:["ไม่มีแบบฟอร์ม"]},
+    {t:"สอบวัดคุณสมบัติ (Qualifying Exam)",tag:"เฉพาะ ป.เอก",li:["สอบตามรอบที่หลักสูตรกำหนด","ยื่นแบบ <b>บฑ.35</b> เมื่อทราบผลสอบ"],meta:["แบบฟอร์ม: บฑ.35"]},
+    {t:"สอบโครงร่าง",tag:"วิทยานิพนธ์",li:["ยื่นขอสอบโครงร่างและนัดวันสอบกับเจ้าหน้าที่","บันทึกผลในแบบ <b>บทกศ.39</b>","ยื่นแบบ <b>บฑ.1</b> เพื่ออนุมัติหัวข้อ/โครงร่าง"],meta:["แบบฟอร์ม: บทกศ.39, บฑ.1"]},
+    {t:"ดำเนินการวิจัย · จริยธรรม",tag:"IRB",li:["อบรมจริยธรรมการวิจัยในคน","ยื่นขอรับรองจริยธรรม <b>IRB</b> — ห้ามเก็บข้อมูลก่อนได้รับการรับรอง","รายงานความก้าวหน้าทุกภาคการศึกษา"],meta:["ต้องได้ IRB ก่อนเก็บข้อมูล"]},
+    {t:"สอบป้องกันวิทยานิพนธ์",tag:"สำคัญ",li:["ตรวจคุณสมบัติผู้มีสิทธิ์สอบ (หน่วยกิต ภาษา ผลงานตีพิมพ์)","ยื่นแบบ <b>บฑ.2</b> ก่อนวันสอบอย่างน้อย <b>20 วัน</b>"],meta:["แบบฟอร์ม: บฑ.2","ก่อนสอบ 20 วัน"]},
+    {t:"ส่งเล่มสมบูรณ์ (e-Thesis)",tag:"ขั้นสุดท้าย",li:["แก้ไขเล่มตามข้อเสนอแนะ และให้ที่ปรึกษารับรอง","จัดรูปแบบเล่มตามข้อกำหนดรูปเล่มอิเล็กทรอนิกส์","อัปโหลดเข้าระบบ e-thesis submission"],meta:["ดูหัวข้อ ‘ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์’"]}
+  ]
+};
+PATH.mscA = PATH.base.filter((_,i)=>i!==1).map(s=>({...s}));
+PATH.mscA[3] = {...PATH.mscA[3], t:"สอบป้องกันวิทยานิพนธ์"};
+PATH.mscB = PATH.base.map(s=>({...s}));
+PATH.mscB[1] = {t:"สอบประมวลความรู้",tag:"เฉพาะแผน ข",li:["สอบตามรอบที่หลักสูตรกำหนด","ยื่นแบบ <b>บฑ.27</b> เมื่อทราบผลสอบ"],meta:["แบบฟอร์ม: บฑ.27"]};
+PATH.mscB[2] = {t:"สอบโครงร่าง",tag:"ข้ามขั้นตอนนี้",skip:true,li:["แผน ข ไม่ต้องสอบโครงร่าง และไม่ต้องยื่น บทกศ.39 / บฑ.1"],meta:["ไม่มีแบบฟอร์ม"]};
+PATH.mscB[4] = {...PATH.mscB[4], t:"สอบป้องกันสารนิพนธ์ / การค้นคว้าอิสระ"};
+
+/* ---------- ชุดข้อมูลที่ใช้ซ้ำหลายบทบาท ---------- */
+const RULES = {type:"boxes",items:[
+  {ic:"landmark",h:"ประกาศบัณฑิตวิทยาลัย",li:['<a href="#">[ชื่อประกาศ]</a>','<a href="#">[ชื่อประกาศ]</a>','<a href="#">ดูทั้งหมด →</a>']},
+  {ic:"scale",h:"กฎ ระเบียบ ข้อบังคับ",li:['<a href="#">[ชื่อข้อบังคับ]</a>','<a href="#">[ชื่อข้อบังคับ]</a>','<a href="#">ดูทั้งหมด →</a>']},
+  {ic:"building",h:"ประกาศมหาวิทยาลัย",li:['<a href="#">[ชื่อประกาศ]</a>','<a href="#">[ชื่อประกาศ]</a>','<a href="#">ดูทั้งหมด →</a>']}
+]};
+const FORMS = {type:"table",head:["แบบฟอร์ม","ใช้เมื่อ","หลักสูตร","กำหนดเวลา","ผู้ลงนาม",""],rows:[
+  ["<b>บฑ.35</b>","ผลสอบวัดคุณสมบัติ","ป.เอก","หลังสอบ","ประธานสอบ / ประธานหลักสูตร"],
+  ["<b>บฑ.27</b>","ผลสอบประมวลความรู้","ป.โท แผน ข","หลังสอบ","ประธานสอบ / ประธานหลักสูตร"],
+  ["<b>บทกศ.39</b>","สอบโครงร่างวิทยานิพนธ์","ป.เอก, ป.โท แผน ก","ตามรอบหลักสูตร","ที่ปรึกษา + กรรมการสอบ"],
+  ["<b>บฑ.1</b>","อนุมัติหัวข้อ/โครงร่าง","ป.เอก, ป.โท แผน ก","หลังสอบโครงร่างผ่าน","ที่ปรึกษา · ประธานหลักสูตร"],
+  ["<b>บฑ.2</b>","ขอสอบป้องกัน","ทุกหลักสูตร",'<b style="color:#d14343">ก่อนสอบ ≥ 20 วัน</b>',"ที่ปรึกษา · ประธานหลักสูตร"]
+].map(r=>[...r,'<a class="dl" href="#">ดาวน์โหลด ↓</a>'])};
+
+/* ---------- บทบาท + Shortcuts ---------- */
+const ROLES = [
+ {id:"student",icon:"cap",name:"นักศึกษา",sub:"ต้องทำอะไรต่อ · ยื่นแบบอะไร · ภายในกี่วัน",links:[
+   {icon:"route",bg:"bg1",title:"เส้นทางการทำวิทยานิพนธ์ / สารนิพนธ์ / การค้นคว้าอิสระ",
+    bullets:["ป.เอก","ป.โท แผน ก","ป.โท แผน ข"],
+    desc:"ขั้นตอนตั้งแต่ Coursework จนถึงส่งเล่มสมบูรณ์",content:{type:"timeline"}},
+   {icon:"fileCheck",bg:"bg2",title:"ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์",p:"ฟอนต์ · ขอบกระดาษ · ไฟล์ PDF",
+    href:{th:"https://grad-as.my.canva.site/electronic-file-requirements-th",en:"https://grad-as.my.canva.site/electronic-file-requirements-en"},
+    desc:"รูปแบบที่ต้องใช้ในการจัดทำเล่ม e-Thesis",content:{type:"boxes",items:[
+      {ic:"type",h:"ตัวอักษรและระยะ",li:["ฟอนต์ตามที่กำหนดใน template","ขนาดตัวอักษรและระยะบรรทัดตามคู่มือ","ใช้ Style ใน template ห้ามจัดเอง"]},
+      {ic:"file",h:"หน้ากระดาษ",li:["กระดาษ A4 · ระยะขอบตามคู่มือ","เลขหน้าส่วนหน้าเป็นเลขโรมัน / ส่วนเนื้อหาเป็นเลขอารบิก","ลำดับส่วนประกอบเล่มครบถ้วน"]},
+      {ic:"fileDown",h:"ไฟล์อิเล็กทรอนิกส์",li:["รวมเป็น PDF ไฟล์เดียว","ฝังฟอนต์ (Embed fonts)","หน้าอนุมัติลงนามครบและสแกนชัด"]},
+      {ic:"alert",h:"จุดที่ถูกตีกลับบ่อย",warn:true,li:["ชื่อเรื่องไทย–อังกฤษไม่ตรงกับ บฑ.1","สารบัญไม่ตรงกับเลขหน้าจริง","ไฟล์แยกหลายไฟล์ / ฟอนต์ไม่ฝัง"]}
+    ]}},
+   {icon:"landmark",bg:"bg3",title:"ประกาศและข้อบังคับที่เกี่ยวข้อง",p:"ประกาศบัณฑิตวิทยาลัย · มหาวิทยาลัย",
+    desc:"แบ่งเป็น 3 หมวด ตามแหล่งที่ออกประกาศ",content:RULES},
+   {icon:"download",bg:"bg4",title:"แบบฟอร์มต่าง ๆ",p:"ดาวน์โหลดแบบฟอร์ม",
+    desc:"ตรวจสอบผู้ลงนามและกำหนดเวลาก่อนยื่นทุกครั้ง",content:FORMS},
+   {icon:"book",bg:"bg5",title:"คู่มือและแนวปฏิบัติ",p:"Guides & Templates",
+    desc:"เลือกเอกสารตามขั้นตอนที่คุณกำลังเตรียม",content:{type:"guides",items:[
+      {icon:"upload",pill:"การส่งรูปเล่ม",h:"แนวปฏิบัติการส่ง<br>รูปเล่มอิเล็กทรอนิกส์",d:"ศึกษาวิธีส่งรูปเล่มผ่านระบบ e-thesis submission",cta:"ดูแนวปฏิบัติ",url:"#"},
+      {icon:"layout",pill:"การจัดรูปแบบ",h:"คู่มือการจัดรูปแบบ<br>รูปเล่มอิเล็กทรอนิกส์",d:"แนวทางสำหรับจัดเตรียมรูปเล่มให้เป็นไปตามรูปแบบที่กำหนด",cta:"เปิดอ่านคู่มือ",url:"#"},
+      {icon:"grid",pill:"ตัวอย่างรูปเล่ม",gold:true,h:"Sample<br>template",d:"ตัวอย่างเทมเพลตสำหรับจัดทำรูปเล่ม เปิดและดาวน์โหลดผ่าน Google Drive",cta:"เปิดเทมเพลตใน Google Drive",url:"#"}
+    ]}},
+   {icon:"help",bg:"bg6",title:"FAQ คำถามที่พบบ่อย",p:"รวมคำถามจากนักศึกษา",
+    desc:"คำตอบสำหรับคำถามที่นักศึกษาถามบ่อย",content:{type:"faq",items:[
+      ["ยื่น บฑ.2 ช้ากว่า 20 วันได้ไหม","ไม่ได้ ต้องยื่นก่อนวันสอบอย่างน้อย 20 วัน หากไม่ทันต้องเลื่อนวันสอบและนัดกรรมการใหม่"],
+      ["แผน ข ต้องสอบโครงร่างไหม","ไม่ต้อง แต่ต้องสอบประมวลความรู้และยื่น บฑ.27 แทน"],
+      ["เริ่มเก็บข้อมูลก่อนได้รับ IRB ได้หรือไม่","ไม่ได้ ข้อมูลที่เก็บก่อนได้รับหนังสือรับรองจะใช้ไม่ได้"],
+      ["ส่งเล่มแล้วถูกตีกลับ ต้องทำอย่างไร","แก้ไขตามรายการที่แจ้ง แล้วอัปโหลดใหม่ภายในรอบสำเร็จการศึกษาเดิม"]
+    ]}}
+ ]},
+ {id:"advisor",icon:"teacher",name:"อาจารย์ที่ปรึกษา / กรรมการ",sub:"ต้องลงนามอะไร · บทบาทในการสอบ · เกณฑ์พิจารณา",links:[
+   {icon:"pen",bg:"bg1",title:"เอกสารที่ต้องลงนาม",bullets:["สอบโครงร่าง","สอบป้องกัน","ส่งเล่มสมบูรณ์"],
+    desc:"แบบฟอร์มที่อาจารย์ต้องลงนามในแต่ละขั้นตอน",content:{type:"table",head:["ขั้นตอน","แบบฟอร์ม","บทบาทของอาจารย์"],rows:[
+      ["สอบวัดคุณสมบัติ / ประมวลความรู้","บฑ.35 / บฑ.27","กรรมการสอบ พิจารณาผลและลงนาม"],
+      ["สอบโครงร่าง","บทกศ.39, บฑ.1","รับรองความพร้อม เสนอกรรมการ ลงนาม"],
+      ["จริยธรรมการวิจัย","คำขอ IRB","ตรวจเครื่องมือวิจัย ลงนามคำขอ"],
+      ["สอบป้องกัน","บฑ.2","ยืนยันความพร้อมของเล่ม เสนอกรรมการสอบ"],
+      ["ส่งเล่มสมบูรณ์","หน้าอนุมัติ","ตรวจรับรองฉบับแก้ไขและลงนาม"]]}},
+   {icon:"users",bg:"bg2",title:"บทบาทในการสอบ",p:"ประธาน · กรรมการ · ที่ปรึกษา",
+    desc:"หน้าที่ของอาจารย์แต่ละบทบาทในการสอบ",content:{type:"boxes",items:[
+      {h:"ประธานกรรมการสอบ",li:["ดำเนินการสอบ","สรุปผลและข้อเสนอแนะ","ลงนามแบบรายงานผล"]},
+      {h:"อาจารย์ที่ปรึกษาหลัก",li:["รับรองความพร้อมของนักศึกษา","กำกับการแก้ไขหลังสอบ","ลงนามหน้าอนุมัติ"]},
+      {h:"กรรมการสอบ",li:["อ่านและประเมินเล่ม","ให้ข้อเสนอแนะเป็นลายลักษณ์อักษร","ร่วมลงมติผลสอบ"]}]}},
+   {icon:"clipboard",bg:"bg3",title:"เกณฑ์พิจารณา",p:"เกณฑ์ประเมินการสอบ",desc:"เกณฑ์ที่ใช้ประเมินโครงร่างและการสอบป้องกัน",content:{type:"boxes",items:[
+      {h:"โครงร่าง",li:["ความสำคัญของปัญหา","ความเหมาะสมของระเบียบวิธีวิจัย","ความเป็นไปได้"]},
+      {h:"สอบป้องกัน",li:["คุณภาพผลการวิจัย","การอภิปรายผล","การตอบคำถาม"]},
+      {h:"ผลสอบ",li:["ผ่าน","ผ่านโดยมีเงื่อนไขการแก้ไข","ไม่ผ่าน"]}]}},
+   {icon:"download",bg:"bg4",title:"แบบฟอร์มต่าง ๆ",p:"ดาวน์โหลดแบบฟอร์ม",desc:"แบบฟอร์มที่เกี่ยวข้องทั้งหมด",content:FORMS},
+   {icon:"scale",bg:"bg5",title:"ประกาศและข้อบังคับ",p:"คุณสมบัติอาจารย์ · เกณฑ์หลักสูตร",desc:"ประกาศที่อาจารย์ควรทราบ",content:RULES},
+   {icon:"help",bg:"bg6",title:"FAQ คำถามที่พบบ่อย",p:"สำหรับอาจารย์",desc:"คำถามที่อาจารย์ถามบ่อย",content:{type:"faq",items:[
+      ["อาจารย์ต้องลงนามเอกสารใดบ้าง","บทกศ.39, บฑ.1, บฑ.2, คำขอ IRB, แบบรายงานความก้าวหน้า และหน้าอนุมัติเล่มฉบับสมบูรณ์"],
+      ["ลงนามแบบอิเล็กทรอนิกส์ได้หรือไม่","[ระบุตามประกาศของบัณฑิตวิทยาลัย]"]]}}
+ ]},
+ {id:"staff",icon:"folder",name:"เจ้าหน้าที่หลักสูตร",sub:"ตรวจเอกสาร · ประสานวันสอบ · ส่งต่อบัณฑิตวิทยาลัย",links:[
+   {icon:"calendar",bg:"bg1",title:"กำหนดการ",bullets:["ประชุมคณะกรรมการกลั่นกรอง","รอบสอบ / รอบสำเร็จการศึกษา","กำหนดส่งเอกสาร"],
+    desc:"ปฏิทินงานที่เจ้าหน้าที่ต้องติดตาม",content:{type:"table",head:["รายการ","ภาคการศึกษาที่ 1","ภาคการศึกษาที่ 2"],rows:[
+      ["ประชุมคณะกรรมการ","[วันที่]","[วันที่]"],["ปิดรับ บฑ.2","[วันที่]","[วันที่]"],["ส่งเล่มสมบูรณ์รอบสำเร็จการศึกษา","[วันที่]","[วันที่]"]]}},
+   {icon:"search",bg:"bg2",title:"ขั้นตอนตรวจเอกสาร",p:"เช็กลิสต์ก่อนส่งต่อ",desc:"รายการตรวจก่อนนำส่งบัณฑิตวิทยาลัย",content:{type:"boxes",items:[
+      {h:"ก่อนสอบ",li:["ตรวจคุณสมบัติผู้ขอสอบ","ตรวจ บฑ.2 ให้ทันกรอบ 20 วัน","จองห้อง/ลิงก์สอบ"]},
+      {h:"หลังสอบ",li:["รวบรวมแบบรายงานผล","ติดตามการแก้ไขเล่ม","ตรวจรูปแบบเบื้องต้น"]},
+      {h:"ส่งต่อบัณฑิตวิทยาลัย",li:["ตรวจชื่อเรื่องตรงกับ บฑ.1","ตรวจรายชื่อกรรมการตาม บฑ.2","ตรวจหนี้สิน"]}]}},
+   {icon:"chart",bg:"bg3",title:"Dashboards ข้อมูลหลักสูตร",p:"สถานะนักศึกษา",desc:"ลิงก์ Dashboard ติดตามสถานะ",content:{type:"guides",items:[
+      {icon:"chart",pill:"Dashboard",h:"สถานะการสอบ",d:"ติดตามนักศึกษาที่รอสอบในแต่ละรอบ",cta:"เปิด Dashboard",url:"#"},
+      {icon:"cap",pill:"Dashboard",h:"สถานะการส่งเล่ม",d:"ติดตามเล่มที่รอตรวจ / ถูกตีกลับ",cta:"เปิด Dashboard",url:"#"}]}},
+   {icon:"download",bg:"bg4",title:"แบบฟอร์มต่าง ๆ",p:"ดาวน์โหลดแบบฟอร์ม",desc:"แบบฟอร์มที่เกี่ยวข้องทั้งหมด",content:FORMS},
+   {icon:"scale",bg:"bg5",title:"กฎระเบียบ / ข้อบังคับ",p:"ประกาศที่ใช้อ้างอิง",desc:"ประกาศที่ใช้ในการตรวจสอบ",content:RULES},
+   {icon:"help",bg:"bg6",title:"FAQ คำถามที่พบบ่อย",p:"สำหรับเจ้าหน้าที่",desc:"คำถามที่พบบ่อยในงานหลักสูตร",content:{type:"faq",items:[
+      ["นักศึกษายื่น บฑ.2 ไม่ทัน 20 วัน ทำอย่างไร","แจ้งให้เลื่อนวันสอบ และนัดกรรมการใหม่"],
+      ["ชื่อเรื่องในเล่มไม่ตรงกับ บฑ.1","ให้ยื่นขอเปลี่ยนชื่อเรื่องก่อน หรือแก้ไขเล่มให้ตรงกับที่อนุมัติ"]]}}
+ ]}
+];
+
+
+/* ---------- ICONS (เส้น SVG สไตล์ Lucide) — เพิ่ม/แก้ไอคอนได้ที่นี่ ---------- */
+const ICONS = {
+  cap:'<path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>',
+  teacher:'<path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/>',
+  folder:'<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.7-.9l-.8-1.2A2 2 0 0 0 7.9 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z"/><path d="m9 13 2 2 4-4"/>',
+  route:'<circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/>',
+  fileCheck:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/>',
+  landmark:'<path d="M3 22h18"/><path d="M6 18v-7"/><path d="M10 18v-7"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="m12 2 8 5H4z"/>',
+  download:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/>',
+  upload:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/>',
+  book:'<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+  help:'<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>',
+  pen:'<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',
+  users:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/>',
+  clipboard:'<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/>',
+  scale:'<path d="m16 16 3-8 3 8c-.9.7-1.9 1-3 1s-2.1-.3-3-1z"/><path d="m2 16 3-8 3 8c-.9.7-1.9 1-3 1s-2.1-.3-3-1z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>',
+  calendar:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/>',
+  search:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  chart:'<path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/>',
+  layout:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>',
+  grid:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>',
+  building:'<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/>',
+  type:'<path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/>',
+  file:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>',
+  fileDown:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/>',
+  alert:'<path d="m21.7 18-8-14a2 2 0 0 0-3.5 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
+  arrow:'<path d="M7 17 17 7"/><path d="M7 7h10v10"/>',
+  check:'<path d="M20 6 9 17l-5-5"/>'
+};
+const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[k]||ICONS.file}</svg>`;
+
+/* =========================================================
+   ภาษา (TH / EN) — คำแปลภาษาอังกฤษ: key = ข้อความภาษาไทยต้นฉบับ
+   เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
+   ========================================================= */
+const EN = {
+  /* ---------- ไทม์ไลน์ ป.เอก ---------- */
+  "ก่อนสอบฯ":"Before the exam", "หลังสอบฯ":"After the exam",
+  "บฑ.35 การสอบวัดคุณสมบัติ":"GR.35 Qualifying Examination",
+  "นักศึกษาระดับปริญญาเอกทุกคนต้องสอบวัดคุณสมบัติ และต้องได้ผล “ผ่าน”":"All doctoral students must take the qualifying examination and receive a \"pass\" result.",
+  "ต้องผ่านก่อน จึงจะเสนอหัวข้อวิทยานิพนธ์และขอแต่งตั้งคณะกรรมการที่ปรึกษา (<b>บฑ.1</b>) ได้":"Only after passing can you propose your thesis topic and request appointment of the advisory committee (<b>GR.1</b>).",
+  "แบบฟอร์ม: บฑ.35":"Form: GR.35",
+  "ลงทะเบียนวิทยานิพนธ์":"Thesis registration",
+  "ลงทะเบียนวิทยานิพนธ์ตามแผนการศึกษา":"Register for the thesis according to your study plan.",
+  "การได้มาซึ่งหัวข้อวิทยานิพนธ์ (เป็นตัวเลือก จะทำหรือไม่ทำก็ได้)":"Obtaining the thesis topic (optional).",
+  "<b>บฑ.39</b> สำหรับนักศึกษาแบบหน่วยกิต":"<b>GR.39</b> for credit-based students.",
+  "<b>บฑกศ.39</b> สำหรับนักศึกษาแบบหน่วยกิตและนักศึกษาแบบเหมาจ่าย":"<b>GRAS.39</b> for credit-based and flat-rate students.",
+  "แบบฟอร์ม: บฑ.39 / บฑกศ.39 (ถ้ามี)":"Forms: GR.39 / GRAS.39 (if applicable)",
+  "บฑ.1 การอนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา":"GR.1 Topic approval and appointment of the advisory committee",
+  "ยื่นเสนออนุมัติหัวข้อวิทยานิพนธ์อย่างเป็นทางการ":"Submit the thesis topic for official approval.",
+  "เสนอแต่งตั้งอาจารย์ที่ปรึกษาหลักและอาจารย์ที่ปรึกษาร่วม":"Propose the major advisor and co-advisors for appointment.",
+  "แบบฟอร์ม: บฑ.1":"Form: GR.1",
+  "ดำเนินการวิจัย จริยธรรม และเก็บข้อมูล":"Research, ethics and data collection",
+  "อบรมจริยธรรมการวิจัยในคน ใบประกาศมีอายุ 2 ปี":"Complete human research ethics training; the certificate is valid for 2 years.",
+  "ยื่น <b>IRB</b> เสนอโครงการเพื่อขอรับรองจริยธรรม ต้องผ่านการรับรองก่อนเริ่มเก็บข้อมูล":"Submit the project for <b>IRB</b> approval; approval is required before any data collection.",
+  "ขอหนังสืออนุญาตเพื่อลงพื้นที่เก็บข้อมูล (ถ้ามี)":"Request a permission letter for field data collection (if applicable).",
+  "บฑ.2 การสอบวิทยานิพนธ์":"GR.2 Thesis examination",
+  "ต้องได้รับการแต่งตั้งคณะกรรมการที่ปรึกษาวิทยานิพนธ์ (<b>บฑ.1</b>) มาแล้ว<b>ไม่น้อยกว่า 90 วัน</b> นับตั้งแต่วันที่ได้รับการแต่งตั้ง":"The advisory committee (<b>GR.1</b>) must have been appointed for <b>at least 90 days</b>, counted from the appointment date.",
+  "แบบฟอร์ม: บฑ.2":"Form: GR.2",
+  "หลัง บฑ.1 ไม่น้อยกว่า 90 วัน":"At least 90 days after GR.1",
+  "การส่งรูปเล่มอิเล็กทรอนิกส์":"Electronic file submission",
+  "เมื่อผลสอบวิทยานิพนธ์ “ผ่าน” ต้องส่งรูปเล่มอิเล็กทรอนิกส์ภายใน <b>21 วัน</b> หากส่งล่าช้าจะมีค่าปรับ":"Once the thesis result is \"pass\", submit the electronic file within <b>21 days</b>; late submission incurs a fine.",
+  "ดูแนวปฏิบัติขั้นตอนการส่ง / คู่มือการจัดรูปเล่ม / Template ตัวอย่าง ได้ที่หัวข้อ “ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์”":"See the submission guidelines, formatting guide and sample template under \"Electronic File Requirements\".",
+  "ภายใน 21 วันหลังสอบผ่าน":"Within 21 days after passing",
+  "บฑ.5 ยื่นขอสำเร็จการศึกษา":"GR.5 Application for graduation",
+  "ยื่นคำร้องขอสำเร็จการศึกษาเมื่อดำเนินการครบทุกขั้นตอน":"Submit the graduation request once all steps are complete.",
+  "แบบฟอร์ม: บฑ.5":"Form: GR.5",
+
+  /* ชื่อแบบฟอร์มในฉบับภาษาอังกฤษ (อักษรโรมัน) */
+  "บฑ.35":"GR.35", "บฑ.27":"GR.27", "บทกศ.39":"GRAS.39", "บฑ.1":"GR.1", "บฑ.2":"GR.2",
+  "บทกศ.39, บฑ.1":"GRAS.39, GR.1", "บฑ.35 / บฑ.27":"GR.35 / GR.27",
+  /* header / static */
+  "บัณฑิตวิทยาลัย<small>มหาวิทยาลัยมหิดล</small>":"Faculty of Graduate Studies<small>Mahidol University</small>",
+  "งานบริการการศึกษา":"Academic Service Section",
+  "เลือกบทบาท":"Choose your role",
+  "ติดต่อเรา":"Contact",
+  "Academic Service Section · บัณฑิตวิทยาลัย":"Academic Service Section · Faculty of Graduate Studies",
+  "<span class=\"h-pre\">ศูนย์รวมข้อมูล</span><span class=\"h-main\">งานบริการการศึกษา</span><span class=\"h-sub\">สำหรับนักศึกษา อาจารย์ และเจ้าหน้าที่</span>":"<span class=\"h-pre\">Information Hub</span><span class=\"h-main\">Academic Services</span><span class=\"h-sub\">for Students, Faculty and Program Staff</span>",
+  "เลือกบทบาทของคุณ แล้วเลือกหัวข้อที่ต้องการ ระบบจะแสดงเฉพาะข้อมูลที่เกี่ยวข้องกับคุณ":"Choose your role, then pick a topic. We will show only the information that is relevant to you.",
+  "คุณเข้ามาในฐานะใคร":"Who are you?",
+  "เลือกบทบาท เพื่อให้คำแนะนำในแต่ละขั้นตอนตรงกับหน้าที่ของคุณ":"Select your role so the guidance at each step matches your responsibilities.",
+  "← กลับไปเลือกหัวข้อ":"← Back to topics",
+  "สอบถามข้อมูลเพิ่มเติม":"Contact Us",
+  "งานบริการการศึกษา บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล":"Academic Service Section, Faculty of Graduate Studies, Mahidol University",
+  "โทรศัพท์":"Telephone",
+  "ต่อ 106":"ext. 106",
+  "บัณฑิตวิทยาลัย · งานบริการการศึกษา":"Faculty of Graduate Studies · Academic Service Section",
+  "สำหรับ":"For ",
+  "หัวข้อที่":"Topic",
+  "ปริญญาเอก":"Doctoral (Ph.D.)",
+  "ปริญญาโท แผน ก (วิทยานิพนธ์)":"Master's Plan A (Thesis)",
+  "ปริญญาโท แผน ข (สารนิพนธ์ / IS)":"Master's Plan B (Thematic Paper / IS)",
+
+  /* timeline */
+  "เรียน Coursework":"Coursework",
+  "ทุกหลักสูตร":"All programs",
+  "ลงทะเบียนรายวิชาให้ครบตามโครงสร้างหลักสูตร":"Register for all courses required by the program structure",
+  "วางแผนหัวข้อวิจัยร่วมกับอาจารย์ที่ปรึกษา":"Plan your research topic with your advisor",
+  "ไม่มีแบบฟอร์ม":"No form required",
+  "สอบวัดคุณสมบัติ (Qualifying Exam)":"Qualifying Examination",
+  "เฉพาะ ป.เอก":"Ph.D. only",
+  "สอบตามรอบที่หลักสูตรกำหนด":"Take the exam in the round set by your program",
+  "ยื่นแบบ <b>บฑ.35</b> เมื่อทราบผลสอบ":"Submit form <b>GR.35</b> once results are announced",
+  "แบบฟอร์ม: บฑ.35":"Form: GR.35",
+  "สอบโครงร่าง":"Proposal Examination",
+  "วิทยานิพนธ์":"Thesis",
+  "ยื่นขอสอบโครงร่างและนัดวันสอบกับเจ้าหน้าที่":"Request a proposal exam and book a date with program staff",
+  "บันทึกผลในแบบ <b>บทกศ.39</b>":"Record the result on form <b>GRAS.39</b>",
+  "ยื่นแบบ <b>บฑ.1</b> เพื่ออนุมัติหัวข้อ/โครงร่าง":"Submit form <b>GR.1</b> for topic/proposal approval",
+  "แบบฟอร์ม: บทกศ.39, บฑ.1":"Forms: GRAS.39, GR.1",
+  "ดำเนินการวิจัย · จริยธรรม":"Research · Ethics",
+  "อบรมจริยธรรมการวิจัยในคน":"Complete human research ethics training",
+  "ยื่นขอรับรองจริยธรรม <b>IRB</b> — ห้ามเก็บข้อมูลก่อนได้รับการรับรอง":"Apply for <b>IRB</b> approval — do not collect data before approval",
+  "รายงานความก้าวหน้าทุกภาคการศึกษา":"Submit a progress report every semester",
+  "ต้องได้ IRB ก่อนเก็บข้อมูล":"IRB approval required before data collection",
+  "สอบป้องกันวิทยานิพนธ์":"Thesis Defense",
+  "สำคัญ":"Important",
+  "ตรวจคุณสมบัติผู้มีสิทธิ์สอบ (หน่วยกิต ภาษา ผลงานตีพิมพ์)":"Check defense eligibility (credits, language, publications)",
+  "ยื่นแบบ <b>บฑ.2</b> ก่อนวันสอบอย่างน้อย <b>20 วัน</b>":"Submit form <b>GR.2</b> at least <b>20 days</b> before the exam",
+  "แบบฟอร์ม: บฑ.2":"Form: GR.2",
+  "ก่อนสอบ 20 วัน":"20 days before exam",
+  "ส่งเล่มสมบูรณ์ (e-Thesis)":"Final Submission (e-Thesis)",
+  "ขั้นสุดท้าย":"Final step",
+  "แก้ไขเล่มตามข้อเสนอแนะ และให้ที่ปรึกษารับรอง":"Revise according to committee feedback and get advisor approval",
+  "จัดรูปแบบเล่มตามข้อกำหนดรูปเล่มอิเล็กทรอนิกส์":"Format your thesis according to the Electronic File Requirements",
+  "อัปโหลดเข้าระบบ e-thesis submission":"Upload to the e-thesis submission system",
+  "ดูหัวข้อ ‘ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์’":"See ‘Electronic File Requirements’",
+  "สอบประมวลความรู้":"Comprehensive Examination",
+  "เฉพาะแผน ข":"Plan B only",
+  "ยื่นแบบ <b>บฑ.27</b> เมื่อทราบผลสอบ":"Submit form <b>GR.27</b> once results are announced",
+  "แบบฟอร์ม: บฑ.27":"Form: GR.27",
+  "ข้ามขั้นตอนนี้":"Skip this step",
+  "แผน ข ไม่ต้องสอบโครงร่าง และไม่ต้องยื่น บทกศ.39 / บฑ.1":"Plan B students do not take a proposal exam or submit GRAS.39 / GR.1",
+  "สอบป้องกันสารนิพนธ์ / การค้นคว้าอิสระ":"Thematic Paper / Independent Study Defense",
+
+  /* rules */
+  "ประกาศบัณฑิตวิทยาลัย":"Faculty of Graduate Studies Announcements",
+  "กฎ ระเบียบ ข้อบังคับ":"Rules & Regulations",
+  "ประกาศมหาวิทยาลัย":"Mahidol University Announcements",
+  "[ชื่อประกาศ]":"[Announcement title]",
+  "[ชื่อข้อบังคับ]":"[Regulation title]",
+  "ดูทั้งหมด →":"View all →",
+
+  /* forms table */
+  "แบบฟอร์ม":"Form", "ใช้เมื่อ":"Used for", "หลักสูตร":"Program", "กำหนดเวลา":"Deadline", "ผู้ลงนาม":"Signatories",
+  "ผลสอบวัดคุณสมบัติ":"Qualifying exam result",
+  "ป.เอก":"Ph.D.",
+  "หลังสอบ":"After the exam",
+  "ประธานสอบ / ประธานหลักสูตร":"Exam chair / Program director",
+  "ผลสอบประมวลความรู้":"Comprehensive exam result",
+  "ป.โท แผน ข":"Master's Plan B",
+  "สอบโครงร่างวิทยานิพนธ์":"Thesis proposal exam",
+  "ป.เอก, ป.โท แผน ก":"Ph.D., Master's Plan A",
+  "ตามรอบหลักสูตร":"Per program schedule",
+  "ที่ปรึกษา + กรรมการสอบ":"Advisor + examination committee",
+  "อนุมัติหัวข้อ/โครงร่าง":"Topic/proposal approval",
+  "หลังสอบโครงร่างผ่าน":"After passing the proposal exam",
+  "ที่ปรึกษา · ประธานหลักสูตร":"Advisor · Program director",
+  "ขอสอบป้องกัน":"Defense request",
+  "ก่อนสอบ ≥ 20 วัน":"≥ 20 days before exam",
+  "ดาวน์โหลด ↓":"Download ↓",
+
+  /* roles */
+  "นักศึกษา":"Students",
+  "ต้องทำอะไรต่อ · ยื่นแบบอะไร · ภายในกี่วัน":"What's next · Which form · By when",
+  "อาจารย์ที่ปรึกษา / กรรมการ":"Advisors / Committee",
+  "ต้องลงนามอะไร · บทบาทในการสอบ · เกณฑ์พิจารณา":"What to sign · Exam roles · Evaluation criteria",
+  "เจ้าหน้าที่หลักสูตร":"Program Staff",
+  "ตรวจเอกสาร · ประสานวันสอบ · ส่งต่อบัณฑิตวิทยาลัย":"Check documents · Schedule exams · Forward to the Faculty",
+
+  /* student links */
+  "เส้นทางการทำวิทยานิพนธ์ / สารนิพนธ์ / การค้นคว้าอิสระ":"Thesis / Thematic Paper / Independent Study Pathway",
+  "ป.โท แผน ก":"Master's Plan A",
+  "ขั้นตอนตั้งแต่ Coursework จนถึงส่งเล่มสมบูรณ์":"Every step from coursework to final submission",
+  "ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์":"Electronic File Requirements",
+  "ฟอนต์ · ขอบกระดาษ · ไฟล์ PDF":"Fonts · Margins · PDF file",
+  "รูปแบบที่ต้องใช้ในการจัดทำเล่ม e-Thesis":"Required format for preparing your e-Thesis",
+  "ตัวอักษรและระยะ":"Typography & spacing",
+  "ฟอนต์ตามที่กำหนดใน template":"Use the fonts specified in the template",
+  "ขนาดตัวอักษรและระยะบรรทัดตามคู่มือ":"Font size and line spacing as specified in the guide",
+  "ใช้ Style ใน template ห้ามจัดเอง":"Use the template Styles — do not format manually",
+  "หน้ากระดาษ":"Page layout",
+  "กระดาษ A4 · ระยะขอบตามคู่มือ":"A4 paper · Margins as specified in the guide",
+  "เลขหน้าส่วนหน้าเป็นเลขโรมัน / ส่วนเนื้อหาเป็นเลขอารบิก":"Roman numerals for front matter / Arabic numerals for main text",
+  "ลำดับส่วนประกอบเล่มครบถ้วน":"All components in the correct order",
+  "ไฟล์อิเล็กทรอนิกส์":"Electronic file",
+  "รวมเป็น PDF ไฟล์เดียว":"Combine into a single PDF file",
+  "ฝังฟอนต์ (Embed fonts)":"Embed all fonts",
+  "หน้าอนุมัติลงนามครบและสแกนชัด":"Approval page fully signed and clearly scanned",
+  "จุดที่ถูกตีกลับบ่อย":"Common reasons for rejection",
+  "ชื่อเรื่องไทย–อังกฤษไม่ตรงกับ บฑ.1":"Thai–English title does not match GR.1",
+  "สารบัญไม่ตรงกับเลขหน้าจริง":"Table of contents does not match page numbers",
+  "ไฟล์แยกหลายไฟล์ / ฟอนต์ไม่ฝัง":"Multiple separate files / fonts not embedded",
+  "ประกาศและข้อบังคับที่เกี่ยวข้อง":"Related Announcements & Regulations",
+  "ประกาศบัณฑิตวิทยาลัย · มหาวิทยาลัย":"Faculty · University announcements",
+  "แบ่งเป็น 3 หมวด ตามแหล่งที่ออกประกาศ":"Grouped into 3 categories by issuing body",
+  "แบบฟอร์มต่าง ๆ":"Forms",
+  "ดาวน์โหลดแบบฟอร์ม":"Download forms",
+  "ตรวจสอบผู้ลงนามและกำหนดเวลาก่อนยื่นทุกครั้ง":"Always check signatories and deadlines before submitting",
+  "คู่มือและแนวปฏิบัติ":"Guides & Guidelines",
+  "เลือกเอกสารตามขั้นตอนที่คุณกำลังเตรียม":"Choose the document for the step you are preparing",
+  "การส่งรูปเล่ม":"Submission",
+  "แนวปฏิบัติการส่ง<br>รูปเล่มอิเล็กทรอนิกส์":"Guidelines for Submitting<br>Electronic Files",
+  "ศึกษาวิธีส่งรูปเล่มผ่านระบบ e-thesis submission":"Learn how to submit your thesis via e-thesis submission",
+  "ดูแนวปฏิบัติ":"Read guidelines",
+  "การจัดรูปแบบ":"Formatting",
+  "คู่มือการจัดรูปแบบ<br>รูปเล่มอิเล็กทรอนิกส์":"Electronic File<br>Formatting Guide",
+  "แนวทางสำหรับจัดเตรียมรูปเล่มให้เป็นไปตามรูปแบบที่กำหนด":"Prepare your thesis in the required format",
+  "เปิดอ่านคู่มือ":"Read guide",
+  "ตัวอย่างรูปเล่ม":"Sample",
+  "ตัวอย่างเทมเพลตสำหรับจัดทำรูปเล่ม เปิดและดาวน์โหลดผ่าน Google Drive":"A sample template for your thesis. View and download on Google Drive.",
+  "เปิดเทมเพลตใน Google Drive":"Open in Google Drive",
+  "FAQ คำถามที่พบบ่อย":"FAQ",
+  "รวมคำถามจากนักศึกษา":"Common student questions",
+  "คำตอบสำหรับคำถามที่นักศึกษาถามบ่อย":"Answers to frequently asked student questions",
+  "ยื่น บฑ.2 ช้ากว่า 20 วันได้ไหม":"Can I submit GR.2 later than 20 days before the exam?",
+  "ไม่ได้ ต้องยื่นก่อนวันสอบอย่างน้อย 20 วัน หากไม่ทันต้องเลื่อนวันสอบและนัดกรรมการใหม่":"No. It must be submitted at least 20 days before the exam. Otherwise, the exam must be rescheduled with the committee.",
+  "แผน ข ต้องสอบโครงร่างไหม":"Do Plan B students take a proposal exam?",
+  "ไม่ต้อง แต่ต้องสอบประมวลความรู้และยื่น บฑ.27 แทน":"No, but they must pass the comprehensive exam and submit GR.27 instead.",
+  "เริ่มเก็บข้อมูลก่อนได้รับ IRB ได้หรือไม่":"Can I start collecting data before IRB approval?",
+  "ไม่ได้ ข้อมูลที่เก็บก่อนได้รับหนังสือรับรองจะใช้ไม่ได้":"No. Data collected before approval cannot be used.",
+  "ส่งเล่มแล้วถูกตีกลับ ต้องทำอย่างไร":"My submission was returned. What should I do?",
+  "แก้ไขตามรายการที่แจ้ง แล้วอัปโหลดใหม่ภายในรอบสำเร็จการศึกษาเดิม":"Fix the listed issues and re-upload within the same graduation round.",
+
+  /* advisor links */
+  "เอกสารที่ต้องลงนาม":"Documents to Sign",
+  "สอบป้องกัน":"Defense",
+  "ส่งเล่มสมบูรณ์":"Final submission",
+  "แบบฟอร์มที่อาจารย์ต้องลงนามในแต่ละขั้นตอน":"Forms advisors must sign at each step",
+  "ขั้นตอน":"Step", "บทบาทของอาจารย์":"Advisor's role",
+  "สอบวัดคุณสมบัติ / ประมวลความรู้":"Qualifying / Comprehensive exam",
+  "บฑ.35 / บฑ.27":"GR.35 / GR.27",
+  "กรรมการสอบ พิจารณาผลและลงนาม":"Serve on the committee, evaluate and sign",
+  "รับรองความพร้อม เสนอกรรมการ ลงนาม":"Certify readiness, nominate committee, sign",
+  "จริยธรรมการวิจัย":"Research ethics",
+  "คำขอ IRB":"IRB application",
+  "ตรวจเครื่องมือวิจัย ลงนามคำขอ":"Review research instruments, sign the application",
+  "ยืนยันความพร้อมของเล่ม เสนอกรรมการสอบ":"Confirm thesis readiness, nominate examiners",
+  "หน้าอนุมัติ":"Approval page",
+  "ตรวจรับรองฉบับแก้ไขและลงนาม":"Approve the revised version and sign",
+  "บทบาทในการสอบ":"Examination Roles",
+  "ประธาน · กรรมการ · ที่ปรึกษา":"Chair · Examiner · Advisor",
+  "หน้าที่ของอาจารย์แต่ละบทบาทในการสอบ":"Responsibilities of each role in the examination",
+  "ประธานกรรมการสอบ":"Examination chair",
+  "ดำเนินการสอบ":"Conduct the examination",
+  "สรุปผลและข้อเสนอแนะ":"Summarize results and recommendations",
+  "ลงนามแบบรายงานผล":"Sign the result report",
+  "อาจารย์ที่ปรึกษาหลัก":"Major advisor",
+  "รับรองความพร้อมของนักศึกษา":"Certify student readiness",
+  "กำกับการแก้ไขหลังสอบ":"Supervise post-exam revisions",
+  "ลงนามหน้าอนุมัติ":"Sign the approval page",
+  "กรรมการสอบ":"Examiner",
+  "อ่านและประเมินเล่ม":"Read and evaluate the thesis",
+  "ให้ข้อเสนอแนะเป็นลายลักษณ์อักษร":"Provide written feedback",
+  "ร่วมลงมติผลสอบ":"Vote on the result",
+  "เกณฑ์พิจารณา":"Evaluation Criteria",
+  "เกณฑ์ประเมินการสอบ":"Exam assessment criteria",
+  "เกณฑ์ที่ใช้ประเมินโครงร่างและการสอบป้องกัน":"Criteria for evaluating proposals and defenses",
+  "โครงร่าง":"Proposal",
+  "ความสำคัญของปัญหา":"Significance of the problem",
+  "ความเหมาะสมของระเบียบวิธีวิจัย":"Appropriateness of methodology",
+  "ความเป็นไปได้":"Feasibility",
+  "คุณภาพผลการวิจัย":"Quality of findings",
+  "การอภิปรายผล":"Discussion",
+  "การตอบคำถาม":"Responses to questions",
+  "ผลสอบ":"Result",
+  "ผ่าน":"Pass",
+  "ผ่านโดยมีเงื่อนไขการแก้ไข":"Pass with revisions",
+  "ไม่ผ่าน":"Fail",
+  "แบบฟอร์มที่เกี่ยวข้องทั้งหมด":"All related forms",
+  "ประกาศและข้อบังคับ":"Announcements & Regulations",
+  "คุณสมบัติอาจารย์ · เกณฑ์หลักสูตร":"Faculty qualifications · Program criteria",
+  "ประกาศที่อาจารย์ควรทราบ":"Announcements advisors should know",
+  "สำหรับอาจารย์":"For advisors",
+  "คำถามที่อาจารย์ถามบ่อย":"Frequently asked questions from advisors",
+  "อาจารย์ต้องลงนามเอกสารใดบ้าง":"Which documents do advisors sign?",
+  "บทกศ.39, บฑ.1, บฑ.2, คำขอ IRB, แบบรายงานความก้าวหน้า และหน้าอนุมัติเล่มฉบับสมบูรณ์":"GRAS.39, GR.1, GR.2, the IRB application, progress reports and the final approval page.",
+  "ลงนามแบบอิเล็กทรอนิกส์ได้หรือไม่":"Are electronic signatures accepted?",
+  "[ระบุตามประกาศของบัณฑิตวิทยาลัย]":"[As specified in the Faculty announcement]",
+
+  /* staff links */
+  "กำหนดการ":"Schedule",
+  "ประชุมคณะกรรมการกลั่นกรอง":"Screening committee meetings",
+  "รอบสอบ / รอบสำเร็จการศึกษา":"Exam / graduation rounds",
+  "กำหนดส่งเอกสาร":"Document deadlines",
+  "ปฏิทินงานที่เจ้าหน้าที่ต้องติดตาม":"Key dates for program staff",
+  "รายการ":"Item", "ภาคการศึกษาที่ 1":"Semester 1", "ภาคการศึกษาที่ 2":"Semester 2",
+  "ประชุมคณะกรรมการ":"Committee meeting",
+  "[วันที่]":"[Date]",
+  "ปิดรับ บฑ.2":"GR.2 deadline",
+  "ส่งเล่มสมบูรณ์รอบสำเร็จการศึกษา":"Final submission for graduation round",
+  "ขั้นตอนตรวจเอกสาร":"Document Review",
+  "เช็กลิสต์ก่อนส่งต่อ":"Checklist before forwarding",
+  "รายการตรวจก่อนนำส่งบัณฑิตวิทยาลัย":"Checks before forwarding to the Faculty of Graduate Studies",
+  "ก่อนสอบ":"Before the exam",
+  "ตรวจคุณสมบัติผู้ขอสอบ":"Check student eligibility",
+  "ตรวจ บฑ.2 ให้ทันกรอบ 20 วัน":"Check GR.2 meets the 20-day deadline",
+  "จองห้อง/ลิงก์สอบ":"Book the room / online link",
+  "รวบรวมแบบรายงานผล":"Collect result reports",
+  "ติดตามการแก้ไขเล่ม":"Follow up on revisions",
+  "ตรวจรูปแบบเบื้องต้น":"Preliminary format check",
+  "ส่งต่อบัณฑิตวิทยาลัย":"Forward to the Faculty",
+  "ตรวจชื่อเรื่องตรงกับ บฑ.1":"Title matches GR.1",
+  "ตรวจรายชื่อกรรมการตาม บฑ.2":"Committee matches GR.2",
+  "ตรวจหนี้สิน":"Check outstanding fees",
+  "Dashboards ข้อมูลหลักสูตร":"Program Data Dashboards",
+  "สถานะนักศึกษา":"Student status",
+  "ลิงก์ Dashboard ติดตามสถานะ":"Dashboards for tracking status",
+  "สถานะการสอบ":"Exam status",
+  "ติดตามนักศึกษาที่รอสอบในแต่ละรอบ":"Track students awaiting exams in each round",
+  "เปิด Dashboard":"Open dashboard",
+  "สถานะการส่งเล่ม":"Submission status",
+  "ติดตามเล่มที่รอตรวจ / ถูกตีกลับ":"Track pending / returned submissions",
+  "กฎระเบียบ / ข้อบังคับ":"Rules & Regulations",
+  "ประกาศที่ใช้อ้างอิง":"Reference announcements",
+  "ประกาศที่ใช้ในการตรวจสอบ":"Announcements used for verification",
+  "สำหรับเจ้าหน้าที่":"For program staff",
+  "คำถามที่พบบ่อยในงานหลักสูตร":"Frequently asked questions for program staff",
+  "นักศึกษายื่น บฑ.2 ไม่ทัน 20 วัน ทำอย่างไร":"A student missed the 20-day GR.2 deadline. What now?",
+  "แจ้งให้เลื่อนวันสอบ และนัดกรรมการใหม่":"Ask them to reschedule the exam with the committee.",
+  "ชื่อเรื่องในเล่มไม่ตรงกับ บฑ.1":"The thesis title does not match GR.1",
+  "ให้ยื่นขอเปลี่ยนชื่อเรื่องก่อน หรือแก้ไขเล่มให้ตรงกับที่อนุมัติ":"Request a title change first, or revise the thesis to match the approved title."
+};
+
+let lang = "th";
+/* แปลข้อความ: ตรงทั้งข้อความก่อน ถ้าไม่พบ แปลทีละส่วนที่อยู่ระหว่างแท็ก HTML */
+function t(str){
+  if(lang !== "en" || str == null) return str;
+  if(EN[str] !== undefined) return EN[str];
+  return String(str).replace(/(^|>)([^<>]+)(?=<|$)/g, (m, a, txt) => {
+    const k = txt.trim();
+    return EN[k] !== undefined ? a + txt.replace(k, EN[k]) : m;
+  });
+}
+function applyStatic(){
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    if(el.dataset.th === undefined) el.dataset.th = el.innerHTML.trim();
+    el.innerHTML = t(el.dataset.th);
+  });
+}
+function setLang(l){
+  lang = l === "en" ? "en" : "th";
+  document.documentElement.lang = lang;
+  document.title = lang === "en" ? "Academic Service | Faculty of Graduate Studies, Mahidol University"
+                                 : "งานบริการการศึกษา | บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล";
+  document.querySelectorAll("[data-lang]").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+  try{ localStorage.setItem("gs-lang", lang); }catch(e){}
+  applyStatic(); renderRoles(); renderQuick();
+  if(activeLink) renderDetail();
+}
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+let role = ROLES[0], track = "phd", activeLink = null;
+const $ = id => document.getElementById(id);
+
+function renderRoles(){
+  $("roles").innerHTML = ROLES.map(r=>`
+    <button class="role ${r===role?'on':''}" onclick="setRole('${r.id}')">
+      <div class="role-top"><span class="ico">${svg(r.icon)}</span><span class="tick">${svg("check")}</span></div>
+      <h3>${t(r.name)}</h3><p>${t(r.sub)}</p>
+    </button>`).join("");
+}
+function renderQuick(){
+  $("qlSub").textContent = t("สำหรับ") + t(role.name);
+  $("bento").innerHTML = role.links.map((l,i)=>`
+    ${l.href
+      ? `<a class="qcard ${l.bg}" href="${l.href[lang]||l.href.th}" target="_blank" rel="noopener">`
+      : `<button class="qcard ${l.bg} ${l===activeLink?'on':''}" onclick="openLink(${i})">`}
+      <span class="no">${String(i+1).padStart(2,"0")}</span>
+      <span class="glow"></span>
+      <span class="qicon">${svg(l.icon)}</span>
+      <h3>${t(l.title)}</h3>
+      ${l.bullets?`<ul>${l.bullets.map(b=>`<li>${t(b)}</li>`).join("")}</ul>`:""}
+      ${l.p?`<p>${t(l.p)}</p>`:""}
+      <span class="go">${svg("arrow")}</span>
+    ${l.href ? `</a>` : `</button>`}`).join("");
+}
+function setRole(id){
+  role = ROLES.find(r=>r.id===id); activeLink = null;
+  $("detail").classList.add("hide");
+  renderRoles(); renderQuick();
+  $("quick").scrollIntoView({behavior:"smooth"});
+}
+function renderDetail(){
+  const i = role.links.indexOf(activeLink);
+  $("dEyebrow").textContent = t(role.name).toUpperCase() + " · " + t("หัวข้อที่") + " " + (i+1);
+  $("dTitle").textContent = t(activeLink.title);
+  $("dDesc").textContent = t(activeLink.desc || "");
+  $("dBody").innerHTML = renderContent(activeLink.content);
+}
+function openLink(i){
+  activeLink = role.links[i];
+  renderQuick(); renderDetail();
+  $("detail").classList.remove("hide");
+  $("detail").scrollIntoView({behavior:"smooth"});
+}
+function goQuick(){ $("quick").scrollIntoView({behavior:"smooth"}); }
+function setTrack(tr){ track = tr; $("dBody").innerHTML = renderContent(activeLink.content); }
+
+function renderContent(c){
+  switch(c.type){
+    case "timeline": {
+      const tabs = [["phd","ปริญญาเอก"],["mscA","ปริญญาโท แผน ก (วิทยานิพนธ์)"],["mscB","ปริญญาโท แผน ข (สารนิพนธ์ / IS)"]];
+      return `<div class="tabs">${tabs.map(([k,v])=>`<button class="tab ${k===track?'on':''}" onclick="setTrack('${k}')">${t(v)}</button>`).join("")}</div>
+      <div class="timeline">${PATH[track].map((s,i)=>`
+        <div class="step ${s.skip?'skip':''}"><div class="dot">${i+1}</div>
+          <div class="card"><h3>${t(s.t)}<span class="tag">${t(s.tag)}</span></h3>
+            <ul>${s.li.map(x=>`<li>${t(x)}</li>`).join("")}</ul>
+            <div class="meta">${s.meta.map(m=>`<span class="chip">${t(m)}</span>`).join("")}</div>
+          </div></div>`).join("")}</div>`;
+    }
+    case "guides":
+      return `<div class="gcards">${c.items.map(g=>`
+        <a class="gcard ${g.gold?'gold':''}" href="${g.url}" target="_blank" rel="noopener">
+          <div class="top"><div class="icon">${svg(g.icon)}</div><span class="pill">${t(g.pill)}</span></div>
+          <h3>${t(g.h)}</h3><div class="desc">${t(g.d)}</div>
+          <div class="foot"><span>${t(g.cta)}</span><span class="arrow">${svg("arrow")}</span></div>
+        </a>`).join("")}</div>`;
+    case "table":
+      return `<div class="tbl-scroll"><table class="tbl">
+        <tr>${c.head.map(h=>`<th>${t(h)}</th>`).join("")}</tr>
+        ${c.rows.map(r=>`<tr>${r.map(d=>`<td>${t(d)}</td>`).join("")}</tr>`).join("")}
+      </table></div>`;
+    case "boxes":
+      return `<div class="boxes">${c.items.map(b=>`
+        <div class="box ${b.warn?'warn':''}"><h4>${b.ic?`<span class="bi">${svg(b.ic)}</span>`:""}${t(b.h)}</h4><ul>${b.li.map(x=>`<li>${t(x)}</li>`).join("")}</ul></div>`).join("")}</div>`;
+    case "faq":
+      return `<div class="faq">${c.items.map(([q,a],i)=>`<details ${i?'':'open'}><summary>${t(q)}</summary><p>${t(a)}</p></details>`).join("")}</div>`;
+  }
+  return "";
+}
+
+let saved = "th";
+try{ saved = localStorage.getItem("gs-lang") || "th"; }catch(e){}
+setLang(saved);
+</script>
+</body>
+</html>
