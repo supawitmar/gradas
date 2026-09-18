@@ -198,11 +198,12 @@ section{padding:56px 0}
 .chip-link:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
 .chip-link .i{width:14px;height:14px;stroke-width:2.4}
 .skip{opacity:.55} .skip .dot{background:#b9c0cf}
-.step.opt .dot{background:#fff;border:2px dashed var(--gold);color:var(--gold-d)}
+.step.opt .dot{background:#fff;border:2px dashed #c3cbd6;color:#8a95a5}
 .step.opt .dot .i{width:18px;height:18px}
-.step.opt .card{background:var(--cream);border:1.5px dashed #e7d29a}
-.step.opt .card h3{color:var(--gold-d)}
-.step.opt .chip{background:#fff8e8}
+.step.opt .card{background:#f6f7f9;border:1.5px dashed #d5dbe4;box-shadow:none}
+.step.opt .card h3{color:#5f6b7a;font-weight:500}
+.step.opt .card li{color:#6b7683}
+.step.opt .chip{background:#eceff3}
 
 /* table */
 .tbl-scroll{overflow-x:auto;background:#fff;border-radius:18px;border:1px solid var(--line)}
@@ -347,7 +348,7 @@ footer{background:#102d69;color:#fff;border-radius:30px 30px 0 0;padding:26px 0}
    ========================================================= */
 
 /* ระบบ e-Form (ใช้กับ บฑ.1, บฑ.2, บฑ.27, บฑ.35, บฑ.39, บฑกศ.39) */
-const EFORM = {label:"ระบบ e-Form",
+const EFORM = {label:"ยื่นผ่านระบบ e-Form",
   href:{th:"https://graduate.mahidol.ac.th/prof/admin/home.php?module=login.php",
         en:"https://graduate.mahidol.ac.th/prof/admin/home.php?module=login.php"}};
 
@@ -356,11 +357,11 @@ const S = {
   topic: {t:"การได้มาซึ่งหัวข้อ (Optional)",tag:"ก่อนสอบฯ",optional:true,
     li:["<b>บฑ.39</b> สำหรับนักศึกษาแบบหน่วยกิต",
         "<b>บฑกศ.39</b> สำหรับนักศึกษาแบบหน่วยกิตและนักศึกษาแบบเหมาจ่าย"],
-    meta:["แบบฟอร์ม: บฑ.39 / บฑกศ.39 (ถ้ามี)",EFORM]},
+    meta:[EFORM]},
   gr1: {t:"บฑ.1 การอนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา",tag:"ก่อนสอบฯ",
     li:["ยื่นเสนออนุมัติหัวข้ออย่างเป็นทางการ",
         "เสนอแต่งตั้งอาจารย์ที่ปรึกษาหลักและอาจารย์ที่ปรึกษาร่วม"],
-    meta:["แบบฟอร์ม: บฑ.1",EFORM]},
+    meta:[EFORM]},
   irb: {t:"ดำเนินการวิจัย จริยธรรม และเก็บข้อมูล",tag:"ก่อนสอบฯ",
     li:["อบรมจริยธรรมการวิจัยในคน ใบประกาศมีอายุ 2 ปี",
         "ยื่น <b>IRB</b> เสนอโครงการเพื่อขอรับรองจริยธรรม ต้องผ่านการรับรองก่อนเริ่มเก็บข้อมูล",
@@ -388,7 +389,7 @@ const PATH = {
     {t:"บฑ.35 การสอบวัดคุณสมบัติ",tag:"ก่อนสอบฯ",
      li:["นักศึกษาระดับปริญญาเอกทุกคนต้องสอบวัดคุณสมบัติ และต้องได้ผล “ผ่าน”",
          "ต้องผ่านก่อน จึงจะเสนอหัวข้อวิทยานิพนธ์และขอแต่งตั้งคณะกรรมการที่ปรึกษา (<b>บฑ.1</b>) ได้"],
-     meta:["แบบฟอร์ม: บฑ.35",EFORM]},
+     meta:[EFORM]},
     {t:"ลงทะเบียนวิทยานิพนธ์",tag:"ก่อนสอบฯ",
      li:["ลงทะเบียนวิทยานิพนธ์ตามแผนการศึกษา"],
      meta:["ไม่มีแบบฟอร์ม"]},
@@ -397,7 +398,7 @@ const PATH = {
     S.irb,
     {t:"บฑ.2 การสอบวิทยานิพนธ์",tag:"ก่อนสอบฯ",
      li:["ต้องได้รับการแต่งตั้งคณะกรรมการที่ปรึกษาวิทยานิพนธ์ (<b>บฑ.1</b>) มาแล้ว<b>ไม่น้อยกว่า 90 วัน</b> นับตั้งแต่วันที่ได้รับการแต่งตั้ง"],
-     meta:["แบบฟอร์ม: บฑ.2","หลัง บฑ.1 ไม่น้อยกว่า 90 วัน",EFORM]},
+     meta:["หลัง บฑ.1 ไม่น้อยกว่า 90 วัน",EFORM]},
     S.submit,
     S.gr5
   ],
@@ -412,7 +413,7 @@ const PATH = {
     S.irb,
     {t:"บฑ.2 การสอบวิทยานิพนธ์",tag:"ก่อนสอบฯ",
      li:["ต้องได้รับการแต่งตั้งคณะกรรมการที่ปรึกษาวิทยานิพนธ์ (<b>บฑ.1</b>) มาแล้ว<b>ไม่น้อยกว่า 90 วัน</b> นับตั้งแต่วันที่ได้รับการแต่งตั้ง"],
-     meta:["แบบฟอร์ม: บฑ.2","หลัง บฑ.1 ไม่น้อยกว่า 90 วัน",EFORM]},
+     meta:["หลัง บฑ.1 ไม่น้อยกว่า 90 วัน",EFORM]},
     S.submit,
     S.gr5
   ],
@@ -428,10 +429,10 @@ const PATH = {
     {t:"บฑ.27 สอบประมวลความรู้",tag:"ก่อนสอบฯ",
      li:["นักศึกษาระดับปริญญาโท แผน ๒ (แผน ข) ทุกคนต้องสอบประมวลความรู้",
          "ต้องสอบผ่าน จึงจะมีสิทธิสำเร็จการศึกษา"],
-     meta:["แบบฟอร์ม: บฑ.27",EFORM]},
+     meta:[EFORM]},
     {t:"บฑ.2 การสอบสารนิพนธ์ / การค้นคว้าอิสระ",tag:"ก่อนสอบฯ",
      li:["ต้องได้รับการแต่งตั้งคณะกรรมการที่ปรึกษาสารนิพนธ์ / การค้นคว้าอิสระ (<b>บฑ.1</b>) มาแล้ว<b>ไม่น้อยกว่า 45 วัน</b> นับตั้งแต่วันที่ได้รับการแต่งตั้ง"],
-     meta:["แบบฟอร์ม: บฑ.2","หลัง บฑ.1 ไม่น้อยกว่า 45 วัน",EFORM]},
+     meta:["หลัง บฑ.1 ไม่น้อยกว่า 45 วัน",EFORM]},
     S.submit,
     S.gr5
   ]
@@ -586,7 +587,7 @@ const EN = {
   "นักศึกษาระดับปริญญาเอกทุกคนต้องสอบวัดคุณสมบัติ และต้องได้ผล “ผ่าน”":"All doctoral students must take the qualifying examination and receive a \"pass\" result.",
   "ต้องผ่านก่อน จึงจะเสนอหัวข้อวิทยานิพนธ์และขอแต่งตั้งคณะกรรมการที่ปรึกษา (<b>บฑ.1</b>) ได้":"Only after passing can you propose your thesis topic and request appointment of the advisory committee (<b>GR.1</b>).",
   "แบบฟอร์ม: บฑ.35":"Form: GR.35",
-  "ระบบ e-Form":"e-Form system",
+  "ยื่นผ่านระบบ e-Form":"Submit via the e-Form system",
   "ลงทะเบียนวิทยานิพนธ์":"Thesis registration",
   "ลงทะเบียนวิทยานิพนธ์ตามแผนการศึกษา":"Register for the thesis according to your study plan.",
   "การได้มาซึ่งหัวข้อวิทยานิพนธ์ (เป็นตัวเลือก จะทำหรือไม่ทำก็ได้)":"Obtaining the thesis topic (optional).",
