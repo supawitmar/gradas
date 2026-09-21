@@ -439,13 +439,17 @@ body.lock{overflow:hidden}
 .q-row:hover{box-shadow:0 12px 26px -14px rgba(16,45,105,.35)}
 .q-row summary{list-style:none;display:grid;grid-template-columns:48px minmax(0,1fr) auto 28px;gap:14px;align-items:center;padding:16px 20px;cursor:pointer}
 .q-row summary::-webkit-details-marker{display:none}
+.q-row summary::after,.q-row summary::before{content:none;display:none}
 .q-q{font-weight:600;color:var(--navy);line-height:1.5}
 .q-tag{font-size:.74rem;font-weight:600;border-radius:999px;padding:3px 10px;white-space:nowrap}
 .q-chev{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--grey);color:var(--navy);transition:.2s}
 .q-chev .i{width:14px;height:14px;transform:rotate(45deg);transition:.2s}
 .q-row[open] .q-chev{background:var(--navy);color:#fff}
 .q-row[open] .q-chev .i{transform:rotate(135deg)}
-.q-a{padding:0 20px 18px 82px;font-size:.93rem;line-height:1.75;color:var(--text);display:grid;gap:8px}
+.q-row{padding:0}
+.q-row[open] summary{border-bottom:1px solid #eef2f8}
+.q-a{padding:16px 20px 20px 82px;font-size:.93rem;line-height:1.75;color:var(--text);display:grid;gap:10px}
+.q-a p{margin:0;font-size:inherit;color:var(--text)}
 .q-a ol,.q-a ul{margin-left:20px;display:grid;gap:4px}
 .q-a b{color:var(--navy)}
 .q-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
@@ -455,7 +459,7 @@ body.lock{overflow:hidden}
 @media(max-width:760px){
   .q-row summary{grid-template-columns:32px minmax(0,1fr) 28px;grid-template-areas:"no q ch" "no tag ch"}
   .q-row .f-no{grid-area:no;align-self:start} .q-q{grid-area:q} .q-tag{grid-area:tag;justify-self:start} .q-chev{grid-area:ch}
-  .q-a{padding:0 18px 16px 18px}
+  .q-a{padding:14px 18px 18px 18px}
 }
 
 /* ---------- ANIMATION: ค่อย ๆ เลื่อนเข้ามาเมื่อเลื่อนถึง ---------- */
@@ -935,7 +939,7 @@ const RULES = {type:"notices",
   ]};
 /* ---------- FAQ (อ้างอิง: เอกสาร Q&A งานบริการการศึกษา) ---------- */
 const ETHESIS = "https://graduate.mahidol.ac.th/ethesis/stu/login.php";
-const EDOC = "https://graduate.mahidol.ac.th/StudentServiceSystem/Registration/form_login.php";
+const EDOC = "https://grdoc.mahidol.ac.th/";
 const FAQS = {type:"faqx",
   title:"คำถามที่พบบ่อย (FAQ)",
   cats:[
@@ -1027,15 +1031,14 @@ const FAQS = {type:"faqx",
     {id:"format", name:"การจัดรูปเล่มและการอ้างอิง", items:[
       {q:"ดาวน์โหลด Format / Template ตัวอย่างรูปเล่มได้ที่ไหน",
        a:["ดาวน์โหลดได้ที่เว็บไซต์บัณฑิตวิทยาลัย"],
-       links:[{l:"Thesis template", u:"https://graduate.mahidol.ac.th/thesis/index-en.php"},
+       links:[{l:"Sample template", u:"https://drive.google.com/file/d/1j2AWLahZI-PndKpLTeODGEVJFQ5dKXZ7/view?usp=sharing"},
               {l:"ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์", u:"https://grad-as.my.canva.site/electronic-file-requirements"}]},
-      {q:"รูปแบบการเขียนอ้างอิงในเล่มเป็นอย่างไร",
+      {q:"รูปแบบการเขียนอ้างอิงในเล่มเป็นอย่างไร และหน้า Reference / Bibliography ควรใช้ APA หรือ Vancouver",
        a:["ใช้หัวข้อ “รายการอ้างอิง” (Reference) สำหรับสายวิทยาศาสตร์ และ “บรรณานุกรม” (Bibliography) สำหรับสายสังคมศาสตร์",
           "ระบบการอ้างอิงในเนื้อหามี 3 แบบ",
           {ol:["แบบนาม-ปี (Author-date system)","แบบตัวเลข (Numerical system)","แบบเชิงอรรถ (Footnote system)"]},
-          "เลือกระบบใดแล้วต้องใช้ระบบนั้นตลอดทั้งเล่ม"]},
-      {q:"หน้า Reference / Bibliography ควรใช้ APA หรือ Vancouver",
-       a:["ขึ้นอยู่กับระบบการอ้างอิงในเนื้อหา",
+          "เลือกระบบใดแล้วต้องใช้ระบบนั้นตลอดทั้งเล่ม",
+          "รูปแบบในหน้า Reference / Bibliography ขึ้นอยู่กับระบบการอ้างอิงในเนื้อหา",
           {ul:["<b>แบบนาม-ปี</b> เรียงตามตัวอักษร A–Z หรือ ก–ฮ (APA)","<b>แบบตัวเลข</b> เรียงตามลำดับตัวเลข (Vancouver)"]}],
        links:[{l:"วิธีเขียนอ้างอิง", u:"https://www.li.mahidol.ac.th/citation/"}]}
     ]},
@@ -1277,15 +1280,14 @@ const EN = {
   "ระบบจะส่งอีเมลแจ้งเตือน หรือเข้าระบบ e-Thesis submission → แท็บ Status → หัวข้อ Sign-off page → กด Preview":"The system sends an email, or go to e-Thesis submission → Status tab → Sign-off page → Preview.",
   "ดาวน์โหลด Format / Template ตัวอย่างรูปเล่มได้ที่ไหน":"Where can I download the thesis format / template?",
   "ดาวน์โหลดได้ที่เว็บไซต์บัณฑิตวิทยาลัย":"Download it from the Faculty website.",
-  "รูปแบบการเขียนอ้างอิงในเล่มเป็นอย่างไร":"What citation style should the thesis use?",
+  "รูปแบบการเขียนอ้างอิงในเล่มเป็นอย่างไร และหน้า Reference / Bibliography ควรใช้ APA หรือ Vancouver":"What citation style should the thesis use, and should the Reference / Bibliography follow APA or Vancouver?",
+  "รูปแบบในหน้า Reference / Bibliography ขึ้นอยู่กับระบบการอ้างอิงในเนื้อหา":"The Reference / Bibliography format depends on the in-text citation system:",
   "ใช้หัวข้อ “รายการอ้างอิง” (Reference) สำหรับสายวิทยาศาสตร์ และ “บรรณานุกรม” (Bibliography) สำหรับสายสังคมศาสตร์":"Use \"References\" for science theses and \"Bibliography\" for social science theses.",
   "ระบบการอ้างอิงในเนื้อหามี 3 แบบ":"There are 3 in-text citation systems",
   "แบบนาม-ปี (Author-date system)":"Author-date system",
   "แบบตัวเลข (Numerical system)":"Numerical system",
   "แบบเชิงอรรถ (Footnote system)":"Footnote system",
   "เลือกระบบใดแล้วต้องใช้ระบบนั้นตลอดทั้งเล่ม":"Use the chosen system consistently throughout the thesis.",
-  "หน้า Reference / Bibliography ควรใช้ APA หรือ Vancouver":"Should the Reference / Bibliography use APA or Vancouver?",
-  "ขึ้นอยู่กับระบบการอ้างอิงในเนื้อหา":"It depends on the in-text citation system",
   "<b>แบบนาม-ปี</b> เรียงตามตัวอักษร A–Z หรือ ก–ฮ (APA)":"<b>Author-date</b>: sort alphabetically A–Z (APA)",
   "<b>แบบตัวเลข</b> เรียงตามลำดับตัวเลข (Vancouver)":"<b>Numerical</b>: sort by number (Vancouver)",
   "วิธีเขียนอ้างอิง":"Citation guide",
