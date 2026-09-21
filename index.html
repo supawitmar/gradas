@@ -248,6 +248,12 @@ details p{font-size:.93rem;color:var(--muted);margin-top:8px}
 .cbox small{display:block;color:var(--muted);font-size:.92rem}
 .cbox a{font-size:1.1875rem;font-weight:500;color:var(--blue);white-space:nowrap}
 .cbox a span{font-size:.875rem}
+.cext{list-style:none;margin-top:10px;display:grid;gap:6px}
+.cext li{display:flex;align-items:baseline;gap:10px}
+.cbox .cext a{font-size:.9rem;font-weight:600;background:#fff;border:1px solid #d6e3f6;border-radius:999px;padding:2px 11px;min-width:104px;text-align:center}
+.cbox .cext a span{font-size:inherit}
+.cbox .cext a:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.cext em{font-style:normal;font-size:.88rem;color:var(--text)}
 @media(max-width:520px){.cbox{padding:22px;gap:18px}.cbox a{font-size:1.3rem}}
 footer{background:#102d69;color:#fff;border-radius:30px 30px 0 0;padding:26px 0}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;font-size:.8125rem;letter-spacing:1px;line-height:1.7}
@@ -496,7 +502,13 @@ body.lock{overflow:hidden}
         <p data-i18n>งานบริการการศึกษา บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล</p>
       </div>
       <div class="cbox">
-        <div><small data-i18n>โทรศัพท์</small><a href="tel:024414125,106">02-441-4125 <span data-i18n>ต่อ 106</span></a></div>
+        <div class="cphone"><small data-i18n>โทรศัพท์</small><a href="tel:024414125">02-441-4125</a>
+          <ul class="cext">
+            <li><a href="tel:024414125,120"><span data-i18n>ต่อ 120–125</span></a><em data-i18n>ติดต่อทั่วไป</em></li>
+            <li><a href="tel:024414125,106"><span data-i18n>ต่อ 106</span></a><em data-i18n>ตรวจรูปเล่ม</em></li>
+            <li><a href="tel:024414125,140"><span data-i18n>ต่อ 140</span></a><em data-i18n>หัวหน้างาน</em></li>
+          </ul>
+        </div>
         <div><small>LINE</small><a href="https://line.me/R/ti/p/@600qubzh" target="_blank" rel="noopener">@600qubzh</a></div>
       </div>
     </div>
@@ -1366,6 +1378,11 @@ const EN = {
   "งานบริการการศึกษา บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล":"Academic Service Section, Faculty of Graduate Studies, Mahidol University",
   "โทรศัพท์":"Telephone",
   "ต่อ 106":"ext. 106",
+  "ต่อ 120–125":"ext. 120–125",
+  "ต่อ 140":"ext. 140",
+  "ติดต่อทั่วไป":"General enquiries",
+  "ตรวจรูปเล่ม":"Thesis format check",
+  "หัวหน้างาน":"Head of section",
   "บัณฑิตวิทยาลัย · งานบริการการศึกษา":"Faculty of Graduate Studies · Academic Service Section",
   "สำหรับ":"For ",
   "หัวข้อที่":"Topic",
