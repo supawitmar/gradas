@@ -113,12 +113,12 @@ section{padding:56px 0}
 .ql-head .kicker{margin-bottom:6px}
 .ql-head h2{font-size:clamp(1.6rem,3.4vw,2.2rem);color:var(--navy);line-height:1.1}
 .ql-head p{color:var(--navy-2);font-family:'Inter','IBM Plex Sans Thai';font-size:1.05rem}
-.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:22px}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(228px,auto);gap:22px}
 .bento .qcard:nth-child(1){grid-row:span 2}
 .bento .qcard:nth-child(6){grid-column:span 2}
 @media(max-width:980px){.bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}.bento .qcard:nth-child(6){grid-column:auto}}
 @media(max-width:520px){.bento{grid-template-columns:1fr;grid-auto-rows:auto}.bento .qcard:nth-child(1){grid-row:auto;min-height:320px}.qcard{min-height:180px}.qcard .go{opacity:1;transform:none}}
-.qcard{position:relative;border:0;border-radius:28px;padding:24px;color:#fff;text-align:left;cursor:pointer;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .2s, box-shadow .2s;font:inherit}
+.qcard{position:relative;border:0;border-radius:28px;padding:98px 24px 24px;color:#fff;text-align:left;cursor:pointer;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;transition:transform .2s, box-shadow .2s;font:inherit}
 .qcard:hover{transform:translateY(-4px);box-shadow:0 22px 40px -14px rgba(16,45,105,.5)}
 .qcard.on{outline:3px solid #fff;outline-offset:-3px;box-shadow:0 0 0 4px var(--gold),0 18px 36px -10px rgba(16,45,105,.45)}
 .i{width:1em;height:1em;display:block}
@@ -281,6 +281,29 @@ footer{background:#102d69;color:#fff;border-radius:30px 30px 0 0;padding:26px 0}
   .f-row>.f-cell:nth-of-type(1){grid-area:c1} .f-row>.f-cell:nth-of-type(2){grid-area:c2}
   .f-row>.f-cell:nth-of-type(3){grid-area:c3} .f-row>.f-cell:nth-of-type(4){grid-area:c4}
   .f-cell{text-align:left} .f-lab{display:block;font-size:.75rem;color:var(--muted);margin-bottom:4px}
+}
+
+
+/* หัวข้อการ์ดเริ่มที่ระดับเดียวกันทุกใบ + ไม่ตัดกลางคำ */
+.qcard h3{padding-right:8px}
+.qcard:nth-child(1){padding-top:176px}
+.nw{white-space:nowrap}
+@media(max-width:520px){.qcard{padding-top:92px}.bento .qcard:nth-child(1){padding-top:170px}}
+
+/* ---------- ตารางประกาศ / ข้อบังคับ ---------- */
+.n-head,.n-row{display:grid;grid-template-columns:48px minmax(0,1fr) 110px 150px;gap:16px;align-items:center}
+.n-head{padding:14px 20px 10px;font-size:.84rem;color:var(--muted)}
+.n-head span:nth-child(n+3){text-align:center}
+.n-row{background:#fff;border:1px solid #e8edf5;border-radius:16px;padding:16px 20px;margin-bottom:12px;box-shadow:0 6px 18px -12px rgba(16,45,105,.25);transition:.2s}
+.n-row:hover{box-shadow:0 12px 26px -14px rgba(16,45,105,.35);transform:translateY(-1px)}
+.n-kind{display:inline-block;font-size:.74rem;font-weight:600;color:var(--navy-2);background:#eef2f9;border-radius:999px;padding:2px 10px;margin-bottom:6px}
+.n-year{text-align:center;font-family:'Inter','IBM Plex Sans Thai',sans-serif;font-weight:600;color:var(--navy)}
+.f-pill.pdf{background:#fdeceb;color:#b3261e}
+@media(max-width:980px){
+  .n-head{display:none}
+  .n-row{grid-template-columns:40px 1fr;grid-template-areas:"no desc" "no yr" "no dl";row-gap:10px}
+  .n-row .f-no{grid-area:no;text-align:left;align-self:start} .n-row .f-desc{grid-area:desc}
+  .n-year{grid-area:yr;text-align:left} .n-row .f-cell{grid-area:dl;text-align:left}
 }
 
 /* ---------- ANIMATION: ค่อย ๆ เลื่อนเข้ามาเมื่อเลื่อนถึง ---------- */
@@ -479,11 +502,25 @@ const PATH = {
 };
 
 /* ---------- ชุดข้อมูลที่ใช้ซ้ำหลายบทบาท ---------- */
-const RULES = {type:"boxes",items:[
-  {ic:"landmark",h:"ประกาศบัณฑิตวิทยาลัย",li:['<a href="#">[ชื่อประกาศ]</a>','<a href="#">[ชื่อประกาศ]</a>','<a href="#">ดูทั้งหมด →</a>']},
-  {ic:"scale",h:"กฎ ระเบียบ ข้อบังคับ",li:['<a href="#">[ชื่อข้อบังคับ]</a>','<a href="#">[ชื่อข้อบังคับ]</a>','<a href="#">ดูทั้งหมด →</a>']},
-  {ic:"building",h:"ประกาศมหาวิทยาลัย",li:['<a href="#">[ชื่อประกาศ]</a>','<a href="#">[ชื่อประกาศ]</a>','<a href="#">ดูทั้งหมด →</a>']}
-]};
+const GS = "https://graduate.mahidol.ac.th/";
+const RULES = {type:"notices",
+  title:"ประกาศและข้อบังคับที่เกี่ยวข้อง",
+  groups:[
+    {name:"เกี่ยวกับวิทยานิพนธ์ / สารนิพนธ์ / การค้นคว้าอิสระ", rows:[
+      {kind:"แนวปฏิบัติ", name:"ปรับกระบวนการลงนามในเอกสารหน้าลงนามรูปเล่มอิเล็กทรอนิกส์",
+       by:"บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", href:GS+"download/current-student/pdf/Electronic-Thesis-Signature-Process.pdf"},
+      {kind:"ประกาศ", name:"ข้อกำหนดและแนวปฏิบัติสำหรับการจัดทำรูปเล่มอิเล็กทรอนิกส์ ระดับบัณฑิตศึกษา มหาวิทยาลัยมหิดล",
+       by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2569", href:GS+"storage/IT-SERVICE/Announce/PR07283.pdf"},
+      {kind:"ประกาศ", name:"แนวปฏิบัติการตรวจสอบการคัดลอกผลงานทางวิชาการ และการใช้เครื่องมือทางปัญญาประดิษฐ์ (AI) สำหรับการจัดการเรียนการสอน การวิจัย การทำวิทยานิพนธ์ / สารนิพนธ์ / การค้นคว้าอิสระ",
+       by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2568", href:GS+"storage/IT-SERVICE/Announce/PR07128.pdf"},
+      {kind:"ประกาศ", name:"เกณฑ์การเผยแพร่ผลงานวิทยานิพนธ์หรือส่วนหนึ่งของวิทยานิพนธ์ เพื่อขอสำเร็จการศึกษาระดับบัณฑิตศึกษา",
+       by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2568", href:GS+"storage/IT-SERVICE/Announce/PR06965.pdf"},
+      {kind:"แนวปฏิบัติ", name:"การใช้ AI เป็นเครื่องมือในการตรวจภาษาสำหรับหัวข้อเรื่อง และการตรวจบทคัดย่อ",
+       by:"บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", href:GS+"storage/IT-SERVICE/Announce/PR07143.pdf"},
+      {kind:"ประกาศ", name:"การสอบประมวลความรู้ การสอบวัดคุณสมบัติ การสอบโครงร่างวิทยานิพนธ์ / สารนิพนธ์ และการสอบวิทยานิพนธ์ / สารนิพนธ์ ในรูปแบบออนไลน์",
+       by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2566", href:GS+"download/current-student/pdf/PR03400.pdf"}
+    ]}
+  ]};
 const DL = "https://graduate.mahidol.ac.th/download/current-student/form/";
 const FORMS = {type:"forms",
   title:"แบบฟอร์มเกี่ยวกับบริหารจัดการการทำวิทยานิพนธ์ และสารนิพนธ์",
@@ -528,7 +565,7 @@ const ROLES = [
     bullets:["ป.เอก","ป.โท แผน ก","ป.โท แผน ข"],
     desc:"เลือกแผนการศึกษาของคุณ เพื่อดูเฉพาะขั้นตอนของแผนนั้น",content:{type:"timeline"}},
    {icon:"fileCheck",bg:"bg2",title:"ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์",p:"ฟอนต์ · ขอบกระดาษ · ไฟล์ PDF",
-    href:{th:"https://grad-as.my.canva.site/electronic-file-requirements-th",en:"https://grad-as.my.canva.site/electronic-file-requirements-en"},
+    href:{th:"https://grad-as.my.canva.site/electronic-file-requirements",en:"https://grad-as.my.canva.site/electronic-file-requirements"},
     desc:"รูปแบบที่ต้องใช้ในการจัดทำเล่ม e-Thesis",content:{type:"boxes",items:[
       {ic:"type",h:"ตัวอักษรและระยะ",li:["ฟอนต์ตามที่กำหนดใน template","ขนาดตัวอักษรและระยะบรรทัดตามคู่มือ","ใช้ Style ใน template ห้ามจัดเอง"]},
       {ic:"file",h:"หน้ากระดาษ",li:["กระดาษ A4 · ระยะขอบตามคู่มือ","เลขหน้าส่วนหน้าเป็นเลขโรมัน / ส่วนเนื้อหาเป็นเลขอารบิก","ลำดับส่วนประกอบเล่มครบถ้วน"]},
@@ -536,7 +573,7 @@ const ROLES = [
       {ic:"alert",h:"จุดที่ถูกตีกลับบ่อย",warn:true,li:["ชื่อเรื่องไทย–อังกฤษไม่ตรงกับ บฑ.1","สารบัญไม่ตรงกับเลขหน้าจริง","ไฟล์แยกหลายไฟล์ / ฟอนต์ไม่ฝัง"]}
     ]}},
    {icon:"landmark",bg:"bg3",title:"ประกาศและข้อบังคับที่เกี่ยวข้อง",p:"ประกาศบัณฑิตวิทยาลัย · มหาวิทยาลัย",
-    desc:"แบ่งเป็น 3 หมวด ตามแหล่งที่ออกประกาศ",content:RULES},
+    desc:"ประกาศบัณฑิตวิทยาลัยที่เกี่ยวกับวิทยานิพนธ์ สารนิพนธ์ และการค้นคว้าอิสระ",content:RULES},
    {icon:"download",bg:"bg4",title:"แบบฟอร์มต่าง ๆ",p:"ดาวน์โหลดแบบฟอร์ม",
     desc:"ตรวจสอบผู้ลงนามและกำหนดเวลาก่อนยื่นทุกครั้ง",content:FORMS},
    {icon:"book",bg:"bg5",title:"คู่มือและแนวปฏิบัติ",p:"Guides & Templates",
@@ -633,6 +670,24 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  /* ---------- ประกาศและข้อบังคับ ---------- */
+  "เกี่ยวกับวิทยานิพนธ์ / สารนิพนธ์ / การค้นคว้าอิสระ":"Thesis / Thematic paper / Independent study",
+  "ชื่อประกาศ / ข้อบังคับ":"Announcement / Regulation",
+  "ปีที่ประกาศ":"Year",
+  "เอกสาร":"Document",
+  "เปิด PDF":"Open PDF",
+  "แนวปฏิบัติ":"Guideline",
+  "ประกาศ":"Announcement",
+  "บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล":"Faculty of Graduate Studies, Mahidol University",
+  "ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล":"Announcement of the Faculty of Graduate Studies, Mahidol University",
+  "ปรับกระบวนการลงนามในเอกสารหน้าลงนามรูปเล่มอิเล็กทรอนิกส์":"Revised signing process for the approval page of the electronic thesis",
+  "ข้อกำหนดและแนวปฏิบัติสำหรับการจัดทำรูปเล่มอิเล็กทรอนิกส์ ระดับบัณฑิตศึกษา มหาวิทยาลัยมหิดล":"Requirements and guidelines for preparing electronic theses, graduate level, Mahidol University",
+  "แนวปฏิบัติการตรวจสอบการคัดลอกผลงานทางวิชาการ และการใช้เครื่องมือทางปัญญาประดิษฐ์ (AI) สำหรับการจัดการเรียนการสอน การวิจัย การทำวิทยานิพนธ์ / สารนิพนธ์ / การค้นคว้าอิสระ":"Guidelines on plagiarism checking and the use of artificial intelligence (AI) tools in teaching, research, and thesis / thematic paper / independent study work",
+  "เกณฑ์การเผยแพร่ผลงานวิทยานิพนธ์หรือส่วนหนึ่งของวิทยานิพนธ์ เพื่อขอสำเร็จการศึกษาระดับบัณฑิตศึกษา":"Criteria for publishing the thesis or part of the thesis for graduation at the graduate level",
+  "การใช้ AI เป็นเครื่องมือในการตรวจภาษาสำหรับหัวข้อเรื่อง และการตรวจบทคัดย่อ":"Using AI as a language-checking tool for thesis titles and abstracts",
+  "การสอบประมวลความรู้ การสอบวัดคุณสมบัติ การสอบโครงร่างวิทยานิพนธ์ / สารนิพนธ์ และการสอบวิทยานิพนธ์ / สารนิพนธ์ ในรูปแบบออนไลน์":"Online comprehensive, qualifying, proposal, and thesis / thematic paper examinations",
+  "ประกาศบัณฑิตวิทยาลัยที่เกี่ยวกับวิทยานิพนธ์ สารนิพนธ์ และการค้นคว้าอิสระ":"Faculty announcements on theses, thematic papers and independent studies",
+
   /* ---------- ตารางแบบฟอร์ม ---------- */
   "แบบฟอร์มเกี่ยวกับบริหารจัดการการทำวิทยานิพนธ์ และสารนิพนธ์":"Thesis and Thematic Paper Management Forms",
   "ลำดับ":"No.", "คำอธิบาย":"Description", "ภาษาไทย":"Thai", "ภาษาอังกฤษ":"English", "ออนไลน์":"Online", "คู่มือ":"Guide",
@@ -1000,7 +1055,7 @@ let role = ROLES[0], track = "phd", activeLink = null;
 const $ = id => document.getElementById(id);
 
 /* ---------- ANIMATION: ใส่คลาสและสั่งเล่นเมื่อเลื่อนถึง ---------- */
-const REVEAL_SEL = ".hero-pill,.hero h1,.hero p,.sec-head,.ql-head,.role,.qcard,.d-head,.phase,.step,.gcard,.box,.tbl-scroll,.faq details,.tabs,.contact>div,.cbox,.f-row,.forms-title";
+const REVEAL_SEL = ".hero-pill,.hero h1,.hero p,.sec-head,.ql-head,.role,.qcard,.d-head,.phase,.step,.gcard,.box,.tbl-scroll,.faq details,.tabs,.contact>div,.cbox,.f-row,.n-row,.forms-title";
 const io = ("IntersectionObserver" in window)
   ? new IntersectionObserver((es,o)=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); o.unobserve(e.target); } }),{rootMargin:"0px 0px -8% 0px",threshold:.08})
   : null;
@@ -1031,6 +1086,14 @@ function renderRoles(){
       <h3>${t(r.name)}</h3><p>${t(r.sub)}</p>
     </button>`).join("");
 }
+/* ภาษาไทย: ห่อคำที่ไม่ควรถูกตัดกลางคำ (เช่น สาร|นิพนธ์, ข้อ|บังคับ) */
+const NOBREAK = ["เส้นทางการทำ","วิทยานิพนธ์","สารนิพนธ์","การค้นคว้าอิสระ","ข้อกำหนด","รูปเล่ม","อิเล็กทรอนิกส์",
+  "ประกาศ","ข้อบังคับ","ที่เกี่ยวข้อง","แบบฟอร์ม","ต่าง ๆ","คู่มือ","แนวปฏิบัติ","คำถาม","ที่พบบ่อย","บัณฑิตวิทยาลัย",
+  "มหาวิทยาลัย","ขอบกระดาษ","ไฟล์ PDF","ดาวน์โหลด","นักศึกษา","กำหนดการ","ตรวจเอกสาร","ข้อมูลหลักสูตร","กฎระเบียบ",
+  "คุณสมบัติ","อาจารย์","เกณฑ์","หลักสูตร","ที่ปรึกษา","การสอบ","ประเมิน","เอกสาร","ลงนาม","ความก้าวหน้า"]
+  .sort((a,b)=>b.length-a.length);
+const NB_RE = new RegExp(NOBREAK.map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|"),"g");
+const nb = s => lang === "th" ? s.replace(NB_RE, m => `<span class="nw">${m}</span>`) : s;
 function renderQuick(){
   $("qlSub").textContent = t("สำหรับ") + t(role.name);
   $("bento").innerHTML = role.links.map((l,i)=>`
@@ -1040,9 +1103,9 @@ function renderQuick(){
       <span class="no">${String(i+1).padStart(2,"0")}</span>
       <span class="glow"></span>
       <span class="qicon">${svg(l.icon)}</span>
-      <h3>${t(l.title)}</h3>
+      <h3>${nb(t(l.title))}</h3>
       ${l.bullets?`<ul>${l.bullets.map(b=>`<li>${t(b)}</li>`).join("")}</ul>`:""}
-      ${l.p?`<p>${t(l.p)}</p>`:""}
+      ${l.p?`<p>${nb(t(l.p))}</p>`:""}
       <span class="go">${svg("arrow")}</span>
     ${l.href ? `</a>` : `</button>`}`).join("");
 }
@@ -1116,6 +1179,26 @@ function renderContent(c){
               ${cell("ภาษาอังกฤษ", r.en ? `<a class="f-pill en" href="${r.en}" target="_blank" rel="noopener">${flagEN}English</a>` : none)}
               ${cell("ออนไลน์", r.online ? `<a class="f-pill on" href="${EFORM.href.th}" target="_blank" rel="noopener">${svg("check")}Online</a>` : none)}
               ${cell("คู่มือ", r.manual ? `<a class="f-pill man" href="${r.manual}" target="_blank" rel="noopener">${svg("book")}${t("คู่มือ")}</a>` : none)}
+            </div>`).join("")}`).join("")}
+      </div>`;
+    }
+    case "notices": {
+      let n = 0;
+      const none = '<span class="f-none">–</span>';
+      const yr = y => !y ? none : (lang === "en" ? String(+y - 543) : "พ.ศ. " + y);
+      return `<div class="forms">
+        <h3 class="forms-title">${t(c.title)}</h3>
+        <div class="n-head">
+          <span>${t("ลำดับ")}</span><span>${t("ชื่อประกาศ / ข้อบังคับ")}</span><span>${t("ปีที่ประกาศ")}</span><span>${t("เอกสาร")}</span>
+        </div>
+        ${c.groups.map(g=>`
+          <div class="f-group">${t(g.name)}</div>
+          ${g.rows.map(r=>`
+            <div class="n-row">
+              <span class="f-no">${++n}</span>
+              <div class="f-desc"><span class="n-kind">${t(r.kind)}</span><b>${t(r.name)}</b><span>${t(r.by)}</span></div>
+              <span class="n-year">${yr(r.year)}</span>
+              <div class="f-cell"><a class="f-pill pdf" href="${r.href}" target="_blank" rel="noopener">${svg("fileDown")}${t("เปิด PDF")}</a></div>
             </div>`).join("")}`).join("")}
       </div>`;
     }
