@@ -256,6 +256,13 @@ footer{background:#102d69;color:#fff;border-radius:30px 30px 0 0;padding:26px 0}
 
 /* ---------- ตารางแบบฟอร์ม ---------- */
 .forms-title{font-size:clamp(1.3rem,2.6vw,1.75rem);color:var(--navy);font-weight:600;padding-bottom:16px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+.f-search{display:flex;align-items:center;gap:10px;margin:18px 0 4px;background:#fff;border:1px solid #dfe6f1;border-radius:14px;padding:0 16px;box-shadow:0 6px 18px -14px rgba(16,45,105,.3);transition:.2s}
+.f-search:focus-within{border-color:#9db8e6;box-shadow:0 0 0 4px rgba(46,108,223,.12)}
+.f-search .i{width:18px;height:18px;color:var(--muted);flex:none}
+.f-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:.95rem;color:var(--navy);padding:13px 0}
+.f-search input::placeholder{color:#9aa6b8}
+.f-count{font-size:.8rem;color:var(--muted);white-space:nowrap}
+.f-empty{text-align:center;color:var(--muted);padding:28px 0}
 .f-head,.f-row{display:grid;grid-template-columns:48px 96px minmax(0,1fr) 120px 120px 112px 104px;gap:12px;align-items:center}
 .f-head{padding:14px 20px 10px;font-size:.84rem;color:var(--muted)}
 .f-head span:nth-child(n+4){text-align:center}
@@ -693,6 +700,10 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  "ค้นหาแบบฟอร์ม เช่น 35, บฑ.35 หรือ สอบวัดคุณสมบัติ":"Search forms, e.g. 35, GR.35 or qualifying exam",
+  "ค้นหาแบบฟอร์ม":"Search forms",
+  "ไม่พบแบบฟอร์มที่ค้นหา":"No matching forms",
+  "รายการ":"results",
   "เปลี่ยนบทบาท":"Change role",
   /* ---------- keywords ประกาศ ---------- */
   "ส่งหน้าลงนามแบบออนไลน์":"Online sign-off page submission",
@@ -1174,6 +1185,20 @@ function openLink(i){
   reveal($("detail"));
   $("detail").scrollIntoView({behavior:"smooth"});
 }
+/* ค้นหาแบบฟอร์ม: ไม่สนช่องว่าง จุด และตัวพิมพ์ ("35", "บฑ35", "gr.35", "สอบวัดคุณสมบัติ") */
+const fnorm = x => String(x).toLowerCase().replace(/<[^>]*>/g,"").replace(/[\s.\-_/()"'“”]/g,"");
+const fq = parts => parts.map(fnorm).join("|");
+function filterForms(inp){
+  const box = inp.closest(".forms"), q = fnorm(inp.value);
+  let shown = 0;
+  box.querySelectorAll(".f-grp").forEach(g=>{
+    let any = 0;
+    g.querySelectorAll(".f-row").forEach(r=>{ const ok = !q || r.dataset.q.includes(q); r.classList.toggle("hide", !ok); if(ok){any++; r.classList.add("in");} });
+    g.classList.toggle("hide", !any); shown += any;
+  });
+  box.querySelector(".f-empty").classList.toggle("hide", shown > 0);
+  box.querySelector(".f-count").textContent = q ? shown + " " + t("รายการ") : "";
+}
 function goRoles(){ $("role").scrollIntoView({behavior:"smooth"}); }
 function goQuick(){
   activeLink = null;
@@ -1215,14 +1240,19 @@ function renderContent(c){
       const cell = (label, inner) => `<div class="f-cell"><span class="f-lab">${t(label)}</span>${inner}</div>`;
       return `<div class="forms">
         <h3 class="forms-title">${t(c.title)}</h3>
+        <div class="f-search">
+          ${svg("search")}
+          <input type="search" oninput="filterForms(this)" placeholder="${t("ค้นหาแบบฟอร์ม เช่น 35, บฑ.35 หรือ สอบวัดคุณสมบัติ")}" aria-label="${t("ค้นหาแบบฟอร์ม")}">
+          <span class="f-count"></span>
+        </div>
         <div class="f-head">
           <span>${t("ลำดับ")}</span><span>${t("แบบฟอร์ม")}</span><span>${t("คำอธิบาย")}</span>
           <span>${t("ภาษาไทย")}</span><span>${t("ภาษาอังกฤษ")}</span><span>${t("ออนไลน์")}</span><span>${t("คู่มือ")}</span>
         </div>
-        ${c.groups.map(g=>`
+        ${c.groups.map(g=>`<div class="f-grp">
           <div class="f-group">${t(g.name)}</div>
           ${g.rows.map(r=>`
-            <div class="f-row">
+            <div class="f-row" data-q="${fq([r.code,t(r.code),EN[r.code]||"",r.name,t(r.name),r.desc,t(r.desc)])}">
               <span class="f-no">${++n}</span>
               <span class="f-code">${t(r.code)}</span>
               <div class="f-desc"><b>${t(r.name)}</b><span>${t(r.desc)}</span></div>
@@ -1230,7 +1260,8 @@ function renderContent(c){
               ${cell("ภาษาอังกฤษ", r.en ? `<a class="f-pill en" href="${r.en}" target="_blank" rel="noopener">${flagEN}English</a>` : none)}
               ${cell("ออนไลน์", r.online ? `<a class="f-pill on" href="${EFORM.href.th}" target="_blank" rel="noopener">${svg("check")}Online</a>` : none)}
               ${cell("คู่มือ", r.manual ? `<a class="f-pill man" href="${r.manual}" target="_blank" rel="noopener">${svg("book")}${t("คู่มือ")}</a>` : none)}
-            </div>`).join("")}`).join("")}
+            </div>`).join("")}</div>`).join("")}
+        <p class="f-empty hide">${t("ไม่พบแบบฟอร์มที่ค้นหา")}</p>
       </div>`;
     }
     case "notices": {
