@@ -437,7 +437,7 @@ body.lock{overflow:hidden}
 .q-cats button.on span{background:rgba(255,255,255,.2);color:#fff}
 .q-row{background:#fff;border:1px solid #e8edf5;border-radius:16px;margin-bottom:12px;box-shadow:0 6px 18px -12px rgba(16,45,105,.25);transition:box-shadow .2s}
 .q-row:hover{box-shadow:0 12px 26px -14px rgba(16,45,105,.35)}
-.q-row summary{list-style:none;display:grid;grid-template-columns:48px minmax(0,1fr) auto 28px;gap:14px;align-items:center;padding:16px 20px;cursor:pointer}
+.q-row summary{list-style:none;display:grid;grid-template-columns:48px minmax(0,1fr) 28px;gap:14px;align-items:center;padding:16px 20px;cursor:pointer}
 .q-row summary::-webkit-details-marker{display:none}
 .q-row summary::after,.q-row summary::before{content:none;display:none}
 .q-q{font-weight:600;color:var(--navy);line-height:1.5}
@@ -452,13 +452,24 @@ body.lock{overflow:hidden}
 .q-a p{margin:0;font-size:inherit;color:var(--text)}
 .q-a ol,.q-a ul{margin-left:20px;display:grid;gap:4px}
 .q-a b{color:var(--navy)}
+/* สีประจำหมวด: หัวหมวดเป็นแถบสี + ขอบซ้ายของการ์ดคำถาม */
+.faqx .f-grp{--ac:#7ea3e6}
+.faqx .f-grp.c1{--ac:#6cc79a} .faqx .f-grp.c2{--ac:#f0b862} .faqx .f-grp.c3{--ac:#a58ef0} .faqx .f-grp.c4{--ac:#ec8fb0} .faqx .f-grp.c5{--ac:#6fc3cf}
+.faqx .f-group{margin:26px 0 12px}
+.faqx .f-grp:first-of-type .f-group{margin-top:18px}
+.faqx .f-group::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--ac);flex:none}
+.faqx .f-group{padding:8px 16px;border-radius:12px;font-size:1rem}
+.faqx .f-grp.c0 .f-group{background:#e8f0fe;color:#2f5aa8} .faqx .f-grp.c1 .f-group{background:#e6f6ee;color:#23724b}
+.faqx .f-grp.c2 .f-group{background:#fff1dc;color:#8a5a12} .faqx .f-grp.c3 .f-group{background:#f1ebfd;color:#5b3cc4}
+.faqx .f-grp.c4 .f-group{background:#fdeaf1;color:#a3365f} .faqx .f-grp.c5 .f-group{background:#e5f5f7;color:#1f6f7a}
+.faqx .f-group::after{display:none}
+.faqx .q-row{border-left:4px solid var(--ac)}
 .q-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
 .c0{background:#e8f0fe;color:#2f5aa8} .c1{background:#e6f6ee;color:#23724b} .c2{background:#fff1dc;color:#8a5a12}
 .c3{background:#f1ebfd;color:#5b3cc4} .c4{background:#fdeaf1;color:#a3365f} .c5{background:#e5f5f7;color:#1f6f7a}
 .q-cats button.c0:not(.on),.q-cats button.c1:not(.on),.q-cats button.c2:not(.on),.q-cats button.c3:not(.on),.q-cats button.c4:not(.on),.q-cats button.c5:not(.on){border-color:transparent}
 @media(max-width:760px){
-  .q-row summary{grid-template-columns:32px minmax(0,1fr) 28px;grid-template-areas:"no q ch" "no tag ch"}
-  .q-row .f-no{grid-area:no;align-self:start} .q-q{grid-area:q} .q-tag{grid-area:tag;justify-self:start} .q-chev{grid-area:ch}
+  .q-row summary{grid-template-columns:32px minmax(0,1fr) 28px}
   .q-a{padding:14px 18px 18px 18px}
 }
 
@@ -2185,11 +2196,11 @@ function renderContent(c){
           <button class="on" data-c="" onclick="faqCat(this)">${t("ทั้งหมด")}<span>${total}</span></button>
           ${c.cats.map((g,i)=>`<button class="c${i%6}" data-c="${g.id}" onclick="faqCat(this)">${t(g.name)}<span>${g.items.length}</span></button>`).join("")}
         </div>
-        ${c.cats.map((g,i)=>`<div class="f-grp" data-c="${g.id}">
+        ${c.cats.map((g,i)=>`<div class="f-grp c${i%6}" data-c="${g.id}">
           <div class="f-group">${t(g.name)}</div>
           ${g.items.map(it=>`
             <details class="q-row">
-              <summary><span class="f-no">${++n}</span><span class="q-q">${t(it.q)}</span><span class="q-tag c${i%6}">${t(g.name)}</span><span class="q-chev">${svg("arrow")}</span></summary>
+              <summary><span class="f-no">${++n}</span><span class="q-q">${t(it.q)}</span><span class="q-chev">${svg("arrow")}</span></summary>
               <div class="q-a" data-q="${fq([it.q, EN[it.q]||"", ...it.a.map(x=>typeof x==="string"?x:(x.ol||x.ul).join(" ")), ...it.a.map(x=>typeof x==="string"?(EN[x]||""):(x.ol||x.ul).map(y=>EN[y]||"").join(" ")), g.name, EN[g.name]||""])}">
                 ${it.a.map(blk).join("")}
                 ${it.links ? `<div class="q-links">${it.links.map(k=>`<a class="chip chip-link" href="${url(k.u)}" target="_blank" rel="noopener">${t(k.l)}${svg("arrow")}</a>`).join("")}</div>` : ""}
