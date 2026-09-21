@@ -250,6 +250,39 @@ footer{background:#102d69;color:#fff;border-radius:30px 30px 0 0;padding:26px 0}
 .footer-inner small{display:block;font-size:.75rem;letter-spacing:.3px;color:#d5dff2;margin-top:4px}
 .hide{display:none}
 
+/* ---------- ตารางแบบฟอร์ม ---------- */
+.forms-title{font-size:clamp(1.3rem,2.6vw,1.75rem);color:var(--navy);font-weight:600;padding-bottom:16px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+.f-head,.f-row{display:grid;grid-template-columns:48px 96px minmax(0,1fr) 120px 120px 112px 104px;gap:12px;align-items:center}
+.f-head{padding:14px 20px 10px;font-size:.84rem;color:var(--muted)}
+.f-head span:nth-child(n+4){text-align:center}
+.f-group{margin:18px 4px 10px;font-weight:600;color:var(--navy-2);font-size:.95rem;display:flex;align-items:center;gap:10px}
+.f-group::after{content:"";flex:1;height:1px;background:var(--line)}
+.f-row{background:#fff;border:1px solid #e8edf5;border-radius:16px;padding:16px 20px;margin-bottom:12px;box-shadow:0 6px 18px -12px rgba(16,45,105,.25);transition:.2s}
+.f-row:hover{box-shadow:0 12px 26px -14px rgba(16,45,105,.35);transform:translateY(-1px)}
+.f-no{color:var(--muted);font-size:.9rem;text-align:center}
+.f-code{font-family:'Inter','IBM Plex Sans Thai',sans-serif;font-weight:600;font-size:1.35rem;color:var(--navy);white-space:nowrap}
+.f-desc b{display:block;color:var(--navy);font-weight:600;font-size:1rem;line-height:1.45}
+.f-desc span{display:block;color:var(--muted);font-size:.86rem;line-height:1.55;margin-top:3px}
+.f-cell{text-align:center}
+.f-lab{display:none}
+.f-none{color:#b3bcc8}
+.f-pill{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:7px 14px;border-radius:999px;font-size:.84rem;font-weight:500;white-space:nowrap;transition:.18s}
+.f-pill .flag{width:20px;height:14px;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+.f-pill .i{width:14px;height:14px;stroke-width:2.4}
+.f-pill.th{background:#fff4dc;color:#8a5d0c}
+.f-pill.en{background:#e6f6ee;color:#1d7a4d}
+.f-pill.on{background:var(--blue-soft);color:var(--blue)}
+.f-pill.man{background:#efeafd;color:#5b3cc4}
+.f-pill:hover{filter:brightness(.95);transform:translateY(-1px)}
+@media(max-width:980px){
+  .f-head{display:none}
+  .f-row{grid-template-columns:40px 1fr;grid-template-areas:"no code" "desc desc" "c1 c2" "c3 c4";row-gap:10px}
+  .f-no{grid-area:no;text-align:left} .f-code{grid-area:code} .f-desc{grid-area:desc}
+  .f-row>.f-cell:nth-of-type(1){grid-area:c1} .f-row>.f-cell:nth-of-type(2){grid-area:c2}
+  .f-row>.f-cell:nth-of-type(3){grid-area:c3} .f-row>.f-cell:nth-of-type(4){grid-area:c4}
+  .f-cell{text-align:left} .f-lab{display:block;font-size:.75rem;color:var(--muted);margin-bottom:4px}
+}
+
 /* ---------- ANIMATION: ค่อย ๆ เลื่อนเข้ามาเมื่อเลื่อนถึง ---------- */
 .reveal{opacity:0;transform:translateY(22px);will-change:opacity,transform}
 .reveal.in{opacity:1;transform:none;
@@ -451,13 +484,42 @@ const RULES = {type:"boxes",items:[
   {ic:"scale",h:"กฎ ระเบียบ ข้อบังคับ",li:['<a href="#">[ชื่อข้อบังคับ]</a>','<a href="#">[ชื่อข้อบังคับ]</a>','<a href="#">ดูทั้งหมด →</a>']},
   {ic:"building",h:"ประกาศมหาวิทยาลัย",li:['<a href="#">[ชื่อประกาศ]</a>','<a href="#">[ชื่อประกาศ]</a>','<a href="#">ดูทั้งหมด →</a>']}
 ]};
-const FORMS = {type:"table",head:["แบบฟอร์ม","ใช้เมื่อ","หลักสูตร","กำหนดเวลา","ผู้ลงนาม",""],rows:[
-  ["<b>บฑ.35</b>","ผลสอบวัดคุณสมบัติ","ป.เอก","หลังสอบ","ประธานสอบ / ประธานหลักสูตร"],
-  ["<b>บฑ.27</b>","ผลสอบประมวลความรู้","ป.โท แผน ข","หลังสอบ","ประธานสอบ / ประธานหลักสูตร"],
-  ["<b>บทกศ.39</b>","สอบโครงร่างวิทยานิพนธ์","ป.เอก, ป.โท แผน ก","ตามรอบหลักสูตร","ที่ปรึกษา + กรรมการสอบ"],
-  ["<b>บฑ.1</b>","อนุมัติหัวข้อ/โครงร่าง","ป.เอก, ป.โท แผน ก","หลังสอบโครงร่างผ่าน","ที่ปรึกษา · ประธานหลักสูตร"],
-  ["<b>บฑ.2</b>","ขอสอบป้องกัน","ทุกหลักสูตร",'<b style="color:#d14343">ก่อนสอบ ≥ 20 วัน</b>',"ที่ปรึกษา · ประธานหลักสูตร"]
-].map(r=>[...r,'<a class="dl" href="#">ดาวน์โหลด ↓</a>'])};
+const DL = "https://graduate.mahidol.ac.th/download/current-student/form/";
+const FORMS = {type:"forms",
+  title:"แบบฟอร์มเกี่ยวกับบริหารจัดการการทำวิทยานิพนธ์ และสารนิพนธ์",
+  groups:[
+    {name:"การสอบวิทยานิพนธ์ / สารนิพนธ์ / การค้นคว้าอิสระ", rows:[
+      {code:"บฑ.35", name:"กำหนดการสอบวัดคุณสมบัติ และคณะกรรมการสอบวัดคุณสมบัติ",
+       desc:"สำหรับนักศึกษาปริญญาเอก ยื่นขอสอบวัดคุณสมบัติ (QE) พร้อมเสนอคณะกรรมการสอบ ประธานหลักสูตรต้องให้ความเห็นชอบก่อนวันสอบไม่น้อยกว่า 15 วัน",
+       th:DL+"GR_35.pdf", en:DL+"GR_35E.pdf", online:true},
+      {code:"บฑ.39", name:"ขอสอบโครงร่างวิทยานิพนธ์ และคณะกรรมการสอบโครงร่าง",
+       desc:"คำร้องขออนุมัติแต่งตั้งคณะกรรมการสอบโครงร่างและเสนอกำหนดการสอบ สำหรับนักศึกษาแบบหน่วยกิต (รหัส 66 ลงมา)",
+       online:true},
+      {code:"บฑกศ.39", name:"ขอหนังสือเชิญผู้ทำหน้าที่ประเมิน/สอบโครงร่าง",
+       desc:"เพื่อให้ได้มาซึ่งหัวข้อวิทยานิพนธ์/สารนิพนธ์/การค้นคว้าอิสระ นักศึกษารหัส 67 เป็นต้นไปต้องใช้แบบฟอร์มนี้ ใช้เป็นหลักฐานเบิกจ่ายค่าตอบแทนของหลักสูตร",
+       online:true},
+      {code:"บฑ.1", name:"เสนอหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา",
+       desc:"ขออนุมัติหัวข้อวิทยานิพนธ์/สารนิพนธ์อย่างเป็นทางการ พร้อมเสนอแต่งตั้งอาจารย์ที่ปรึกษาหลักและอาจารย์ที่ปรึกษาร่วม",
+       online:true},
+      {code:"บฑ.27", name:"กำหนดการสอบประมวลความรู้ และคณะกรรมการสอบประมวลความรู้",
+       desc:"สำหรับนักศึกษาปริญญาโท แผน ข / แผน 2 ต้องสอบผ่านก่อนยื่น บฑ.2 ประธานหลักสูตรต้องให้ความเห็นชอบก่อนวันสอบไม่น้อยกว่า 15 วัน",
+       th:DL+"GR_27.pdf", en:DL+"GR_27E.pdf", online:true},
+      {code:"บฑ.2", name:"กำหนดสอบวิทยานิพนธ์/สารนิพนธ์ และคณะกรรมการสอบ",
+       desc:"เสนอกำหนดวันสอบและแต่งตั้งคณะกรรมการสอบ ประธานหลักสูตรต้องให้ความเห็นชอบก่อนวันสอบไม่น้อยกว่า 15 วัน",
+       th:DL+"GR_2.pdf", en:DL+"GR_2E.pdf", online:true},
+      {code:"บฑ.29", name:"ขอไปศึกษาดูงาน / ขอไปฝึกปฏิบัติงาน",
+       desc:"กรณีต้องการให้บัณฑิตวิทยาลัยออกหนังสือขอความอนุเคราะห์ให้นักศึกษาไปศึกษาดูงาน/ฝึกปฏิบัติงาน ณ หน่วยงานต่าง ๆ",
+       th:DL+"GR-29.pdf", en:DL+"GR-25E.pdf"}
+    ]},
+    {name:"การเชิญอาจารย์ผู้สอน", rows:[
+      {code:"GRAS.01", name:"แบบเสนอเพื่อรับการพิจารณาแต่งตั้งเป็นอาจารย์พิเศษ",
+       desc:"เสนอรายชื่อผู้ทรงคุณวุฒิเพื่อแต่งตั้งเป็นอาจารย์พิเศษ",
+       th:DL+"GRAS.01-TH.pdf", en:DL+"GRAS.01-EN.pdf"},
+      {code:"GRAS.02", name:"แบบเสนอผู้มีความรู้ความเชี่ยวชาญและประสบการณ์สูง",
+       desc:"เสนอผู้มีความรู้ ความเชี่ยวชาญ และประสบการณ์สูง เพื่อขออนุมัติตามข้อบังคับ",
+       th:DL+"GRAS.02_Th.pdf", en:DL+"GRAS.02_En.pdf"}
+    ]}
+  ]};
 
 /* ---------- บทบาท + Shortcuts ---------- */
 const ROLES = [
@@ -571,6 +633,31 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  /* ---------- ตารางแบบฟอร์ม ---------- */
+  "แบบฟอร์มเกี่ยวกับบริหารจัดการการทำวิทยานิพนธ์ และสารนิพนธ์":"Thesis and Thematic Paper Management Forms",
+  "ลำดับ":"No.", "คำอธิบาย":"Description", "ภาษาไทย":"Thai", "ภาษาอังกฤษ":"English", "ออนไลน์":"Online", "คู่มือ":"Guide",
+  "การสอบวิทยานิพนธ์ / สารนิพนธ์ / การค้นคว้าอิสระ":"Thesis / Thematic Paper / Independent Study Examinations",
+  "การเชิญอาจารย์ผู้สอน":"Inviting Instructors",
+  "บฑ.35":"GR.35", "บฑ.39":"GR.39", "บฑกศ.39":"GRAS.39", "บฑ.29":"GR.29",
+  "กำหนดการสอบวัดคุณสมบัติ และคณะกรรมการสอบวัดคุณสมบัติ":"Qualifying examination schedule and committee",
+  "สำหรับนักศึกษาปริญญาเอก ยื่นขอสอบวัดคุณสมบัติ (QE) พร้อมเสนอคณะกรรมการสอบ ประธานหลักสูตรต้องให้ความเห็นชอบก่อนวันสอบไม่น้อยกว่า 15 วัน":"For doctoral students: request the qualifying examination (QE) and propose the committee. The program director must approve at least 15 days before the exam.",
+  "ขอสอบโครงร่างวิทยานิพนธ์ และคณะกรรมการสอบโครงร่าง":"Thesis proposal examination and committee",
+  "คำร้องขออนุมัติแต่งตั้งคณะกรรมการสอบโครงร่างและเสนอกำหนดการสอบ สำหรับนักศึกษาแบบหน่วยกิต (รหัส 66 ลงมา)":"Request to appoint the proposal examination committee and set the exam date, for credit-based students (ID 66 and earlier).",
+  "ขอหนังสือเชิญผู้ทำหน้าที่ประเมิน/สอบโครงร่าง":"Invitation letters for proposal evaluators/examiners",
+  "เพื่อให้ได้มาซึ่งหัวข้อวิทยานิพนธ์/สารนิพนธ์/การค้นคว้าอิสระ นักศึกษารหัส 67 เป็นต้นไปต้องใช้แบบฟอร์มนี้ ใช้เป็นหลักฐานเบิกจ่ายค่าตอบแทนของหลักสูตร":"Used to obtain the thesis / thematic paper / IS topic. Required for students with ID 67 onward; also used as evidence for the program's honorarium payments.",
+  "เสนอหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา":"Topic proposal and advisory committee appointment",
+  "ขออนุมัติหัวข้อวิทยานิพนธ์/สารนิพนธ์อย่างเป็นทางการ พร้อมเสนอแต่งตั้งอาจารย์ที่ปรึกษาหลักและอาจารย์ที่ปรึกษาร่วม":"Request official approval of the thesis / thematic paper topic and propose the major advisor and co-advisors.",
+  "กำหนดการสอบประมวลความรู้ และคณะกรรมการสอบประมวลความรู้":"Comprehensive examination schedule and committee",
+  "สำหรับนักศึกษาปริญญาโท แผน ข / แผน 2 ต้องสอบผ่านก่อนยื่น บฑ.2 ประธานหลักสูตรต้องให้ความเห็นชอบก่อนวันสอบไม่น้อยกว่า 15 วัน":"For Master's Plan B / Plan 2 students; must be passed before submitting GR.2. The program director must approve at least 15 days before the exam.",
+  "กำหนดสอบวิทยานิพนธ์/สารนิพนธ์ และคณะกรรมการสอบ":"Thesis / thematic paper examination schedule and committee",
+  "เสนอกำหนดวันสอบและแต่งตั้งคณะกรรมการสอบ ประธานหลักสูตรต้องให้ความเห็นชอบก่อนวันสอบไม่น้อยกว่า 15 วัน":"Propose the exam date and examination committee. The program director must approve at least 15 days before the exam.",
+  "ขอไปศึกษาดูงาน / ขอไปฝึกปฏิบัติงาน":"Study visit / practical training request",
+  "กรณีต้องการให้บัณฑิตวิทยาลัยออกหนังสือขอความอนุเคราะห์ให้นักศึกษาไปศึกษาดูงาน/ฝึกปฏิบัติงาน ณ หน่วยงานต่าง ๆ":"For a letter from the Faculty of Graduate Studies requesting permission for a study visit or practical training at an organization.",
+  "แบบเสนอเพื่อรับการพิจารณาแต่งตั้งเป็นอาจารย์พิเศษ":"Nomination for appointment as a special lecturer",
+  "เสนอรายชื่อผู้ทรงคุณวุฒิเพื่อแต่งตั้งเป็นอาจารย์พิเศษ":"Nominate a qualified expert for appointment as a special lecturer.",
+  "แบบเสนอผู้มีความรู้ความเชี่ยวชาญและประสบการณ์สูง":"Nomination of a highly experienced expert",
+  "เสนอผู้มีความรู้ ความเชี่ยวชาญ และประสบการณ์สูง เพื่อขออนุมัติตามข้อบังคับ":"Nominate a person with high expertise and experience for approval under the regulations.",
+
   /* ---------- ขั้นตอนที่ใช้ร่วมกัน / แผน ก / แผน ข ---------- */
   "การได้มาซึ่งหัวข้อ (Optional)":"Obtaining the topic (Optional)",
   "เป็นตัวเลือก จะทำหรือไม่ทำก็ได้":"Optional step.",
@@ -913,7 +1000,7 @@ let role = ROLES[0], track = "phd", activeLink = null;
 const $ = id => document.getElementById(id);
 
 /* ---------- ANIMATION: ใส่คลาสและสั่งเล่นเมื่อเลื่อนถึง ---------- */
-const REVEAL_SEL = ".hero-pill,.hero h1,.hero p,.sec-head,.ql-head,.role,.qcard,.d-head,.phase,.step,.gcard,.box,.tbl-scroll,.faq details,.tabs,.contact>div,.cbox";
+const REVEAL_SEL = ".hero-pill,.hero h1,.hero p,.sec-head,.ql-head,.role,.qcard,.d-head,.phase,.step,.gcard,.box,.tbl-scroll,.faq details,.tabs,.contact>div,.cbox,.f-row,.forms-title";
 const io = ("IntersectionObserver" in window)
   ? new IntersectionObserver((es,o)=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); o.unobserve(e.target); } }),{rootMargin:"0px 0px -8% 0px",threshold:.08})
   : null;
@@ -1006,6 +1093,32 @@ function renderContent(c){
           <h3>${t(g.h)}</h3><div class="desc">${t(g.d)}</div>
           <div class="foot"><span>${t(g.cta)}</span><span class="arrow">${svg("arrow")}</span></div>
         </a>`).join("")}</div>`;
+    case "forms": {
+      let n = 0;
+      const flagTH = '<svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#a51931"/><rect y="3.33" width="30" height="13.34" fill="#f4f5f8"/><rect y="6.67" width="30" height="6.66" fill="#2d2a4a"/></svg>';
+      const flagEN = '<svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><clipPath id="uk"><path d="M0 0v30h60V0z"/></clipPath><g clip-path="url(#uk)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg>';
+      const none = '<span class="f-none">–</span>';
+      const cell = (label, inner) => `<div class="f-cell"><span class="f-lab">${t(label)}</span>${inner}</div>`;
+      return `<div class="forms">
+        <h3 class="forms-title">${t(c.title)}</h3>
+        <div class="f-head">
+          <span>${t("ลำดับ")}</span><span>${t("แบบฟอร์ม")}</span><span>${t("คำอธิบาย")}</span>
+          <span>${t("ภาษาไทย")}</span><span>${t("ภาษาอังกฤษ")}</span><span>${t("ออนไลน์")}</span><span>${t("คู่มือ")}</span>
+        </div>
+        ${c.groups.map(g=>`
+          <div class="f-group">${t(g.name)}</div>
+          ${g.rows.map(r=>`
+            <div class="f-row">
+              <span class="f-no">${++n}</span>
+              <span class="f-code">${t(r.code)}</span>
+              <div class="f-desc"><b>${t(r.name)}</b><span>${t(r.desc)}</span></div>
+              ${cell("ภาษาไทย", r.th ? `<a class="f-pill th" href="${r.th}" target="_blank" rel="noopener">${flagTH}${t("ภาษาไทย")}</a>` : none)}
+              ${cell("ภาษาอังกฤษ", r.en ? `<a class="f-pill en" href="${r.en}" target="_blank" rel="noopener">${flagEN}English</a>` : none)}
+              ${cell("ออนไลน์", r.online ? `<a class="f-pill on" href="${EFORM.href.th}" target="_blank" rel="noopener">${svg("check")}Online</a>` : none)}
+              ${cell("คู่มือ", r.manual ? `<a class="f-pill man" href="${r.manual}" target="_blank" rel="noopener">${svg("book")}${t("คู่มือ")}</a>` : none)}
+            </div>`).join("")}`).join("")}
+      </div>`;
+    }
     case "table":
       return `<div class="tbl-scroll"><table class="tbl">
         <tr>${c.head.map(h=>`<th>${t(h)}</th>`).join("")}</tr>
