@@ -328,6 +328,73 @@ footer{background:#102d69;color:#fff;border-radius:30px 30px 0 0;padding:26px 0}
   .n-year{grid-area:yr;text-align:left} .n-row .f-cell{grid-area:dl;text-align:left}
 }
 
+
+/* ---------- การ์ดขั้นตอนที่มีรายละเอียด + หน้าต่างรายละเอียด ---------- */
+.card.has-info{cursor:pointer;transition:.2s}
+.card.has-info:hover{border-color:#b9cdef;box-shadow:0 14px 30px -18px rgba(16,45,105,.45);transform:translateY(-2px)}
+.chip-more{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;border-radius:10px;padding:5px 12px;background:var(--navy);color:#fff;border:0;cursor:pointer;font-family:inherit;transition:.18s}
+.chip-more .i{width:14px;height:14px;stroke-width:2.4}
+.chip-more:hover{background:var(--blue)}
+body.lock{overflow:hidden}
+.im{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:24px}
+.im.hide{display:none}
+.im-bg{position:absolute;inset:0;background:rgba(12,28,64,.45);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);animation:imfade .2s ease}
+.im-box{position:relative;width:min(920px,100%);max-height:calc(100vh - 48px);display:flex;flex-direction:column;background:var(--grey);border-radius:24px;box-shadow:0 30px 80px -20px rgba(8,24,60,.55);overflow:hidden;animation:imup .28s cubic-bezier(.22,.8,.3,1)}
+@keyframes imfade{from{opacity:0}}
+@keyframes imup{from{opacity:0;transform:translateY(24px) scale(.98)}}
+.im-head{display:flex;gap:16px;align-items:flex-start;padding:24px 28px 18px;background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff}
+.im-code{flex:none;font-family:'Inter','IBM Plex Sans Thai',sans-serif;font-weight:700;font-size:1.05rem;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:10px 14px}
+.im-head h2{font-size:clamp(1.15rem,2.4vw,1.45rem);line-height:1.3}
+.im-head p{font-size:.88rem;opacity:.82;margin-top:3px}
+.im-x{margin-left:auto;flex:none;width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:1.3rem;line-height:1;cursor:pointer}
+.im-x:hover{background:rgba(255,255,255,.3)}
+.im-nav{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:12px 28px;background:#fff;border-bottom:1px solid var(--line)}
+.im-nav::-webkit-scrollbar{display:none}
+.im-nav button{flex:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font:inherit;font-size:.82rem;color:var(--navy);cursor:pointer;white-space:nowrap}
+.im-nav button:hover{background:var(--blue-soft);border-color:#c9d9f2}
+.im-body{overflow-y:auto;padding:22px 28px 8px;display:grid;gap:16px}
+.im-sec{background:#fff;border:1px solid #e6ecf5;border-radius:18px;padding:20px 22px;scroll-margin-top:12px}
+.im-sec h3{display:flex;align-items:center;gap:12px;font-size:1.05rem;color:var(--navy);margin-bottom:12px}
+.im-ic{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;flex:none}
+.im-ic .i{width:19px;height:19px}
+.im-sec:nth-child(6n+1) .im-ic{background:#e8f0fe;color:#2f5aa8}
+.im-sec:nth-child(6n+2) .im-ic{background:#e6f6ee;color:#23724b}
+.im-sec:nth-child(6n+3) .im-ic{background:#fff1dc;color:#8a5a12}
+.im-sec:nth-child(6n+4) .im-ic{background:#f1ebfd;color:#5b3cc4}
+.im-sec:nth-child(6n+5) .im-ic{background:#fdeaf1;color:#a3365f}
+.im-sec:nth-child(6n+6) .im-ic{background:#e5f5f7;color:#1f6f7a}
+.im-num{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--muted);font-weight:600;margin-left:auto}
+.im-sec p{font-size:.95rem;line-height:1.75;color:var(--text)}
+.im-sub{font-weight:600;color:var(--navy-2);font-size:.9rem;margin:14px 0 6px}
+.im-sub:first-child{margin-top:0}
+.im-sec ul{margin:0 0 0 20px;display:grid;gap:7px;font-size:.93rem;line-height:1.65}
+.im-sec ul li::marker{color:#9db3d6}
+.im-steps{list-style:none;counter-reset:s;display:grid;gap:10px}
+.im-steps li{counter-increment:s;position:relative;padding:12px 14px 12px 54px;background:var(--grey);border-radius:14px;font-size:.93rem;line-height:1.6}
+.im-steps li::before{content:counter(s);position:absolute;left:14px;top:11px;width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem}
+.im-sec b{color:var(--navy)}
+.im-tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:.88rem;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.im-tbl th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:10px 14px}
+.im-tbl td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top;line-height:1.55}
+.im-tbl td:first-child{font-weight:600;color:var(--navy);background:#f8fafd;width:26%}
+.im-tbl tr:nth-child(odd) td:not(:first-child){background:#fbfcfe}
+.im-foot{display:flex;justify-content:flex-end;gap:10px;padding:14px 28px 20px}
+.im-foot a{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border-radius:999px;padding:10px 20px;font-weight:500;font-size:.9rem}
+.im-foot a .i{width:16px;height:16px}
+.im-foot a:hover{background:var(--blue)}
+@media(max-width:640px){
+  .im{padding:0;align-items:flex-end}
+  .im-box{max-height:92vh;border-radius:22px 22px 0 0}
+  .im-head,.im-nav,.im-body,.im-foot{padding-left:18px;padding-right:18px}
+  .im-tbl,.im-tbl tbody,.im-tbl tr,.im-tbl td{display:block;width:100%}
+  .im-tbl tr:first-child{display:none}
+  .im-tbl td:first-child{width:100%}
+  .im-tbl td{border-top:0}
+  .im-tbl tr{border-top:1px solid var(--line)}
+  .im-tbl tr:nth-child(2){border-top:0}
+  .im-tbl td:not(:first-child)::before{content:attr(data-h);display:block;font-size:.74rem;color:var(--muted);margin-bottom:2px}
+}
+
 /* ---------- ANIMATION: ค่อย ๆ เลื่อนเข้ามาเมื่อเลื่อนถึง ---------- */
 .reveal{opacity:0;transform:translateY(22px);will-change:opacity,transform}
 .reveal.in{opacity:1;transform:none;
@@ -421,6 +488,10 @@ footer{background:#102d69;color:#fff;border-radius:30px 30px 0 0;padding:26px 0}
   </div>
 </section>
 
+<div id="infoModal" class="im hide" role="dialog" aria-modal="true" aria-labelledby="imTitle">
+  <div class="im-bg" onclick="closeInfo()"></div>
+  <div class="im-box" id="imBox"></div>
+</div>
 <footer><div class="wrap footer-inner"><span>MAHIDOL UNIVERSITY <small data-i18n>บัณฑิตวิทยาลัย · งานบริการการศึกษา</small></span></div></footer>
 
 <script>
@@ -446,7 +517,7 @@ const S = {
     li:["<b>บฑ.39</b> สำหรับนักศึกษาแบบหน่วยกิต",
         "<b>บฑกศ.39</b> สำหรับนักศึกษาแบบหน่วยกิตและนักศึกษาแบบเหมาจ่าย"],
     meta:[EFORM]},
-  gr1: {t:"บฑ.1 การอนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา",tag:"ก่อนสอบฯ",
+  gr1: {t:"บฑ.1 การอนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา",tag:"ก่อนสอบฯ",info:"gr1",
     li:["ยื่นเสนออนุมัติหัวข้ออย่างเป็นทางการ",
         "เสนอแต่งตั้งอาจารย์ที่ปรึกษาหลักและอาจารย์ที่ปรึกษาร่วม"],
     meta:[EFORM]},
@@ -469,6 +540,50 @@ const S = {
     meta:[{label:"ระบบ บฑ.5 เพื่อขอสำเร็จการศึกษา",
            href:{th:"https://graduate.mahidol.ac.th/e-graduate/main/formlogin.php",
                  en:"https://graduate.mahidol.ac.th/e-graduate/main/formlogin.php"}}]}
+};
+
+/* =========================================================
+   รายละเอียดเชิงลึกของแต่ละขั้นตอน (เปิดเป็นหน้าต่างเมื่อคลิกการ์ด)
+   อ้างอิง: เอกสาร Google Doc แท็บ "รายละเอียด บฑ.1"
+   ========================================================= */
+const INFO = {
+  gr1: {code:"บฑ.1", title:"การอนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา",
+    sub:"สิ่งที่นักศึกษาต้องรู้ก่อนยื่นคำร้อง", link:EFORM,
+    sections:[
+      {ic:"help", h:"บฑ.1 คืออะไร", body:[
+        {p:"ขั้นตอนการอนุมัติขอบเขตหัวข้อวิจัยอย่างเป็นทางการ พร้อมแต่งตั้งคณะกรรมการที่ปรึกษาวิทยานิพนธ์ ซึ่งทำหน้าที่ให้คำแนะนำ กำกับ ดูแล ประเมินความก้าวหน้า และควบคุมการทำวิทยานิพนธ์ของนักศึกษาตลอดระยะเวลาการศึกษา"}]},
+      {ic:"clipboard", h:"เอกสารที่ใช้", body:[
+        {ul:["<b>คำร้อง บฑ.1</b> เสนออนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา ยื่นผ่านระบบ e-Form",
+             "<b>โครงร่างวิทยานิพนธ์ (Thesis Proposal)</b> ระบุหัวข้อ ที่มาและความสำคัญ วัตถุประสงค์ คำถามวิจัย สมมติฐาน ประโยชน์ที่คาดว่าจะได้รับ ระเบียบวิธีวิจัย และแผนการดำเนินงาน",
+             "<b>หลักฐานการสอบผ่าน QE</b> (เฉพาะปริญญาเอก)",
+             "<b>ประวัติและผลงานทางวิชาการ</b> ของอาจารย์ที่ปรึกษาร่วมที่เป็นผู้ทรงคุณวุฒิภายนอก"]}]},
+      {ic:"check", h:"เงื่อนไขและคุณสมบัติ", body:[
+        {sub:"ผู้ยื่นคำร้อง"},
+        {ul:["<b>ปริญญาเอก</b> ต้องสอบผ่านการสอบวัดคุณสมบัติ (QE) ก่อน จึงจะเสนออนุมัติหัวข้อได้",
+             "ประธานหลักสูตรเห็นชอบการลงทะเบียนทำวิทยานิพนธ์แล้ว",
+             "ต้องเสนอหัวข้อต่อหลักสูตร<b>ภายใน 2 ภาคการศึกษา</b> นับตั้งแต่เริ่มลงทะเบียนทำวิทยานิพนธ์"]},
+        {sub:"คณะกรรมการที่ปรึกษา (ปริญญาเอก)"},
+        {ul:["อาจารย์ที่ปรึกษาหลัก <b>1 คน</b> และอาจารย์ที่ปรึกษาร่วม<b>อย่างน้อย 2 คน</b> รวมไม่น้อยกว่า 3 คน",
+             "อาจารย์ที่ปรึกษาหลัก ต้องเป็นอาจารย์ประจำหลักสูตร",
+             "อาจารย์ที่ปรึกษาร่วมที่เป็นอาจารย์ประจำ นักวิจัยประจำ หรือศาสตราจารย์วุฒิคุณ มีคุณสมบัติเช่นเดียวกับอาจารย์ประจำหลักสูตร",
+             "ผู้ทรงคุณวุฒิภายนอก ต้องมีคุณวุฒิปริญญาเอกหรือเทียบเท่า และมีผลงานตีพิมพ์ตรงหรือสัมพันธ์กับหัวข้อ<b>ไม่น้อยกว่า 10 รายการ</b>"]}]},
+      {ic:"route", h:"ขั้นตอนการยื่นคำร้อง", body:[
+        {ol:["<b>เตรียมหัวข้อและโครงร่าง</b> จัดทำหัวข้อและโครงร่างวิทยานิพนธ์ (ปริญญาเอกต้องสอบผ่าน QE แล้ว)",
+             "<b>ทาบทามกรรมการ</b> ระบุรายชื่ออาจารย์ที่ปรึกษาหลักและอาจารย์ที่ปรึกษาร่วมในคำร้อง",
+             "<b>เสนอหลักสูตร</b> ยื่นคำร้องผ่านอาจารย์ที่ปรึกษาหลักเพื่อลงนามเห็นชอบ แล้วเสนอประธานหลักสูตรพิจารณา",
+             "<b>อนุมัติและแต่งตั้ง</b> ประธานหลักสูตรเสนอบัณฑิตวิทยาลัย คณบดีบัณฑิตวิทยาลัยอนุมัติและออกคำสั่งแต่งตั้ง"]}]},
+      {ic:"arrow", h:"หลังจากนี้ทำอะไรต่อ", body:[
+        {ul:["<b>ทำวิจัยและรายงานความก้าวหน้า</b> ต่อบัณฑิตวิทยาลัยทุกภาคการศึกษา (ประเมินเป็น P, S หรือ U)",
+             "<b>ระยะเวลาก่อนขอสอบ</b> ต้องเรียบเรียงวิทยานิพนธ์ไม่น้อยกว่า 90 วัน (สารนิพนธ์ / การค้นคว้าอิสระ ไม่น้อยกว่า 45 วัน) นับแต่วันที่ได้รับแต่งตั้ง จึงจะยื่น บฑ.2 ได้",
+             "<b>เปลี่ยนหัวข้อหรือกรรมการ</b> ต้องยื่นคำร้องขออนุมัติจากคณบดีบัณฑิตวิทยาลัยผ่านประธานหลักสูตรอีกครั้ง"]}]},
+      {ic:"scale", h:"ความแตกต่างตามข้อบังคับ 2563 และ 2567", body:[
+        {table:{head:["ประเด็น","ข้อบังคับ พ.ศ. 2563","ข้อบังคับ พ.ศ. 2567"], rows:[
+          ["ลำดับการยื่นคำร้อง","ต้องสอบผ่าน QE ก่อนเสนอโครงร่างวิทยานิพนธ์","ต้องสอบผ่าน QE ก่อนเสนอหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา"],
+          ["ผลงานของกรรมการภายนอก","ฐานข้อมูลสากล ไม่น้อยกว่า 10 เรื่อง","ฐานข้อมูลที่เป็นที่ยอมรับ ไม่น้อยกว่า 10 รายการ และมีข้อยกเว้นให้สภามหาวิทยาลัยอนุมัติผู้เชี่ยวชาญพิเศษ"],
+          ["ประเภทอาจารย์ระดับปริญญาเอก","8 ประเภท (แยกอาจารย์โครงร่างวิทยานิพนธ์)","6 ประเภท (ตัดประเภทอาจารย์โครงร่างวิทยานิพนธ์ออก)"],
+          ["ระยะเวลาเสนอหัวข้อ","ภายใน 2 ภาคการศึกษา","ภายใน 2 ภาคการศึกษา (คงเดิม)"],
+          ["ระยะเวลาก่อนขอสอบ","ไม่น้อยกว่า 90 วัน นับแต่วันแต่งตั้ง","ไม่น้อยกว่า 90 วัน นับแต่วันแต่งตั้ง (คงเดิม)"]]}}]}
+    ]}
 };
 
 const PATH = {
@@ -701,6 +816,58 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  /* ---------- รายละเอียด บฑ.1 ---------- */
+  "ดูรายละเอียด":"View details",
+  "ปิด":"Close",
+  "ในหน้านี้":"On this page",
+  "การอนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา":"Topic approval and appointment of the advisory committee",
+  "สิ่งที่นักศึกษาต้องรู้ก่อนยื่นคำร้อง":"What students need to know before submitting",
+  "บฑ.1 คืออะไร":"What is GR.1?",
+  "ขั้นตอนการอนุมัติขอบเขตหัวข้อวิจัยอย่างเป็นทางการ พร้อมแต่งตั้งคณะกรรมการที่ปรึกษาวิทยานิพนธ์ ซึ่งทำหน้าที่ให้คำแนะนำ กำกับ ดูแล ประเมินความก้าวหน้า และควบคุมการทำวิทยานิพนธ์ของนักศึกษาตลอดระยะเวลาการศึกษา":"The step that formally approves the scope of your research topic and appoints the thesis advisory committee, who advise, supervise, assess progress and oversee your thesis throughout your studies.",
+  "เอกสารที่ใช้":"Required documents",
+  "<b>คำร้อง บฑ.1</b> เสนออนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา ยื่นผ่านระบบ e-Form":"<b>GR.1 request</b> for topic approval and advisory committee appointment, submitted via e-Form",
+  "<b>โครงร่างวิทยานิพนธ์ (Thesis Proposal)</b> ระบุหัวข้อ ที่มาและความสำคัญ วัตถุประสงค์ คำถามวิจัย สมมติฐาน ประโยชน์ที่คาดว่าจะได้รับ ระเบียบวิธีวิจัย และแผนการดำเนินงาน":"<b>Thesis proposal</b> covering the topic, background and significance, objectives, research questions, hypotheses, expected benefits, methodology and work plan",
+  "<b>หลักฐานการสอบผ่าน QE</b> (เฉพาะปริญญาเอก)":"<b>Proof of passing the QE</b> (doctoral students only)",
+  "<b>ประวัติและผลงานทางวิชาการ</b> ของอาจารย์ที่ปรึกษาร่วมที่เป็นผู้ทรงคุณวุฒิภายนอก":"<b>CV and publications</b> of any external co-advisor",
+  "เงื่อนไขและคุณสมบัติ":"Conditions and qualifications",
+  "ผู้ยื่นคำร้อง":"Applicant",
+  "<b>ปริญญาเอก</b> ต้องสอบผ่านการสอบวัดคุณสมบัติ (QE) ก่อน จึงจะเสนออนุมัติหัวข้อได้":"<b>Doctoral students</b> must pass the qualifying examination (QE) before proposing the topic",
+  "ประธานหลักสูตรเห็นชอบการลงทะเบียนทำวิทยานิพนธ์แล้ว":"Thesis registration has been approved by the program chair",
+  "ต้องเสนอหัวข้อต่อหลักสูตร<b>ภายใน 2 ภาคการศึกษา</b> นับตั้งแต่เริ่มลงทะเบียนทำวิทยานิพนธ์":"The topic must be proposed to the program <b>within 2 semesters</b> of first registering for the thesis",
+  "คณะกรรมการที่ปรึกษา (ปริญญาเอก)":"Advisory committee (doctoral)",
+  "อาจารย์ที่ปรึกษาหลัก <b>1 คน</b> และอาจารย์ที่ปรึกษาร่วม<b>อย่างน้อย 2 คน</b> รวมไม่น้อยกว่า 3 คน":"<b>1</b> major advisor and <b>at least 2</b> co-advisors, at least 3 members in total",
+  "อาจารย์ที่ปรึกษาหลัก ต้องเป็นอาจารย์ประจำหลักสูตร":"The major advisor must be a program faculty member",
+  "อาจารย์ที่ปรึกษาร่วมที่เป็นอาจารย์ประจำ นักวิจัยประจำ หรือศาสตราจารย์วุฒิคุณ มีคุณสมบัติเช่นเดียวกับอาจารย์ประจำหลักสูตร":"Co-advisors who are faculty members, researchers or emeritus professors need the same qualifications as program faculty",
+  "ผู้ทรงคุณวุฒิภายนอก ต้องมีคุณวุฒิปริญญาเอกหรือเทียบเท่า และมีผลงานตีพิมพ์ตรงหรือสัมพันธ์กับหัวข้อ<b>ไม่น้อยกว่า 10 รายการ</b>":"External experts need a doctorate or equivalent and <b>at least 10 publications</b> related to the topic",
+  "ขั้นตอนการยื่นคำร้อง":"How to submit",
+  "<b>เตรียมหัวข้อและโครงร่าง</b> จัดทำหัวข้อและโครงร่างวิทยานิพนธ์ (ปริญญาเอกต้องสอบผ่าน QE แล้ว)":"<b>Prepare the topic and proposal</b> (doctoral students must have passed the QE)",
+  "<b>ทาบทามกรรมการ</b> ระบุรายชื่ออาจารย์ที่ปรึกษาหลักและอาจารย์ที่ปรึกษาร่วมในคำร้อง":"<b>Invite the committee</b> and list the major advisor and co-advisors in the request",
+  "<b>เสนอหลักสูตร</b> ยื่นคำร้องผ่านอาจารย์ที่ปรึกษาหลักเพื่อลงนามเห็นชอบ แล้วเสนอประธานหลักสูตรพิจารณา":"<b>Submit to the program</b> through the major advisor for signature, then to the program chair for review",
+  "<b>อนุมัติและแต่งตั้ง</b> ประธานหลักสูตรเสนอบัณฑิตวิทยาลัย คณบดีบัณฑิตวิทยาลัยอนุมัติและออกคำสั่งแต่งตั้ง":"<b>Approval and appointment</b>: the program chair forwards it to the Faculty, and the Dean approves and issues the appointment order",
+  "หลังจากนี้ทำอะไรต่อ":"What comes next",
+  "<b>ทำวิจัยและรายงานความก้าวหน้า</b> ต่อบัณฑิตวิทยาลัยทุกภาคการศึกษา (ประเมินเป็น P, S หรือ U)":"<b>Do your research and report progress</b> to the Faculty every semester (graded P, S or U)",
+  "<b>ระยะเวลาก่อนขอสอบ</b> ต้องเรียบเรียงวิทยานิพนธ์ไม่น้อยกว่า 90 วัน (สารนิพนธ์ / การค้นคว้าอิสระ ไม่น้อยกว่า 45 วัน) นับแต่วันที่ได้รับแต่งตั้ง จึงจะยื่น บฑ.2 ได้":"<b>Minimum time before the exam</b>: at least 90 days (45 days for a thematic paper / IS) after the appointment before you can submit GR.2",
+  "<b>เปลี่ยนหัวข้อหรือกรรมการ</b> ต้องยื่นคำร้องขออนุมัติจากคณบดีบัณฑิตวิทยาลัยผ่านประธานหลักสูตรอีกครั้ง":"<b>Changing the topic or committee</b> requires a new request to the Dean through the program chair",
+  "ความแตกต่างตามข้อบังคับ 2563 และ 2567":"Differences between the 2020 and 2024 regulations",
+  "ประเด็น":"Topic",
+  "ข้อบังคับ พ.ศ. 2563":"2020 Regulation",
+  "ข้อบังคับ พ.ศ. 2567":"2024 Regulation",
+  "ลำดับการยื่นคำร้อง":"Order of submission",
+  "ต้องสอบผ่าน QE ก่อนเสนอโครงร่างวิทยานิพนธ์":"Pass the QE before proposing the thesis proposal",
+  "ต้องสอบผ่าน QE ก่อนเสนอหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา":"Pass the QE before proposing the topic and advisory committee",
+  "ผลงานของกรรมการภายนอก":"External member publications",
+  "ฐานข้อมูลสากล ไม่น้อยกว่า 10 เรื่อง":"International databases, at least 10 articles",
+  "ฐานข้อมูลที่เป็นที่ยอมรับ ไม่น้อยกว่า 10 รายการ และมีข้อยกเว้นให้สภามหาวิทยาลัยอนุมัติผู้เชี่ยวชาญพิเศษ":"Recognized databases, at least 10 items, with an exception for special experts approved by the University Council",
+  "ประเภทอาจารย์ระดับปริญญาเอก":"Doctoral faculty categories",
+  "8 ประเภท (แยกอาจารย์โครงร่างวิทยานิพนธ์)":"8 categories (separate proposal advisors)",
+  "6 ประเภท (ตัดประเภทอาจารย์โครงร่างวิทยานิพนธ์ออก)":"6 categories (proposal advisor categories removed)",
+  "ระยะเวลาเสนอหัวข้อ":"Topic proposal deadline",
+  "ภายใน 2 ภาคการศึกษา":"Within 2 semesters",
+  "ภายใน 2 ภาคการศึกษา (คงเดิม)":"Within 2 semesters (unchanged)",
+  "ระยะเวลาก่อนขอสอบ":"Minimum time before the exam",
+  "ไม่น้อยกว่า 90 วัน นับแต่วันแต่งตั้ง":"At least 90 days after appointment",
+  "ไม่น้อยกว่า 90 วัน นับแต่วันแต่งตั้ง (คงเดิม)":"At least 90 days after appointment (unchanged)",
+
   "ค้นหาแบบฟอร์ม เช่น 35, บฑ.35 หรือ สอบวัดคุณสมบัติ":"Search forms, e.g. 35, GR.35 or qualifying exam",
   "ค้นหาแบบฟอร์ม":"Search forms",
   "ไม่พบแบบฟอร์มที่ค้นหา":"No matching forms",
@@ -1103,6 +1270,7 @@ function setLang(l){
   try{ localStorage.setItem("gs-lang", lang); }catch(e){}
   applyStatic(); renderRoles(); renderQuick(); reveal();
   if(activeLink) renderDetail();
+  if(curInfo) renderInfo();
 }
 
 /* =========================================================
@@ -1200,6 +1368,40 @@ function filterForms(inp){
   box.querySelector(".f-empty").classList.toggle("hide", shown > 0);
   box.querySelector(".f-count").textContent = q ? shown + " " + t("รายการ") : "";
 }
+/* ---------- หน้าต่างรายละเอียดขั้นตอน ---------- */
+let curInfo = null;
+function renderInfo(){
+  const d = INFO[curInfo]; if(!d) return;
+  const blk = b => b.p ? `<p>${t(b.p)}</p>`
+    : b.sub ? `<div class="im-sub">${t(b.sub)}</div>`
+    : b.ul ? `<ul>${b.ul.map(x=>`<li>${t(x)}</li>`).join("")}</ul>`
+    : b.ol ? `<ol class="im-steps">${b.ol.map(x=>`<li>${t(x)}</li>`).join("")}</ol>`
+    : b.table ? `<table class="im-tbl"><tr>${b.table.head.map(h=>`<th>${t(h)}</th>`).join("")}</tr>${b.table.rows.map(r=>`<tr>${r.map((c,i)=>`<td data-h="${t(b.table.head[i])}">${t(c)}</td>`).join("")}</tr>`).join("")}</table>`
+    : "";
+  $("imBox").innerHTML = `
+    <div class="im-head">
+      <span class="im-code">${t(d.code)}</span>
+      <div><h2 id="imTitle">${t(d.title)}</h2><p>${t(d.sub)}</p></div>
+      <button class="im-x" onclick="closeInfo()" aria-label="${t("ปิด")}">×</button>
+    </div>
+    <nav class="im-nav" aria-label="${t("ในหน้านี้")}">${d.sections.map((s,i)=>`<button onclick="document.getElementById('ims${i}').scrollIntoView({behavior:'smooth'})">${i+1}. ${t(s.h)}</button>`).join("")}</nav>
+    <div class="im-body">${d.sections.map((s,i)=>`
+      <section class="im-sec" id="ims${i}">
+        <h3><span class="im-ic">${svg(s.ic)}</span>${t(s.h)}<span class="im-num">${String(i+1).padStart(2,"0")}</span></h3>
+        ${s.body.map(blk).join("")}
+      </section>`).join("")}</div>
+    ${d.link ? `<div class="im-foot"><a href="${d.link.href[lang]||d.link.href.th}" target="_blank" rel="noopener">${t(d.link.label)}${svg("arrow")}</a></div>` : ""}`;
+}
+function openInfo(key){
+  curInfo = key; renderInfo();
+  $("infoModal").classList.remove("hide"); document.body.classList.add("lock");
+  $("imBox").querySelector(".im-body").scrollTop = 0;
+  $("imBox").querySelector(".im-x").focus();
+}
+function closeInfo(){
+  curInfo = null; $("infoModal").classList.add("hide"); document.body.classList.remove("lock");
+}
+document.addEventListener("keydown", e => { if(e.key === "Escape" && curInfo) closeInfo(); });
 function goRoles(){ $("role").scrollIntoView({behavior:"smooth"}); }
 function goQuick(){
   activeLink = null;
@@ -1219,9 +1421,9 @@ function renderContent(c){
       <div class="timeline">${PATH[track].map((s,i,arr)=>`
         ${(i===0||arr[i-1].tag!==s.tag)?`<div class="phase"><span>${t(s.tag)}</span></div>`:""}
         <div class="step ${s.skip?'skip':''} ${s.optional?'opt':''}"><div class="dot">${numOf[i]===null?svg("star"):numOf[i]}</div>
-          <div class="card"><h3>${t(s.t)}</h3>
+          <div class="card ${s.info?'has-info':''}" ${s.info?`onclick="if(!event.target.closest('a,button'))openInfo('${s.info}')"`:""}><h3>${t(s.t)}</h3>
             <ul>${s.li.map(x=>`<li>${t(x)}</li>`).join("")}</ul>
-            <div class="meta">${s.meta.map(m=>typeof m==="string"
+            <div class="meta">${s.info?`<button class="chip-more" onclick="openInfo('${s.info}')">${svg("file")}${t("ดูรายละเอียด")} ${t(INFO[s.info].code)}</button>`:""}${s.meta.map(m=>typeof m==="string"
               ? `<span class="chip">${t(m)}</span>`
               : `<a class="chip chip-link" href="${m.href[lang]||m.href.th}" target="_blank" rel="noopener">${t(m.label)}${svg("arrow")}</a>`).join("")}</div>
           </div></div>`).join("")}</div>`;
