@@ -256,11 +256,12 @@ details[open] summary::after{content:"−"}
 details p{font-size:.93rem;color:var(--muted);margin-top:8px}
 
 /* contact / footer */
-.contact{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,720px);align-items:center;gap:28px}
+@media(max-width:900px){.contact{grid-template-columns:1fr}}
 .contact .eyebrow{font-size:.8rem;font-weight:600;letter-spacing:.14em;color:var(--navy-2)}
 .contact h2{font-size:clamp(1.5rem,3vw,1.9rem);color:var(--navy);line-height:1.3}
 .contact p{color:var(--muted);font-size:.95rem}
-.cbox{display:grid;grid-template-columns:1fr 1fr;background:#f0f5fd;border:1px solid #e0e9f7;border-radius:22px;padding:22px 8px}
+.cbox{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);background:#f0f5fd;border:1px solid #e0e9f7;border-radius:22px;padding:22px 8px}
 .ccol{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:0 22px}
 .ccol+.ccol{border-left:1px solid #dbe5f4}
 .chd{display:flex;align-items:center;gap:10px}
@@ -274,7 +275,7 @@ details p{font-size:.93rem;color:var(--muted);margin-top:8px}
 .cext li{display:flex;align-items:center;gap:10px}
 .cbox .cext a{font-size:.88rem;font-weight:600;background:#fff;border:1px solid #d6e3f6;border-radius:999px;padding:3px 11px;min-width:104px;text-align:center;transition:.15s}
 .cbox .cext a:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
-.cext em{font-style:normal;font-size:.88rem;color:var(--text)}
+.cext em{font-style:normal;font-size:.88rem;color:var(--text);line-height:1.35}
 .cqr{display:flex;align-items:center;gap:12px}
 .cqr .qr{width:92px;height:92px;background:#fff;padding:7px;border-radius:12px;border:1px solid #d6e3f6;box-sizing:content-box}
 .cqr span{font-size:.84rem;color:var(--muted);white-space:normal;max-width:90px;line-height:1.4}
