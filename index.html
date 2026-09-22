@@ -356,7 +356,7 @@ footer{background:#102d69;color:#fff;border-radius:30px 30px 0 0;padding:26px 0}
 .f-pill.pdf{background:#fdeceb;color:#b3261e}
 @media(max-width:980px){
   .n-head{display:none}
-  .n-row{grid-template-columns:40px 1fr;grid-template-areas:"no desc" "no yr" "no dl";row-gap:10px}
+  .n-row{grid-template-columns:40px minmax(0,1fr);grid-template-areas:"no desc" "no yr" "no dl";row-gap:10px}
   .n-row .f-no{grid-area:no;text-align:left;align-self:start} .n-row .f-desc{grid-area:desc}
   .n-year{grid-area:yr;text-align:left} .n-row .f-cell{grid-area:dl;text-align:left}
 }
@@ -492,6 +492,59 @@ body.lock{overflow:hidden}
 @media(max-width:760px){
   .q-row summary{grid-template-columns:32px minmax(0,1fr) 28px}
   .q-a{padding:14px 18px 18px 18px}
+}
+
+
+/* ================= มือถือ (ปรับเพิ่มเติม) ================= */
+@media(max-width:760px){
+  /* หัวเว็บ: ชื่อหลักอยู่บรรทัดเดียว */
+  .hero{padding:48px 0 36px}
+  .hero h1 .h-main{font-size:clamp(1.9rem,9.6vw,2.6rem);white-space:nowrap}
+  .hero-pill{font-size:.74rem;padding:5px 12px}
+  /* การ์ดบทบาท: ไอคอนซ้าย ข้อความขวา */
+  .roles{gap:12px}
+  .role{display:grid;grid-template-columns:48px minmax(0,1fr) 24px;column-gap:14px;align-items:center;padding:16px 16px}
+  .role-top{display:contents}
+  .role .ico{grid-column:1;grid-row:1/3;width:48px;height:48px;border-radius:14px}
+  .role .ico .i{width:24px;height:24px}
+  .role .tick{grid-column:3;grid-row:1/3;width:24px;height:24px}
+  .role h3{grid-column:2;margin:0;font-size:1.02rem}
+  .role p{grid-column:2;font-size:.82rem;line-height:1.5}
+  /* แท็บแผนการศึกษา: เลื่อนซ้าย-ขวาได้ */
+  .tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px 22px;padding:2px 16px}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:none;padding:9px 16px;font-size:.86rem}
+  .timeline{padding-left:44px}
+  .dot{left:-44px;width:34px;height:34px;font-size:.9rem}
+  .timeline::before{left:16px}
+  .phase{margin-left:-44px}
+  .card{padding:16px 16px}
+  .card ul{margin-left:16px}
+  .d-head{margin-bottom:22px}
+  /* ตารางแบบฟอร์ม: ปุ่มเรียงต่อกันใต้คำอธิบาย */
+  .f-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 8px;padding:16px}
+  .f-row .f-no{width:22px;text-align:left}
+  .f-row .f-code{flex:1;font-size:1.2rem}
+  .f-row .f-desc{flex-basis:100%}
+  .f-row .f-cell{flex:none}
+  .f-row .f-cell:has(.f-none){display:none}
+  .f-row .f-lab{display:none}
+  .f-pill{padding:7px 12px}
+  /* ตารางประกาศ: ปีกับปุ่ม PDF อยู่บรรทัดเดียวกัน */
+  .n-row{grid-template-columns:24px minmax(0,1fr) auto;grid-template-areas:"no desc desc" ". yr dl";padding:16px;column-gap:10px}
+  .n-row .f-cell{text-align:right}
+  /* FAQ */
+  .q-cats{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:12px -16px 4px;padding:2px 16px}
+  .q-cats::-webkit-scrollbar{display:none}
+  .q-cats button{flex:none}
+  .q-row summary{grid-template-columns:24px minmax(0,1fr) 28px;gap:10px;padding:14px 14px}
+  .q-row .f-no{grid-area:auto;align-self:start;text-align:left}
+  .q-q{font-size:.95rem}
+  .q-a{padding:12px 14px 16px 48px}
+  .faqx .f-grp{padding:8px 8px 2px;border-radius:18px}
+  /* ติดต่อ */
+  .ccol{padding:0 6px}
+  .cbox .cbig{font-size:1.25rem}
 }
 
 /* ---------- ANIMATION: ค่อย ๆ เลื่อนเข้ามาเมื่อเลื่อนถึง ---------- */
@@ -2061,8 +2114,8 @@ function setRole(id){
 function renderDetail(){
   const i = role.links.indexOf(activeLink);
   $("dEyebrow").textContent = t(role.name).toUpperCase() + " · " + t("หัวข้อที่") + " " + (i+1);
-  $("dTitle").textContent = t(activeLink.title);
-  $("dDesc").textContent = t(activeLink.desc || "");
+  $("dTitle").innerHTML = nb(t(activeLink.title));
+  $("dDesc").innerHTML = nb(t(activeLink.desc || ""));
   $("dBody").innerHTML = renderContent(activeLink.content);
 }
 function openLink(i){
