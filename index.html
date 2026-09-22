@@ -671,6 +671,7 @@ body.lock{overflow:hidden}
    ========================================================= */
 
 /* ระบบ e-Form (ใช้กับ บฑ.1, บฑ.2, บฑ.27, บฑ.35, บฑ.39, บฑกศ.39) */
+const REGSYS = {label:"เข้าระบบลงทะเบียน", href:{th:"https://graduate.mahidol.ac.th/StudentServiceSystem/Registration/form_login.php",en:"https://graduate.mahidol.ac.th/StudentServiceSystem/Registration/form_login.php"}};
 const EFORM = {label:"ยื่นผ่านระบบ e-Form",
   href:{th:"https://graduate.mahidol.ac.th/prof2/student/MainPage.php?lang=th&module=login.php",
         en:"https://graduate.mahidol.ac.th/prof2/student/MainPage.php?lang=th&module=login.php"}};
@@ -946,7 +947,7 @@ const PATH = {
      meta:[EFORM]},
     {t:"ลงทะเบียนวิทยานิพนธ์",tag:"ก่อนสอบฯ",
      li:["ลงทะเบียนวิทยานิพนธ์ตามแผนการศึกษา"],
-     meta:["ไม่มีแบบฟอร์ม"]},
+     meta:[REGSYS]},
     S.topic,
     S.gr1,
     S.irb,
@@ -962,7 +963,7 @@ const PATH = {
   mscA:[
     {t:"ลงทะเบียนวิทยานิพนธ์",tag:"ก่อนสอบฯ",
      li:["ลงทะเบียนวิทยานิพนธ์ตามแผนการศึกษา"],
-     meta:["ไม่มีแบบฟอร์ม"]},
+     meta:[REGSYS]},
     S.topic,
     S.gr1,
     S.irb,
@@ -978,7 +979,7 @@ const PATH = {
   mscB:[
     {t:"ลงทะเบียนสารนิพนธ์ / การค้นคว้าอิสระ",tag:"ก่อนสอบฯ",
      li:["ลงทะเบียนสารนิพนธ์หรือการค้นคว้าอิสระตามแผนการศึกษา"],
-     meta:["ไม่มีแบบฟอร์ม"]},
+     meta:[REGSYS]},
     S.topic,
     S.gr1,
     S.irb,
@@ -1277,6 +1278,7 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  "เข้าระบบลงทะเบียน":"Registration system",
   "ขออภัย ส่วนนี้อยู่ระหว่างการจัดทำ":"Sorry, this section is under construction",
   "ข้อมูลสำหรับ":"Information for ",
   "จะเปิดให้ใช้งานเร็ว ๆ นี้ ระหว่างนี้สอบถามได้ที่งานบริการการศึกษา":"will be available soon. In the meantime, please contact the Academic Service Section.",
