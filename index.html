@@ -113,6 +113,16 @@ section{padding:56px 0}
 .ql-head .kicker{margin-bottom:6px}
 .ql-head h2{font-size:clamp(1.6rem,3.4vw,2.2rem);color:var(--navy);line-height:1.1}
 .ql-head p{color:var(--navy-2);font-family:'Inter','IBM Plex Sans Thai';font-size:1.05rem}
+.soon{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:56px 24px;background:#fff;border:1.5px dashed #cfdcf0;border-radius:28px}
+.soon-ic{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;background:var(--blue-soft);color:var(--navy);margin-bottom:6px}
+.soon-ic .i{width:30px;height:30px}
+.soon h3{font-size:clamp(1.2rem,2.4vw,1.5rem);color:var(--navy)}
+.soon p{color:var(--muted);max-width:520px;line-height:1.7}
+.soon-act{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.soon-btn{display:inline-flex;align-items:center;border-radius:999px;padding:10px 20px;font:inherit;font-size:.9rem;font-weight:500;background:var(--navy);color:#fff;border:1px solid var(--navy);cursor:pointer}
+.soon-btn:hover{background:var(--blue);border-color:var(--blue)}
+.soon-btn.ghost{background:#fff;color:var(--navy);border-color:var(--line)}
+.soon-btn.ghost:hover{background:var(--blue-soft)}
 .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(228px,auto);gap:22px}
 .bento .qcard:nth-child(1){grid-row:span 2}
 .bento .qcard:nth-child(6){grid-column:span 2}
@@ -1131,7 +1141,7 @@ const ROLES = [
    {icon:"help",bg:"bg6",title:"FAQ คำถามที่พบบ่อย",p:"รวมคำถามจากนักศึกษา",
     desc:"คำตอบสำหรับคำถามที่นักศึกษาถามบ่อย",content:FAQS}
  ]},
- {id:"advisor",icon:"teacher",name:"อาจารย์ที่ปรึกษา / กรรมการ",sub:"ต้องลงนามอะไร · บทบาทในการสอบ · เกณฑ์พิจารณา",links:[
+ {id:"advisor",soon:true,icon:"teacher",name:"อาจารย์ที่ปรึกษา / กรรมการ",sub:"ต้องลงนามอะไร · บทบาทในการสอบ · เกณฑ์พิจารณา",links:[
    {icon:"pen",bg:"bg1",title:"เอกสารที่ต้องลงนาม",bullets:["สอบโครงร่าง","สอบป้องกัน","ส่งเล่มสมบูรณ์"],
     desc:"แบบฟอร์มที่อาจารย์ต้องลงนามในแต่ละขั้นตอน",content:{type:"table",head:["ขั้นตอน","แบบฟอร์ม","บทบาทของอาจารย์"],rows:[
       ["สอบวัดคุณสมบัติ / ประมวลความรู้","บฑ.35 / บฑ.27","กรรมการสอบ พิจารณาผลและลงนาม"],
@@ -1152,7 +1162,7 @@ const ROLES = [
    {icon:"scale",bg:"bg5",title:"ประกาศและข้อบังคับ",p:"คุณสมบัติอาจารย์ · เกณฑ์หลักสูตร",desc:"ประกาศที่อาจารย์ควรทราบ",content:RULES},
    {icon:"help",bg:"bg6",title:"FAQ คำถามที่พบบ่อย",p:"สำหรับอาจารย์",desc:"คำถามที่อาจารย์ถามบ่อย",content:FAQS}
  ]},
- {id:"staff",icon:"folder",name:"เจ้าหน้าที่หลักสูตร",sub:"ตรวจเอกสาร · ประสานวันสอบ · ส่งต่อบัณฑิตวิทยาลัย",links:[
+ {id:"staff",soon:true,icon:"folder",name:"เจ้าหน้าที่หลักสูตร",sub:"ตรวจเอกสาร · ประสานวันสอบ · ส่งต่อบัณฑิตวิทยาลัย",links:[
    {icon:"calendar",bg:"bg1",title:"กำหนดการ",bullets:["ประชุมคณะกรรมการกลั่นกรอง","รอบสอบ / รอบสำเร็จการศึกษา","กำหนดส่งเอกสาร"],
     desc:"ปฏิทินงานที่เจ้าหน้าที่ต้องติดตาม",content:{type:"table",head:["รายการ","ภาคการศึกษาที่ 1","ภาคการศึกษาที่ 2"],rows:[
       ["ประชุมคณะกรรมการ","[วันที่]","[วันที่]"],["ปิดรับ บฑ.2","[วันที่]","[วันที่]"],["ส่งเล่มสมบูรณ์รอบสำเร็จการศึกษา","[วันที่]","[วันที่]"]]}},
@@ -1207,6 +1217,11 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  "ขออภัย ส่วนนี้อยู่ระหว่างการจัดทำ":"Sorry, this section is under construction",
+  "ข้อมูลสำหรับ":"Information for ",
+  "จะเปิดให้ใช้งานเร็ว ๆ นี้ ระหว่างนี้สอบถามได้ที่งานบริการการศึกษา":"will be available soon. In the meantime, please contact the Academic Service Section.",
+  "ช่องทางติดต่อ":"Contact us",
+  "ดูข้อมูลสำหรับนักศึกษา":"View student information",
   /* ---------- FAQ ---------- */
   "คำถามที่พบบ่อย (FAQ)":"Frequently Asked Questions (FAQ)",
   "ค้นหาคำถาม เช่น ค่าปรับ, Turnitin, บฑ.49":"Search questions, e.g. fee, Turnitin, GR.49",
@@ -1981,6 +1996,19 @@ const NB_RE = new RegExp(NOBREAK.map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"))
 const nb = s => lang === "th" ? s.replace(NB_RE, m => `<span class="nw">${m}</span>`) : s;
 function renderQuick(){
   $("qlSub").textContent = t("สำหรับ") + t(role.name);
+  /* บทบาทที่ยังไม่เปิดใช้งาน: ไม่แสดงการ์ด แสดงข้อความแจ้งแทน */
+  if(role.soon){
+    $("bento").innerHTML = `<div class="soon">
+      <span class="soon-ic">${svg("clipboard")}</span>
+      <h3>${t("ขออภัย ส่วนนี้อยู่ระหว่างการจัดทำ")}</h3>
+      <p>${t("ข้อมูลสำหรับ")}${t(role.name)} ${t("จะเปิดให้ใช้งานเร็ว ๆ นี้ ระหว่างนี้สอบถามได้ที่งานบริการการศึกษา")}</p>
+      <div class="soon-act">
+        <a class="soon-btn" href="#contact" onclick="event.preventDefault();document.querySelector('.contact').scrollIntoView({behavior:'smooth'})">${t("ช่องทางติดต่อ")}</a>
+        <button class="soon-btn ghost" onclick="setRole('student')">${t("ดูข้อมูลสำหรับนักศึกษา")}</button>
+      </div>
+    </div>`;
+    return;
+  }
   $("bento").innerHTML = role.links.map((l,i)=>`
     ${l.href
       ? `<a class="qcard ${l.bg}" href="${l.href[lang]||l.href.th}" target="_blank" rel="noopener">`
