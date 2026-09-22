@@ -114,6 +114,12 @@ section{padding:56px 0}
 .ql-head h2{font-size:clamp(1.6rem,3.4vw,2.2rem);color:var(--navy);line-height:1.1}
 .ql-head p{color:var(--navy-2);font-family:'Inter','IBM Plex Sans Thai';font-size:1.05rem}
 .soon{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:56px 24px;background:#fff;border:1.5px dashed #cfdcf0;border-radius:28px}
+.soon-art{width:200px;height:150px;margin-bottom:4px}
+.soon-art .arm{transform-origin:113px 82px;animation:hammer 1s ease-in-out infinite}
+.soon-art .spark{opacity:0;animation:spark 1s ease-in-out infinite}
+@keyframes hammer{0%,100%{transform:rotate(-40deg)}55%{transform:rotate(35deg)}}
+@keyframes spark{0%,50%{opacity:0}58%{opacity:1}80%,100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.soon-art .arm,.soon-art .spark{animation:none}.soon-art .spark{opacity:1}}
 .soon-ic{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;background:var(--blue-soft);color:var(--navy);margin-bottom:6px}
 .soon-ic .i{width:30px;height:30px}
 .soon h3{font-size:clamp(1.2rem,2.4vw,1.5rem);color:var(--navy)}
@@ -1999,7 +2005,30 @@ function renderQuick(){
   /* บทบาทที่ยังไม่เปิดใช้งาน: ไม่แสดงการ์ด แสดงข้อความแจ้งแทน */
   if(role.soon){
     $("bento").innerHTML = `<div class="soon">
-      <span class="soon-ic">${svg("clipboard")}</span>
+      <svg class="soon-art" viewBox="0 0 200 150" aria-hidden="true">
+        <ellipse cx="100" cy="138" rx="86" ry="7" fill="#e6edf8"/>
+        <g class="cone"><path d="M28 136 L44 84 L60 136 Z" fill="#f39a3d"/><path d="M36 110 h16 l3 10 h-22 z" fill="#fff"/><path d="M40 96 h8 l2 7 h-12 z" fill="#fff"/><rect x="22" y="134" width="44" height="5" rx="2" fill="#d9772a"/></g>
+        <g class="barrier"><rect x="128" y="96" width="5" height="42" rx="2" fill="#173d8b"/><rect x="176" y="96" width="5" height="42" rx="2" fill="#173d8b"/>
+          <rect x="120" y="92" width="68" height="16" rx="4" fill="#ffd257"/>
+          <path d="M126 92 l10 16 h9 l-10 -16 z M146 92 l10 16 h9 l-10 -16 z M166 92 l10 16 h9 l-10 -16 z" fill="#102d69"/></g>
+        <g class="worker">
+          <rect x="84" y="112" width="11" height="24" rx="4" fill="#173d8b"/><rect x="99" y="112" width="11" height="24" rx="4" fill="#173d8b"/>
+          <rect x="80" y="132" width="16" height="7" rx="3" fill="#5b3a1e"/><rect x="98" y="132" width="16" height="7" rx="3" fill="#5b3a1e"/>
+          <rect x="80" y="74" width="34" height="44" rx="10" fill="#2457aa"/>
+          <path d="M84 76 h26 v34 h-26 z" fill="#ffd257"/><path d="M84 76 h8 v34 h-8 z M102 76 h8 v34 h-8 z" fill="#f5b82e"/>
+          <rect x="84" y="92" width="26" height="3" fill="#fff" opacity=".85"/>
+          <rect x="72" y="80" width="10" height="26" rx="5" fill="#2457aa"/><circle cx="77" cy="108" r="5" fill="#f2c39c"/>
+          <circle cx="97" cy="60" r="13" fill="#f2c39c"/>
+          <circle cx="92.5" cy="61" r="1.6" fill="#102d69"/><circle cx="101.5" cy="61" r="1.6" fill="#102d69"/>
+          <path d="M93 67 q4 3 8 0" stroke="#102d69" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <path d="M82 55 a15 14 0 0 1 30 0 z" fill="#ffc933"/><rect x="79" y="53" width="36" height="5" rx="2.5" fill="#f5b82e"/><rect x="95" y="41" width="4" height="12" rx="2" fill="#f5b82e"/>
+          <g class="arm"><rect x="110" y="77" width="30" height="10" rx="5" fill="#2457aa"/>
+            <rect x="139" y="56" width="4.5" height="30" rx="2" fill="#8a5a2b"/>
+            <rect x="132" y="50" width="19" height="10" rx="2.5" fill="#5f6b7a"/><rect x="132" y="50" width="6" height="10" rx="2" fill="#4a5563"/>
+            <circle cx="141" cy="82" r="5.5" fill="#f2c39c"/></g>
+        </g>
+        <g class="spark"><path d="M161 72 l5 -6 M166 80 l8 -1 M161 88 l7 4" stroke="#f39a3d" stroke-width="2.4" stroke-linecap="round"/></g>
+      </svg>
       <h3>${t("ขออภัย ส่วนนี้อยู่ระหว่างการจัดทำ")}</h3>
       <p>${t("ข้อมูลสำหรับ")}${t(role.name)} ${t("จะเปิดให้ใช้งานเร็ว ๆ นี้ ระหว่างนี้สอบถามได้ที่งานบริการการศึกษา")}</p>
       <div class="soon-act">
