@@ -336,9 +336,11 @@ footer{background:#102d69;color:#fff;border-radius:30px 30px 0 0;padding:26px 0}
 @media(max-width:520px){.qcard{padding-top:92px}.bento .qcard:nth-child(1){padding-top:170px}}
 
 /* ---------- ตารางประกาศ / ข้อบังคับ ---------- */
-.n-head,.n-row{display:grid;grid-template-columns:48px minmax(0,1fr) 110px 150px;gap:16px;align-items:center}
+.n-head,.n-row{display:grid;grid-template-columns:48px minmax(0,1fr) 100px 140px;gap:16px;align-items:center}
 .n-head{padding:14px 20px 10px;font-size:.84rem;color:var(--muted)}
 .n-head span:nth-child(n+3){text-align:center}
+.n-docs{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.n-docs .f-pill{justify-content:flex-start}
 .n-row{background:#fff;border:1px solid #e8edf5;border-radius:16px;padding:16px 20px;margin-bottom:12px;box-shadow:0 6px 18px -12px rgba(16,45,105,.25);transition:.2s}
 .n-row:hover{box-shadow:0 12px 26px -14px rgba(16,45,105,.35);transform:translateY(-1px)}
 .n-kind{display:inline-block;font-size:.74rem;font-weight:600;color:var(--navy-2);background:#eef2f9;border-radius:999px;padding:2px 10px;margin-bottom:6px}
@@ -538,6 +540,7 @@ body.lock{overflow:hidden}
   /* ตารางประกาศ: ปีกับปุ่ม PDF อยู่บรรทัดเดียวกัน */
   .n-row{grid-template-columns:24px minmax(0,1fr) auto;grid-template-areas:"no desc desc" ". yr dl";padding:16px;column-gap:10px}
   .n-row .f-cell{text-align:right}
+  .n-docs{flex-direction:row;justify-content:flex-end;flex-wrap:wrap}
   /* FAQ */
   .q-cats{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:12px -16px 4px;padding:2px 16px}
   .q-cats::-webkit-scrollbar{display:none}
@@ -1061,23 +1064,29 @@ const RULES = {type:"notices",
   groups:[
     {name:"เกี่ยวกับวิทยานิพนธ์ / สารนิพนธ์ / การค้นคว้าอิสระ", rows:[
       {kind:"แนวปฏิบัติ", name:"ปรับกระบวนการลงนามในเอกสารหน้าลงนามรูปเล่มอิเล็กทรอนิกส์",
-       by:"บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2569", href:GS+"download/current-student/pdf/Electronic-Thesis-Signature-Process.pdf",
+       by:"บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2569", th:GS+"download/current-student/pdf/Electronic-Thesis-Signature-Process.pdf",
        kw:["ส่งหน้าลงนามแบบออนไลน์","Sign-Off Page Submission","เริ่ม 17 ส.ค. 2569"]},
-      {kind:"ประกาศ", name:"ข้อกำหนดและแนวปฏิบัติสำหรับการจัดทำรูปเล่มอิเล็กทรอนิกส์ ระดับบัณฑิตศึกษา มหาวิทยาลัยมหิดล",
-       by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2569", href:GS+"storage/IT-SERVICE/Announce/PR07283.pdf",
-       kw:["ส่งเล่มภายใน 21 วันหลังสอบผ่าน","ส่งล่าช้ามีค่าปรับ","โครงสร้างรูปเล่มอิเล็กทรอนิกส์"]},
       {kind:"ประกาศ", name:"แนวปฏิบัติการตรวจสอบการคัดลอกผลงานทางวิชาการ และการใช้เครื่องมือทางปัญญาประดิษฐ์ (AI) สำหรับการจัดการเรียนการสอน การวิจัย การทำวิทยานิพนธ์ / สารนิพนธ์ / การค้นคว้าอิสระ",
-       by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2568", href:GS+"storage/IT-SERVICE/Announce/PR07128.pdf",
+       by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2568", th:GS+"storage/IT-SERVICE/Announce/PR07128.pdf", en:GS+"storage/IT-SERVICE/Announce/PR07129.pdf",
        kw:["ตรวจการคัดลอกด้วย Turnitin","ความซ้ำซ้อนไม่เกิน 25%","ต้องระบุการใช้ AI ในเล่ม","ห้ามใช้ AI สร้างสาระสำคัญ"]},
-      {kind:"ประกาศ", name:"เกณฑ์การเผยแพร่ผลงานวิทยานิพนธ์หรือส่วนหนึ่งของวิทยานิพนธ์ เพื่อขอสำเร็จการศึกษาระดับบัณฑิตศึกษา",
-       by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2568", href:GS+"storage/IT-SERVICE/Announce/PR06965.pdf",
-       kw:["เกณฑ์ตีพิมพ์เพื่อสำเร็จการศึกษา","วารสารระดับชาติ / นานาชาติ","Proceedings / นวัตกรรม / สิทธิบัตร","หลักสูตรเกณฑ์ 2565"]},
+      {kind:"ประกาศ", name:"ข้อกำหนดและแนวปฏิบัติสำหรับการจัดทำรูปเล่มอิเล็กทรอนิกส์ ระดับบัณฑิตศึกษา มหาวิทยาลัยมหิดล",
+       by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2569", th:GS+"storage/IT-SERVICE/Announce/PR07283.pdf", en:GS+"storage/IT-SERVICE/Announce/PR07284.pdf",
+       kw:["ส่งเล่มภายใน 21 วันหลังสอบผ่าน","ส่งล่าช้ามีค่าปรับ","โครงสร้างรูปเล่มอิเล็กทรอนิกส์"]},
       {kind:"แนวปฏิบัติ", name:"การใช้ AI เป็นเครื่องมือในการตรวจภาษาสำหรับหัวข้อเรื่อง และการตรวจบทคัดย่อ",
-       by:"บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2568", href:GS+"storage/IT-SERVICE/Announce/PR07143.pdf",
+       by:"บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2568", th:GS+"storage/IT-SERVICE/Announce/PR07143.pdf", en:GS+"storage/IT-SERVICE/Announce/PR07164.pdf",
        kw:["MUGR: AI Thesis Title & Abstract Enhancer","ตรวจภาษาหัวข้อและบทคัดย่อ","ใช้กับ บฑ.1 / บฑ.49 / e-Thesis"]},
       {kind:"ประกาศ", name:"การสอบประมวลความรู้ การสอบวัดคุณสมบัติ การสอบโครงร่างวิทยานิพนธ์ / สารนิพนธ์ และการสอบวิทยานิพนธ์ / สารนิพนธ์ ในรูปแบบออนไลน์",
-       by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2566", href:GS+"download/current-student/pdf/PR03400.pdf",
-       kw:["สอบออนไลน์","ประมวลความรู้ / QE / โครงร่าง / วิทยานิพนธ์","ขออนุมัติล่วงหน้าอย่างน้อย 15 วัน"]}
+       by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2566", th:GS+"download/current-student/pdf/PR03400.pdf", en:GS+"storage/IT-SERVICE/Announce/PR04710.pdf",
+       kw:["สอบออนไลน์","ประมวลความรู้ / QE / โครงร่าง / วิทยานิพนธ์","ขออนุมัติล่วงหน้าอย่างน้อย 15 วัน"]},
+      {kind:"ประกาศ", name:"กิจกรรมเสริมทักษะของนักศึกษาระดับบัณฑิตศึกษา",
+       by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2567", th:GS+"softskills/download/pdf/Skill-Enhancement-Activities-Th.pdf",
+       kw:["Soft Skills อย่างน้อย 4 ทักษะ","กิจกรรมบัณฑิตวิทยาลัย 2 + ประเภทอื่น 2","ต้อง “ผ่าน” เพื่อสำเร็จการศึกษา"]},
+      {kind:"ประกาศ", name:"มาตรการป้องกันการทุจริตการทำวิทยานิพนธ์หรือสารนิพนธ์",
+       by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2548", th:GS+"download/current-student/pdf/thesis_cheat3_th.pdf",
+       kw:["ติดตามนักศึกษาอย่างน้อยเดือนละครั้ง","รายงานความก้าวหน้า บฑ.42 ทุกภาค","จริยธรรมการวิจัย"]},
+      {kind:"ประกาศ", name:"เกณฑ์การเผยแพร่ผลงานวิทยานิพนธ์หรือส่วนหนึ่งของวิทยานิพนธ์ เพื่อขอสำเร็จการศึกษาระดับบัณฑิตศึกษา",
+       by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2568", th:GS+"storage/IT-SERVICE/Announce/PR06965.pdf",
+       kw:["เกณฑ์ตีพิมพ์เพื่อสำเร็จการศึกษา","วารสารระดับชาติ / นานาชาติ","Proceedings / นวัตกรรม / สิทธิบัตร","หลักสูตรเกณฑ์ 2565"]}
     ]}
   ]};
 /* ---------- FAQ (อ้างอิง: เอกสาร Q&A งานบริการการศึกษา) ---------- */
@@ -1335,6 +1344,14 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  "กิจกรรมเสริมทักษะของนักศึกษาระดับบัณฑิตศึกษา":"Skill enhancement activities for graduate students",
+  "Soft Skills อย่างน้อย 4 ทักษะ":"At least 4 soft skills",
+  "กิจกรรมบัณฑิตวิทยาลัย 2 + ประเภทอื่น 2":"2 from the Faculty + 2 other activities",
+  "ต้อง “ผ่าน” เพื่อสำเร็จการศึกษา":"Must \"pass\" to graduate",
+  "มาตรการป้องกันการทุจริตการทำวิทยานิพนธ์หรือสารนิพนธ์":"Measures to prevent thesis or thematic paper misconduct",
+  "ติดตามนักศึกษาอย่างน้อยเดือนละครั้ง":"Advisor check-in at least monthly",
+  "รายงานความก้าวหน้า บฑ.42 ทุกภาค":"GR.42 progress report every semester",
+  "จริยธรรมการวิจัย":"Research ethics",
   /* ---------- วิธีกรอกคำร้อง ---------- */
   "วิธีกรอกคำร้องในระบบ e-Form":"How to fill in the e-Form",
   "ลำดับการอนุมัติ":"Approval workflow",
@@ -2319,6 +2336,8 @@ function goQuick(){
 }
 function setTrack(tr){ track = tr; $("dBody").innerHTML = renderContent(activeLink.content); reveal($("dBody")); }
 
+const flagTH = '<svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#a51931"/><rect y="3.33" width="30" height="13.34" fill="#f4f5f8"/><rect y="6.67" width="30" height="6.66" fill="#2d2a4a"/></svg>';
+const flagEN = '<svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><clipPath id="uk"><path d="M0 0v30h60V0z"/></clipPath><g clip-path="url(#uk)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg>';
 function renderContent(c){
   switch(c.type){
     case "timeline": {
@@ -2345,8 +2364,6 @@ function renderContent(c){
         </a>`).join("")}</div>`;
     case "forms": {
       let n = 0;
-      const flagTH = '<svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#a51931"/><rect y="3.33" width="30" height="13.34" fill="#f4f5f8"/><rect y="6.67" width="30" height="6.66" fill="#2d2a4a"/></svg>';
-      const flagEN = '<svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><clipPath id="uk"><path d="M0 0v30h60V0z"/></clipPath><g clip-path="url(#uk)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg>';
       const none = '<span class="f-none">–</span>';
       const cell = (label, inner) => `<div class="f-cell"><span class="f-lab">${t(label)}</span>${inner}</div>`;
       return `<div class="forms">
@@ -2391,7 +2408,7 @@ function renderContent(c){
               <span class="f-no">${++n}</span>
               <div class="f-desc"><span class="n-kind">${t(r.kind)}</span><b>${t(r.name)}</b><span>${t(r.by)}</span>${r.kw?`<div class="n-kw">${r.kw.map(k=>`<span>${t(k)}</span>`).join("")}</div>`:""}</div>
               <span class="n-year">${yr(r.year)}</span>
-              <div class="f-cell"><a class="f-pill pdf" href="${r.href}" target="_blank" rel="noopener">${svg("fileDown")}${t("เปิด PDF")}</a></div>
+              <div class="f-cell n-docs">${r.th?`<a class="f-pill th" href="${r.th}" target="_blank" rel="noopener">${flagTH}${t("ภาษาไทย")}</a>`:""}${r.en?`<a class="f-pill en" href="${r.en}" target="_blank" rel="noopener">${flagEN}English</a>`:""}</div>
             </div>`).join("")}`).join("")}
       </div>`;
     }
