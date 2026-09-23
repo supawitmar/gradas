@@ -438,6 +438,7 @@ body.lock{overflow:hidden}
 .im-sub:first-child{margin-top:0}
 .im-sec ul{margin:0 0 0 20px;display:grid;gap:7px;font-size:.93rem;line-height:1.65}
 .im-sec ul li::marker{color:#9db3d6}
+.im-sec ul.im-sub{margin:6px 0 2px 18px;gap:4px;font-size:.9rem;list-style:circle}
 .im-flow{list-style:none;display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 2px}
 .im-flow li{display:inline-flex;align-items:center;gap:8px;background:var(--grey);border:1px solid var(--line);border-radius:999px;padding:5px 12px 5px 5px;font-size:.86rem;color:var(--navy)}
 .im-flow li span{width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:'Inter',sans-serif;font-size:.74rem;font-weight:600}
@@ -797,21 +798,20 @@ const INFO = {
              "อาจารย์ที่ปรึกษาร่วมที่เป็นอาจารย์ประจำ นักวิจัยประจำ หรือศาสตราจารย์วุฒิคุณ มีคุณสมบัติเช่นเดียวกับอาจารย์ประจำหลักสูตร",
              "ผู้ทรงคุณวุฒิภายนอก ต้องมีคุณวุฒิปริญญาเอกหรือเทียบเท่า และมีผลงานตีพิมพ์ตรงหรือสัมพันธ์กับหัวข้อ<b>ไม่น้อยกว่า 10 รายการ</b>"]}]},
       {ic:"route", h:"ขั้นตอนการยื่นคำร้อง", body:[
-        {ol:["<b>เตรียมหัวข้อและโครงร่าง</b> จัดทำหัวข้อและโครงร่างวิทยานิพนธ์ (ปริญญาเอกต้องสอบผ่าน QE แล้ว)",
-             "<b>ทาบทามกรรมการ</b> ระบุรายชื่ออาจารย์ที่ปรึกษาหลักและอาจารย์ที่ปรึกษาร่วมในคำร้อง",
-             "<b>เสนอหลักสูตร</b> ยื่นคำร้องผ่านอาจารย์ที่ปรึกษาหลักเพื่อลงนามเห็นชอบ แล้วเสนอประธานหลักสูตรพิจารณา",
-             "<b>อนุมัติและแต่งตั้ง</b> ประธานหลักสูตรเสนอบัณฑิตวิทยาลัย คณบดีบัณฑิตวิทยาลัยอนุมัติและออกคำสั่งแต่งตั้ง"]}]},
+        {ol:["<b>ยื่นคำร้อง บฑ.1</b> ผ่านระบบ e-Form",
+             "<b>ตรวจสอบชื่อหัวข้อ</b> ผ่านระบบ MUGR AI: Thesis Title & Abstract Enhancer (ทางเลือก)",
+             "<b>เสนอประธานหลักสูตรพิจารณา</b>"]}]},
       {ic:"pen", h:"วิธีกรอกคำร้องในระบบ e-Form", body:[
         {ul:["<b>หัวข้อเรื่องภาษาอังกฤษ</b> พิมพ์ด้วยตัวพิมพ์ใหญ่ทั้งหมด (UPPERCASE) ยกเว้นคำศัพท์เฉพาะทางที่ใช้ตัวพิมพ์เล็ก-ใหญ่ตามหลักสากล",
-             "<b>หัวข้อเรื่องภาษาไทย</b> พิมพ์ให้ถูกต้องตามหลักภาษา",
+             "<b>หัวข้อเรื่องภาษาไทย</b> พิมพ์ให้ถูกต้องตามหลักภาษา <b>กรณีหลักสูตรไทย ต้องมีชื่อหัวข้อภาษาไทย</b>",
              "<b>หมายเหตุ</b> รายละเอียดเพิ่มเติม (ถ้ามี)",
              "<b>AI Suggestion</b> ใช้ MUGR AI: Thesis Title & Abstract Enhancer ช่วยตรวจและปรับภาษาของชื่อเรื่องและบทคัดย่อได้",
-             "<b>ภาษาที่ใช้เขียนเล่ม</b> เลือกภาษาอังกฤษหรือภาษาไทย",
-             "<b>ประเภทงานวิจัย</b> เลือก Thesis หรือ Thematic Paper"]},
+             "<b>ภาษาที่ใช้เขียนเล่ม</b> เลือกภาษาอังกฤษหรือภาษาไทย<ul class='im-sub'><li>เกณฑ์ 2558 เลือกใช้ได้ทั้งภาษาไทยหรือภาษาอังกฤษ</li><li>เกณฑ์ 2565 ใช้ภาษาที่ระบุตามเล่มหลักสูตร <b>กรณีใช้ภาษาไม่ตรงตามที่เล่มหลักสูตรระบุ ให้เสนอต่อคณะกรรมการพิจารณาภาษา</b></li></ul>",
+             "<b>ประเภทงานวิจัย</b> เลือก Thesis หรือ Thematic Paper / Independent Study"]},
         {sub:"ลำดับการอนุมัติ"}, {flow:["นักศึกษา","ประธานหลักสูตร/คณะ","บัณฑิตวิทยาลัย"]}]},
       {ic:"arrow", h:"หลังจากนี้ทำอะไรต่อ", body:[
         {ul:["<b>ทำวิจัยและรายงานความก้าวหน้า</b> ต่อบัณฑิตวิทยาลัยทุกภาคการศึกษา (ประเมินเป็น P, S หรือ U)",
-             "<b>ระยะเวลาก่อนขอสอบ</b> ต้องเรียบเรียงวิทยานิพนธ์ไม่น้อยกว่า 90 วัน (สารนิพนธ์ / การค้นคว้าอิสระ ไม่น้อยกว่า 45 วัน) นับแต่วันที่ได้รับแต่งตั้ง จึงจะยื่น บฑ.2 ได้",
+             "<b>ยื่นคำร้อง บฑ.2</b> ศึกษาค้นคว้าวิทยานิพนธ์ไม่น้อยกว่า 90 วัน สำหรับการศึกษาค้นคว้าสารนิพนธ์ / การค้นคว้าอิสระ ไม่น้อยกว่า 45 วัน นับแต่วันที่ได้รับแต่งตั้ง จึงจะยื่น บฑ.2 ได้",
              "<b>เปลี่ยนหัวข้อหรือกรรมการ</b> ต้องยื่นคำร้องขออนุมัติจากคณบดีบัณฑิตวิทยาลัยผ่านประธานหลักสูตรอีกครั้ง"]}]}
     ]},
   gr35: {code:"บฑ.35", title:"การสอบวัดคุณสมบัติ (Qualifying Examination)",
@@ -1399,6 +1399,13 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  "<b>ยื่นคำร้อง บฑ.2</b> ศึกษาค้นคว้าวิทยานิพนธ์ไม่น้อยกว่า 90 วัน สำหรับการศึกษาค้นคว้าสารนิพนธ์ / การค้นคว้าอิสระ ไม่น้อยกว่า 45 วัน นับแต่วันที่ได้รับแต่งตั้ง จึงจะยื่น บฑ.2 ได้":"<b>Submit GR.2</b>: after at least 90 days of thesis research (45 days for a thematic paper / independent study) from the appointment date, you may submit GR.2",
+  "<b>ประเภทงานวิจัย</b> เลือก Thesis หรือ Thematic Paper / Independent Study":"<b>Research type</b>: choose Thesis or Thematic Paper / Independent Study",
+  "<b>ภาษาที่ใช้เขียนเล่ม</b> เลือกภาษาอังกฤษหรือภาษาไทย<ul class='im-sub'><li>เกณฑ์ 2558 เลือกใช้ได้ทั้งภาษาไทยหรือภาษาอังกฤษ</li><li>เกณฑ์ 2565 ใช้ภาษาที่ระบุตามเล่มหลักสูตร <b>กรณีใช้ภาษาไม่ตรงตามที่เล่มหลักสูตรระบุ ให้เสนอต่อคณะกรรมการพิจารณาภาษา</b></li></ul>":"<b>Thesis language</b>: choose English or Thai<ul class='im-sub'><li>2015 criteria: either Thai or English may be used</li><li>2022 criteria: use the language specified in the curriculum document. <b>If you use a different language, submit it to the language review committee</b></li></ul>",
+  "<b>หัวข้อเรื่องภาษาไทย</b> พิมพ์ให้ถูกต้องตามหลักภาษา <b>กรณีหลักสูตรไทย ต้องมีชื่อหัวข้อภาษาไทย</b>":"<b>Thai title</b>: type it correctly according to Thai language rules. <b>Thai programs must include a Thai title</b>",
+  "<b>เสนอประธานหลักสูตรพิจารณา</b>":"<b>Forward to the program chair</b> for consideration",
+  "<b>ตรวจสอบชื่อหัวข้อ</b> ผ่านระบบ MUGR AI: Thesis Title & Abstract Enhancer (ทางเลือก)":"<b>Check the title</b> with MUGR AI: Thesis Title & Abstract Enhancer (optional)",
+  "<b>ยื่นคำร้อง บฑ.1</b> ผ่านระบบ e-Form":"<b>Submit GR.1</b> via the e-Form system",
   "<b>ผ่าน</b> ยื่น บฑ.1 ขออนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา":"<b>Pass</b>: submit GR.1 to approve the topic and appoint the advisory committee",
   "<b>ข้อมูลอาจารย์</b> นักศึกษาระบุข้อมูลกรรมการผู้ทำหน้าที่เพื่อให้ได้มาซึ่งหัวข้อฯ (ตำแหน่งทางวิชาการ / ชื่อ นามสกุล / สถานที่ทำงาน) <b>กรณีเลือกออกหนังสือเป็นภาษาอังกฤษ ให้ระบุข้อมูลทุกอย่างเป็นภาษาอังกฤษ</b>":"<b>Committee details</b>: enter each committee member's details (academic title / name / workplace). <b>If the letter is issued in English, enter everything in English</b>",
   "<b>ปริญญาเอก</b> 5 ท่าน":"<b>Doctoral</b>: 5 persons",
@@ -1456,10 +1463,8 @@ const EN = {
   "<b>กำหนดการสอบ</b> ระบุหรือยืนยันวัน เวลา และสถานที่ / ช่องทางจัดสอบ":"<b>Exam schedule</b>: enter or confirm the date, time and venue / channel",
   "กด <b>Save</b> เพื่อบันทึกข้อมูล":"Click <b>Save</b> to save",
   "<b>หัวข้อเรื่องภาษาอังกฤษ</b> พิมพ์ด้วยตัวพิมพ์ใหญ่ทั้งหมด (UPPERCASE) ยกเว้นคำศัพท์เฉพาะทางที่ใช้ตัวพิมพ์เล็ก-ใหญ่ตามหลักสากล":"<b>English title</b>: type in UPPERCASE, except technical terms that follow standard capitalization",
-  "<b>หัวข้อเรื่องภาษาไทย</b> พิมพ์ให้ถูกต้องตามหลักภาษา":"<b>Thai title</b>: type it with correct Thai spelling and grammar",
   "<b>หมายเหตุ</b> รายละเอียดเพิ่มเติม (ถ้ามี)":"<b>Remarks</b>: additional details (if any)",
   "<b>AI Suggestion</b> ใช้ MUGR AI: Thesis Title & Abstract Enhancer ช่วยตรวจและปรับภาษาของชื่อเรื่องและบทคัดย่อได้":"<b>AI Suggestion</b>: MUGR AI: Thesis Title & Abstract Enhancer can help check and polish the title and abstract",
-  "<b>ภาษาที่ใช้เขียนเล่ม</b> เลือกภาษาอังกฤษหรือภาษาไทย":"<b>Writing language</b>: choose English or Thai",
   "ข้อมูลหัวข้อ":"Title",
   "<b>หัวข้อภาษาอังกฤษ / ภาษาไทย</b> ระบบดึงหัวข้อที่ได้รับอนุมัติมาแสดง (หลักสูตรนานาชาติต้องกรอกข้อมูลเป็นภาษาอังกฤษทั้งหมด)":"<b>English / Thai title</b>: the system shows the approved title (international programs must fill in everything in English)",
   "ผลการศึกษา":"Academic record",
@@ -1756,13 +1761,8 @@ const EN = {
   "อาจารย์ที่ปรึกษาร่วมที่เป็นอาจารย์ประจำ นักวิจัยประจำ หรือศาสตราจารย์วุฒิคุณ มีคุณสมบัติเช่นเดียวกับอาจารย์ประจำหลักสูตร":"Co-advisors who are faculty members, researchers or emeritus professors need the same qualifications as program faculty",
   "ผู้ทรงคุณวุฒิภายนอก ต้องมีคุณวุฒิปริญญาเอกหรือเทียบเท่า และมีผลงานตีพิมพ์ตรงหรือสัมพันธ์กับหัวข้อ<b>ไม่น้อยกว่า 10 รายการ</b>":"External experts need a doctorate or equivalent and <b>at least 10 publications</b> related to the topic",
   "ขั้นตอนการยื่นคำร้อง":"How to submit",
-  "<b>เตรียมหัวข้อและโครงร่าง</b> จัดทำหัวข้อและโครงร่างวิทยานิพนธ์ (ปริญญาเอกต้องสอบผ่าน QE แล้ว)":"<b>Prepare the topic and proposal</b> (doctoral students must have passed the QE)",
-  "<b>ทาบทามกรรมการ</b> ระบุรายชื่ออาจารย์ที่ปรึกษาหลักและอาจารย์ที่ปรึกษาร่วมในคำร้อง":"<b>Invite the committee</b> and list the major advisor and co-advisors in the request",
-  "<b>เสนอหลักสูตร</b> ยื่นคำร้องผ่านอาจารย์ที่ปรึกษาหลักเพื่อลงนามเห็นชอบ แล้วเสนอประธานหลักสูตรพิจารณา":"<b>Submit to the program</b> through the major advisor for signature, then to the program chair for review",
-  "<b>อนุมัติและแต่งตั้ง</b> ประธานหลักสูตรเสนอบัณฑิตวิทยาลัย คณบดีบัณฑิตวิทยาลัยอนุมัติและออกคำสั่งแต่งตั้ง":"<b>Approval and appointment</b>: the program chair forwards it to the Faculty, and the Dean approves and issues the appointment order",
   "หลังจากนี้ทำอะไรต่อ":"What comes next",
   "<b>ทำวิจัยและรายงานความก้าวหน้า</b> ต่อบัณฑิตวิทยาลัยทุกภาคการศึกษา (ประเมินเป็น P, S หรือ U)":"<b>Do your research and report progress</b> to the Faculty every semester (graded P, S or U)",
-  "<b>ระยะเวลาก่อนขอสอบ</b> ต้องเรียบเรียงวิทยานิพนธ์ไม่น้อยกว่า 90 วัน (สารนิพนธ์ / การค้นคว้าอิสระ ไม่น้อยกว่า 45 วัน) นับแต่วันที่ได้รับแต่งตั้ง จึงจะยื่น บฑ.2 ได้":"<b>Minimum time before the exam</b>: at least 90 days (45 days for a thematic paper / IS) after the appointment before you can submit GR.2",
   "<b>เปลี่ยนหัวข้อหรือกรรมการ</b> ต้องยื่นคำร้องขออนุมัติจากคณบดีบัณฑิตวิทยาลัยผ่านประธานหลักสูตรอีกครั้ง":"<b>Changing the topic or committee</b> requires a new request to the Dean through the program chair",
   "ประเด็น":"Topic",
   "ข้อบังคับ พ.ศ. 2563":"2020 Regulation",
