@@ -438,7 +438,7 @@ body.lock{overflow:hidden}
 .im-sub:first-child{margin-top:0}
 .im-sec ul{margin:0 0 0 20px;display:grid;gap:7px;font-size:.93rem;line-height:1.65}
 .im-sec ul li::marker{color:#9db3d6}
-.im-sec ul.im-sub{margin:6px 0 2px 18px;gap:4px;font-size:.9rem;list-style:circle}
+.im-sec ul.im-nest{font-weight:400;color:inherit;margin:6px 0 2px 18px;gap:4px;font-size:.9rem;list-style:circle}
 .im-flow{list-style:none;display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 2px}
 .im-flow li{display:inline-flex;align-items:center;gap:8px;background:var(--grey);border:1px solid var(--line);border-radius:999px;padding:5px 12px 5px 5px;font-size:.86rem;color:var(--navy)}
 .im-flow li span{width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:'Inter',sans-serif;font-size:.74rem;font-weight:600}
@@ -805,7 +805,7 @@ const INFO = {
              "<b>หัวข้อเรื่องภาษาไทย</b> พิมพ์ให้ถูกต้องตามหลักภาษา <b>กรณีหลักสูตรไทย ต้องมีชื่อหัวข้อภาษาไทย</b>",
              "<b>หมายเหตุ</b> รายละเอียดเพิ่มเติม (ถ้ามี)",
              "<b>AI Suggestion</b> ใช้ MUGR AI: Thesis Title & Abstract Enhancer ช่วยตรวจและปรับภาษาของชื่อเรื่องและบทคัดย่อได้",
-             "<b>ภาษาที่ใช้เขียนเล่ม</b> เลือกภาษาอังกฤษหรือภาษาไทย<ul class='im-sub'><li>เกณฑ์ 2558 เลือกใช้ได้ทั้งภาษาไทยหรือภาษาอังกฤษ</li><li>เกณฑ์ 2565 ใช้ภาษาที่ระบุตามเล่มหลักสูตร <b>กรณีใช้ภาษาไม่ตรงตามที่เล่มหลักสูตรระบุ ให้เสนอต่อคณะกรรมการพิจารณาภาษา</b></li></ul>",
+             "<b>ภาษาที่ใช้เขียนเล่ม</b> เลือกภาษาอังกฤษหรือภาษาไทย<ul class='im-nest'><li>เกณฑ์ 2558 เลือกใช้ได้ทั้งภาษาไทยหรือภาษาอังกฤษ</li><li>เกณฑ์ 2565 ใช้ภาษาที่ระบุตามเล่มหลักสูตร <b>กรณีใช้ภาษาไม่ตรงตามที่เล่มหลักสูตรระบุ ให้เสนอต่อคณะกรรมการพิจารณาภาษา</b></li></ul>",
              "<b>ประเภทงานวิจัย</b> เลือก Thesis หรือ Thematic Paper / Independent Study"]},
         {sub:"ลำดับการอนุมัติ"}, {flow:["นักศึกษา","ประธานหลักสูตร/คณะ","บัณฑิตวิทยาลัย"]}]},
       {ic:"arrow", h:"หลังจากนี้ทำอะไรต่อ", body:[
@@ -963,11 +963,8 @@ const INFO = {
         {p:"การประเมินความรู้ความสามารถในการทำวิจัย ความรอบรู้ในเรื่องที่วิจัย การนำเสนอทั้งการพูดและการเขียน และไหวพริบในการตอบคำถาม ต่อหน้าคณะกรรมการสอบ"},
         {ul:["<b>รูปแบบการสอบ</b> สอบปากเปล่าขั้นสุดท้าย (Final Oral Defense) คณะกรรมการลงมติในการประชุมลับ"]}]},
       {ic:"clipboard", h:"เอกสารที่ใช้", body:[
-        {ul:["<b>คำร้อง บฑ.2</b> เสนอแต่งตั้งคณะกรรมการสอบและกำหนดวัน เวลา สถานที่สอบ ยื่นผ่านระบบ e-Form",
+        {ul:["<b>ยื่นคำร้อง บฑ.2</b> ผ่านระบบ e-Form",
              "<b>ร่างวิทยานิพนธ์ (Thesis Draft)</b> ส่งให้กรรมการอ่านล่วงหน้าอย่างน้อย 15 วันก่อนสอบ",
-             "<b>หลักฐานการศึกษารายวิชา</b> ครบตามหลักสูตร และ GPAX ไม่ต่ำกว่า 3.00",
-             "<b>หลักฐานการสอบผ่าน QE (บฑ.35)</b> สำหรับปริญญาเอก",
-             "<b>หลักฐานผ่านเกณฑ์ภาษาอังกฤษ</b> ตามที่มหาวิทยาลัยกำหนด",
              "<b>หนังสือรับรองจริยธรรม (COA)</b> กรณีวิจัยในมนุษย์ สัตว์ทดลอง หรือความปลอดภัยทางชีวภาพ"]}]},
       {ic:"check", h:"เงื่อนไขและคุณสมบัติ", body:[
         {sub:"ผู้เข้าสอบ"},
@@ -986,8 +983,6 @@ const INFO = {
              "<b>สอบปากเปล่า</b> ตามวัน เวลา สถานที่ที่กำหนด (สอบผ่านสื่ออิเล็กทรอนิกส์ได้หากมีเหตุจำเป็น)",
              "<b>ลงมติ</b> คณะกรรมการตัดสินผลในการประชุมลับโดยเสียงข้างมาก"]}]},
       {ic:"pen", h:"วิธีกรอกคำร้องในระบบ e-Form", body:[
-        {sub:"ข้อมูลหัวข้อ"},
-        {ul:["<b>หัวข้อภาษาอังกฤษ / ภาษาไทย</b> ระบบดึงหัวข้อที่ได้รับอนุมัติมาแสดง (หลักสูตรนานาชาติต้องกรอกข้อมูลเป็นภาษาอังกฤษทั้งหมด)"]},
         {sub:"ผลการศึกษา"},
         {ul:["<b>หน่วยกิตรวม</b> ตัวเลขหน่วยกิตทั้งหมดที่เรียนครบตามโครงสร้างหลักสูตร","<b>GPA</b> เกรดเฉลี่ยสะสมล่าสุด"]},
         {sub:"กำหนดการสอบและไฟล์แนบ"},
@@ -997,7 +992,7 @@ const INFO = {
         {ul:["<b>ขออนุมัติผู้บังคับบัญชา</b> เลือก “ไม่ต้องขออนุมัติ” หรือ “ต้องขออนุมัติ” พร้อมระบุตำแหน่งต้นสังกัด",
              "<b>สถานะ</b> ผู้ทรงคุณวุฒิภายใน ม.มหิดล หรือภายนอก พร้อมระบุสถานที่ทำงาน / สังกัด",
              "<b>หนังสือเชิญ</b> เลือก “ไม่ต้องขอหนังสือเชิญ” หรือ “ขอหนังสือเชิญ” พร้อมระบุตำแหน่งอย่างเป็นทางการ"]},
-        "กด “บันทึกข้อมูล” ด้านล่างสุดเพื่อส่งแบบฟอร์มเข้าระบบ",
+        {p:"กด “บันทึกข้อมูล” ด้านล่างสุดเพื่อส่งแบบฟอร์มเข้าระบบ"},
         {sub:"ลำดับการอนุมัติ"}, {flow:["นักศึกษา","อาจารย์ที่ปรึกษา","ประธานหลักสูตร","บัณฑิตวิทยาลัย"]}]},
       {ic:"arrow", h:"หลังจากนี้ทำอะไรต่อ", body:[
         {sub:"การแจ้งผล"},
@@ -1006,7 +1001,9 @@ const INFO = {
         {sub:"ตามผลการสอบ"},
         {ul:["<b>ผ่าน</b> ส่งรูปเล่มอิเล็กทรอนิกส์ฉบับสมบูรณ์ภายใน 21 วัน",
              "<b>ผ่านโดยมีเงื่อนไข</b> แก้ไขตามข้อเสนอแนะภายในไม่เกิน 90 วัน เมื่อประธานสอบรับรองแล้วจึงส่งรูปเล่ม",
-             "<b>ไม่ผ่าน</b> ทำวิทยานิพนธ์ใหม่และขอสอบแก้ตัวภายในไม่เกิน 1 ปี หากไม่ผ่านอีกจะพ้นสภาพการเป็นนักศึกษา"]},
+             "<b>ไม่ผ่าน</b> นักศึกษาต้องลงทะเบียนและชำระค่าธรรมเนียมการสอบวิทยานิพนธ์ใหม่ และกำหนดสอบตามที่คณะกรรมการสอบกำหนดไว้",
+             "<b>กรณีไม่ผ่าน (รอบที่ 2)</b> นักศึกษาต้องลงทะเบียนและศึกษาค้นคว้าวิทยานิพนธ์ในหัวข้อใหม่",
+             "<b>กรณีถูกปรับเป็น “ตก”</b> บัณฑิตวิทยาลัยจะเสนอชื่อนักศึกษาไปยังสภามหาวิทยาลัยเพื่อปรับพ้นสภาพการเป็นนักศึกษา"]},
         {sub:"การสำเร็จการศึกษา"},
         {ul:["ส่งรูปเล่มฉบับสมบูรณ์ และมีผลงานตีพิมพ์ตามเกณฑ์สำเร็จการศึกษา",
              "ยื่น บฑ.5 ขอสำเร็จการศึกษา แล้วบัณฑิตวิทยาลัยเสนอสภามหาวิทยาลัยอนุมัติปริญญา"]}]}
@@ -1398,9 +1395,13 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  "<b>กรณีถูกปรับเป็น “ตก”</b> บัณฑิตวิทยาลัยจะเสนอชื่อนักศึกษาไปยังสภามหาวิทยาลัยเพื่อปรับพ้นสภาพการเป็นนักศึกษา":"<b>Graded “F”</b>: the Faculty submits the student's name to the University Council for termination of student status",
+  "<b>กรณีไม่ผ่าน (รอบที่ 2)</b> นักศึกษาต้องลงทะเบียนและศึกษาค้นคว้าวิทยานิพนธ์ในหัวข้อใหม่":"<b>Second fail</b>: register and research a thesis on a new topic",
+  "<b>ไม่ผ่าน</b> นักศึกษาต้องลงทะเบียนและชำระค่าธรรมเนียมการสอบวิทยานิพนธ์ใหม่ และกำหนดสอบตามที่คณะกรรมการสอบกำหนดไว้":"<b>Fail</b>: register and pay the thesis examination fee again, and sit the exam on the date set by the committee",
+  "<b>ยื่นคำร้อง บฑ.2</b> ผ่านระบบ e-Form":"<b>Submit GR.2</b> via the e-Form system",
   "<b>ยื่นคำร้อง บฑ.2</b> ศึกษาค้นคว้าวิทยานิพนธ์ไม่น้อยกว่า 90 วัน สำหรับการศึกษาค้นคว้าสารนิพนธ์ / การค้นคว้าอิสระ ไม่น้อยกว่า 45 วัน นับแต่วันที่ได้รับแต่งตั้ง จึงจะยื่น บฑ.2 ได้":"<b>Submit GR.2</b>: after at least 90 days of thesis research (45 days for a thematic paper / independent study) from the appointment date, you may submit GR.2",
   "<b>ประเภทงานวิจัย</b> เลือก Thesis หรือ Thematic Paper / Independent Study":"<b>Research type</b>: choose Thesis or Thematic Paper / Independent Study",
-  "<b>ภาษาที่ใช้เขียนเล่ม</b> เลือกภาษาอังกฤษหรือภาษาไทย<ul class='im-sub'><li>เกณฑ์ 2558 เลือกใช้ได้ทั้งภาษาไทยหรือภาษาอังกฤษ</li><li>เกณฑ์ 2565 ใช้ภาษาที่ระบุตามเล่มหลักสูตร <b>กรณีใช้ภาษาไม่ตรงตามที่เล่มหลักสูตรระบุ ให้เสนอต่อคณะกรรมการพิจารณาภาษา</b></li></ul>":"<b>Thesis language</b>: choose English or Thai<ul class='im-sub'><li>2015 criteria: either Thai or English may be used</li><li>2022 criteria: use the language specified in the curriculum document. <b>If you use a different language, submit it to the language review committee</b></li></ul>",
+  "<b>ภาษาที่ใช้เขียนเล่ม</b> เลือกภาษาอังกฤษหรือภาษาไทย<ul class='im-nest'><li>เกณฑ์ 2558 เลือกใช้ได้ทั้งภาษาไทยหรือภาษาอังกฤษ</li><li>เกณฑ์ 2565 ใช้ภาษาที่ระบุตามเล่มหลักสูตร <b>กรณีใช้ภาษาไม่ตรงตามที่เล่มหลักสูตรระบุ ให้เสนอต่อคณะกรรมการพิจารณาภาษา</b></li></ul>":"<b>Thesis language</b>: choose English or Thai<ul class='im-nest'><li>2015 criteria: either Thai or English may be used</li><li>2022 criteria: use the language specified in the curriculum document. <b>If you use a different language, submit it to the language review committee</b></li></ul>",
   "<b>หัวข้อเรื่องภาษาไทย</b> พิมพ์ให้ถูกต้องตามหลักภาษา <b>กรณีหลักสูตรไทย ต้องมีชื่อหัวข้อภาษาไทย</b>":"<b>Thai title</b>: type it correctly according to Thai language rules. <b>Thai programs must include a Thai title</b>",
   "<b>เสนอประธานหลักสูตรพิจารณา</b>":"<b>Forward to the program chair</b> for consideration",
   "<b>ตรวจสอบชื่อหัวข้อ</b> ผ่านระบบ MUGR AI: Thesis Title & Abstract Enhancer (ทางเลือก)":"<b>Check the title</b> with MUGR AI: Thesis Title & Abstract Enhancer (optional)",
@@ -1464,8 +1465,6 @@ const EN = {
   "<b>หัวข้อเรื่องภาษาอังกฤษ</b> พิมพ์ด้วยตัวพิมพ์ใหญ่ทั้งหมด (UPPERCASE) ยกเว้นคำศัพท์เฉพาะทางที่ใช้ตัวพิมพ์เล็ก-ใหญ่ตามหลักสากล":"<b>English title</b>: type in UPPERCASE, except technical terms that follow standard capitalization",
   "<b>หมายเหตุ</b> รายละเอียดเพิ่มเติม (ถ้ามี)":"<b>Remarks</b>: additional details (if any)",
   "<b>AI Suggestion</b> ใช้ MUGR AI: Thesis Title & Abstract Enhancer ช่วยตรวจและปรับภาษาของชื่อเรื่องและบทคัดย่อได้":"<b>AI Suggestion</b>: MUGR AI: Thesis Title & Abstract Enhancer can help check and polish the title and abstract",
-  "ข้อมูลหัวข้อ":"Title",
-  "<b>หัวข้อภาษาอังกฤษ / ภาษาไทย</b> ระบบดึงหัวข้อที่ได้รับอนุมัติมาแสดง (หลักสูตรนานาชาติต้องกรอกข้อมูลเป็นภาษาอังกฤษทั้งหมด)":"<b>English / Thai title</b>: the system shows the approved title (international programs must fill in everything in English)",
   "ผลการศึกษา":"Academic record",
   "<b>หน่วยกิตรวม</b> ตัวเลขหน่วยกิตทั้งหมดที่เรียนครบตามโครงสร้างหลักสูตร":"<b>Total credits</b>: all credits completed under the curriculum",
   "<b>GPA</b> เกรดเฉลี่ยสะสมล่าสุด":"<b>GPA</b>: your latest cumulative GPA",
@@ -1700,10 +1699,7 @@ const EN = {
   "บฑ.2 คืออะไร":"What is GR.2?",
   "การประเมินความรู้ความสามารถในการทำวิจัย ความรอบรู้ในเรื่องที่วิจัย การนำเสนอทั้งการพูดและการเขียน และไหวพริบในการตอบคำถาม ต่อหน้าคณะกรรมการสอบ":"An assessment, before the examination committee, of your research ability, command of the subject, oral and written presentation, and ability to answer questions.",
   "<b>รูปแบบการสอบ</b> สอบปากเปล่าขั้นสุดท้าย (Final Oral Defense) คณะกรรมการลงมติในการประชุมลับ":"<b>Format</b>: final oral defense; the committee decides in a closed meeting",
-  "<b>คำร้อง บฑ.2</b> เสนอแต่งตั้งคณะกรรมการสอบและกำหนดวัน เวลา สถานที่สอบ ยื่นผ่านระบบ e-Form":"<b>GR.2 request</b> for committee appointment and exam date, time and venue, submitted via e-Form",
   "<b>ร่างวิทยานิพนธ์ (Thesis Draft)</b> ส่งให้กรรมการอ่านล่วงหน้าอย่างน้อย 15 วันก่อนสอบ":"<b>Thesis draft</b> sent to the committee at least 15 days before the exam",
-  "<b>หลักฐานการศึกษารายวิชา</b> ครบตามหลักสูตร และ GPAX ไม่ต่ำกว่า 3.00":"<b>Coursework record</b> showing all required courses and a GPAX of at least 3.00",
-  "<b>หลักฐานผ่านเกณฑ์ภาษาอังกฤษ</b> ตามที่มหาวิทยาลัยกำหนด":"<b>Proof of meeting the English requirement</b> set by the University",
   "<b>หนังสือรับรองจริยธรรม (COA)</b> กรณีวิจัยในมนุษย์ สัตว์ทดลอง หรือความปลอดภัยทางชีวภาพ":"<b>Certificate of Approval (COA)</b> for research involving humans, animals or biosafety",
   "ศึกษารายวิชาครบตามหลักสูตร และ GPAX ไม่ต่ำกว่า 3.00":"All required coursework completed with a GPAX of at least 3.00",
   "ปริญญาเอกต้องสอบผ่าน QE แล้ว":"Doctoral students must have passed the QE",
@@ -1723,7 +1719,6 @@ const EN = {
   "ตามผลการสอบ":"By result",
   "<b>ผ่าน</b> ส่งรูปเล่มอิเล็กทรอนิกส์ฉบับสมบูรณ์ภายใน 21 วัน":"<b>Pass</b>: submit the final electronic file within 21 days",
   "<b>ผ่านโดยมีเงื่อนไข</b> แก้ไขตามข้อเสนอแนะภายในไม่เกิน 90 วัน เมื่อประธานสอบรับรองแล้วจึงส่งรูปเล่ม":"<b>Conditional pass</b>: revise within 90 days; submit once the chair certifies the revisions",
-  "<b>ไม่ผ่าน</b> ทำวิทยานิพนธ์ใหม่และขอสอบแก้ตัวภายในไม่เกิน 1 ปี หากไม่ผ่านอีกจะพ้นสภาพการเป็นนักศึกษา":"<b>Fail</b>: redo the thesis and retake within 1 year; failing again ends your student status",
   "การสำเร็จการศึกษา":"Graduation",
   "ส่งรูปเล่มฉบับสมบูรณ์ และมีผลงานตีพิมพ์ตามเกณฑ์สำเร็จการศึกษา":"Submit the final thesis and meet the publication criteria",
   "ยื่น บฑ.5 ขอสำเร็จการศึกษา แล้วบัณฑิตวิทยาลัยเสนอสภามหาวิทยาลัยอนุมัติปริญญา":"Submit GR.5 for graduation; the Faculty then proposes your degree to the University Council",
