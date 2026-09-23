@@ -131,8 +131,8 @@ section{padding:56px 0}
 .soon-btn.ghost:hover{background:var(--blue-soft)}
 .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(228px,auto);gap:22px}
 .bento .qcard:nth-child(1){grid-row:span 2}
-.bento .qcard:nth-child(6){grid-column:span 2}
-@media(max-width:980px){.bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}.bento .qcard:nth-child(6){grid-column:auto}}
+.bento .qcard:nth-child(5){grid-column:span 3}
+@media(max-width:980px){.bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}.bento .qcard:nth-child(5){grid-column:auto}}
 @media(max-width:520px){.bento{grid-template-columns:1fr;grid-auto-rows:auto}.bento .qcard:nth-child(1){grid-row:auto;min-height:320px}.qcard{min-height:180px}.qcard .go{opacity:1;transform:none}}
 .qcard{position:relative;border:0;border-radius:28px;padding:98px 24px 24px;color:#fff;text-align:left;cursor:pointer;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;transition:transform .2s, box-shadow .2s;font:inherit}
 .qcard:hover{transform:translateY(-4px);box-shadow:0 22px 40px -14px rgba(16,45,105,.5)}
@@ -1262,16 +1262,10 @@ const ROLES = [
       {ic:"fileDown",h:"ไฟล์อิเล็กทรอนิกส์",li:["รวมเป็น PDF ไฟล์เดียว","ฝังฟอนต์ (Embed fonts)","หน้าอนุมัติลงนามครบและสแกนชัด"]},
       {ic:"alert",h:"จุดที่ถูกตีกลับบ่อย",warn:true,li:["ชื่อเรื่องไทย–อังกฤษไม่ตรงกับ บฑ.1","สารบัญไม่ตรงกับเลขหน้าจริง","ไฟล์แยกหลายไฟล์ / ฟอนต์ไม่ฝัง"]}
     ]}},
-   {icon:"landmark",bg:"bg3",title:"ข้อบังคับ ประกาศ และแนวปฏิบัติ",p:"บัณฑิตวิทยาลัย · มหาวิทยาลัย",
-    desc:"ประกาศบัณฑิตวิทยาลัยที่เกี่ยวกับวิทยานิพนธ์ สารนิพนธ์ และการค้นคว้าอิสระ",content:RULES},
    {icon:"download",bg:"bg4",title:"แบบฟอร์มต่าง ๆ",p:"ดาวน์โหลดแบบฟอร์ม",
     desc:"ตรวจสอบผู้ลงนามและกำหนดเวลาก่อนยื่นทุกครั้ง",content:FORMS},
-   {icon:"book",bg:"bg5",title:"คู่มือและแนวปฏิบัติ",p:"Guides & Templates",
-    desc:"เลือกเอกสารตามขั้นตอนที่คุณกำลังเตรียม",content:{type:"guides",items:[
-      {icon:"upload",pill:"การส่งรูปเล่ม",h:"แนวปฏิบัติการส่ง<br>รูปเล่มอิเล็กทรอนิกส์",d:"ศึกษาวิธีส่งรูปเล่มผ่านระบบ e-thesis submission",cta:"ดูแนวปฏิบัติ",url:"#"},
-      {icon:"layout",pill:"การจัดรูปแบบ",h:"คู่มือการจัดรูปแบบ<br>รูปเล่มอิเล็กทรอนิกส์",d:"แนวทางสำหรับจัดเตรียมรูปเล่มให้เป็นไปตามรูปแบบที่กำหนด",cta:"เปิดอ่านคู่มือ",url:"#"},
-      {icon:"grid",pill:"ตัวอย่างรูปเล่ม",gold:true,h:"Sample<br>template",d:"ตัวอย่างเทมเพลตสำหรับจัดทำรูปเล่ม เปิดและดาวน์โหลดผ่าน Google Drive",cta:"เปิดเทมเพลตใน Google Drive",url:"#"}
-    ]}},
+   {icon:"landmark",bg:"bg3",title:"ข้อบังคับ ประกาศ และแนวปฏิบัติ",p:"บัณฑิตวิทยาลัย · มหาวิทยาลัย",
+    desc:"ประกาศบัณฑิตวิทยาลัยที่เกี่ยวกับวิทยานิพนธ์ สารนิพนธ์ และการค้นคว้าอิสระ",content:RULES},
    {icon:"help",bg:"bg6",title:"FAQ คำถามที่พบบ่อย",p:"รวมคำถามจากนักศึกษา",
     desc:"คำตอบสำหรับคำถามที่นักศึกษาถามบ่อย",content:FAQS}
  ]},
