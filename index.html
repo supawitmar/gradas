@@ -1125,6 +1125,12 @@ const RULES = {type:"notices",
       {kind:"ข้อบังคับ", name:"ข้อบังคับมหาวิทยาลัยมหิดล ว่าด้วยการศึกษาระดับบัณฑิตศึกษา",
        by:"มหาวิทยาลัยมหิดล", year:"2563", th:GS+"download/current-student/pdf/Mahidol-University-Regulations-Th.pdf",
        kw:["ใช้กับนักศึกษาเกณฑ์ 2558","คุณสมบัติคณะกรรมการ","การสอบและการสำเร็จการศึกษา"]},
+      {kind:"ข้อบังคับ", name:"ข้อบังคับมหาวิทยาลัยมหิดล ว่าด้วยการศึกษาระดับบัณฑิตศึกษา",
+       by:"มหาวิทยาลัยมหิดล", year:"2556", th:GS+"download/current-student/pdf/rule_education56.pdf",
+       kw:["ฉบับก่อนข้อบังคับ พ.ศ. 2563","คุณสมบัติคณะกรรมการ","การสอบและการสำเร็จการศึกษา"]},
+      {kind:"ประกาศ", name:"มาตรฐานความรู้ภาษาอังกฤษของนักศึกษาระดับบัณฑิตศึกษา",
+       by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2569", th:GS+"storage/IT-SERVICE/Announce/PR07472.pdf", en:GS+"storage/IT-SERVICE/Announce/PR07160.pdf",
+       kw:["เกณฑ์เข้าศึกษาและสำเร็จการศึกษา","MU GRAD Plus / IELTS / TOEFL / PTE","ผลสอบมีอายุ 2 ปี"]},
       {kind:"แนวปฏิบัติ", name:"ปรับกระบวนการลงนามในเอกสารหน้าลงนามรูปเล่มอิเล็กทรอนิกส์",
        by:"บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2569", th:GS+"download/current-student/pdf/Electronic-Thesis-Signature-Process.pdf",
        kw:["ส่งหน้าลงนามแบบออนไลน์","Sign-Off Page Submission","เริ่ม 17 ส.ค. 2569"]},
@@ -1142,10 +1148,7 @@ const RULES = {type:"notices",
        kw:["สอบออนไลน์","ประมวลความรู้ / QE / โครงร่าง / วิทยานิพนธ์","ขออนุมัติล่วงหน้าอย่างน้อย 15 วัน"]},
       {kind:"ประกาศ", name:"กิจกรรมเสริมทักษะของนักศึกษาระดับบัณฑิตศึกษา",
        by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2567", th:GS+"softskills/download/pdf/Skill-Enhancement-Activities-Th.pdf",
-       kw:["Soft Skills อย่างน้อย 4 ทักษะ","กิจกรรมบัณฑิตวิทยาลัย 2 + ประเภทอื่น 2","ต้อง “ผ่าน” เพื่อสำเร็จการศึกษา"]},
-      {kind:"ประกาศ", name:"เกณฑ์การเผยแพร่ผลงานวิทยานิพนธ์หรือส่วนหนึ่งของวิทยานิพนธ์ เพื่อขอสำเร็จการศึกษาระดับบัณฑิตศึกษา",
-       by:"ประกาศบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล", year:"2568", th:GS+"storage/IT-SERVICE/Announce/PR06965.pdf",
-       kw:["เกณฑ์ตีพิมพ์เพื่อสำเร็จการศึกษา","วารสารระดับชาติ / นานาชาติ","Proceedings / นวัตกรรม / สิทธิบัตร","หลักสูตรเกณฑ์ 2565"]}
+       kw:["Soft Skills อย่างน้อย 4 ทักษะ","กิจกรรมบัณฑิตวิทยาลัย 2 + ประเภทอื่น 2","ต้อง “ผ่าน” เพื่อสำเร็จการศึกษา"]}
     ]}
   ]};
 /* ---------- FAQ (อ้างอิง: เอกสาร Q&A งานบริการการศึกษา) ---------- */
@@ -1434,6 +1437,10 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  "ฉบับก่อนข้อบังคับ พ.ศ. 2563":"Edition before the 2020 Regulation",
+  "มาตรฐานความรู้ภาษาอังกฤษของนักศึกษาระดับบัณฑิตศึกษา":"English proficiency standard for graduate students",
+  "เกณฑ์เข้าศึกษาและสำเร็จการศึกษา":"Admission and graduation criteria",
+  "ผลสอบมีอายุ 2 ปี":"Scores valid for 2 years",
   "แบบฟอร์มเกี่ยวกับบริหารจัดการการทำวิทยานิพนธ์ และสารนิพนธ์":"Forms for thesis and thematic paper management",
   "คำร้องขอหนังสือส่งตัวกลับไปปฏิบัติงาน ณ ต้นสังกัด":"Request for a letter returning the student to their employer",
   "สำหรับนักศึกษาที่เป็นข้าราชการหรือพนักงานรัฐวิสาหกิจที่ลาศึกษาต่อ ให้บัณฑิตวิทยาลัยทำหนังสือส่งตัวกลับต้นสังกัดเดิม (เฉพาะกรณีสำเร็จการศึกษาหรือพ้นสภาพ)":"For civil servants or state enterprise employees on study leave: the Faculty issues a letter returning you to your employer (only on graduation or termination of student status).",
