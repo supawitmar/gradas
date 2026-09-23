@@ -2437,7 +2437,7 @@ function renderContent(c){
         </div>
         ${c.groups.map(g=>`
           <div class="f-group">${t(g.name)}</div>
-          ${g.rows.map(r=>`
+          ${[...g.rows].sort((a,b)=>(+b.year||0)-(+a.year||0)).map(r=>`
             <div class="n-row" data-k="${r.kind}" data-q="${fq([r.kind, EN[r.kind]||"", r.name, EN[r.name]||"", r.by, EN[r.by]||"", r.year||"", r.year?String(+r.year-543):"", ...(r.kw||[]), ...(r.kw||[]).map(k=>EN[k]||"")])}">
               <span class="f-no">${++n}</span>
               <div class="f-desc"><span class="n-kind k${KINDS.indexOf(r.kind)}">${t(r.kind)}</span><b>${t(r.name)}</b><span>${t(r.by)}</span>${r.kw?`<div class="n-kw">${r.kw.map(k=>`<span>${t(k)}</span>`).join("")}</div>`:""}</div>
