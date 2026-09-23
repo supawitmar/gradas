@@ -1265,9 +1265,9 @@ const FAQS = {type:"faqx",
   ]};
 const DL = "https://graduate.mahidol.ac.th/download/current-student/form/";
 const FORMS = {type:"forms",
-  title:"แบบฟอร์มเกี่ยวกับบริหารจัดการการทำวิทยานิพนธ์ และสารนิพนธ์",
+  title:"",
   groups:[
-    {name:"การสอบวิทยานิพนธ์ / สารนิพนธ์ / การค้นคว้าอิสระ", rows:[
+    {name:"แบบฟอร์มเกี่ยวกับบริหารจัดการการทำวิทยานิพนธ์ และสารนิพนธ์", rows:[
       {code:"บฑ.35", name:"กำหนดการสอบวัดคุณสมบัติ และคณะกรรมการสอบวัดคุณสมบัติ",
        desc:"สำหรับนักศึกษาปริญญาเอก ยื่นขอสอบวัดคุณสมบัติ (QE) พร้อมเสนอคณะกรรมการสอบ ประธานหลักสูตรต้องให้ความเห็นชอบก่อนวันสอบไม่น้อยกว่า 15 วัน",
        th:DL+"GR_35.pdf", en:DL+"GR_35E.pdf", online:true},
@@ -1286,6 +1286,12 @@ const FORMS = {type:"forms",
       {code:"บฑ.2", name:"กำหนดสอบวิทยานิพนธ์/สารนิพนธ์ และคณะกรรมการสอบ",
        desc:"เสนอกำหนดวันสอบและแต่งตั้งคณะกรรมการสอบ ประธานหลักสูตรต้องให้ความเห็นชอบก่อนวันสอบไม่น้อยกว่า 15 วัน",
        th:DL+"GR_2.pdf", en:DL+"GR_2E.pdf", online:true},
+      {code:"บฑ.24", name:"คำร้องขอหนังสือส่งตัวกลับไปปฏิบัติงาน ณ ต้นสังกัด",
+       desc:"สำหรับนักศึกษาที่เป็นข้าราชการหรือพนักงานรัฐวิสาหกิจที่ลาศึกษาต่อ ให้บัณฑิตวิทยาลัยทำหนังสือส่งตัวกลับต้นสังกัดเดิม (เฉพาะกรณีสำเร็จการศึกษาหรือพ้นสภาพ)",
+       th:DL+"GR-24-Th.pdf", en:DL+"GR-24-En.pdf"},
+      {code:"บฑ.25", name:"คำร้องขอขยายเวลาการลาศึกษาต่อ",
+       desc:"สำหรับนักศึกษาที่เป็นข้าราชการซึ่งครบกำหนดลาศึกษาแต่ยังไม่สำเร็จการศึกษา ให้บัณฑิตวิทยาลัยแจ้งต้นสังกัดเพื่อขอขยายเวลาการลาศึกษาต่อ",
+       th:DL+"GR-25.pdf", en:DL+"GR-25E.pdf"},
       {code:"บฑ.29", name:"ขอไปศึกษาดูงาน / ขอไปฝึกปฏิบัติงาน",
        desc:"กรณีต้องการให้บัณฑิตวิทยาลัยออกหนังสือขอความอนุเคราะห์ให้นักศึกษาไปศึกษาดูงาน/ฝึกปฏิบัติงาน ณ หน่วยงานต่าง ๆ",
        th:DL+"GR-29.pdf", en:DL+"GR-25E.pdf"}
@@ -1398,6 +1404,11 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  "แบบฟอร์มเกี่ยวกับบริหารจัดการการทำวิทยานิพนธ์ และสารนิพนธ์":"Forms for thesis and thematic paper management",
+  "คำร้องขอหนังสือส่งตัวกลับไปปฏิบัติงาน ณ ต้นสังกัด":"Request for a letter returning the student to their employer",
+  "สำหรับนักศึกษาที่เป็นข้าราชการหรือพนักงานรัฐวิสาหกิจที่ลาศึกษาต่อ ให้บัณฑิตวิทยาลัยทำหนังสือส่งตัวกลับต้นสังกัดเดิม (เฉพาะกรณีสำเร็จการศึกษาหรือพ้นสภาพ)":"For civil servants or state enterprise employees on study leave: the Faculty issues a letter returning you to your employer (only on graduation or termination of student status).",
+  "คำร้องขอขยายเวลาการลาศึกษาต่อ":"Request to extend study leave",
+  "สำหรับนักศึกษาที่เป็นข้าราชการซึ่งครบกำหนดลาศึกษาแต่ยังไม่สำเร็จการศึกษา ให้บัณฑิตวิทยาลัยแจ้งต้นสังกัดเพื่อขอขยายเวลาการลาศึกษาต่อ":"For civil servants whose study leave has ended before graduation: the Faculty notifies your employer to request an extension.",
   "คำร้องอื่น ๆ":"Other requests",
   "ค้นหาเอกสาร เช่น รูปเล่ม, AI, ข้อบังคับ":"Search documents, e.g. thesis file, AI, regulation",
   "ค้นหาเอกสาร":"Search documents",
@@ -1824,10 +1835,9 @@ const EN = {
   "ประกาศบัณฑิตวิทยาลัยที่เกี่ยวกับวิทยานิพนธ์ สารนิพนธ์ และการค้นคว้าอิสระ":"Faculty announcements on theses, thematic papers and independent studies",
 
   /* ---------- ตารางแบบฟอร์ม ---------- */
-  "แบบฟอร์มเกี่ยวกับบริหารจัดการการทำวิทยานิพนธ์ และสารนิพนธ์":"Thesis and Thematic Paper Management Forms",
   "ลำดับ":"No.", "คำอธิบาย":"Description", "ภาษาไทย":"Thai", "ภาษาอังกฤษ":"English", "ออนไลน์":"Online", "คู่มือ":"Guide",
-  "การสอบวิทยานิพนธ์ / สารนิพนธ์ / การค้นคว้าอิสระ":"Thesis / Thematic Paper / Independent Study Examinations",
   "การเชิญอาจารย์ผู้สอน":"Inviting Instructors",
+  "บฑ.24":"GR.24", "บฑ.25":"GR.25",
   "บฑ.35":"GR.35", "บฑ.39":"GR.39", "บฑกศ.39":"GRAS.39", "บฑ.29":"GR.29",
   "กำหนดการสอบวัดคุณสมบัติ และคณะกรรมการสอบวัดคุณสมบัติ":"Qualifying examination schedule and committee",
   "สำหรับนักศึกษาปริญญาเอก ยื่นขอสอบวัดคุณสมบัติ (QE) พร้อมเสนอคณะกรรมการสอบ ประธานหลักสูตรต้องให้ความเห็นชอบก่อนวันสอบไม่น้อยกว่า 15 วัน":"For doctoral students: request the qualifying examination (QE) and propose the committee. The program director must approve at least 15 days before the exam.",
@@ -2447,7 +2457,7 @@ function renderContent(c){
       const none = '<span class="f-none">–</span>';
       const cell = (label, inner) => `<div class="f-cell"><span class="f-lab">${t(label)}</span>${inner}</div>`;
       return `<div class="forms">
-        <h3 class="forms-title">${t(c.title)}</h3>
+        ${c.title?`<h3 class="forms-title">${t(c.title)}</h3>`:""}
         <div class="f-search">
           ${svg("search")}
           <input type="search" oninput="filterForms(this)" placeholder="${t("ค้นหาแบบฟอร์ม เช่น 35, บฑ.35 หรือ สอบวัดคุณสมบัติ")}" aria-label="${t("ค้นหาแบบฟอร์ม")}">
@@ -2455,7 +2465,7 @@ function renderContent(c){
         </div>
         <div class="f-head">
           <span>${t("ลำดับ")}</span><span>${t("แบบฟอร์ม")}</span><span>${t("คำอธิบาย")}</span>
-          <span>${t("ภาษาไทย")}</span><span>${t("ภาษาอังกฤษ")}</span><span>${t("ออนไลน์")}</span><span>${t("คู่มือ")}</span>
+          <span>${t("ภาษาไทย")}</span><span>${t("ภาษาอังกฤษ")}</span><span>${t("ออนไลน์")}</span><span>${t("แนวปฏิบัติ")}</span>
         </div>
         ${c.groups.map(g=>`<div class="f-grp">
           <div class="f-group">${t(g.name)}</div>
@@ -2467,7 +2477,7 @@ function renderContent(c){
               ${cell("ภาษาไทย", r.th ? `<a class="f-pill th" href="${r.th}" target="_blank" rel="noopener">${flagTH}${t("ภาษาไทย")}</a>` : none)}
               ${cell("ภาษาอังกฤษ", r.en ? `<a class="f-pill en" href="${r.en}" target="_blank" rel="noopener">${flagEN}English</a>` : none)}
               ${cell("ออนไลน์", r.online ? `<a class="f-pill on" href="${EFORM.href.th}" target="_blank" rel="noopener">${svg("check")}Online</a>` : none)}
-              ${cell("คู่มือ", INFO_BY_CODE[r.code] ? `<button class="f-pill man" onclick="openInfo('${INFO_BY_CODE[r.code]}')">${svg("book")}${t("คู่มือ")}</button>` : r.manual ? `<a class="f-pill man" href="${r.manual}" target="_blank" rel="noopener">${svg("book")}${t("คู่มือ")}</a>` : none)}
+              ${cell("คู่มือ", INFO_BY_CODE[r.code] ? `<button class="f-pill man" onclick="openInfo('${INFO_BY_CODE[r.code]}')">${svg("book")}${t("แนวปฏิบัติ")}</button>` : r.manual ? `<a class="f-pill man" href="${r.manual}" target="_blank" rel="noopener">${svg("book")}${t("แนวปฏิบัติ")}</a>` : none)}
             </div>`).join("")}</div>`).join("")}
         <p class="f-empty hide">${t("ไม่พบแบบฟอร์มที่ค้นหา")}</p>
       </div>`;
