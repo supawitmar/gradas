@@ -903,7 +903,7 @@ const INFO = {
         {ul:["<b>รหัส 67 เป็นต้นไป</b> ต้องใช้ บฑกศ.39 เท่านั้น (ยกเลิก บฑ.44 และตามข้อบังคับฯ พ.ศ. 2567 ข้อ 99 (5) การสอบโครงร่างอยู่ในการกำกับของหลักสูตร)",
              "<b>รหัส 66 ลงมา</b> เลือกใช้ บฑ.39 (เดิม) หรือ บฑกศ.39 ก็ได้"]}]},
       {ic:"users", h:"จำนวนผู้ทำหน้าที่", body:[
-        {ul:["<b>ปริญญาโท</b> ไม่เกิน 3 ท่าน","<b>ปริญญาเอก</b> ไม่เกิน 5 ท่าน"]}]},
+        {ul:["<b>ปริญญาโท</b> 3 ท่าน","<b>ปริญญาเอก</b> 5 ท่าน"]}]},
       {ic:"route", h:"ขั้นตอนการยื่นคำร้อง", body:[
         {ol:["<b>เตรียมข้อมูล</b> นักศึกษาและหลักสูตรเตรียมหัวข้อ ร่างโครงร่าง และรายชื่อผู้ทำหน้าที่ตามจำนวนที่กำหนด",
              "<b>ยื่นผ่าน e-Form</b> กรอกคำร้อง บฑกศ.39 ในระบบ e-Form ของบัณฑิตวิทยาลัย",
@@ -913,10 +913,10 @@ const INFO = {
         {ul:["<b>ภาษาของหนังสือเชิญ</b> เลือกภาษาไทยหรือภาษาอังกฤษ",
              "<b>กำหนดการสอบ</b> ระบุหรือยืนยันวัน เวลา และสถานที่ / ช่องทางจัดสอบ",
              "กด <b>Save</b> เพื่อบันทึกข้อมูล",
-             "<b>ข้อมูลอาจารย์</b> เลื่อนลงมาตรวจสอบและระบุข้อมูลอาจารย์และผู้ทรงคุณวุฒิที่ต้องออกหนังสือเชิญ"]},
+             "<b>ข้อมูลอาจารย์</b> นักศึกษาระบุข้อมูลกรรมการผู้ทำหน้าที่เพื่อให้ได้มาซึ่งหัวข้อฯ (ตำแหน่งทางวิชาการ / ชื่อ นามสกุล / สถานที่ทำงาน) <b>กรณีเลือกออกหนังสือเป็นภาษาอังกฤษ ให้ระบุข้อมูลทุกอย่างเป็นภาษาอังกฤษ</b>"]},
         {sub:"ลำดับการอนุมัติ"}, {flow:["นักศึกษา","ประธานหลักสูตร/คณะ","บัณฑิตวิทยาลัย"]}]},
       {ic:"arrow", h:"หลังจากนี้ทำอะไรต่อ", body:[
-        {ul:["<b>ยื่น บฑ.1</b> เมื่อสอบผ่านโครงร่างและได้หัวข้อแล้ว ยื่นอนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา"]}]},
+        {ul:["<b>ผ่าน</b> ยื่น บฑ.1 ขออนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา"]}]},
     ]},
 
   gr27: {code:"บฑ.27", title:"การสอบประมวลความรู้ (Comprehensive Examination)",
@@ -1399,6 +1399,10 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  "<b>ผ่าน</b> ยื่น บฑ.1 ขออนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา":"<b>Pass</b>: submit GR.1 to approve the topic and appoint the advisory committee",
+  "<b>ข้อมูลอาจารย์</b> นักศึกษาระบุข้อมูลกรรมการผู้ทำหน้าที่เพื่อให้ได้มาซึ่งหัวข้อฯ (ตำแหน่งทางวิชาการ / ชื่อ นามสกุล / สถานที่ทำงาน) <b>กรณีเลือกออกหนังสือเป็นภาษาอังกฤษ ให้ระบุข้อมูลทุกอย่างเป็นภาษาอังกฤษ</b>":"<b>Committee details</b>: enter each committee member's details (academic title / name / workplace). <b>If the letter is issued in English, enter everything in English</b>",
+  "<b>ปริญญาเอก</b> 5 ท่าน":"<b>Doctoral</b>: 5 persons",
+  "<b>ปริญญาโท</b> 3 ท่าน":"<b>Master's</b>: 3 persons",
   "<b>ไม่ผ่าน / แก้ไขเงื่อนไขไม่ผ่าน</b> ยื่นคำร้อง บฑ.39 เพื่อขอสอบใหม่ ภายในเวลาที่หลักสูตรกำหนด":"<b>Fail / conditions not met</b>: submit GR.39 again to retake the exam within the time set by the program",
   "<b>ผ่านแบบมีเงื่อนไข</b> แก้ไขโครงร่างตามข้อเสนอแนะภายในเวลาที่กำหนด แล้วส่งผลการแก้ไขผลสอบ (บฑ.37) เพื่อให้มีผลผ่านโดยสมบูรณ์ แล้วจึงยื่น บฑ.1":"<b>Conditional pass</b>: revise the proposal as advised within the set time, then submit the revision result (GR.37) so the result becomes a full pass, and then submit GR.1",
   "<b>ผ่าน</b> หลักสูตรยื่นผลการสอบ (บฑ.33) เมื่อผลสอบปรากฏแล้ว ยื่นคำร้อง บฑ.1 ขออนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา":"<b>Pass</b>: the program submits the exam result (GR.33); once the result is recorded, submit GR.1 to approve the topic and appoint the advisory committee",
@@ -1451,7 +1455,6 @@ const EN = {
   "<b>ภาษาของหนังสือเชิญ</b> เลือกภาษาไทยหรือภาษาอังกฤษ":"<b>Letter language</b>: choose Thai or English",
   "<b>กำหนดการสอบ</b> ระบุหรือยืนยันวัน เวลา และสถานที่ / ช่องทางจัดสอบ":"<b>Exam schedule</b>: enter or confirm the date, time and venue / channel",
   "กด <b>Save</b> เพื่อบันทึกข้อมูล":"Click <b>Save</b> to save",
-  "<b>ข้อมูลอาจารย์</b> เลื่อนลงมาตรวจสอบและระบุข้อมูลอาจารย์และผู้ทรงคุณวุฒิที่ต้องออกหนังสือเชิญ":"<b>Faculty details</b>: scroll down to check and enter the faculty and experts who need invitation letters",
   "<b>หัวข้อเรื่องภาษาอังกฤษ</b> พิมพ์ด้วยตัวพิมพ์ใหญ่ทั้งหมด (UPPERCASE) ยกเว้นคำศัพท์เฉพาะทางที่ใช้ตัวพิมพ์เล็ก-ใหญ่ตามหลักสากล":"<b>English title</b>: type in UPPERCASE, except technical terms that follow standard capitalization",
   "<b>หัวข้อเรื่องภาษาไทย</b> พิมพ์ให้ถูกต้องตามหลักภาษา":"<b>Thai title</b>: type it with correct Thai spelling and grammar",
   "<b>หมายเหตุ</b> รายละเอียดเพิ่มเติม (ถ้ามี)":"<b>Remarks</b>: additional details (if any)",
@@ -1653,13 +1656,10 @@ const EN = {
   "<b>รหัส 67 เป็นต้นไป</b> ต้องใช้ บฑกศ.39 เท่านั้น (ยกเลิก บฑ.44 และตามข้อบังคับฯ พ.ศ. 2567 ข้อ 99 (5) การสอบโครงร่างอยู่ในการกำกับของหลักสูตร)":"<b>ID 67 onward</b> must use GRAS.39 only (GR.44 is abolished; under the 2024 Regulation clause 99 (5) the proposal exam is managed by the program)",
   "<b>รหัส 66 ลงมา</b> เลือกใช้ บฑ.39 (เดิม) หรือ บฑกศ.39 ก็ได้":"<b>ID 66 or earlier</b> may use either GR.39 (original) or GRAS.39",
   "จำนวนผู้ทำหน้าที่":"Number of evaluators",
-  "<b>ปริญญาโท</b> ไม่เกิน 3 ท่าน":"<b>Master's</b>: up to 3",
-  "<b>ปริญญาเอก</b> ไม่เกิน 5 ท่าน":"<b>Doctoral</b>: up to 5",
   "<b>เตรียมข้อมูล</b> นักศึกษาและหลักสูตรเตรียมหัวข้อ ร่างโครงร่าง และรายชื่อผู้ทำหน้าที่ตามจำนวนที่กำหนด":"<b>Prepare</b>: the student and program prepare the topic, draft proposal and list of evaluators",
   "<b>ยื่นผ่าน e-Form</b> กรอกคำร้อง บฑกศ.39 ในระบบ e-Form ของบัณฑิตวิทยาลัย":"<b>Submit via e-Form</b>: fill in GRAS.39 in the Faculty's e-Form system",
   "<b>ออกหนังสือเชิญ</b> บัณฑิตวิทยาลัยอนุมัติและออกหนังสือเชิญผู้ทำหน้าที่อย่างเป็นทางการ":"<b>Invitation letters</b>: the Faculty approves and issues official invitation letters",
   "<b>จัดสอบ / ประเมินโครงร่าง</b> ตามกระบวนการภายในของหลักสูตร":"<b>Proposal exam / evaluation</b> following the program's internal process",
-  "<b>ยื่น บฑ.1</b> เมื่อสอบผ่านโครงร่างและได้หัวข้อแล้ว ยื่นอนุมัติหัวข้อและแต่งตั้งคณะกรรมการที่ปรึกษา":"<b>Submit GR.1</b> once the proposal is passed and the topic is set, for topic approval and advisory committee appointment",
 
   "การสอบประมวลความรู้ (Comprehensive Examination)":"Comprehensive Examination",
   "สำหรับนักศึกษาปริญญาโท แผน ข / แผน 2":"For Master's Plan B / Plan 2 students",
