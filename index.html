@@ -633,7 +633,7 @@ body.lock{overflow:hidden}
 <nav class="menu" aria-label="เมนูหลัก">
   <div class="nav-inner">
     <span class="service" data-i18n>งานบริการการศึกษา</span>
-    <div><a href="#role" data-i18n>เลือกบทบาท</a><a href="#quick">Shortcuts</a><a href="#contact" data-i18n>ติดต่อเรา</a></div>
+    <div><a href="#role" data-i18n>เลือกบทบาท</a><a href="#quick" onclick="if(!role){event.preventDefault();goRoles();}">Shortcuts</a><a href="#contact" data-i18n>ติดต่อเรา</a></div>
   </div>
 </nav>
 </div>
@@ -659,7 +659,7 @@ body.lock{overflow:hidden}
 </section>
 
 <!-- STEP 2 -->
-<section id="quick">
+<section id="quick" class="hide">
   <div class="wrap">
     <div class="ql-bar">
       <div class="ql-head">
@@ -2261,7 +2261,7 @@ function setLang(l){
 /* =========================================================
    RENDER
    ========================================================= */
-let role = ROLES[0], track = "phd", activeLink = null;
+let role = null, track = "phd", activeLink = null;
 const $ = id => document.getElementById(id);
 
 /* ---------- ANIMATION: ใส่คลาสและสั่งเล่นเมื่อเลื่อนถึง ---------- */
@@ -2291,7 +2291,7 @@ function reveal(root){
 
 function renderRoles(){
   $("roles").innerHTML = ROLES.map(r=>`
-    <button class="role ${r===role?'on':''}" onclick="setRole('${r.id}')">
+    <button class="role ${r===role?'on':''}" aria-pressed="${r===role}" onclick="setRole('${r.id}')">
       <div class="role-top"><span class="ico">${svg(r.icon)}</span><span class="tick">${svg("check")}</span></div>
       <h3>${t(r.name)}</h3><p>${t(r.sub)}</p>
     </button>`).join("");
@@ -2305,6 +2305,8 @@ const NOBREAK = ["และแนวปฏิบัติ","เส้นทา�
 const NB_RE = new RegExp(NOBREAK.map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|"),"g");
 const nb = s => lang === "th" ? s.replace(NB_RE, m => `<span class="nw">${m}</span>`) : s;
 function renderQuick(){
+  $("quick").classList.toggle("hide", !role);
+  if(!role){ $("bento").innerHTML = ""; return; }
   $("qlSub").textContent = t("สำหรับ") + t(role.name);
   /* บทบาทที่ยังไม่เปิดใช้งาน: ไม่แสดงการ์ด แสดงข้อความแจ้งแทน */
   if(role.soon){
@@ -2357,9 +2359,12 @@ function renderQuick(){
     ${l.href ? `</a>` : `</button>`}`).join("");
 }
 function setRole(id){
-  role = ROLES.find(r=>r.id===id); activeLink = null;
+  const same = role && role.id === id;
+  role = same ? null : ROLES.find(r=>r.id===id); activeLink = null;
   $("detail").classList.add("hide");
-  renderRoles(); renderQuick(); reveal($("quick"));
+  renderRoles(); renderQuick();
+  if(!role) return;
+  reveal($("quick"));
   $("quick").scrollIntoView({behavior:"smooth"});
 }
 function renderDetail(){
