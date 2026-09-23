@@ -923,12 +923,10 @@ const INFO = {
     sections:[
       {ic:"help", h:"บฑ.27 คืออะไร", body:[
         {p:"การประเมินความรู้ความสามารถในภาพรวมของสาขาวิชา ความรอบรู้ทางวิชาการ และศักยภาพในการนำความรู้ไปประยุกต์ใช้ในวิชาชีพ"},
-        {ul:["<b>ใช้กับ</b> ปริญญาโท แผน ข (เกณฑ์ 2558) / แผน 2 (เกณฑ์ 2565) ที่ทำสารนิพนธ์หรือการค้นคว้าอิสระ (ปริญญาเอกใช้การสอบวัดคุณสมบัติ บฑ.35)",
-             "<b>ต้องสอบผ่านก่อน</b> จึงจะยื่นขอสอบสารนิพนธ์ (บฑ.2) หรือขอสำเร็จการศึกษาได้",
+        {ul:["<b>ต้องสอบผ่านก่อน</b> จึงจะยื่นขอสอบสารนิพนธ์ (บฑ.2) หรือขอสำเร็จการศึกษาได้",
              "<b>รูปแบบการสอบ</b> ข้อเขียน ปากเปล่า หรือทั้งสองอย่าง ตามที่หลักสูตรกำหนด"]}]},
       {ic:"clipboard", h:"เอกสารที่ใช้", body:[
-        {ul:["<b>คำร้อง บฑ.27</b> ขอสอบประมวลความรู้และเสนอแต่งตั้งคณะกรรมการสอบ ยื่นผ่านระบบ e-Form",
-             "<b>หลักฐานการชำระค่าธรรมเนียม</b> การสอบประมวลความรู้"]}]},
+        {ul:["<b>คำร้อง บฑ.27</b> ขอสอบประมวลความรู้และเสนอแต่งตั้งคณะกรรมการสอบ ยื่นผ่านระบบ e-Form"]}]},
       {ic:"check", h:"เงื่อนไขและคุณสมบัติ", body:[
         {sub:"ผู้เข้าสอบ"},
         {ul:["เป็นนักศึกษาปริญญาโท แผน ข / แผน 2",
@@ -953,7 +951,10 @@ const INFO = {
              "เมื่อส่งแล้ว แบบฟอร์มจะส่งต่อให้อาจารย์ที่ปรึกษาและประธานหลักสูตรลงนามเห็นชอบตามลำดับ"]},
         {sub:"ลำดับการอนุมัติ"}, {flow:["นักศึกษา","ประธานหลักสูตร/คณะ","บัณฑิตวิทยาลัย"]}]},
       {ic:"arrow", h:"หลังจากนี้ทำอะไรต่อ", body:[
-        {ul:["<b>ผ่าน</b> จึงจะยื่นขอสอบสารนิพนธ์ / การค้นคว้าอิสระ (บฑ.2) ได้"]}]}
+        {sub:"กรณี “ผ่าน”"},
+        {ul:["ดำเนินการทำกระบวนการสารนิพนธ์ / การค้นคว้าอิสระ"]},
+        {sub:"กรณี “ไม่ผ่าน”"},
+        {ul:["ยื่นขอสอบประมวลความรู้ได้จนกว่าจะผ่าน"]}]}
     ]},
 
   gr2: {code:"บฑ.2", title:"การสอบวิทยานิพนธ์ / สารนิพนธ์",
@@ -1395,6 +1396,8 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  "ยื่นขอสอบประมวลความรู้ได้จนกว่าจะผ่าน":"You may reapply for the comprehensive exam until you pass",
+  "ดำเนินการทำกระบวนการสารนิพนธ์ / การค้นคว้าอิสระ":"Proceed with your thematic paper / independent study",
   "<b>กรณีถูกปรับเป็น “ตก”</b> บัณฑิตวิทยาลัยจะเสนอชื่อนักศึกษาไปยังสภามหาวิทยาลัยเพื่อปรับพ้นสภาพการเป็นนักศึกษา":"<b>Graded “F”</b>: the Faculty submits the student's name to the University Council for termination of student status",
   "<b>กรณีไม่ผ่าน (รอบที่ 2)</b> นักศึกษาต้องลงทะเบียนและศึกษาค้นคว้าวิทยานิพนธ์ในหัวข้อใหม่":"<b>Second fail</b>: register and research a thesis on a new topic",
   "<b>ไม่ผ่าน</b> นักศึกษาต้องลงทะเบียนและชำระค่าธรรมเนียมการสอบวิทยานิพนธ์ใหม่ และกำหนดสอบตามที่คณะกรรมการสอบกำหนดไว้":"<b>Fail</b>: register and pay the thesis examination fee again, and sit the exam on the date set by the committee",
@@ -1668,11 +1671,9 @@ const EN = {
   "สำหรับนักศึกษาปริญญาโท แผน ข / แผน 2":"For Master's Plan B / Plan 2 students",
   "บฑ.27 คืออะไร":"What is GR.27?",
   "การประเมินความรู้ความสามารถในภาพรวมของสาขาวิชา ความรอบรู้ทางวิชาการ และศักยภาพในการนำความรู้ไปประยุกต์ใช้ในวิชาชีพ":"An assessment of your overall knowledge of the field, academic breadth and ability to apply knowledge professionally.",
-  "<b>ใช้กับ</b> ปริญญาโท แผน ข (เกณฑ์ 2558) / แผน 2 (เกณฑ์ 2565) ที่ทำสารนิพนธ์หรือการค้นคว้าอิสระ (ปริญญาเอกใช้การสอบวัดคุณสมบัติ บฑ.35)":"<b>For</b> Master's Plan B (2015 standards) / Plan 2 (2022 standards) students doing a thematic paper or independent study (doctoral students take the QE, GR.35)",
   "<b>ต้องสอบผ่านก่อน</b> จึงจะยื่นขอสอบสารนิพนธ์ (บฑ.2) หรือขอสำเร็จการศึกษาได้":"<b>You must pass it</b> before applying for the thematic paper exam (GR.2) or graduation",
   "<b>รูปแบบการสอบ</b> ข้อเขียน ปากเปล่า หรือทั้งสองอย่าง ตามที่หลักสูตรกำหนด":"<b>Format</b>: written, oral or both, as set by the program",
   "<b>คำร้อง บฑ.27</b> ขอสอบประมวลความรู้และเสนอแต่งตั้งคณะกรรมการสอบ ยื่นผ่านระบบ e-Form":"<b>GR.27 request</b> for the comprehensive exam and committee appointment, submitted via e-Form",
-  "<b>หลักฐานการชำระค่าธรรมเนียม</b> การสอบประมวลความรู้":"<b>Proof of payment</b> of the comprehensive exam fee",
   "เป็นนักศึกษาปริญญาโท แผน ข / แผน 2":"A Master's Plan B / Plan 2 student",
   "ศึกษารายวิชาและสะสมหน่วยกิตครบตามที่หลักสูตรกำหนด":"Completed the coursework and credits required by the program",
   "อาจารย์ประจำ / นักวิจัยประจำ ต้องมีคุณวุฒิปริญญาเอก หรือปริญญาโทที่มีตำแหน่งรองศาสตราจารย์ขึ้นไป":"Faculty members / researchers need a doctorate, or a Master's degree with Associate Professor rank or higher",
@@ -1681,7 +1682,6 @@ const EN = {
   "<b>เห็นชอบและอนุมัติ</b> ประธานหลักสูตรเห็นชอบก่อนวันสอบไม่น้อยกว่า 15 วัน แล้วเสนอคณบดีบัณฑิตวิทยาลัยแต่งตั้ง":"<b>Approval</b>: the program chair approves at least 15 days before the exam and forwards it to the Dean for appointment",
   "<b>จัดสอบ</b> ข้อเขียน ปากเปล่า หรือทั้งสองอย่าง":"<b>Exam</b>: written, oral or both",
   "<b>แจ้งผล</b> คณะกรรมการประชุมลับตัดสินผล ประธานกรรมการสอบแจ้งผลเป็นลายลักษณ์อักษรภายใน 5 วัน และส่งรายงานผลภายใน 15 วัน":"<b>Result</b>: decided in a closed meeting; the chair notifies you in writing within 5 days and reports within 15 days",
-  "<b>ผ่าน</b> จึงจะยื่นขอสอบสารนิพนธ์ / การค้นคว้าอิสระ (บฑ.2) ได้":"<b>Pass</b>: you can then apply for the thematic paper / independent study exam (GR.2)",
   "ชื่อเรียกแผนการศึกษา":"Study plan name",
   "ปริญญาโท แผน ข":"Master's Plan B",
   "ปริญญาโท แผน 2":"Master's Plan 2",
