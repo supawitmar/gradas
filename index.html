@@ -580,6 +580,37 @@ body.lock{overflow:hidden}
   .cbox .cbig{font-size:1.25rem}
 }
 
+
+/* ================= Shortcuts: แท็บเล็ต + มือถือ ================= */
+@media(min-width:521px) and (max-width:980px){
+  .bento{grid-auto-rows:minmax(190px,auto)}
+}
+@media(max-width:520px){
+  .bento{grid-template-columns:1fr 1fr;gap:12px}
+  .bento .qcard,.bento .qcard:nth-child(4),.bento .qcard:nth-child(5){grid-column:span 2;grid-row:auto;min-height:0;padding:18px 18px 20px;border-radius:22px}
+  .bento .qcard .no{top:16px;left:18px}
+  .bento .qcard .qicon,.bento .qcard:nth-child(1) .qicon{top:14px;right:14px;left:auto;width:48px;height:48px;border-radius:15px}
+  .bento .qcard .qicon .i,.bento .qcard:nth-child(1) .qicon .i{width:24px;height:24px;stroke-width:1.8}
+  .bento .qcard h3{font-size:1.14rem;margin-top:52px;padding-right:0}
+  .bento .qcard p{padding-right:44px}
+  .bento .qcard .go{width:34px;height:34px;right:14px;bottom:14px}
+  .bento .qcard:nth-child(1){padding-top:18px;min-height:0}
+  /* รายการในการ์ด 01 และ FAQ: เป็นป้ายเรียงต่อกัน */
+  .bento .qcard ul,.bento .qcard:nth-child(1) ul{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;padding-right:0}
+  .bento .qcard li,.bento .qcard:nth-child(1) li{margin:0;padding:4px 11px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);font-size:.8rem}
+  .bento .qcard li::before,.bento .qcard:nth-child(1) li::before{display:none}
+  .bento .qcard:has(ul) .go{display:none}
+  /* การ์ด 02 และ 03: การ์ดเล็กคู่กัน */
+  .bento .qcard:nth-child(2),.bento .qcard:nth-child(3){grid-column:span 1;padding:16px 16px 18px}
+  .bento .qcard:nth-child(2) .qicon,.bento .qcard:nth-child(3) .qicon{width:42px;height:42px;border-radius:13px;top:12px;right:12px}
+  .bento .qcard:nth-child(2) .qicon .i,.bento .qcard:nth-child(3) .qicon .i{width:21px;height:21px}
+  .bento .qcard:nth-child(2) .no,.bento .qcard:nth-child(3) .no{top:14px;left:16px}
+  .bento .qcard:nth-child(2) h3,.bento .qcard:nth-child(3) h3{font-size:1rem;margin-top:46px;line-height:1.3}
+  .bento .qcard:nth-child(2) p,.bento .qcard:nth-child(3) p{padding-right:0;font-size:.78rem}
+  .bento .qcard:nth-child(2) .go,.bento .qcard:nth-child(3) .go{display:none}
+  .qtags span{font-size:.74rem;padding:3px 10px}
+}
+
 /* ---------- ANIMATION: ค่อย ๆ เลื่อนเข้ามาเมื่อเลื่อนถึง ---------- */
 .reveal{opacity:0;transform:translateY(22px);will-change:opacity,transform}
 .reveal.in{opacity:1;transform:none;
