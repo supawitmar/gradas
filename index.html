@@ -145,6 +145,26 @@ section{padding:56px 0}
 .qcard .qicon{position:absolute;top:18px;right:18px;width:64px;height:64px;border-radius:20px;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 10px 24px -10px rgba(0,0,0,.4);transition:transform .3s}
 .qcard .qicon .i{width:32px;height:32px}
 .qcard:hover .qicon{transform:translateY(-3px) rotate(-6deg)}
+.qtags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;position:relative}
+.qtags span{font-size:.78rem;font-weight:600;padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.55);color:#6b4a07;border:1px solid rgba(255,255,255,.7)}
+/* การ์ดกว้างแถวล่าง: เนื้อหาอยู่กลางแนวตั้ง ไอคอนใหญ่ด้านขวา */
+@media(min-width:981px){
+  .bento .qcard:nth-child(5){justify-content:center;padding:52px 170px 28px 32px}
+  .bento .qcard:nth-child(5) h3{font-size:clamp(1.35rem,2.1vw,1.75rem)}
+  .bento .qcard:nth-child(5) p{font-size:.92rem}
+  .bento .qcard:nth-child(5) .qicon{width:104px;height:104px;border-radius:30px;top:50%;right:48px;transform:translateY(-50%)}
+  .bento .qcard:nth-child(5) .qicon .i{width:50px;height:50px;stroke-width:1.5}
+  .bento .qcard:nth-child(5):hover .qicon{transform:translateY(calc(-50% - 3px)) rotate(-6deg)}
+  .bento .qcard:nth-child(5) .glow{width:360px;height:360px;right:-90px;top:-100px}
+  /* การ์ดสูงด้านขวา (FAQ): แบบเดียวกับการ์ด 01 */
+  .bento .qcard:nth-child(4){padding-top:176px}
+  .bento .qcard:nth-child(4) .qicon{width:96px;height:96px;border-radius:28px;top:56px;left:24px;right:auto}
+  .bento .qcard:nth-child(4) .qicon .i{width:48px;height:48px;stroke-width:1.5}
+  .bento .qcard:nth-child(4) .glow{width:360px;height:360px;right:-140px;top:-120px}
+}
+.qcard ul{list-style:none;margin-top:14px;font-size:.9rem;position:relative}
+.qcard li{padding-left:20px;position:relative;margin-bottom:6px;line-height:1.4}
+.qcard li::before{content:"";position:absolute;left:2px;top:.45em;width:9px;height:9px;border-radius:50%;background:#fff}
 .qcard .go{position:absolute;right:18px;bottom:18px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#102d69;opacity:0;transform:translate(-6px,6px);transition:.25s}
 .qcard .go .i{width:18px;height:18px;stroke-width:2.2}
 .qcard:hover .go,.qcard.on .go{opacity:1;transform:none}
@@ -1266,8 +1286,9 @@ const ROLES = [
    {icon:"download",bg:"bg4",title:"แบบฟอร์มต่าง ๆ",p:"ดาวน์โหลดแบบฟอร์ม",
     desc:"ตรวจสอบผู้ลงนามและกำหนดเวลาก่อนยื่นทุกครั้ง",content:FORMS},
    {icon:"help",bg:"bg6",title:"FAQ คำถามที่พบบ่อย",p:"รวมคำถามจากนักศึกษา",
+    bullets:["หัวข้อและคณะกรรมการ","จริยธรรมการวิจัย","การส่งรูปเล่ม","คำร้องอื่น ๆ"],
     desc:"คำตอบสำหรับคำถามที่นักศึกษาถามบ่อย",content:FAQS},
-   {icon:"landmark",bg:"bg3",title:"ข้อบังคับ ประกาศ และแนวปฏิบัติ",p:"บัณฑิตวิทยาลัย · มหาวิทยาลัย",
+   {icon:"landmark",bg:"bg3",title:"ข้อบังคับ ประกาศ และแนวปฏิบัติ",p:"บัณฑิตวิทยาลัย · มหาวิทยาลัย",tags:["ข้อบังคับ","ประกาศ","แนวปฏิบัติ"],
     desc:"ประกาศบัณฑิตวิทยาลัยที่เกี่ยวกับวิทยานิพนธ์ สารนิพนธ์ และการค้นคว้าอิสระ",content:RULES}
  ]},
  {id:"advisor",soon:true,icon:"teacher",name:"อาจารย์ที่ปรึกษา / กรรมการ",sub:"ต้องลงนามอะไร · บทบาทในการสอบ · เกณฑ์พิจารณา",links:[
@@ -1346,6 +1367,7 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  "คำร้องอื่น ๆ":"Other requests",
   "ค้นหาเอกสาร เช่น รูปเล่ม, AI, ข้อบังคับ":"Search documents, e.g. thesis file, AI, regulation",
   "ค้นหาเอกสาร":"Search documents",
   "ข้อบังคับ ประกาศ และแนวปฏิบัติ":"Regulations, announcements and guidelines",
@@ -1986,7 +2008,7 @@ const EN = {
   "ตรวจสอบผู้ลงนามและกำหนดเวลาก่อนยื่นทุกครั้ง":"Always check signatories and deadlines before submitting",
   "คู่มือและแนวปฏิบัติ":"Guides & Guidelines",
   "เลือกเอกสารตามขั้นตอนที่คุณกำลังเตรียม":"Choose the document for the step you are preparing",
-  "การส่งรูปเล่ม":"Submission",
+  "การส่งรูปเล่ม":"Thesis submission",
   "แนวปฏิบัติการส่ง<br>รูปเล่มอิเล็กทรอนิกส์":"Guidelines for Submitting<br>Electronic Files",
   "ศึกษาวิธีส่งรูปเล่มผ่านระบบ e-thesis submission":"Learn how to submit your thesis via e-thesis submission",
   "ดูแนวปฏิบัติ":"Read guidelines",
@@ -2231,6 +2253,7 @@ function renderQuick(){
       <h3>${nb(t(l.title))}</h3>
       ${l.bullets?`<ul>${l.bullets.map(b=>`<li>${t(b)}</li>`).join("")}</ul>`:""}
       ${l.p?`<p>${nb(t(l.p))}</p>`:""}
+      ${l.tags?`<div class="qtags">${l.tags.map(x=>`<span>${t(x)}</span>`).join("")}</div>`:""}
       <span class="go">${svg("arrow")}</span>
     ${l.href ? `</a>` : `</button>`}`).join("");
 }
