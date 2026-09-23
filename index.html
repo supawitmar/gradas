@@ -131,9 +131,10 @@ section{padding:56px 0}
 .soon-btn.ghost:hover{background:var(--blue-soft)}
 .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(228px,auto);gap:22px}
 .bento .qcard:nth-child(1){grid-row:span 2}
-.bento .qcard:nth-child(5){grid-column:span 3}
-@media(max-width:980px){.bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}.bento .qcard:nth-child(5){grid-column:auto}}
-@media(max-width:520px){.bento{grid-template-columns:1fr;grid-auto-rows:auto}.bento .qcard:nth-child(1){grid-row:auto;min-height:320px}.qcard{min-height:180px}.qcard .go{opacity:1;transform:none}}
+.bento .qcard:nth-child(4){grid-row:span 2}
+.bento .qcard:nth-child(5){grid-column:span 2}
+@media(max-width:980px){.bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}.bento .qcard:nth-child(5){grid-column:auto}.bento .qcard:nth-child(4){grid-row:auto}}
+@media(max-width:520px){.bento{grid-template-columns:1fr;grid-auto-rows:auto}.bento .qcard:nth-child(1){grid-row:auto;min-height:320px}.bento .qcard:nth-child(4){grid-row:auto}.qcard{min-height:180px}.qcard .go{opacity:1;transform:none}}
 .qcard{position:relative;border:0;border-radius:28px;padding:98px 24px 24px;color:#fff;text-align:left;cursor:pointer;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;transition:transform .2s, box-shadow .2s;font:inherit}
 .qcard:hover{transform:translateY(-4px);box-shadow:0 22px 40px -14px rgba(16,45,105,.5)}
 .qcard.on{outline:3px solid #fff;outline-offset:-3px;box-shadow:0 0 0 4px var(--gold),0 18px 36px -10px rgba(16,45,105,.45)}
@@ -1264,10 +1265,10 @@ const ROLES = [
     ]}},
    {icon:"download",bg:"bg4",title:"แบบฟอร์มต่าง ๆ",p:"ดาวน์โหลดแบบฟอร์ม",
     desc:"ตรวจสอบผู้ลงนามและกำหนดเวลาก่อนยื่นทุกครั้ง",content:FORMS},
-   {icon:"landmark",bg:"bg3",title:"ข้อบังคับ ประกาศ และแนวปฏิบัติ",p:"บัณฑิตวิทยาลัย · มหาวิทยาลัย",
-    desc:"ประกาศบัณฑิตวิทยาลัยที่เกี่ยวกับวิทยานิพนธ์ สารนิพนธ์ และการค้นคว้าอิสระ",content:RULES},
    {icon:"help",bg:"bg6",title:"FAQ คำถามที่พบบ่อย",p:"รวมคำถามจากนักศึกษา",
-    desc:"คำตอบสำหรับคำถามที่นักศึกษาถามบ่อย",content:FAQS}
+    desc:"คำตอบสำหรับคำถามที่นักศึกษาถามบ่อย",content:FAQS},
+   {icon:"landmark",bg:"bg3",title:"ข้อบังคับ ประกาศ และแนวปฏิบัติ",p:"บัณฑิตวิทยาลัย · มหาวิทยาลัย",
+    desc:"ประกาศบัณฑิตวิทยาลัยที่เกี่ยวกับวิทยานิพนธ์ สารนิพนธ์ และการค้นคว้าอิสระ",content:RULES}
  ]},
  {id:"advisor",soon:true,icon:"teacher",name:"อาจารย์ที่ปรึกษา / กรรมการ",sub:"ต้องลงนามอะไร · บทบาทในการสอบ · เกณฑ์พิจารณา",links:[
    {icon:"pen",bg:"bg1",title:"เอกสารที่ต้องลงนาม",bullets:["สอบโครงร่าง","สอบป้องกัน","ส่งเล่มสมบูรณ์"],
