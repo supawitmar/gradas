@@ -1351,6 +1351,8 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  "ค้นหาเอกสาร เช่น รูปเล่ม, AI, ข้อบังคับ":"Search documents, e.g. thesis file, AI, regulation",
+  "ค้นหาเอกสาร":"Search documents",
   "ข้อบังคับ ประกาศ และแนวปฏิบัติ":"Regulations, announcements and guidelines",
   "ชื่อเอกสาร":"Document",
   "ไม่พบเอกสารในประเภทนี้":"No documents in this category",
@@ -2323,11 +2325,18 @@ document.addEventListener("keydown", e => { if(e.key === "Escape" && curInfo) cl
 /* ค้นหา + กรองหมวด FAQ */
 const KINDS = ["ข้อบังคับ","ประกาศ","แนวปฏิบัติ"];
 function noticeKind(btn){
-  const box = btn.closest(".forms"), k = btn.dataset.k;
-  box.querySelectorAll(".n-cats button").forEach(b=>b.classList.toggle("on", b===btn));
+  btn.parentNode.querySelectorAll("button").forEach(b=>b.classList.toggle("on", b===btn));
+  filterNotices(btn.closest(".forms").querySelector(".f-search input"));
+}
+function filterNotices(inp){
+  const box = inp.closest(".forms"), q = fnorm(inp.value), k = box.querySelector(".n-cats .on").dataset.k;
   let shown = 0;
-  box.querySelectorAll(".n-row").forEach(r=>{ const ok = !k || r.dataset.k === k; r.classList.toggle("hide", !ok); if(ok) shown++; });
+  box.querySelectorAll(".n-row").forEach(r=>{
+    const ok = (!k || r.dataset.k === k) && (!q || r.dataset.q.includes(q));
+    r.classList.toggle("hide", !ok); if(ok) shown++;
+  });
   box.querySelector(".f-empty").classList.toggle("hide", shown > 0);
+  box.querySelector(".f-count").textContent = (q || k) ? shown + " " + t("รายการ") : "";
 }
 function faqCat(btn){
   btn.parentNode.querySelectorAll("button").forEach(b=>b.classList.toggle("on", b===btn));
@@ -2420,6 +2429,11 @@ function renderContent(c){
       const yr = y => !y ? none : (lang === "en" ? String(+y - 543) : "พ.ศ. " + y);
       return `<div class="forms">
         <h3 class="forms-title">${t(c.title)}</h3>
+        <div class="f-search">
+          ${svg("search")}
+          <input type="search" oninput="filterNotices(this)" placeholder="${t("ค้นหาเอกสาร เช่น รูปเล่ม, AI, ข้อบังคับ")}" aria-label="${t("ค้นหาเอกสาร")}">
+          <span class="f-count"></span>
+        </div>
         <div class="q-cats n-cats">
           <button class="on" data-k="" onclick="noticeKind(this)">${t("ทั้งหมด")}<span>${c.groups.reduce((a,g)=>a+g.rows.length,0)}</span></button>
           ${KINDS.filter(k=>c.groups.some(g=>g.rows.some(r=>r.kind===k))).map(k=>`<button data-k="${k}" onclick="noticeKind(this)">${t(k)}<span>${c.groups.reduce((a,g)=>a+g.rows.filter(r=>r.kind===k).length,0)}</span></button>`).join("")}
@@ -2430,7 +2444,7 @@ function renderContent(c){
         ${c.groups.map(g=>`
           <div class="f-group">${t(g.name)}</div>
           ${g.rows.map(r=>`
-            <div class="n-row" data-k="${r.kind}">
+            <div class="n-row" data-k="${r.kind}" data-q="${fq([r.kind, EN[r.kind]||"", r.name, EN[r.name]||"", r.by, EN[r.by]||"", r.year||"", r.year?String(+r.year-543):"", ...(r.kw||[]), ...(r.kw||[]).map(k=>EN[k]||"")])}">
               <span class="f-no">${++n}</span>
               <div class="f-desc"><span class="n-kind k${KINDS.indexOf(r.kind)}">${t(r.kind)}</span><b>${t(r.name)}</b><span>${t(r.by)}</span>${r.kw?`<div class="n-kw">${r.kw.map(k=>`<span>${t(k)}</span>`).join("")}</div>`:""}</div>
               <span class="n-year">${yr(r.year)}</span>
