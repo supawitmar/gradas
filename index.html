@@ -434,6 +434,8 @@ body.lock{overflow:hidden}
 .im-sec:nth-child(6n+6) .im-ic{background:#e5f5f7;color:#1f6f7a}
 .im-num{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--muted);font-weight:600;margin-left:auto}
 .im-sec p{font-size:.95rem;line-height:1.75;color:var(--text)}
+.im-sec a.im-btn{display:inline-flex;align-items:center;margin-left:6px;padding:3px 12px;border-radius:999px;background:var(--navy-2);color:#fff;font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap}
+.im-sec a.im-btn:hover{opacity:.88}
 .im-sub{font-weight:600;color:var(--navy-2);font-size:.9rem;margin:14px 0 6px}
 .im-sub:first-child{margin-top:0}
 .im-sec ul{margin:0 0 0 20px;display:grid;gap:7px;font-size:.93rem;line-height:1.65}
@@ -793,7 +795,8 @@ const COMMITTEE_QUALIFICATIONS = [
   {level:"master", sub:"คุณสมบัติผู้ทรงคุณวุฒิภายนอก — ปริญญาโท"},
   {level:"master", table:{head:["คุณสมบัติ","เกณฑ์ 2548","เกณฑ์ 2558","เกณฑ์ 2565"], rows:[
     ["คุณวุฒิ","ปริญญาเอกหรือเทียบเท่า หรือปริญญาโทและดำรงตำแหน่งไม่ต่ำกว่ารองศาสตราจารย์","ปริญญาเอกหรือเทียบเท่า","ปริญญาเอกหรือเทียบเท่า"],
-    ["ผลงานทางวิชาการ","มีประสบการณ์ทำวิจัยที่ไม่ใช่ส่วนหนึ่งของการศึกษาเพื่อรับปริญญา","ผลงานตีพิมพ์ระดับชาติ 10 รายการ หรือระดับนานาชาติ 5 รายการ","ผลงานตีพิมพ์ในฐานข้อมูลที่ยอมรับ 5 รายการ (อ้างอิงประกาศ ก.พ.อ. พ.ศ. 2562)"]]}}
+    ["ผลงานทางวิชาการ","มีประสบการณ์ทำวิจัยที่ไม่ใช่ส่วนหนึ่งของการศึกษาเพื่อรับปริญญา","ผลงานตีพิมพ์ระดับชาติ 10 รายการ หรือระดับนานาชาติ 5 รายการ","ผลงานตีพิมพ์ในฐานข้อมูลที่ยอมรับ 5 รายการ (อ้างอิงประกาศ ก.พ.อ. พ.ศ. 2562)"]]}},
+  {p:"อ้างอิงประกาศ ก.พ.อ. พ.ศ. 2562 <a class='im-btn' href='https://www.ratchakitcha.soc.go.th/DATA/PDF/2562/E/151/T_0013.PDF' target='_blank' rel='noopener'>ดูประกาศ</a>"}
 ];
 
 const INFO = {
@@ -824,7 +827,7 @@ const INFO = {
              "<b>หัวข้อเรื่องภาษาไทย</b> พิมพ์ให้ถูกต้องตามหลักภาษา <b>กรณีหลักสูตรไทย ต้องมีชื่อหัวข้อภาษาไทย</b>",
              "<b>หมายเหตุ</b> รายละเอียดเพิ่มเติม (ถ้ามี)",
              "<b>AI Suggestion</b> ใช้ MUGR AI: Thesis Title & Abstract Enhancer ช่วยตรวจและปรับภาษาของชื่อเรื่องและบทคัดย่อได้",
-             "<b>ภาษาที่ใช้เขียนเล่ม</b> เลือกภาษาอังกฤษหรือภาษาไทย<ul class='im-nest'><li>เกณฑ์ 2558 เลือกใช้ได้ทั้งภาษาไทยหรือภาษาอังกฤษ</li><li>เกณฑ์ 2565 ใช้ภาษาที่ระบุตามเล่มหลักสูตร <b>กรณีใช้ภาษาไม่ตรงตามที่เล่มหลักสูตรระบุ ให้เสนอต่อคณะกรรมการพิจารณาภาษา</b></li></ul>",
+             "<b>ภาษาที่ใช้เขียนเล่ม</b> เลือกภาษาอังกฤษหรือภาษาไทย<ul class='im-nest'><li>เกณฑ์ 2558 เลือกใช้ได้ทั้งภาษาไทยหรือภาษาอังกฤษ <b>หลักสูตรนานาชาติต้องใช้ภาษาอังกฤษเท่านั้น</b></li><li>เกณฑ์ 2565 ใช้ภาษาที่ระบุตามเล่มหลักสูตร <b>กรณีใช้ภาษาไม่ตรงตามที่เล่มหลักสูตรระบุ ให้เสนอต่อคณะกรรมการพิจารณาภาษา</b></li></ul>",
              "<b>ประเภทงานวิจัย</b> เลือก Thesis หรือ Thematic Paper / Independent Study"]},
         {sub:"ลำดับการอนุมัติ"}, {flow:["นักศึกษา","ประธานหลักสูตร/คณะ","บัณฑิตวิทยาลัย"]}]},
       {ic:"arrow", h:"หลังจากนี้ทำอะไรต่อ", body:[
@@ -1454,6 +1457,7 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  "อ้างอิงประกาศ ก.พ.อ. พ.ศ. 2562 <a class='im-btn' href='https://www.ratchakitcha.soc.go.th/DATA/PDF/2562/E/151/T_0013.PDF' target='_blank' rel='noopener'>ดูประกาศ</a>":"Reference: announcement of the Civil Service Commission in Higher Education Institutions (2019) <a class='im-btn' href='https://www.ratchakitcha.soc.go.th/DATA/PDF/2562/E/151/T_0013.PDF' target='_blank' rel='noopener'>View announcement</a>",
   "<b>แจ้งผล</b> ประธานหลักสูตรให้ความเห็นชอบ และส่งไปยังบัณฑิตวิทยาลัย ภายใน 15 วันทำการ (3 สัปดาห์)":"<b>Result</b>: the program chair approves and sends it to the Faculty within 15 working days (3 weeks)",
   "<b>เห็นชอบและอนุมัติ</b> ประธานหลักสูตรเห็นชอบก่อนวันสอบไม่น้อยกว่า 15 วันต่อเนื่อง แล้วเสนอคณบดีบัณฑิตวิทยาลัยแต่งตั้ง":"<b>Approval</b>: the program chair approves at least 15 consecutive days before the exam and forwards it to the Dean for appointment",
   "เมื่อส่งแล้ว แบบฟอร์มจะส่งต่อให้ประธานหลักสูตร/คณะ ลงนามเห็นชอบ":"Once submitted, the form goes to the program chair / Faculty for approval",
@@ -1486,7 +1490,7 @@ const EN = {
   "<b>ยื่นคำร้อง บฑ.2</b> ผ่านระบบ e-Form":"<b>Submit GR.2</b> via the e-Form system",
   "<b>ยื่นคำร้อง บฑ.2</b> ศึกษาค้นคว้าวิทยานิพนธ์ไม่น้อยกว่า 90 วัน สำหรับการศึกษาค้นคว้าสารนิพนธ์ / การค้นคว้าอิสระ ไม่น้อยกว่า 45 วัน นับแต่วันที่ได้รับแต่งตั้ง จึงจะยื่น บฑ.2 ได้":"<b>Submit GR.2</b>: after at least 90 days of thesis research (45 days for a thematic paper / independent study) from the appointment date, you may submit GR.2",
   "<b>ประเภทงานวิจัย</b> เลือก Thesis หรือ Thematic Paper / Independent Study":"<b>Research type</b>: choose Thesis or Thematic Paper / Independent Study",
-  "<b>ภาษาที่ใช้เขียนเล่ม</b> เลือกภาษาอังกฤษหรือภาษาไทย<ul class='im-nest'><li>เกณฑ์ 2558 เลือกใช้ได้ทั้งภาษาไทยหรือภาษาอังกฤษ</li><li>เกณฑ์ 2565 ใช้ภาษาที่ระบุตามเล่มหลักสูตร <b>กรณีใช้ภาษาไม่ตรงตามที่เล่มหลักสูตรระบุ ให้เสนอต่อคณะกรรมการพิจารณาภาษา</b></li></ul>":"<b>Thesis language</b>: choose English or Thai<ul class='im-nest'><li>2015 criteria: either Thai or English may be used</li><li>2022 criteria: use the language specified in the curriculum document. <b>If you use a different language, submit it to the language review committee</b></li></ul>",
+  "<b>ภาษาที่ใช้เขียนเล่ม</b> เลือกภาษาอังกฤษหรือภาษาไทย<ul class='im-nest'><li>เกณฑ์ 2558 เลือกใช้ได้ทั้งภาษาไทยหรือภาษาอังกฤษ <b>หลักสูตรนานาชาติต้องใช้ภาษาอังกฤษเท่านั้น</b></li><li>เกณฑ์ 2565 ใช้ภาษาที่ระบุตามเล่มหลักสูตร <b>กรณีใช้ภาษาไม่ตรงตามที่เล่มหลักสูตรระบุ ให้เสนอต่อคณะกรรมการพิจารณาภาษา</b></li></ul>":"<b>Thesis language</b>: choose English or Thai<ul class='im-nest'><li>2015 criteria: either Thai or English may be used. <b>International programs must use English only</b></li><li>2022 criteria: use the language specified in the curriculum document. <b>If you use a different language, submit it to the language review committee</b></li></ul>",
   "<b>หัวข้อเรื่องภาษาไทย</b> พิมพ์ให้ถูกต้องตามหลักภาษา <b>กรณีหลักสูตรไทย ต้องมีชื่อหัวข้อภาษาไทย</b>":"<b>Thai title</b>: type it correctly according to Thai language rules. <b>Thai programs must include a Thai title</b>",
   "<b>เสนอประธานหลักสูตรพิจารณา</b>":"<b>Forward to the program chair</b> for consideration",
   "<b>ตรวจสอบชื่อหัวข้อ</b> ผ่านระบบ MUGR AI: Thesis Title & Abstract Enhancer (ทางเลือก)":"<b>Check the title</b> with MUGR AI: Thesis Title & Abstract Enhancer (optional)",
