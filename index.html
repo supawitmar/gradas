@@ -451,10 +451,11 @@ body.lock{overflow:hidden}
 .im-steps li{counter-increment:s;position:relative;padding:12px 14px 12px 54px;background:var(--grey);border-radius:14px;font-size:.93rem;line-height:1.6}
 .im-steps li::before{content:counter(s);position:absolute;left:14px;top:11px;width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem}
 .im-sec b{color:var(--navy)}
-.im-tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:.88rem;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.im-tbl{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;font-size:.88rem;border:1px solid var(--line);border-radius:14px;overflow:hidden}
 .im-tbl th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:10px 14px}
 .im-tbl td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top;line-height:1.55}
-.im-tbl td:first-child{font-weight:600;color:var(--navy);background:#f8fafd;width:26%}
+.im-tbl td:first-child{font-weight:600;color:var(--navy);background:#f8fafd;width:22%}
+.im-tbl th:first-child{width:22%}
 .im-tbl tr:nth-child(odd) td:not(:first-child){background:#fbfcfe}
 .im-foot{display:flex;justify-content:flex-end;gap:10px;padding:12px 28px;background:#fff;border-top:1px solid var(--line)}
 .im-foot a{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border-radius:999px;padding:10px 20px;font-weight:500;font-size:.9rem}
@@ -2397,6 +2398,14 @@ const NOBREAK = ["และแนวปฏิบัติ","เส้นทา�
   .sort((a,b)=>b.length-a.length);
 const NB_RE = new RegExp(NOBREAK.map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|"),"g");
 const nb = s => lang === "th" ? s.replace(NB_RE, m => `<span class="nw">${m}</span>`) : s;
+/* ตารางเทียบคุณสมบัติ: ไม่ให้ตัดกลางคำ (เช่น รอง|ศาสตราจารย์) และไม่แยกตัวเลขออกจากหน่วย (3 | รายการ) */
+const TBL_NOBREAK = ["รองศาสตราจารย์","ผู้ช่วยศาสตราจารย์","ศาสตราจารย์วุฒิคุณ","ศาสตราจารย์","ปริญญาเอก","ปริญญาโท",
+  "เทียบเท่า","ย้อนหลัง","ฐานข้อมูล","ผลงานวิจัย","ผลงานวิชาการ","ผลงานตีพิมพ์","นานาชาติ","ประสบการณ์","ส่วนหนึ่ง",
+  "การศึกษา","อย่างน้อย","ไม่ต่ำกว่า","ไม่น้อยกว่า","ดำรงตำแหน่ง","อาจารย์ประจำหลักสูตร","อาจารย์ประจำ","นักวิจัยประจำ",
+  "ผู้ทรงคุณวุฒิภายนอก","ที่ยอมรับ","ก.พ.อ.","อาจารย์บรรจุใหม่","(อว., วว.)"].sort((a,b)=>b.length-a.length);
+const TBL_RE = new RegExp("\\d+\\s(?:รายการ|ปีย้อนหลัง|ปี|ท่าน|คน|วัน|เรื่อง)|พ\\.ศ\\.\\s\\d{4}|" +
+  TBL_NOBREAK.map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|"), "g");
+const nbT = s => lang === "th" ? String(s).replace(TBL_RE, m => `<span class="nw">${m}</span>`) : String(s).replace(/(\d+) (items?|years?|persons?|days?)/g, "$1&nbsp;$2");
 function renderQuick(){
   $("quick").classList.toggle("hide", !role);
   if(!role){ $("bento").innerHTML = ""; return; }
@@ -2498,11 +2507,11 @@ function renderInfo(){
   const value = x => typeof x === "string" ? x : x.text;
   const items = xs => xs.filter(visible).map(value);
   const blk = b => !visible(b) ? "" : b.p ? `<p>${t(b.p)}</p>`
-    : b.sub ? `<div class="im-sub">${t(b.sub)}</div>`
+    : b.sub ? `<div class="im-sub">${nbT(t(b.sub))}</div>`
     : b.ul ? `<ul>${items(b.ul).map(x=>`<li>${t(x)}</li>`).join("")}</ul>`
     : b.ol ? `<ol class="im-steps">${items(b.ol).map(x=>`<li>${t(x)}</li>`).join("")}</ol>`
     : b.flow ? `<ol class="im-flow">${items(b.flow).map((x,i)=>`<li><span>${i+1}</span>${t(x)}</li>`).join("")}</ol>`
-    : b.table ? `<table class="im-tbl"><tr>${b.table.head.map(h=>`<th>${t(h)}</th>`).join("")}</tr>${b.table.rows.map(r=>`<tr>${r.map((c,i)=>`<td data-h="${t(b.table.head[i])}">${t(c)}</td>`).join("")}</tr>`).join("")}</table>`
+    : b.table ? `<table class="im-tbl"><tr>${b.table.head.map(h=>`<th>${t(h)}</th>`).join("")}</tr>${b.table.rows.map(r=>`<tr>${r.map((c,i)=>`<td data-h="${t(b.table.head[i])}">${nbT(t(c))}</td>`).join("")}</tr>`).join("")}</table>`
     : "";
   $("imBox").innerHTML = `
     <div class="im-head">
