@@ -434,6 +434,8 @@ body.lock{overflow:hidden}
 .im-sec:nth-child(6n+6) .im-ic{background:#e5f5f7;color:#1f6f7a}
 .im-num{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--muted);font-weight:600;margin-left:auto}
 .im-sec p{font-size:.95rem;line-height:1.75;color:var(--text)}
+.im-sec p.im-note{margin-top:20px;font-size:.86rem;font-style:italic;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.im-sec p.im-note a.im-btn{font-style:normal;margin-left:0}
 .im-sec a.im-btn{display:inline-flex;align-items:center;margin-left:6px;padding:3px 12px;border-radius:999px;background:var(--navy-2);color:#fff;font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap}
 .im-sec a.im-btn:hover{opacity:.88}
 .im-sub{font-weight:600;color:var(--navy-2);font-size:.9rem;margin:14px 0 6px}
@@ -797,7 +799,7 @@ const COMMITTEE_QUALIFICATIONS = [
   {level:"master", table:{head:["คุณสมบัติ","เกณฑ์ 2548","เกณฑ์ 2558","เกณฑ์ 2565"], rows:[
     ["คุณวุฒิ","ปริญญาเอกหรือเทียบเท่า หรือปริญญาโทและดำรงตำแหน่งไม่ต่ำกว่ารองศาสตราจารย์","ปริญญาเอกหรือเทียบเท่า","ปริญญาเอกหรือเทียบเท่า"],
     ["ผลงานทางวิชาการ","มีประสบการณ์ทำวิจัยที่ไม่ใช่ส่วนหนึ่งของการศึกษาเพื่อรับปริญญา","ผลงานตีพิมพ์ระดับชาติ 10 รายการ หรือระดับนานาชาติ 5 รายการ","ผลงานตีพิมพ์ในฐานข้อมูลที่ยอมรับ 5 รายการ (อ้างอิงประกาศ ก.พ.อ. พ.ศ. 2562)"]]}},
-  {p:"อ้างอิงประกาศ ก.พ.อ. พ.ศ. 2562 <a class='im-btn' href='https://www.ratchakitcha.soc.go.th/DATA/PDF/2562/E/151/T_0013.PDF' target='_blank' rel='noopener'>ดูประกาศ</a>"}
+  {note:"อ้างอิงประกาศ ก.พ.อ. พ.ศ. 2562 <a class='im-btn' href='https://www.ratchakitcha.soc.go.th/DATA/PDF/2562/E/151/T_0013.PDF' target='_blank' rel='noopener'>ดูประกาศ</a>"}
 ];
 
 const INFO = {
@@ -2507,6 +2509,7 @@ function renderInfo(){
   const value = x => typeof x === "string" ? x : x.text;
   const items = xs => xs.filter(visible).map(value);
   const blk = b => !visible(b) ? "" : b.p ? `<p>${t(b.p)}</p>`
+    : b.note ? `<p class="im-note">${t(b.note)}</p>`
     : b.sub ? `<div class="im-sub">${nbT(t(b.sub))}</div>`
     : b.ul ? `<ul>${items(b.ul).map(x=>`<li>${t(x)}</li>`).join("")}</ul>`
     : b.ol ? `<ol class="im-steps">${items(b.ol).map(x=>`<li>${t(x)}</li>`).join("")}</ol>`
