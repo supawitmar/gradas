@@ -624,6 +624,62 @@ body.lock{overflow:hidden}
   transition:opacity .6s cubic-bezier(.22,.8,.3,1),transform .6s cubic-bezier(.22,.8,.3,1)}
 .hero .reveal{transform:translateY(14px)}
 @media (prefers-reduced-motion:reduce){.reveal,.reveal.in{opacity:1;transform:none;transition:none}}
+/* ---------- ผู้ช่วยค้นหา: ปุ่มมุมล่างขวา + หน้าต่างแบบแชท ---------- */
+.ask-fab{position:fixed;right:22px;bottom:22px;z-index:90;display:flex;align-items:center;gap:10px;height:56px;padding:0 22px 0 8px;border:0;border-radius:999px;cursor:pointer;
+  background:linear-gradient(150deg,var(--navy),var(--navy-2));color:#fff;font:inherit;font-weight:600;font-size:.95rem;box-shadow:0 14px 30px -12px rgba(16,45,105,.55);transition:transform .2s,box-shadow .2s,opacity .2s}
+.ask-fab:hover{transform:translateY(-2px);box-shadow:0 18px 34px -12px rgba(16,45,105,.6)}
+.ask-fab .ask-ic{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:var(--navy)}
+.ask-fab .ask-ic .i{width:22px;height:22px}
+.ask-fab.open{opacity:0;pointer-events:none;transform:scale(.9)}
+.ask{position:fixed;right:22px;bottom:22px;z-index:91;padding:0;width:400px;max-width:calc(100vw - 32px);height:min(620px,calc(100vh - 44px));display:flex;flex-direction:column;
+  background:#fff;border-radius:24px;box-shadow:0 30px 70px -20px rgba(16,45,105,.45),0 0 0 1px rgba(16,45,105,.06);overflow:hidden;
+  transform-origin:right bottom;transition:transform .22s ease,opacity .22s ease,visibility 0s}
+.ask.hide{display:flex;opacity:0;visibility:hidden;transform:scale(.92) translateY(10px);pointer-events:none;transition:transform .22s ease,opacity .22s ease,visibility 0s .22s}
+.ask-head{display:flex;align-items:center;gap:12px;padding:16px 16px 16px 18px;background:linear-gradient(150deg,var(--navy),var(--navy-2));color:#fff}
+.ask-av{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.14);flex:none}
+.ask-av .i{width:22px;height:22px;color:var(--gold)}
+.ask-head b{display:block;font-size:1rem}
+.ask-head small{display:block;font-size:.78rem;opacity:.75;margin-top:2px}
+.ask-x{margin-left:auto;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:1.2rem;cursor:pointer;flex:none}
+.ask-x:hover{background:rgba(255,255,255,.24)}
+.ask-body{flex:1;overflow-y:auto;padding:18px 16px;background:var(--grey);display:flex;flex-direction:column;gap:12px}
+.ask-msg{max-width:88%;padding:11px 14px;border-radius:18px;font-size:.92rem;line-height:1.6}
+.ask-msg.bot{background:#fff;color:var(--text);border-bottom-left-radius:6px;box-shadow:0 4px 14px -10px rgba(16,45,105,.35);align-self:flex-start}
+.ask-msg.me{background:var(--navy-2);color:#fff;border-bottom-right-radius:6px;align-self:flex-end}
+.ask-msg.wide{max-width:100%;width:100%}
+.ask-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.ask-chips button{border:1px solid var(--line);background:var(--blue-soft);color:var(--navy-2);border-radius:999px;padding:6px 12px;font:inherit;font-size:.82rem;cursor:pointer}
+.ask-chips button:hover{background:#dfeafb}
+.ask-best{border:1.5px solid var(--gold);background:var(--cream);border-radius:16px;padding:12px 14px;margin:2px 0 10px}
+.ask-best h4{display:flex;align-items:flex-start;gap:8px;font-size:.92rem;line-height:1.45;color:var(--navy);margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed var(--cream-line)}
+.ask-best h4 .bi{width:24px;height:24px;border-radius:8px;display:grid;place-items:center;flex:none;background:var(--gold-soft);color:var(--gold-d)}
+.ask-best h4 .bi .i{width:14px;height:14px}
+.ask-best p{font-size:.9rem;color:var(--text);line-height:1.6}
+.ask-src{font-size:.76rem;color:var(--muted);margin-top:6px}
+.ask-best a,.ask-more{display:inline-block;margin-top:6px;font-size:.84rem;font-weight:600;color:var(--navy-2);cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.ask-where{font-size:.8rem;font-weight:700;color:var(--muted);margin:2px 0 6px}
+.ask-res{display:flex;gap:10px;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 12px;margin-top:6px;font:inherit;cursor:pointer;transition:border-color .15s,background .15s}
+.ask-res:hover{border-color:#9db8e6;background:#f8fbff}
+.ask-res .ri{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none;background:#eef6ff;color:var(--navy-2)}
+.ask-res .ri .i{width:18px;height:18px}
+.ask-res .ri.k-info{background:#eef9f1;color:#1d7a45}.ask-res .ri.k-form{background:#fff4e5;color:#a35b00}.ask-res .ri.k-rule{background:var(--gold-soft);color:var(--gold-d)}
+.ask-res .rt{min-width:0}
+.ask-res .rk{font-size:.72rem;font-weight:700;color:var(--muted)}
+.ask-res .rh{display:block;font-size:.88rem;font-weight:600;color:var(--navy);line-height:1.45}
+.ask-res .rs{font-size:.8rem;color:var(--muted);line-height:1.5;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ask mark{background:#ffe79a;color:inherit;border-radius:3px;padding:0 1px}
+.ask-foot{padding:12px;background:#fff;border-top:1px solid var(--line)}
+.ask-in{display:flex;gap:8px;align-items:center;background:var(--grey);border:1px solid var(--line);border-radius:999px;padding:4px 4px 4px 16px}
+.ask-in:focus-within{border-color:#9db8e6;box-shadow:0 0 0 4px rgba(46,108,223,.12)}
+.ask-in input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:.93rem;color:var(--navy);padding:9px 0}
+.ask-in button{width:40px;height:40px;border-radius:50%;border:0;background:var(--navy-2);color:#fff;display:grid;place-items:center;cursor:pointer;flex:none}
+.ask-in button .i{width:18px;height:18px}
+.ask-note{font-size:.7rem;color:var(--muted);text-align:center;margin-top:8px}
+@media(max-width:520px){
+  .ask-fab{right:14px;bottom:14px;padding:0;width:56px;justify-content:center}.ask-fab .txt{display:none}
+  .ask{left:0;right:0;bottom:0;width:100%;max-width:100%;height:88vh;border-radius:24px 24px 0 0}
+}
+@media(prefers-reduced-motion:reduce){.ask,.ask.hide,.ask-fab{transition:none}}
 </style>
 </head>
 <body>
@@ -2347,6 +2403,7 @@ function setLang(l){
   applyStatic(); renderRoles(); renderQuick(); reveal();
   if(activeLink) renderDetail();
   if(curInfo) renderInfo();
+  if(typeof askI18n === "function") askI18n();
 }
 
 /* =========================================================
@@ -2731,6 +2788,227 @@ document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==
 let saved = "th";
 try{ saved = localStorage.getItem("gs-lang") || "th"; }catch(e){}
 setLang(saved);
+</script>
+<!-- ---------- ผู้ช่วยค้นหา (ปุ่มมุมล่างขวา) ---------- -->
+<button class="ask-fab" id="askFab" onclick="askOpen()">
+  <span class="ask-ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/><circle cx="11.5" cy="11.5" r="3.2"/><path d="m16 16-2.2-2.2"/></svg></span>
+  <span class="txt" id="askFabTxt"></span>
+</button>
+<section class="ask hide" id="ask" role="dialog" aria-labelledby="askTitle">
+  <div class="ask-head">
+    <div class="ask-av"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+    <div><b id="askTitle"></b><small id="askSub"></small></div>
+    <button class="ask-x" id="askX" onclick="askClose()">×</button>
+  </div>
+  <div class="ask-body" id="askBody" aria-live="polite"></div>
+  <form class="ask-foot" onsubmit="event.preventDefault();askSend()">
+    <div class="ask-in">
+      <input id="askQ" type="text" autocomplete="off">
+      <button type="submit" id="askGoBtn"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg></button>
+    </div>
+    <div class="ask-note" id="askNote"></div>
+  </form>
+</section>
+<script>
+/* ===== ผู้ช่วยค้นหา: ค้นจาก FAQ / รายละเอียด บฑ. / แบบฟอร์ม / ประกาศ ที่อยู่ในหน้านี้ (ไม่ใช้เซิร์ฟเวอร์) ===== */
+const askTx = (th, en) => lang === "en" ? en : th;
+const askPlain = x => String(x==null?"":x).replace(/<[^>]*>/g,"").replace(/\s+/g," ").trim();
+const askEN = s => { const L = lang; lang = "en"; const r = t(s); lang = L; return r; };
+const askPair = (th, en) => ({th:askPlain(th), en:askPlain(en===undefined ? askEN(th) : en)});
+function askFlat(b){                              /* บล็อกเนื้อหา → บรรทัดข้อความ {th,en} */
+  if(b==null) return [];
+  if(typeof b === "string") return [askPair(b)];
+  if(b.text) return [askPair(b.text)];
+  if(Array.isArray(b)) return b.flatMap(askFlat);
+  const out = [];
+  ["p","sub","note"].forEach(k=>{ if(b[k]) out.push(askPair(b[k])); });
+  ["ul","ol","flow"].forEach(k=>{ if(b[k]) out.push(...b[k].flatMap(askFlat)); });
+  if(b.table) b.table.rows.forEach(r=>out.push({th:r.map(askPlain).join(" · "), en:r.map(c=>askPlain(askEN(c))).join(" · ")}));
+  return out;
+}
+let ASK_IDX = null;
+function askBuild(){
+  const idx = [];
+  FAQS.cats.forEach(c=>c.items.forEach(it=>idx.push({k:"faq", title:askPair(it.q), sub:askPair(c.name), lines:it.a.flatMap(askFlat), go:{faq:it.q}})));
+  Object.entries(INFO).forEach(([key,d])=>d.sections.forEach((s,si)=>idx.push({k:"info",
+    title:{th:d.code+" › "+askPlain(s.h), en:askEN(d.code)+" › "+askPlain(askEN(s.h))}, sub:askPair(d.title), lines:s.body.flatMap(askFlat), go:{info:key, sec:si}})));
+  FORMS.groups.forEach(g=>g.rows.forEach(r=>idx.push({k:"form",
+    title:{th:r.code+" "+askPlain(r.name), en:askEN(r.code)+" "+askPlain(askEN(r.name))}, sub:{th:"แบบฟอร์ม", en:"Forms"}, lines:[askPair(r.desc)], go:{form:r.code}})));
+  RULES.groups.flatMap(g=>g.rows).forEach(r=>idx.push({k:"rule", title:askPair(r.name),
+    sub:{th:r.kind+" · "+r.year, en:askEN(r.kind)+" · "+r.year}, lines:[...(r.kw||[]).map(k=>askPair(k)), ...(r.by?[askPair(r.by)]:[])], go:{url:r.th, urlEn:r.en}}));
+  idx.forEach(d=>{ d.nt = [fnorm(d.title.th), fnorm(d.title.en)]; d.nl = d.lines.map(l=>[fnorm(l.th), fnorm(l.en)]); });
+  return idx;
+}
+
+/* ---------- ตัดคำ + คำพ้อง ---------- */
+const ASK_STOP = new Set(("ต้อง ภายใน กี่ อย่างไร ยังไง ไหม มั้ย ได้ ที่ การ ความ ของ และ หรือ ใน จะ คือ อะไร เท่าไร เท่าไหร่ ไหน ครับ ค่ะ คะ บ้าง ทำ ให้ เป็น มี ไม่ ก็ แล้ว เมื่อ ถ้า นะ หรอ เหรอ ยัง ไป มา กับ จาก ต่อ ว่า ช่วย อยาก ขอ หน่อย เรา ผม หนู ดิฉัน นักศึกษา ค่า " +
+  "the a an to of in on for and or how what when where which who why do does did is are was be can could should i my me we our you your it this that with within about many much any need must").split(" "));
+const ASK_SYN = [
+  ["thesis","วิทยานิพนธ์","เล่ม","รูปเล่ม","ethesis","dissertation"],["ส่ง","submit","ยื่น","นำส่ง","submission"],["ออนไลน์","online","สื่ออิเล็กทรอนิกส์"],
+  ["qe","วัดคุณสมบัติ","qualifying"],["ป้องกัน","defense","defence"],["โครงร่าง","proposal"],["หัวข้อ","topic"],
+  ["จริยธรรม","coa","irb","cirb","ethics"],["จบ","สำเร็จการศึกษา","graduation","graduate"],["ค่าปรับ","ปรับ","ล่าช้า","fine","late","penalty"],["ภาษาอังกฤษ","english","ielts","toefl"],
+  ["อาจารย์พิเศษ","special"],["ประมวลความรู้","comprehensive"],["ลงนาม","ลายเซ็น","signature","sign"],
+  ["แบบฟอร์ม","ฟอร์ม","form"],["turnitin","ความซ้ำซ้อน","similarity","plagiarism"],["กรรมการ","committee"],["สอบ","exam"],["วัน","day"],["ปี","year"]
+].map(g=>g.map(fnorm));
+const ASK_CODE = /^(บฑกศ|บฑ|gras?|gr)\d+$/;
+const askSeg = typeof Intl !== "undefined" && Intl.Segmenter ? new Intl.Segmenter("th",{granularity:"word"}) : null;
+function askTerms(q){
+  let s = q.toLowerCase();
+  const groups = [], terms = [];
+  /* รหัสแบบฟอร์ม ค้นตรงตัว และจับคู่ไทย–อังกฤษ (บฑ.1 = GR.1, บฑกศ.39 = GRAS.39) */
+  s = s.replace(/(บฑกศ|บฑ|gras?|gr)\s*\.?\s*(\d+)/gi, (m,a,n)=>{
+    const p = a.toLowerCase(), alt = p==="บฑ" ? "gr" : p==="gr" ? "บฑ" : p==="บฑกศ" ? "gras" : "บฑกศ";
+    groups.push([fnorm(p+n), fnorm(alt+n)]); return " ";
+  });
+  const words = askSeg ? [...askSeg.segment(s)].filter(x=>x.isWordLike).map(x=>x.segment) : s.split(/\s+/);
+  words.forEach(w=>{
+    let f = fnorm(w);
+    if(/^[a-z]{2,}[^siu]s$/.test(f)) f = f.slice(0,-1);             /* days → day (ไม่ตัด thesis / process) */
+    if(f && !ASK_STOP.has(f) && (f.length>1 || /\d/.test(f))) terms.push(f);
+  });
+  terms.forEach(x=>{ const g = ASK_SYN.find(g=>g.includes(x)) || [x]; if(!groups.some(y=>y[0]===g[0])) groups.push(g); });
+  return groups;
+}
+/* รหัสแบบฟอร์มต้องไม่ติดเลขต่อท้าย (บฑ1 ≠ บฑ14) */
+const askHas = (text, v) => ASK_CODE.test(v) ? new RegExp(v+"(?!\\d)").test(text) : text.includes(v);
+function askSearch(q){
+  ASK_IDX = ASK_IDX || askBuild();
+  const groups = askTerms(q), full = groups.length;
+  if(!full) return {groups, hits:[]};
+  const boost = {faq:1.15, info:1.1, form:1, rule:1}, L = lang === "en" ? "en" : "th";
+  const hits = ASK_IDX.map(d=>{
+    /* นับคำค้นทีละภาษา (ไทย / อังกฤษ) ไม่ให้คำจากสองภาษามารวมกันในประโยคเดียว */
+    const inG = (g, text) => g.some(v=>askHas(text, v));
+    const cnt = pair => Math.max(...pair.map(x=>groups.filter(g=>inG(g, x)).length));
+    const got = groups.filter(g=>d.nt.some(x=>inG(g, x)) || d.nl.some(l=>l.some(x=>inG(g, x)))).length;
+    const tHits = cnt(d.nt);
+    /* บรรทัดที่มีคำค้นครบที่สุด (คำอยู่ในประโยคเดียวกัน = น่าจะเป็นคำตอบ) */
+    let line = -1, lineHits = 0;
+    d.nl.forEach((l,i)=>{ const n = cnt(l); if(n > lineHits){ lineHits = n; line = i; } });
+    let score = got*10 + lineHits*10 + tHits*4 + (lineHits===full ? 15 : 0) + (tHits===full ? (d.k==="faq" ? 30 : 15) : 0);
+    if(lineHits===full && line >= 0) score += Math.max(0, 10 - d.lines[line][L].length/15);   /* ประโยคสั้นที่มีคำครบ = ตอบตรงกว่า */
+    /* ค้นด้วยรหัสแบบฟอร์ม: หน้ารายละเอียด / แบบฟอร์มของรหัสนั้นขึ้นก่อน */
+    if(d.k !== "faq" && groups.some(g=>ASK_CODE.test(g[0]) && g.some(v=>d.nt.some(p=>new RegExp("^"+v+"(?!\\d)").test(p))))) score += 20;
+    return {d, got, tHits, line, lineHits, score: score * boost[d.k]};
+  }).filter(h=>h.got >= Math.max(1, Math.ceil(full*0.5)))
+    .sort((a,b)=>b.score-a.score);
+  return {groups, hits};
+}
+
+/* ---------- แสดงผล ---------- */
+const askEsc = s => String(s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function askMark(text, groups){
+  let h = askEsc(text);
+  const vs = groups.flat().filter(v=>v.length>1 && !ASK_CODE.test(v)).sort((a,b)=>b.length-a.length);
+  vs.forEach(v=>{ h = h.replace(new RegExp("("+v.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","gi"), "<mark>$1</mark>"); });
+  return h;
+}
+const askL = x => x[lang === "en" ? "en" : "th"];
+function askSnippet(d, groups){
+  let best = d.lines[0], bs = -1;
+  d.lines.forEach((l,i)=>{ const s = Math.max(...d.nl[i].map(x=>groups.filter(g=>g.some(v=>askHas(x, v))).length)); if(s>bs){ bs = s; best = l; } });
+  const s = best ? askL(best) : "";
+  return s.length > 180 ? s.slice(0,180)+"…" : s;
+}
+const ASK_KIND = {faq:["help","FAQ","FAQ"], info:["clipboard","รายละเอียด บฑ.","Form details"], form:["download","แบบฟอร์ม","Forms"], rule:["landmark","ประกาศ","Announcements"]};
+const askKind = k => askTx(ASK_KIND[k][1], ASK_KIND[k][2]);
+let ASK_LAST = [], ASK_GROUPS = [];
+function askRes(h, i, groups, snip){
+  return `<button type="button" class="ask-res" onclick="askGo(${i})"><span class="ri k-${h.d.k}">${svg(ASK_KIND[h.d.k][0])}</span><span class="rt"><span class="rk">${askKind(h.d.k)} · ${askEsc(askL(h.d.sub))}</span><span class="rh">${askMark(askL(h.d.title), groups)}</span>${snip?`<span class="rs">${askMark(askSnippet(h.d, groups), groups)}</span>`:""}</span></button>`;
+}
+function askReply(q){
+  const {groups, hits} = askSearch(q);
+  ASK_LAST = hits; ASK_GROUPS = groups;
+  if(!hits.length) return `<div class="ask-msg bot">${askTx(
+    `ยังไม่พบข้อมูลที่ตรงกับ “${askEsc(q)}” ลองใช้คำอื่น เช่น รหัสแบบฟอร์ม (บฑ.2) หรือคำสั้น ๆ<br>หรือสอบถามเจ้าหน้าที่ได้ที่ <b>LINE @600qubzh</b> · โทร <b>02-441-4125</b>`,
+    `No match for “${askEsc(q)}”. Try other words, such as a form code (GR.2) or a short keyword.<br>Or contact our staff: <b>LINE @600qubzh</b> · Tel <b>02-441-4125</b>`)}</div>`;
+  let html = `<div class="ask-msg bot wide">`;
+  /* การ์ดคำตอบ: ผลที่มีคำค้นครบในประโยคเดียว หรือชื่อหัวข้อตรงครบ — สูงสุด 3 ใบ ข้อความซ้ำกันแสดงใบเดียว */
+  const full = groups.length, best = [];
+  const bi = s => { const f = fnorm(s), b = new Set(); for(let k=0;k<f.length-1;k++) b.add(f.slice(k,k+2)); return b; };
+  const sim = (a,b) => { let n = 0; a.forEach(x=>{ if(b.has(x)) n++; }); return n / Math.max(1, Math.min(a.size, b.size)); };
+  hits.forEach((h,i)=>{
+    if(best.length >= 3 || (h.lineHits < full && h.tHits < full)) return;
+    const ans = h.d.k === "faq" && h.tHits === full ? h.d.lines.map(askL).join(" ") : (h.line >= 0 ? askL(h.d.lines[h.line]) : h.d.lines.map(askL).join(" "));
+    const b = bi(ans);
+    if(best.some(x=>sim(x.b, b) > .6)) return;
+    best.push({i, h, ans, b});
+  });
+  if(best.length){
+    html += `<div class="ask-where">★ ${askTx("คำตอบที่น่าจะใช่","Likely answers")}${best.length>1 ? askTx(` (${best.length} ประเด็น)`, ` (${best.length})`) : ""}</div>`;
+    best.forEach(({i,h,ans})=>{
+      html += `<div class="ask-best"><h4><span class="bi">${svg(ASK_KIND[h.d.k][0])}</span>${askEsc(askL(h.d.title))}</h4><p>${askMark(ans.length>240 ? ans.slice(0,240)+"…" : ans, groups)}</p>`+
+        `<div class="ask-src">${askKind(h.d.k)} · ${askEsc(askL(h.d.sub))}</div><a role="button" tabindex="0" onclick="askGo(${i})" onkeydown="if(event.key==='Enter')askGo(${i})">${h.d.k==="rule" ? askTx("เปิดประกาศ","Open announcement") : askTx("ไปที่หน้านี้","Go to this page")} →</a></div>`;
+    });
+  }
+  html += `<div class="ask-where">${askTx(`เรื่องนี้อยู่ที่ (${hits.length} รายการ)`, `Where to find this (${hits.length})`)}</div>`;
+  hits.slice(0,5).forEach((h,i)=>{ html += askRes(h, i, groups, true); });
+  if(hits.length > 5) html += `<span class="ask-more" role="button" tabindex="0" onclick="askShowAll(this)">${askTx(`ดูอีก ${Math.min(10, hits.length-5)} รายการ`, `Show ${Math.min(10, hits.length-5)} more`)}</span>`;
+  return html + `</div>`;
+}
+function askShowAll(el){
+  let html = "";
+  ASK_LAST.slice(5,15).forEach((h,i)=>{ html += askRes(h, i+5, ASK_GROUPS, false); });
+  el.insertAdjacentHTML("beforebegin", html); el.remove();
+}
+function askPush(html){ const b = $("askBody"); b.insertAdjacentHTML("beforeend", html); b.scrollTop = b.scrollHeight; }
+function askSend(text){
+  const inp = $("askQ"), q = (text || inp.value).trim(); if(!q) return;
+  inp.value = "";
+  askPush(`<div class="ask-msg me">${askEsc(q)}</div>`);
+  const b = $("askBody"), mine = b.lastElementChild;
+  b.insertAdjacentHTML("beforeend", askReply(q));
+  b.scrollTop = mine.offsetTop - b.offsetTop - 10;               /* เลื่อนให้เห็นคำถามและเริ่มคำตอบ */
+}
+function askHello(){
+  const ex = askTx(["ส่งเล่มภายในกี่วัน","สอบออนไลน์","ค่าปรับส่งเล่มล่าช้า","บฑ.1","Turnitin","อาจารย์พิเศษ"],
+                   ["Thesis submission days","Online exam","Late submission fine","GR.1","Turnitin","Special lecturer"]);
+  $("askBody").innerHTML = "";
+  askPush(`<div class="ask-msg bot">${askTx("สวัสดีครับ 👋 พิมพ์คำถามหรือคำค้นได้เลย ระบบจะพาไปยัง FAQ รายละเอียด บฑ. แบบฟอร์ม หรือประกาศที่เกี่ยวข้อง",
+    "Hello 👋 Type a question or keyword and I’ll point you to the related FAQ, form details, forms or announcements.")}<div class="ask-chips">${ex.map(e=>`<button type="button" onclick="askSend(this.textContent)">${e}</button>`).join("")}</div></div>`);
+}
+let askLang = null;
+function askI18n(){                                      /* ข้อความของหน้าต่างค้นหา ตามภาษาที่เลือก */
+  $("askFabTxt").textContent = askTx("ถามได้เลย · ค้นหาข้อมูล","Ask · Search");
+  $("askFab").setAttribute("aria-label", askTx("ค้นหาข้อมูล","Search this site"));
+  $("askTitle").textContent = askTx("ผู้ช่วยค้นหาข้อมูล","Search assistant");
+  $("askSub").textContent = askTx("ค้นจาก FAQ · รายละเอียด บฑ. · แบบฟอร์ม · ประกาศ","FAQ · form details · forms · announcements");
+  $("askX").setAttribute("aria-label", askTx("ปิด","Close"));
+  $("askQ").placeholder = askTx("พิมพ์คำถาม เช่น ส่งเล่มภายในกี่วัน","Ask, e.g. thesis deadline");
+  $("askQ").setAttribute("aria-label", askTx("คำถามหรือคำค้น","Question or keyword"));
+  $("askGoBtn").setAttribute("aria-label", askTx("ค้นหา","Search"));
+  $("askNote").textContent = askTx("ผลค้นหาอัตโนมัติจากข้อมูลบนเว็บ · โปรดตรวจสอบกับต้นฉบับทุกครั้ง","Automatic results from this website · always check the original source");
+  if(askLang !== lang && $("askBody").children.length) askHello();   /* เปลี่ยนภาษา → เริ่มบทสนทนาใหม่ */
+  askLang = lang;
+}
+function askOpen(){
+  $("ask").classList.remove("hide"); $("askFab").classList.add("open");
+  if(!$("askBody").children.length) askHello();
+  setTimeout(()=>$("askQ").focus(), 150);
+}
+function askClose(){ $("ask").classList.add("hide"); $("askFab").classList.remove("open"); $("askFab").focus(); }
+document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !curInfo && !$("ask").classList.contains("hide")) askClose(); });
+
+/* ---------- พาไปยังตำแหน่งของผลลัพธ์ ---------- */
+function askGo(i){
+  const g = ASK_LAST[i].d.go;
+  if(window.innerWidth <= 520) askClose();
+  if(g.url){ window.open(lang==="en" && g.urlEn ? g.urlEn : g.url, "_blank", "noopener"); return; }
+  if(g.info){ openInfo(g.info); setTimeout(()=>imGo(g.sec), 80); return; }
+  if(!role) setRole("student");
+  const li = role.links.findIndex(l=>l.content === (g.faq ? FAQS : FORMS)); if(li < 0) return;
+  openLink(li);
+  setTimeout(()=>{
+    if(g.faq){
+      const row = [...$("detail").querySelectorAll(".q-row")].find(r=>r.querySelector(".q-q").textContent.trim() === askPlain(t(g.faq)));
+      if(row){ row.open = true; row.scrollIntoView({behavior:"smooth", block:"center"}); row.animate([{background:"#fff5d9"},{background:"transparent"}],{duration:1800}); }
+    } else {
+      const inp = $("detail").querySelector(".f-search input");
+      if(inp){ inp.value = t(g.form); filterForms(inp); inp.scrollIntoView({behavior:"smooth", block:"center"}); }
+    }
+  }, 350);
+}
+askI18n();
 </script>
 </body>
 </html>
