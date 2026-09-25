@@ -525,6 +525,8 @@ body.lock{overflow:hidden}
 .faqx .f-grp .q-row:last-child{margin-bottom:12px}
 .faqx .q-row{border-left:4px solid var(--ac)}
 .q-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.q-copy{width:fit-content;justify-self:start;align-self:flex-start;display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:5px 12px;border:1px dashed #c9d6ea;border-radius:999px;background:transparent;color:var(--muted);font:inherit;font-size:.8rem;cursor:pointer}
+.q-copy:hover{color:var(--navy-2);border-color:#9db8e6;background:#f6f9ff}.q-copy .i{width:14px;height:14px}.q-copy.done{color:#1d7a45;border-color:#9fd3b1;border-style:solid}
 .c0{background:#e8f0fe;color:#2f5aa8} .c1{background:#e6f6ee;color:#23724b} .c2{background:#fff1dc;color:#8a5a12}
 .c3{background:#f1ebfd;color:#5b3cc4} .c4{background:#fdeaf1;color:#a3365f} .c5{background:#e5f5f7;color:#1f6f7a}
 .q-cats button.c0:not(.on),.q-cats button.c1:not(.on),.q-cats button.c2:not(.on),.q-cats button.c3:not(.on),.q-cats button.c4:not(.on),.q-cats button.c5:not(.on){border-color:transparent}
@@ -1221,80 +1223,80 @@ const FAQS = {type:"faqx",
   title:"คำถามที่พบบ่อย (FAQ)",
   cats:[
     {id:"topic", name:"หัวข้อและคณะกรรมการ", items:[
-      {q:"ใครเป็นผู้ดำเนินการเพื่อให้ได้มาซึ่งหัวข้อวิทยานิพนธ์ และดำเนินการอย่างไร",
+      {q:"ใครเป็นผู้ดำเนินการเพื่อให้ได้มาซึ่งหัวข้อวิทยานิพนธ์ และดำเนินการอย่างไร", kw:["ได้หัวข้อ","หาหัวข้อ","ใครดูแลหัวข้อ","บฑกศ.39","GRAS.39","หลักสูตรดูแล","ข้อ 99","topic","proposal"],
        a:["ตามข้อบังคับมหาวิทยาลัยมหิดล ว่าด้วยการศึกษาระดับบัณฑิตศึกษา พ.ศ. 2567 หมวด 11 ข้อ 99 (5) การจัดทำโครงร่าง การสอบโครงร่าง และกิจกรรมอื่น ๆ เพื่อให้ได้มาซึ่งหัวข้อวิทยานิพนธ์ / การค้นคว้าอิสระ อยู่ในการบริหารจัดการและกำกับดูแลของหลักสูตร",
           "นักศึกษายื่นคำร้องขอหนังสือเชิญผู้ทำหน้าที่เพื่อให้ได้มาซึ่งหัวข้อ (บฑกศ.39) ผ่านระบบ e-Form"],
        links:[{l:"ระบบ e-Form", u:"EFORM"}]},
-      {q:"การได้มาซึ่งหัวข้อวิทยานิพนธ์ / การค้นคว้าอิสระ ทำได้ด้วยวิธีใดบ้าง",
+      {q:"การได้มาซึ่งหัวข้อวิทยานิพนธ์ / การค้นคว้าอิสระ ทำได้ด้วยวิธีใดบ้าง", kw:["วิพากษ์","ประชุม","สอบหัวข้อ","วิธีได้หัวข้อ","topic","proposal defense"],
        a:["ทำได้หลายรูปแบบ เช่น การวิพากษ์ การจัดประชุม หรือการสอบ",
           "นักศึกษายื่นคำร้องขอหนังสือเชิญผู้ทำหน้าที่ผ่านระบบ e-Form"],
        links:[{l:"ระบบ e-Form", u:"EFORM"}]},
-      {q:"ผู้ทำหน้าที่เพื่อให้ได้มาซึ่งหัวข้อ จะเป็นคณะกรรมการชุดต่อไปได้หรือไม่",
+      {q:"ผู้ทำหน้าที่เพื่อให้ได้มาซึ่งหัวข้อ จะเป็นคณะกรรมการชุดต่อไปได้หรือไม่", kw:["กรรมการชุดเดิม","ใช้กรรมการซ้ำ","เป็นที่ปรึกษาได้ไหม","บฑ.1","GR.1","advisor","committee"],
        a:[{ol:["ผู้ทำหน้าที่ชุดนี้ทำหน้าที่เพื่อให้ได้มาซึ่งหัวข้อวิทยานิพนธ์ / การค้นคว้าอิสระเท่านั้น",
                "เมื่อแต่งตั้งคณะกรรมการที่ปรึกษา (บฑ.1) บัณฑิตวิทยาลัยจะตรวจสอบคุณสมบัติตามเกณฑ์ของนักศึกษา: เกณฑ์ 2565 ใช้ข้อบังคับฯ พ.ศ. 2567 และเกณฑ์ 2558 ใช้ข้อบังคับฯ พ.ศ. 2563"]}],
        links:[{l:"ข้อบังคับฯ พ.ศ. 2567 (PDF)", u:"https://graduate.mahidol.ac.th/download/current-student/pdf/PR06389.pdf"}]},
-      {q:"ใครอนุมัติรายงานความก้าวหน้า (บฑ.42) ถ้านักศึกษายังไม่ได้ยื่น บฑ.1",
+      {q:"ใครอนุมัติรายงานความก้าวหน้า (บฑ.42) ถ้านักศึกษายังไม่ได้ยื่น บฑ.1", kw:["progress report","รายงานความก้าวหน้า","ประเมิน P S U","ยังไม่มีอาจารย์ที่ปรึกษา","บฑ.42","GR.42"],
        a:["ประธานหลักสูตรเป็นผู้อนุมัติรายงานและประเมินผลความก้าวหน้า (บฑ.42) ในกรณีที่นักศึกษาลงทะเบียนวิทยานิพนธ์ / การค้นคว้าอิสระแล้ว แต่ยังไม่มีอาจารย์ที่ปรึกษา (ยังไม่ได้ยื่น บฑ.1 และไม่มีการแต่งตั้งตาม บฑ.44 หรือ บฑ.39)"]},
-      {q:"ขอเปลี่ยนหัวข้อวิทยานิพนธ์ / สารนิพนธ์ (บฑ.49) ทำอย่างไร",
+      {q:"ขอเปลี่ยนหัวข้อวิทยานิพนธ์ / สารนิพนธ์ (บฑ.49) ทำอย่างไร", kw:["เปลี่ยนชื่อเรื่อง","แก้ชื่อหัวข้อ","เปลี่ยนกรรมการ","change topic","change title","บฑ.49","GR.49"],
        a:["ยื่นคำร้อง บฑ.49 ขอเปลี่ยนหัวข้อผ่านระบบ e-Form ออนไลน์"],
        links:[{l:"ระบบ e-Form", u:"EFORM"}]},
-      {q:"คุณสมบัติการยื่นสอบป้องกันฯ",
+      {q:"คุณสมบัติการยื่นสอบป้องกันฯ", kw:["สอบป้องกัน","defense","สอบจบ","ยื่นสอบได้เมื่อไร","90 วัน","45 วัน","บฑ.2","GR.2","คะแนนภาษาอังกฤษไม่ผ่าน","เกรดยังไม่ออก"],
        a:[{ul:["<b>ปริญญาโท</b> สอบประมวลความรู้ผ่าน (แผน ข), เรียนครบตามหลักสูตร, อนุมัติหัวข้อแล้วไม่น้อยกว่า 90 วัน (วิทยานิพนธ์) หรือ 45 วัน (สารนิพนธ์/ค้นคว้าอิสระ)","<b>ปริญญาเอก</b> สอบวัดคุณสมบัติผ่าน, เรียนครบตามหลักสูตร, อนุมัติหัวข้อแล้วไม่น้อยกว่า 90 วัน","<b>กรณีคะแนนภาษาอังกฤษยังไม่ผ่าน หรือเกรดยังออกไม่ครบ</b> สามารถยื่นขอสอบป้องกันฯ ได้ แต่อาจมีผลกระทบต่อการยื่นขอสำเร็จการศึกษา (บฑ.5)"]}]},
-      {q:"กรอบเวลาการยื่นคำร้อง",
+      {q:"กรอบเวลาการยื่นคำร้อง", kw:["ยื่นล่วงหน้า","กี่วันก่อนสอบ","15 วัน","deadline","ระยะเวลาดำเนินการ","5-14 วันทำการ","ทันไหม"],
        a:["ต้องยื่นและได้รับการอนุมัติจากประธานหลักสูตร/รองคณบดีส่วนงาน ก่อนวันดำเนินการสอบล่วงหน้าไม่น้อยกว่า <b>15 วันต่อเนื่อง (2 สัปดาห์)</b>",
           "กระบวนการของบัณฑิตวิทยาลัยใช้เวลา 5–14 วันทำการ"]},
-      {q:"การตั้งชื่อหัวข้อเรื่องภาษาอังกฤษ",
+      {q:"การตั้งชื่อหัวข้อเรื่องภาษาอังกฤษ", kw:["ตัวพิมพ์ใหญ่","ALL CAPS","uppercase","ชื่อเรื่องอังกฤษ","title format","technical terms"],
        a:["ต้องพิมพ์ด้วย<b>ตัวพิมพ์ใหญ่ทั้งหมด (ALL CAPS)</b> ยกเว้นคำที่เป็นศัพท์เฉพาะทาง (Technical Terms)"]},
-      {q:"การแนบ CV ผู้ทรงคุณวุฒิภายนอก",
+      {q:"การแนบ CV ผู้ทรงคุณวุฒิภายนอก", kw:["CV","ประวัติ","ผลงานตีพิมพ์","external expert","publication"],
        a:["ต้องมีข้อมูลครบถ้วน ทั้งวุฒิการศึกษาพร้อมปีที่จบการศึกษา อีเมล ตำแหน่งวิชาการ ต้นสังกัด และรายการผลงานตีพิมพ์ที่ระบุฐานข้อมูลชัดเจน"]},
-      {q:"การสอบออนไลน์",
+      {q:"การสอบออนไลน์", kw:["online exam","zoom","teams","สอบทางไกล","ผู้สังเกตการณ์","observer","บันทึกวิดีโอ"],
        a:[{ul:["ต้องขออนุมัติล่วงหน้า 15 วันต่อเนื่อง ระบุโปรแกรมที่ใช้สอบ และบันทึกวิดีโอรวมถึงภาพถ่ายหน้าจอขณะสอบส่งพร้อมผลการสอบ","<b>กรณีมีผู้สังเกตการณ์ (นักศึกษาอยู่ต่างสถานที่)</b> สถานที่สอบต้องเป็นที่สาธารณะ/ราชการ (ห้ามใช้ที่พักส่วนตัว) และต้องแนบ CV ของผู้สังเกตการณ์พร้อมหนังสือรับรองความโปร่งใส"]}]},
-      {q:"การส่งผลสอบ",
+      {q:"การส่งผลสอบ", kw:["รายงานผลสอบ","15 วันทำการ","ผ่านแบบมีเงื่อนไข","นับวัน","หนังสือชี้แจง","exam result"],
        a:["ต้องส่งภายใน 15 วันทำการ (หากเกินต้องทำหนังสือชี้แจง)",
           "การนับวันเงื่อนไขของการ “ผ่านแบบมีเงื่อนไข” ให้นับวันที่สอบเป็นวันที่ 1 โดยแนะนำให้ระบุเป็นจำนวนวัน (เช่น 45 วัน, 90 วัน)"]},
-      {q:"ดูลำดับขั้นตอนและคุณสมบัติของคณะกรรมการเกี่ยวกับวิทยานิพนธ์ได้ที่ไหน",
+      {q:"ดูลำดับขั้นตอนและคุณสมบัติของคณะกรรมการเกี่ยวกับวิทยานิพนธ์ได้ที่ไหน", kw:["คุณสมบัติกรรมการ","qualification","committee","ขั้นตอนทั้งหมด","ผลงานกรรมการ"],
        a:["ดูขั้นตอนและรายละเอียดได้ที่เอกสารสรุปของบัณฑิตวิทยาลัย"],
        links:[{l:"ขั้นตอนและคุณสมบัติคณะกรรมการ", u:"https://www.canva.com/design/DAGNy9Ypukc/0lBwP9aFkLywSeqP2Soj7g/view?utm_content=DAGNy9Ypukc&utm_campaign=designshare&utm_medium=link&utm_source=editor"}]}
     ]},
     {id:"advisor", name:"อาจารย์และค่าตอบแทน", items:[
-      {q:"หลักสูตรจะเบิกค่าตอบแทนคณะกรรมการสอบวิทยานิพนธ์ / สารนิพนธ์ได้อย่างไร",
+      {q:"หลักสูตรจะเบิกค่าตอบแทนคณะกรรมการสอบวิทยานิพนธ์ / สารนิพนธ์ได้อย่างไร", kw:["ค่าตอบแทน","เบิกจ่าย","honorarium","ค่าสอบ","เอกสารเบิก"],
        a:["ดำเนินการตามตัวอย่างเอกสารและขั้นตอนในโฟลเดอร์นี้"],
        links:[{l:"ตัวอย่างเอกสารเบิกจ่าย", u:"https://drive.google.com/drive/folders/193OZfH3kzt26k0yEIOBHjd9zdGYe1BKy?usp=sharing"}]},
-      {q:"คุณสมบัติของอาจารย์พิเศษมีอะไรบ้าง",
+      {q:"คุณสมบัติของอาจารย์พิเศษมีอะไรบ้าง", kw:["special lecturer","GRAS.01","บฑ.31","GR.31","แต่งตั้งอาจารย์"],
        a:[{ul:["<b>ปริญญาโท</b> คุณวุฒิปริญญาโทหรือเทียบเท่าขึ้นไปในสาขาวิชานั้น สาขาที่สัมพันธ์กัน หรือสาขาของรายวิชาที่สอน และมีผลงานทางวิชาการที่ไม่ใช่ส่วนหนึ่งของการศึกษาเพื่อรับปริญญาของตนเอง ซึ่งเผยแพร่ตามหลักเกณฑ์การแต่งตั้งตำแหน่งทางวิชาการ อย่างน้อย 1 รายการในรอบ 5 ปีย้อนหลัง",
                "<b>ปริญญาเอก</b> คุณวุฒิปริญญาเอกหรือเทียบเท่า หรือปริญญาโทที่มีตำแหน่งรองศาสตราจารย์ขึ้นไป ในสาขาวิชานั้น สาขาที่สัมพันธ์กัน หรือสาขาของรายวิชาที่สอน และมีผลงานทางวิชาการตามเกณฑ์เดียวกัน อย่างน้อย 1 รายการในรอบ 5 ปีย้อนหลัง"]}],
        links:[{l:"คู่มือ GRAS.01 เสนอแต่งตั้งอาจารย์พิเศษ", u:"https://canva.link/gr-31"}]},
-      {q:"อาจารย์เข้าระบบ Thesis Online Advisor ไม่ได้ ทำอย่างไร",
+      {q:"อาจารย์เข้าระบบ Thesis Online Advisor ไม่ได้ ทำอย่างไร", kw:["login ไม่ได้","ลืมรหัสผ่าน","password","เข้าระบบไม่ได้","ล้างแคช","cache","cookie"],
        a:[{ol:["ตรวจสอบรหัสผ่านให้ถูกต้อง หากจำไม่ได้ให้กด Forgot password",
                "ถ้ารหัสผ่านถูกแล้วแต่ยังเข้าไม่ได้ ให้ล้างแคชและคุกกี้ของเบราว์เซอร์ (Chrome: เมนู ⋮ → เครื่องมือเพิ่มเติม → ล้างข้อมูลการท่องเว็บ → เลือกช่วงเวลา “ตั้งแต่เริ่มต้น” → เลือก “คุกกี้และข้อมูลเว็บไซต์อื่น ๆ” และ “รูปภาพและไฟล์ที่แคชไว้” → ล้างข้อมูล)",
                "หากยังใช้งานไม่ได้ ให้แคปหน้าจอที่มีปัญหา พร้อมระบุชื่อผู้ใช้งานและอีเมล ส่งให้เจ้าหน้าที่ตรวจสอบ"]}]}
     ]},
     {id:"ethics", name:"จริยธรรมและเครื่องมือวิจัย", items:[
-      {q:"นักศึกษาต่างชาติที่ไม่ได้ทำวิจัยในไทย ใช้เอกสารรับรองจริยธรรมจากประเทศที่เก็บข้อมูลได้หรือไม่",
+      {q:"นักศึกษาต่างชาติที่ไม่ได้ทำวิจัยในไทย ใช้เอกสารรับรองจริยธรรมจากประเทศที่เก็บข้อมูลได้หรือไม่", kw:["international student","ต่างประเทศ","ethics","IRB ต่างประเทศ","COA"],
        a:["ได้ สามารถใช้เอกสารรับรองจริยธรรมการวิจัยในคนจากหน่วยงานในประเทศที่นักศึกษาเก็บข้อมูลวิจัย"]},
-      {q:"ยกเลิกการแต่งตั้งคณะกรรมการสอบโครงร่าง (บฑ.39) มีผลต่อการขอรับรองจริยธรรมหรือไม่",
+      {q:"ยกเลิกการแต่งตั้งคณะกรรมการสอบโครงร่าง (บฑ.39) มีผลต่อการขอรับรองจริยธรรมหรือไม่", kw:["บฑ.39","GR.39","ยกเลิก บฑ.39","IRB","ethics"],
        a:["ไม่มีผลต่อการยื่นขอเอกสารรับรองด้านจริยธรรมการวิจัยในคน"]},
-      {q:"งานวิจัยไม่เข้าข่ายการวิจัยในคนหรือสัตว์ ต้องทำอย่างไร",
+      {q:"งานวิจัยไม่เข้าข่ายการวิจัยในคนหรือสัตว์ ต้องทำอย่างไร", kw:["ไม่ใช่วิจัยในคน","human research checklist","exemption","ยกเว้นจริยธรรม","CIRB","ethics"],
        a:["ทำแบบประเมิน (Human Research Checklist) เพื่อส่งให้คณะกรรมการจริยธรรมการวิจัยในคนพิจารณา",
           "ยื่นได้ที่คณะกรรมการจริยธรรมการวิจัยในคนประจำส่วนงาน หรือคณะกรรมการจริยธรรมการวิจัยชุดกลาง มหาวิทยาลัยมหิดล",
           "สอบถามเพิ่มเติม: ศูนย์ส่งเสริมจริยธรรมการวิจัย มหาวิทยาลัยมหิดล โทร 02 849 6224, 02 849 6225"],
        links:[{l:"Human Research Checklist (PDF)", u:"https://sp.mahidol.ac.th/th/ethics-human/forms/checklist/2022-Human%20Research%20Checklist-researcher.pdf"},
               {l:"ศูนย์ส่งเสริมจริยธรรมการวิจัย", u:"https://sp.mahidol.ac.th/th/ethics-human/index.html"}]},
-      {q:"เอกสาร COA (จริยธรรมการวิจัย)",
+      {q:"เอกสาร COA (จริยธรรมการวิจัย)", kw:["certificate of approval","IRB","แนบ COA","รหัสผ่าน PDF","password PDF","ใบรับรองจริยธรรม"],
        a:["ต้องแนบหลังจากคำร้อง บฑ.1 ได้รับอนุมัติ โดยนำไฟล์จาก IRB มาแนบ",
           "หากไม่ต้องผ่านจริยธรรมในคน/สัตว์ ให้แนบแบบประเมินตนเองของ CIRB",
           "<b>ต้องถอดรหัสผ่านของไฟล์ PDF ออกก่อน</b>"]},
-      {q:"ขอใช้เครื่องมือวิจัย ทำอย่างไร",
+      {q:"ขอใช้เครื่องมือวิจัย ทำอย่างไร", kw:["แบบสอบถาม","questionnaire","instrument","ขออนุญาตใช้เครื่องมือ"],
        a:[{ul:["<b>บุคคลภายนอก</b> ทำหนังสือจากส่วนงานของผู้ขอใช้ เรียนคณบดีบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล ส่งถึง งานบริการการศึกษา (เรื่องขอใช้เครื่องมือวิจัย) 25/25 หมู่ 5 อาคารบัณฑิตวิทยาลัย ถ.พุทธมณฑลสาย 4 ต.ศาลายา อ.พุทธมณฑล จ.นครปฐม 73170 พร้อมระบุเบอร์โทรศัพท์และอีเมลของผู้ขอใช้",
                "หากเครื่องมืออยู่ที่ต้นสังกัดของเจ้าของเครื่องมือ บัณฑิตวิทยาลัยจะแจ้งกลับเมื่อได้รับอนุญาตจากต้นสังกัดแล้ว",
                "<b>นักศึกษามหาวิทยาลัยมหิดล</b> ติดต่อเจ้าหน้าที่หลักสูตรให้ทำหนังสือขอใช้เครื่องมือมายังบัณฑิตวิทยาลัย ผ่านระบบ e-document"]}]}
     ]},
     {id:"ethesis", name:"การจัดรูปเล่มและการส่งรูปเล่มอิเล็กทรอนิกส์", items:[
-      {q:"ดาวน์โหลด Format / Template ตัวอย่างรูปเล่มได้ที่ไหน",
+      {q:"ดาวน์โหลด Format / Template ตัวอย่างรูปเล่มได้ที่ไหน", kw:["template","format","ตัวอย่างเล่ม","ไฟล์ต้นแบบ","word"],
        a:["ดาวน์โหลดได้ที่เว็บไซต์บัณฑิตวิทยาลัย"],
        links:[{l:"Sample template", u:"https://drive.google.com/file/d/1j2AWLahZI-PndKpLTeODGEVJFQ5dKXZ7/view?usp=sharing"},
               {l:"ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์", u:"https://grad-as.my.canva.site/electronic-file-requirements"}]},
-      {q:"รูปแบบการเขียนอ้างอิงในเล่มเป็นอย่างไร และหน้า Reference / Bibliography ควรใช้ APA หรือ Vancouver",
+      {q:"รูปแบบการเขียนอ้างอิงในเล่มเป็นอย่างไร และหน้า Reference / Bibliography ควรใช้ APA หรือ Vancouver", kw:["อ้างอิง","citation","reference","bibliography","APA","Vancouver","บรรณานุกรม"],
        a:["ใช้หัวข้อ “รายการอ้างอิง” (Reference) สำหรับสายวิทยาศาสตร์ และ “บรรณานุกรม” (Bibliography) สำหรับสายสังคมศาสตร์",
           "ระบบการอ้างอิงในเนื้อหามี 3 แบบ",
           {ol:["แบบนาม-ปี (Author-date system)","แบบตัวเลข (Numerical system)","แบบเชิงอรรถ (Footnote system)"]},
@@ -1302,47 +1304,47 @@ const FAQS = {type:"faqx",
           "รูปแบบในหน้า Reference / Bibliography ขึ้นอยู่กับระบบการอ้างอิงในเนื้อหา",
           {ul:["<b>แบบนาม-ปี</b> เรียงตามตัวอักษร A–Z หรือ ก–ฮ (APA)","<b>แบบตัวเลข</b> เรียงตามลำดับตัวเลข (Vancouver)"]}],
        links:[{l:"วิธีเขียนอ้างอิง", u:"https://www.li.mahidol.ac.th/citation/"}]},
-      {q:"ต้องส่งรูปเล่มภายในกี่วัน และดูขั้นตอนการส่งรูปเล่มผ่านระบบ e-Thesis Submission ได้ที่ไหน",
+      {q:"ต้องส่งรูปเล่มภายในกี่วัน และดูขั้นตอนการส่งรูปเล่มผ่านระบบ e-Thesis Submission ได้ที่ไหน", kw:["ส่งเล่มกี่วัน","21 วัน","deadline","หลังสอบผ่าน","ส่งเล่ม","e-thesis","ขั้นตอนส่งเล่ม","submission"],
        a:["เมื่อผลสอบ “ผ่าน” ต้องส่งรูปเล่มอิเล็กทรอนิกส์ภายใน <b>21 วัน</b> หากส่งล่าช้าจะมีค่าปรับ",
           "ดูขั้นตอนและรายละเอียดการส่งรูปเล่มในรูปแบบดิจิทัลได้ที่ลิงก์ด้านล่าง"],
        links:[{l:"ขั้นตอนการส่งรูปเล่ม", u:"https://www.canva.com/design/DAG4QSdOvIk/1vlTnQYmKyG-KRrRbSLJ5Q/view"},
               {l:"ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์", u:"https://grad-as.my.canva.site/electronic-file-requirements"}]},
-      {q:"ส่งไฟล์รูปเล่มในระบบ e-Thesis Submission ต้องอัปโหลดอะไรบ้าง",
+      {q:"ส่งไฟล์รูปเล่มในระบบ e-Thesis Submission ต้องอัปโหลดอะไรบ้าง", kw:["อัปโหลด","upload","ไฟล์ PDF","ไฟล์อะไรบ้าง","submit"],
        a:[{ol:["<b>ไฟล์ e-Thesis ฉบับสมบูรณ์ (PDF)</b> จัดรูปแบบตามที่บัณฑิตวิทยาลัยกำหนด ตั้งแต่หน้าปกถึงประวัติผู้วิจัย",
                "<b>Turnitin Originality Report (PDF)</b> แนบหน้าปกที่แสดง Submission Date, Submission ID และ Word Count และหน้าแรกของผลที่แสดง Similarity Index และ Similarity by Source (Internet source, Publication, Student Paper)"]},
           "แนบครบ 2 ไฟล์แล้วกด Submit และติดตามสถานะได้ที่หน้า Status ของระบบ"],
        links:[{l:"ระบบ e-Thesis submission", u:"ETHESIS"}, {l:"ข้อมูลเพิ่มเติม", u:"https://grad-as.my.canva.site/electronic-file-requirements"}]},
-      {q:"ส่ง Turnitin Originality Report ต้องแนบหน้าไหนบ้าง",
+      {q:"ส่ง Turnitin Originality Report ต้องแนบหน้าไหนบ้าง", kw:["ความซ้ำ","similarity","plagiarism","originality report","หน้าปก"],
        a:["แนบ 2 ส่วนเป็นไฟล์ PDF: <b>หน้าปก</b> ที่แสดง Submission Date, Submission ID และ Word Count และ<b>หน้าแรกของผล</b>ที่แสดง Similarity Index และ Similarity by Source (Internet source, Publication, Student Paper)",
           "สอบถามเรื่อง Turnitin: หอสมุดกลาง มหาวิทยาลัยมหิดล โทร 0-2800-2680-9 ต่อ 4300 / 4301 (วันและเวลาราชการ) หรืออีเมล liclturnitin@gmail.com"],
        links:[{l:"ขอบัญชี Turnitin", u:"https://www.li.mahidol.ac.th/turnitin"}]},
-      {q:"คิดค่าปรับส่งเล่มล่าช้าอย่างไร",
+      {q:"คิดค่าปรับส่งเล่มล่าช้าอย่างไร", kw:["ค่าปรับ","ส่งช้า","เสียเงิน","ค่าใช้จ่าย","late","fine","penalty","เกินกำหนด","due date"],
        a:["ค่าปรับนับถึง “วันที่” นักศึกษา submit ไฟล์เข้าระบบ โดยต้องได้รับความเห็นชอบจากหลักสูตร (อาจารย์ที่ปรึกษาและประธานหลักสูตร ไม่ถูก reject) ซึ่งอาจารย์อนุมัติหลัง due date ได้",
           "<b>ตัวอย่าง</b> due date 20/2/66 นักศึกษา submit 19/2/66 หลักสูตร approve 25/2/66 ถือว่าส่งวันที่ 19/2/66 ยังอยู่ในกำหนด 21 วัน จึงไม่มีค่าปรับ",
           "ระหว่างรอเจ้าหน้าที่บัณฑิตวิทยาลัยตรวจสอบและแก้ไข จะไม่คิดค่าปรับเพิ่ม"]},
-      {q:"ส่งหน้าเสนอและหน้าอนุมัติ (หน้าลงนาม) อย่างไร",
+      {q:"ส่งหน้าเสนอและหน้าอนุมัติ (หน้าลงนาม) อย่างไร", kw:["หน้าลงนาม","sign-off page","ส่งลายเซ็น","signature page","ส่งหน้าลายเซ็นออนไลน์"],
        a:["<b>ตั้งแต่ 17 ส.ค. 2569</b> ส่งหน้าลงนามแบบออนไลน์ในระบบ e-Thesis submission ไม่ต้องส่งเอกสารฉบับจริงมาที่บัณฑิตวิทยาลัย",
           {ol:["เมื่อรูปเล่มอิเล็กทรอนิกส์ได้รับอนุมัติในระบบ e-Thesis submission แล้ว นักศึกษาจะได้รับอีเมลแจ้ง",
                "รวบรวมลายเซ็นคณะกรรมการทุกท่าน รวมถึงคณบดี / ผู้อำนวยการของส่วนงานที่นักศึกษาสังกัด",
                "ส่งหน้าลงนามผ่านแท็บ Sign-Off Page Submission ในระบบ e-Thesis submission"]}],
        links:[{l:"ระบบ e-Thesis submission", u:"ETHESIS"},
               {l:"ปรับกระบวนการลงนามฯ (PDF)", u:"https://graduate.mahidol.ac.th/download/current-student/pdf/Electronic-Thesis-Signature-Process.pdf"}]},
-      {q:"ลงนามในหน้าเสนอและหน้าอนุมัติ (หน้าลงนาม) แบบใดได้บ้าง",
+      {q:"ลงนามในหน้าเสนอและหน้าอนุมัติ (หน้าลงนาม) แบบใดได้บ้าง", kw:["ลายเซ็นดิจิทัล","digital signature","electronic signature","เซ็นจริง","ลายเซ็นผสม"],
        a:["ลงนามได้ทั้งแบบ digital signature, electronic signature, ลงนามจริง หรือแบบผสม บนไฟล์ PDF ของนักศึกษา ตามความสะดวกของอาจารย์แต่ละท่าน",
           "หากเป็นแบบผสม ให้อาจารย์ที่ลงนามจริงลงนามเป็นกลุ่มสุดท้าย"]},
-      {q:"ตรวจสอบว่าหน้าลงนามถูกอัปโหลดแล้วได้อย่างไร",
+      {q:"ตรวจสอบว่าหน้าลงนามถูกอัปโหลดแล้วได้อย่างไร", kw:["ตรวจสถานะ","status","อัปโหลดแล้วหรือยัง","preview"],
        a:["ระบบจะส่งอีเมลแจ้งเตือน หรือเข้าระบบ e-Thesis submission → แท็บ Status → หัวข้อ Sign-off page → กด Preview"],
        links:[{l:"ระบบ e-Thesis submission", u:"ETHESIS"}]}
     ]},
     {id:"forms", name:"แบบฟอร์มและคำร้องอื่น ๆ", items:[
-      {q:"หาแบบฟอร์มเกี่ยวกับวิทยานิพนธ์ / สารนิพนธ์ได้ที่ไหน",
+      {q:"หาแบบฟอร์มเกี่ยวกับวิทยานิพนธ์ / สารนิพนธ์ได้ที่ไหน", kw:["ดาวน์โหลดฟอร์ม","form","e-form","แบบฟอร์มทั้งหมด"],
        a:["ดูแบบฟอร์มทั้งหมดได้ที่หัวข้อ “แบบฟอร์มต่าง ๆ” ในเว็บไซต์นี้ หรือดาวน์โหลดจากเว็บไซต์บัณฑิตวิทยาลัย แบบฟอร์มที่ยื่นออนไลน์ใช้ระบบ e-Form"],
        links:[{l:"หน้าดาวน์โหลดแบบฟอร์ม", u:"https://graduate.mahidol.ac.th/thai/current-students/?g=4&id=4"}, {l:"ระบบ e-Form", u:"EFORM"}]},
-      {q:"ขอขยายเวลาการลาศึกษาต่อ (นักศึกษาที่ลาเรียนจากต้นสังกัด) ทำอย่างไร",
+      {q:"ขอขยายเวลาการลาศึกษาต่อ (นักศึกษาที่ลาเรียนจากต้นสังกัด) ทำอย่างไร", kw:["ขยายเวลาลาศึกษา","บฑ.25","GR.25","ข้าราชการ","ต้นสังกัด","study leave"],
        a:["ยื่นคำร้อง <b>บฑ.25</b> สำหรับนักศึกษาที่เป็นข้าราชการ ซึ่งครบกำหนดลาศึกษาแต่ยังไม่สำเร็จการศึกษา และต้องการให้บัณฑิตวิทยาลัยแจ้งต้นสังกัดเพื่อขอขยายเวลา",
           "ดาวน์โหลดแบบฟอร์ม แล้วยื่นผ่านระบบส่งเอกสารสำหรับนักศึกษา (e-document)"],
        links:[{l:"ดาวน์โหลดแบบฟอร์ม", u:"https://graduate.mahidol.ac.th/thai/current-students/?g=10"}, {l:"ระบบ e-document", u:"EDOC"}]},
-      {q:"ขอหนังสือส่งตัวกลับไปปฏิบัติงาน ณ ต้นสังกัด ทำอย่างไร",
+      {q:"ขอหนังสือส่งตัวกลับไปปฏิบัติงาน ณ ต้นสังกัด ทำอย่างไร", kw:["ส่งตัวกลับ","บฑ.24","GR.24","กลับต้นสังกัด","ข้าราชการ","return to work"],
        a:["ยื่นคำร้อง <b>บฑ.24</b> สำหรับนักศึกษาที่เป็นข้าราชการหรือพนักงานรัฐวิสาหกิจที่ลาศึกษาต่อ และต้องการให้บัณฑิตวิทยาลัยทำหนังสือส่งตัวกลับต้นสังกัดเดิม",
           "ดาวน์โหลดแบบฟอร์ม แล้วยื่นผ่านระบบส่งเอกสารสำหรับนักศึกษา (e-document)"],
        links:[{l:"ดาวน์โหลดแบบฟอร์ม", u:"https://graduate.mahidol.ac.th/thai/current-students/?g=10"}, {l:"ระบบ e-document", u:"EDOC"}]}
@@ -1456,6 +1458,7 @@ const ROLES = [
 
 /* ---------- ICONS (เส้น SVG สไตล์ Lucide) — เพิ่ม/แก้ไอคอนได้ที่นี่ ---------- */
 const ICONS = {
+  link:'<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',
   monitor:'<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/>',
   cap:'<path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>',
   teacher:'<path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/>',
@@ -1492,6 +1495,9 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  "คัดลอกลิงก์ข้อนี้":"Copy link to this question",
+  "คัดลอกลิงก์แล้ว":"Link copied",
+  "คัดลอกลิงก์นี้":"Copy this link",
   "ระบบสารสนเทศ":"Information systems",
   "รวมระบบสำคัญสำหรับประธานหลักสูตร อาจารย์ที่ปรึกษา อาจารย์ผู้สอน และเจ้าหน้าที่หลักสูตร":"Key systems for program chairs, advisors, instructors and program staff",
   "อ้างอิงประกาศ ก.พ.อ. พ.ศ. 2562 <a class='im-btn' href='https://www.ratchakitcha.soc.go.th/DATA/PDF/2562/E/151/T_0013.PDF' target='_blank' rel='noopener'>ดูประกาศ</a>":"Reference: announcement of the Civil Service Commission in Higher Education Institutions (2019) <a class='im-btn' href='https://www.ratchakitcha.soc.go.th/DATA/PDF/2562/E/151/T_0013.PDF' target='_blank' rel='noopener'>View announcement</a>",
@@ -2628,6 +2634,28 @@ function filterFaq(inp){
   box.querySelector(".f-empty").classList.toggle("hide", shown > 0);
   box.querySelector(".f-count").textContent = (q || cat) ? shown + " " + t("รายการ") : "";
 }
+/* ลิงก์ตรงไปยัง FAQ แต่ละข้อ: …/#faq-23 */
+function faqCopy(n, btn){
+  const link = location.origin + location.pathname + "#faq-" + n;
+  const done = () => { const sp = btn.querySelector("span"); btn.classList.add("done"); sp.textContent = t("คัดลอกลิงก์แล้ว");
+    setTimeout(()=>{ btn.classList.remove("done"); sp.textContent = t("คัดลอกลิงก์ข้อนี้"); }, 2000); };
+  if(navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(link).then(done, ()=>prompt(t("คัดลอกลิงก์นี้"), link));
+  else { const ta = document.createElement("textarea"); ta.value = link; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); done(); }catch(e){ prompt(t("คัดลอกลิงก์นี้"), link); } ta.remove(); }
+}
+function faqFromHash(){
+  const m = location.hash.match(/^#faq-(\d+)$/); if(!m) return;
+  if(!role) setRole("student");
+  const li = role.links.findIndex(l=>l.content===FAQS); if(li < 0) return;
+  if(activeLink !== role.links[li]) openLink(li);
+  setTimeout(()=>{
+    const row = $("faq-"+m[1]); if(!row) return;
+    $("detail").querySelectorAll(".q-row[open]").forEach(r=>{ if(r!==row) r.open = false; });
+    row.open = true; row.scrollIntoView({behavior:"auto", block:"center"});
+    row.animate([{boxShadow:"0 0 0 4px rgba(232,189,80,.7)"},{boxShadow:"0 0 0 4px rgba(232,189,80,0)"}],{duration:2200});
+  }, 450);
+}
+window.addEventListener("hashchange", faqFromHash);
 function goRoles(){ $("role").scrollIntoView({behavior:"smooth"}); }
 function goQuick(){
   activeLink = null;
@@ -2744,11 +2772,12 @@ function renderContent(c){
         ${c.cats.map((g,i)=>`<div class="f-grp c${i%6}" data-c="${g.id}">
           <div class="f-group">${t(g.name)}</div>
           ${g.items.map(it=>`
-            <details class="q-row">
+            <details class="q-row" id="faq-${n+1}">
               <summary><span class="f-no">${++n}</span><span class="q-q">${t(it.q)}</span><span class="q-chev">${svg("arrow")}</span></summary>
-              <div class="q-a" data-q="${fq([it.q, EN[it.q]||"", ...it.a.map(x=>typeof x==="string"?x:(x.ol||x.ul).join(" ")), ...it.a.map(x=>typeof x==="string"?(EN[x]||""):(x.ol||x.ul).map(y=>EN[y]||"").join(" ")), g.name, EN[g.name]||""])}">
+              <div class="q-a" data-q="${fq([it.q, EN[it.q]||"", ...(it.kw||[]), ...it.a.map(x=>typeof x==="string"?x:(x.ol||x.ul).join(" ")), ...it.a.map(x=>typeof x==="string"?(EN[x]||""):(x.ol||x.ul).map(y=>EN[y]||"").join(" ")), g.name, EN[g.name]||""])}">
                 ${it.a.map(blk).join("")}
                 ${it.links ? `<div class="q-links">${it.links.map(k=>`<a class="chip chip-link" href="${url(k.u)}" target="_blank" rel="noopener">${t(k.l)}${svg("arrow")}</a>`).join("")}</div>` : ""}
+                <button type="button" class="q-copy" onclick="faqCopy(${n}, this)">${svg("link")}<span>${t("คัดลอกลิงก์ข้อนี้")}</span></button>
               </div>
             </details>`).join("")}</div>`).join("")}
         <p class="f-empty hide">${t("ไม่พบคำถามที่ค้นหา")}</p>
@@ -2773,6 +2802,7 @@ document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==
 let saved = "th";
 try{ saved = localStorage.getItem("gs-lang") || "th"; }catch(e){}
 setLang(saved);
+setTimeout(faqFromHash, 200);
 </script>
 <!-- ---------- ผู้ช่วยค้นหา (ปุ่มมุมล่างขวา) ---------- -->
 <button class="ask-fab" id="askFab" onclick="askOpen()">
@@ -2815,14 +2845,14 @@ function askFlat(b){                              /* บล็อกเนื้
 let ASK_IDX = null;
 function askBuild(){
   const idx = [];
-  FAQS.cats.forEach(c=>c.items.forEach(it=>idx.push({k:"faq", title:askPair(it.q), sub:askPair(c.name), lines:it.a.flatMap(askFlat), go:{faq:it.q}})));
+  FAQS.cats.forEach(c=>c.items.forEach(it=>idx.push({k:"faq", title:askPair(it.q), sub:askPair(c.name), lines:it.a.flatMap(askFlat), kw:it.kw||[], go:{faq:it.q}})));
   Object.entries(INFO).forEach(([key,d])=>d.sections.forEach((s,si)=>idx.push({k:"info",
     title:{th:d.code+" › "+askPlain(s.h), en:askEN(d.code)+" › "+askPlain(askEN(s.h))}, sub:askPair(d.title), lines:s.body.flatMap(askFlat), go:{info:key, sec:si}})));
   FORMS.groups.forEach(g=>g.rows.forEach(r=>idx.push({k:"form",
     title:{th:r.code+" "+askPlain(r.name), en:askEN(r.code)+" "+askPlain(askEN(r.name))}, sub:{th:"แบบฟอร์ม", en:"Forms"}, lines:[askPair(r.desc)], go:{form:r.code}})));
   RULES.groups.flatMap(g=>g.rows).forEach(r=>idx.push({k:"rule", title:askPair(r.name),
     sub:{th:r.kind+" · "+r.year, en:askEN(r.kind)+" · "+r.year}, lines:[...(r.kw||[]).map(k=>askPair(k)), ...(r.by?[askPair(r.by)]:[])], go:{url:r.th, urlEn:r.en}}));
-  idx.forEach(d=>{ d.nt = [fnorm(d.title.th), fnorm(d.title.en)]; d.nl = d.lines.map(l=>[fnorm(l.th), fnorm(l.en)]); });
+  idx.forEach(d=>{ d.nt = [fnorm(d.title.th), fnorm(d.title.en), ...(d.kw && d.kw.length ? [fnorm(d.kw.join(" "))] : [])]; d.nl = d.lines.map(l=>[fnorm(l.th), fnorm(l.en)]); });
   return idx;
 }
 
