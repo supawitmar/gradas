@@ -642,6 +642,10 @@ body.lock{overflow:hidden}
 .ask-head small{display:block;font-size:.78rem;opacity:.75;margin-top:2px}
 .ask-x{margin-left:auto;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:1.2rem;cursor:pointer;flex:none}
 .ask-x:hover{background:rgba(255,255,255,.24)}
+.ask-max{margin-left:auto;display:grid;place-items:center}.ask-max+.ask-x{margin-left:6px}.ask-max .i{width:17px;height:17px}
+.ask.big{width:min(920px,calc(100vw - 44px));max-width:none;height:calc(100vh - 44px)}
+.ask.big .ask-body{padding:22px 28px}.ask.big .ask-msg{font-size:.96rem}.ask.big .ask-msg.bot:not(.wide){max-width:70%}
+.ask.big .ask-foot{padding:14px 28px}
 .ask-body{flex:1;overflow-y:auto;padding:18px 16px;background:var(--grey);display:flex;flex-direction:column;gap:12px}
 .ask-msg{max-width:88%;padding:11px 14px;border-radius:18px;font-size:.92rem;line-height:1.6}
 .ask-msg.bot{background:#fff;color:var(--text);border-bottom-left-radius:6px;box-shadow:0 4px 14px -10px rgba(16,45,105,.35);align-self:flex-start}
@@ -676,8 +680,8 @@ body.lock{overflow:hidden}
 .ask-in button .i{width:18px;height:18px}
 .ask-note{font-size:.7rem;color:var(--muted);text-align:center;margin-top:8px}
 @media(max-width:520px){
-  .ask-fab{right:14px;bottom:14px;padding:0;width:56px;justify-content:center}.ask-fab .txt{display:none}
-  .ask{left:0;right:0;bottom:0;width:100%;max-width:100%;height:88vh;border-radius:24px 24px 0 0}
+  .ask-fab{right:14px;bottom:14px;padding:0;width:56px;justify-content:center}.ask-fab .txt{display:none}.ask-max{display:none}.ask-max+.ask-x{margin-left:auto}
+  .ask,.ask.big{left:0;right:0;bottom:0;width:100%;max-width:100%;height:88vh;border-radius:24px 24px 0 0}
 }
 @media(prefers-reduced-motion:reduce){.ask,.ask.hide,.ask-fab{transition:none}}
 </style>
@@ -2799,6 +2803,7 @@ setLang(saved);
   <div class="ask-head">
     <div class="ask-av"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
     <div><b id="askTitle"></b><small id="askSub"></small></div>
+    <button class="ask-x ask-max" id="askMax" onclick="askToggleSize()"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg></button>
     <button class="ask-x" id="askX" onclick="askClose()">×</button>
   </div>
   <div class="ask-body" id="askBody" aria-live="polite"></div>
@@ -2970,9 +2975,10 @@ function askHello(){
 }
 let askLang = null;
 function askI18n(){                                      /* ข้อความของหน้าต่างค้นหา ตามภาษาที่เลือก */
-  $("askFabTxt").textContent = askTx("ถามได้เลย · ค้นหาข้อมูล","Ask · Search");
+  $("askFabTxt").textContent = askTx("ถามได้ หาอะไรก็เจอ","Ask & find anything");
   $("askFab").setAttribute("aria-label", askTx("ค้นหาข้อมูล","Search this site"));
-  $("askTitle").textContent = askTx("ผู้ช่วยค้นหาข้อมูล","Search assistant");
+  $("askTitle").textContent = askTx("ถามได้ หาอะไรก็เจอ","Ask & find anything");
+  askSizeLabel();
   $("askSub").textContent = askTx("ค้นจาก FAQ · รายละเอียด บฑ. · แบบฟอร์ม · ประกาศ","FAQ · form details · forms · announcements");
   $("askX").setAttribute("aria-label", askTx("ปิด","Close"));
   $("askQ").placeholder = askTx("พิมพ์คำถาม เช่น ส่งเล่มภายในกี่วัน","Ask, e.g. thesis deadline");
@@ -2981,6 +2987,12 @@ function askI18n(){                                      /* ข้อควา�
   $("askNote").textContent = askTx("ผลค้นหาอัตโนมัติจากข้อมูลบนเว็บ · โปรดตรวจสอบกับต้นฉบับทุกครั้ง","Automatic results from this website · always check the original source");
   if(askLang !== lang && $("askBody").children.length) askHello();   /* เปลี่ยนภาษา → เริ่มบทสนทนาใหม่ */
   askLang = lang;
+}
+function askSizeLabel(){ $("askMax").setAttribute("aria-label", $("ask").classList.contains("big") ? askTx("ย่อหน้าต่าง","Shrink") : askTx("ขยายหน้าต่าง","Expand")); }
+function askToggleSize(){
+  const big = $("ask").classList.toggle("big");
+  $("askMax").querySelector("svg").innerHTML = big ? '<path d="M4 14h6v6"/><path d="M20 10h-6V4"/><path d="M14 10l7-7"/><path d="M3 21l7-7"/>' : '<path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>';
+  askSizeLabel();
 }
 function askOpen(){
   $("ask").classList.remove("hide"); $("askFab").classList.add("open");
