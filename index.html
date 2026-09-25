@@ -1293,8 +1293,8 @@ const FAQS = {type:"faqx",
                "<b>นักศึกษามหาวิทยาลัยมหิดล</b> ติดต่อเจ้าหน้าที่หลักสูตรให้ทำหนังสือขอใช้เครื่องมือมายังบัณฑิตวิทยาลัย ผ่านระบบ e-document"]}]}
     ]},
     {id:"ethesis", name:"การจัดรูปเล่มและการส่งรูปเล่มอิเล็กทรอนิกส์", items:[
-      {id:"thesis-template", q:"ดาวน์โหลด Format / Template ตัวอย่างรูปเล่มได้ที่ไหน", kw:["template","format","ตัวอย่างเล่ม","ไฟล์ต้นแบบ","word"],
-       a:["ดาวน์โหลดได้ที่เว็บไซต์บัณฑิตวิทยาลัย"],
+      {id:"thesis-template", q:"ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์ และดาวน์โหลด Format / Template ตัวอย่างได้ที่ไหน", kw:["template","format","ตัวอย่างเล่ม","ไฟล์ต้นแบบ","word","ข้อกำหนดรูปเล่ม","requirements","จัดรูปเล่ม"],
+       a:["ศึกษาข้อมูลข้อกำหนดรูปเล่มอิเล็กทรอนิกส์และดาวน์โหลดตัวอย่างการจัดรูปแบบ ได้ที่หน้า <b>ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์</b>"],
        links:[{l:"Sample template", u:"https://drive.google.com/file/d/1j2AWLahZI-PndKpLTeODGEVJFQ5dKXZ7/view?usp=sharing"},
               {l:"ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์", u:"https://grad-as.my.canva.site/electronic-file-requirements"}]},
       {id:"citation-style", q:"รูปแบบการเขียนอ้างอิงในเล่มเป็นอย่างไร และหน้า Reference / Bibliography ควรใช้ APA หรือ Vancouver", kw:["อ้างอิง","citation","reference","bibliography","APA","Vancouver","บรรณานุกรม"],
@@ -1305,24 +1305,40 @@ const FAQS = {type:"faqx",
           "รูปแบบในหน้า Reference / Bibliography ขึ้นอยู่กับระบบการอ้างอิงในเนื้อหา",
           {ul:["<b>แบบนาม-ปี</b> เรียงตามตัวอักษร A–Z หรือ ก–ฮ (APA)","<b>แบบตัวเลข</b> เรียงตามลำดับตัวเลข (Vancouver)"]}],
        links:[{l:"วิธีเขียนอ้างอิง", u:"https://www.li.mahidol.ac.th/citation/"}]},
-      {id:"submit-deadline", q:"ต้องส่งรูปเล่มภายในกี่วัน และดูขั้นตอนการส่งรูปเล่มผ่านระบบ e-Thesis Submission ได้ที่ไหน", kw:["ส่งเล่มกี่วัน","21 วัน","deadline","หลังสอบผ่าน","ส่งเล่ม","e-thesis","ขั้นตอนส่งเล่ม","submission"],
+      {id:"submit-deadline", q:"ต้องส่งรูปเล่มภายในกี่วัน และขั้นตอนการส่งรูปเล่มอิเล็กทรอนิกส์มีอะไรบ้าง", kw:["ส่งเล่มกี่วัน","21 วัน","deadline","หลังสอบผ่าน","ส่งเล่ม","e-thesis","ขั้นตอนส่งเล่ม","submission","abstract","บทคัดย่อ"],
        a:["เมื่อผลสอบ “ผ่าน” ต้องส่งรูปเล่มอิเล็กทรอนิกส์ภายใน <b>21 วัน</b> หากส่งล่าช้าจะมีค่าปรับ",
+          "เมื่อผลสอบวิทยานิพนธ์ / สารนิพนธ์ / การค้นคว้าอิสระ “ผ่าน” ปรากฏในระบบ e-Form แล้ว ให้ดำเนินการดังนี้",
+          {ol:["<b>กรอกบทคัดย่อ</b> เข้าระบบ e-Thesis Submission คลิก STATUS › Abstract Submission Form กรอกบทคัดย่อให้ครบถ้วนแล้วคลิก Submit สถานะของ Abstract จะเปลี่ยนเป็น “Completed”",
+               "<b>ส่งรูปเล่มอิเล็กทรอนิกส์ฉบับสมบูรณ์</b> (รวมเป็น PDF ไฟล์เดียว) ที่แก้ไขตามความเห็นชอบสุดท้ายของคณะกรรมการสอบแล้ว <b>โดยเว้นว่างการลงนามในหน้าเสนอและหน้าอนุมัติ</b> แนบผลตรวจ Turnitin (ความซ้ำซ้อนในส่วนเนื้อหาไม่เกินร้อยละ 25) แล้วรออาจารย์ที่ปรึกษาหลักและประธานหลักสูตร “อนุมัติ” ผ่านระบบ",
+               "<b>บัณฑิตวิทยาลัยตรวจสอบ</b> และแจ้งผลภายใน 5 วันทำการ นับจากวันที่ประธานหลักสูตรอนุมัติ หากต้องแก้ไข เจ้าหน้าที่จะส่งคำร้องกลับพร้อมคำแนะนำผ่านระบบ เมื่อแก้ไขเสร็จให้ส่งตามข้อ 2 อีกครั้ง",
+               "<b>ส่งหน้าลงนาม</b> เมื่อรูปเล่มได้รับอนุมัติแล้ว ให้เวียนลงนามหน้าเสนอและหน้าอนุมัติให้ครบถ้วน (เว้นส่วนของคณบดีบัณฑิตวิทยาลัย) แล้วส่งผ่านระบบในขั้นตอนต่อไป"]},
           "ดูขั้นตอนและรายละเอียดการส่งรูปเล่มในรูปแบบดิจิทัลได้ที่ลิงก์ด้านล่าง"],
-       links:[{l:"ขั้นตอนการส่งรูปเล่ม", u:"https://www.canva.com/design/DAG4QSdOvIk/1vlTnQYmKyG-KRrRbSLJ5Q/view"},
+       links:[{l:"ระบบ e-Thesis submission", u:"ETHESIS"},
+              {l:"ขั้นตอนการส่งรูปเล่ม", u:"https://www.canva.com/design/DAG4QSdOvIk/1vlTnQYmKyG-KRrRbSLJ5Q/view"},
               {l:"ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์", u:"https://grad-as.my.canva.site/electronic-file-requirements"}]},
       {id:"ethesis-upload", q:"ส่งไฟล์รูปเล่มในระบบ e-Thesis Submission ต้องอัปโหลดอะไรบ้าง", kw:["อัปโหลด","upload","ไฟล์ PDF","ไฟล์อะไรบ้าง","submit"],
        a:[{ol:["<b>ไฟล์ e-Thesis ฉบับสมบูรณ์ (PDF)</b> จัดรูปแบบตามที่บัณฑิตวิทยาลัยกำหนด ตั้งแต่หน้าปกถึงประวัติผู้วิจัย",
                "<b>Turnitin Originality Report (PDF)</b> แนบหน้าปกที่แสดง Submission Date, Submission ID และ Word Count และหน้าแรกของผลที่แสดง Similarity Index และ Similarity by Source (Internet source, Publication, Student Paper)"]},
           "แนบครบ 2 ไฟล์แล้วกด Submit และติดตามสถานะได้ที่หน้า Status ของระบบ"],
        links:[{l:"ระบบ e-Thesis submission", u:"ETHESIS"}, {l:"ข้อมูลเพิ่มเติม", u:"https://grad-as.my.canva.site/electronic-file-requirements"}]},
+      {id:"review-time", q:"หลังส่งรูปเล่มแล้ว ต้องรอบัณฑิตวิทยาลัยตรวจสอบนานเท่าไร", kw:["รอนานไหม","กี่วันทำการ","5 วันทำการ","ตรวจเล่ม","tracking","สถานะ","review time","ตรวจนานไหม","รอตรวจ"],
+       a:["เจ้าหน้าที่ตรวจสอบและแจ้งผลการพิจารณา<b>ภายใน 5 วันทำการ</b> นับจากวันที่ประธานหลักสูตรอนุมัติการส่งรูปเล่มอิเล็กทรอนิกส์ผ่านระบบ",
+          "ติดตามสถานะการตรวจได้จาก Tracking ในระบบ e-Thesis Submission",
+          "ระหว่างรอตรวจสอบ <b>จะไม่มีการคิดค่าปรับเพิ่ม</b>"],
+       links:[{l:"ระบบ e-Thesis submission", u:"ETHESIS"}]},
       {id:"turnitin", q:"ส่ง Turnitin Originality Report ต้องแนบหน้าไหนบ้าง", kw:["ความซ้ำ","similarity","plagiarism","originality report","หน้าปก"],
        a:["แนบ 2 ส่วนเป็นไฟล์ PDF: <b>หน้าปก</b> ที่แสดง Submission Date, Submission ID และ Word Count และ<b>หน้าแรกของผล</b>ที่แสดง Similarity Index และ Similarity by Source (Internet source, Publication, Student Paper)",
           "สอบถามเรื่อง Turnitin: หอสมุดกลาง มหาวิทยาลัยมหิดล โทร 0-2800-2680-9 ต่อ 4300 / 4301 (วันและเวลาราชการ) หรืออีเมล liclturnitin@gmail.com"],
        links:[{l:"ขอบัญชี Turnitin", u:"https://www.li.mahidol.ac.th/turnitin"}]},
-      {id:"late-fee", q:"คิดค่าปรับส่งเล่มล่าช้าอย่างไร", kw:["ค่าปรับ","ส่งช้า","เสียเงิน","ค่าใช้จ่าย","late","fine","penalty","เกินกำหนด","due date"],
+      {id:"late-fee", q:"คิดค่าปรับส่งเล่มล่าช้าอย่างไร", kw:["ค่าปรับ","ส่งช้า","เสียเงิน","late","fine","penalty","เกินกำหนด","due date"],
        a:["ค่าปรับนับถึง “วันที่” นักศึกษา submit ไฟล์เข้าระบบ โดยต้องได้รับความเห็นชอบจากหลักสูตร (อาจารย์ที่ปรึกษาและประธานหลักสูตร ไม่ถูก reject) ซึ่งอาจารย์อนุมัติหลัง due date ได้",
           "<b>ตัวอย่าง</b> due date 20/2/66 นักศึกษา submit 19/2/66 หลักสูตร approve 25/2/66 ถือว่าส่งวันที่ 19/2/66 ยังอยู่ในกำหนด 21 วัน จึงไม่มีค่าปรับ",
           "ระหว่างรอเจ้าหน้าที่บัณฑิตวิทยาลัยตรวจสอบและแก้ไข จะไม่คิดค่าปรับเพิ่ม"]},
+      {id:"late-fee-payment", q:"ชำระค่าปรับส่งเล่มล่าช้าอย่างไร", kw:["จ่ายค่าปรับ","ชำระเงิน","invoice","qr code","บัตรเครดิต","pay fine","payment","ใบแจ้งหนี้","ค่าปรับ"],
+       a:["เมื่อเจ้าหน้าที่บัณฑิตวิทยาลัยตรวจว่า e-Thesis ผ่านแล้ว จะส่ง <b>invoice</b> ให้นักศึกษาผ่านระบบ e-Thesis Submission นักศึกษาพิมพ์ invoice จากระบบเพื่อชำระค่าปรับได้ทันที",
+          "ชำระได้ 3 ช่องทาง: <b>QR code, Invoice หรือบัตรเครดิต</b>",
+          "หลังชำระแล้ว ระบบตรวจสอบการชำระภายใน <b>48 ชั่วโมง</b> และปรับสถานะในระบบ e-Thesis เป็นเสร็จสิ้นขั้นตอน ติดตามได้จาก Tracking ในระบบ"],
+       links:[{l:"ระบบ e-Thesis submission", u:"ETHESIS"}]},
       {id:"signoff-submit", q:"ส่งหน้าเสนอและหน้าอนุมัติ (หน้าลงนาม) อย่างไร", kw:["หน้าลงนาม","sign-off page","ส่งลายเซ็น","signature page","ส่งหน้าลายเซ็นออนไลน์"],
        a:["<b>ตั้งแต่ 17 ส.ค. 2569</b> ส่งหน้าลงนามแบบออนไลน์ในระบบ e-Thesis submission ไม่ต้องส่งเอกสารฉบับจริงมาที่บัณฑิตวิทยาลัย",
           {ol:["เมื่อรูปเล่มอิเล็กทรอนิกส์ได้รับอนุมัติในระบบ e-Thesis submission แล้ว นักศึกษาจะได้รับอีเมลแจ้ง",
@@ -1333,6 +1349,9 @@ const FAQS = {type:"faqx",
       {id:"signature-types", q:"ลงนามในหน้าเสนอและหน้าอนุมัติ (หน้าลงนาม) แบบใดได้บ้าง", kw:["ลายเซ็นดิจิทัล","digital signature","electronic signature","เซ็นจริง","ลายเซ็นผสม"],
        a:["ลงนามได้ทั้งแบบ digital signature, electronic signature, ลงนามจริง หรือแบบผสม บนไฟล์ PDF ของนักศึกษา ตามความสะดวกของอาจารย์แต่ละท่าน",
           "หากเป็นแบบผสม ให้อาจารย์ที่ลงนามจริงลงนามเป็นกลุ่มสุดท้าย"]},
+      {id:"dean-name", q:"ชื่อคณบดีบัณฑิตวิทยาลัยในหน้าอนุมัติ ใช้รูปแบบอย่างไร", kw:["ชื่อคณบดี","dean","หน้าอนุมัติ","approval page","ฉัตรเฉลิม","chartchalerm","format ชื่อ","ลงนามคณบดี"],
+       a:["<b>ภาษาอังกฤษ</b><br>Prof. Chartchalerm Isarankura-Na-Ayudhya,<br>Ph.D. (Medical Technology)<br>Dean<br>Faculty of Graduate Studies, Mahidol University",
+          "<b>ภาษาไทย</b><br>ศาสตราจารย์ ฉัตรเฉลิม อิศรางกูร ณ อยุธยา,<br>ปร.ด. (เทคนิคการแพทย์)<br>คณบดี<br>บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล"]},
       {id:"signoff-status", q:"ตรวจสอบว่าหน้าลงนามถูกอัปโหลดแล้วได้อย่างไร", kw:["ตรวจสถานะ","status","อัปโหลดแล้วหรือยัง","preview"],
        a:["ระบบจะส่งอีเมลแจ้งเตือน หรือเข้าระบบ e-Thesis submission → แท็บ Status → หัวข้อ Sign-off page → กด Preview"],
        links:[{l:"ระบบ e-Thesis submission", u:"ETHESIS"}]}
@@ -1496,6 +1515,25 @@ const svg = (k, cls="") => `<svg class="i ${cls}" viewBox="0 0 24 24" fill="none
    เพิ่ม/แก้คำแปลได้ใน EN ถ้าไม่มีคำแปล จะแสดงภาษาไทยเดิม
    ========================================================= */
 const EN = {
+  "ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์ และดาวน์โหลด Format / Template ตัวอย่างได้ที่ไหน":"Where can I find the electronic file requirements and download the format / sample template?",
+  "ศึกษาข้อมูลข้อกำหนดรูปเล่มอิเล็กทรอนิกส์และดาวน์โหลดตัวอย่างการจัดรูปแบบ ได้ที่หน้า <b>ข้อกำหนดรูปเล่มอิเล็กทรอนิกส์</b>":"Read the electronic file requirements and download the sample formatting template on the <b>Electronic File Requirements</b> page",
+  "ต้องส่งรูปเล่มภายในกี่วัน และขั้นตอนการส่งรูปเล่มอิเล็กทรอนิกส์มีอะไรบ้าง":"How many days do I have to submit my thesis, and what are the electronic submission steps?",
+  "เมื่อผลสอบวิทยานิพนธ์ / สารนิพนธ์ / การค้นคว้าอิสระ “ผ่าน” ปรากฏในระบบ e-Form แล้ว ให้ดำเนินการดังนี้":"Once your “pass” result for the thesis / thematic paper / independent study appears in the e-Form system:",
+  "<b>กรอกบทคัดย่อ</b> เข้าระบบ e-Thesis Submission คลิก STATUS › Abstract Submission Form กรอกบทคัดย่อให้ครบถ้วนแล้วคลิก Submit สถานะของ Abstract จะเปลี่ยนเป็น “Completed”":"<b>Submit the abstract</b>: in e-Thesis Submission, click STATUS › Abstract Submission Form, complete the abstract and click Submit. The Abstract status changes to “Completed”",
+  "<b>ส่งรูปเล่มอิเล็กทรอนิกส์ฉบับสมบูรณ์</b> (รวมเป็น PDF ไฟล์เดียว) ที่แก้ไขตามความเห็นชอบสุดท้ายของคณะกรรมการสอบแล้ว <b>โดยเว้นว่างการลงนามในหน้าเสนอและหน้าอนุมัติ</b> แนบผลตรวจ Turnitin (ความซ้ำซ้อนในส่วนเนื้อหาไม่เกินร้อยละ 25) แล้วรออาจารย์ที่ปรึกษาหลักและประธานหลักสูตร “อนุมัติ” ผ่านระบบ":"<b>Submit the complete electronic thesis</b> (a single PDF) revised as finally approved by the examination committee, <b>leaving the signature and approval pages unsigned</b>. Attach the Turnitin report (similarity in the main content no more than 25%), then wait for your major advisor and program chair to “approve” it in the system",
+  "<b>บัณฑิตวิทยาลัยตรวจสอบ</b> และแจ้งผลภายใน 5 วันทำการ นับจากวันที่ประธานหลักสูตรอนุมัติ หากต้องแก้ไข เจ้าหน้าที่จะส่งคำร้องกลับพร้อมคำแนะนำผ่านระบบ เมื่อแก้ไขเสร็จให้ส่งตามข้อ 2 อีกครั้ง":"<b>The Faculty reviews it</b> and replies within 5 working days of the program chair’s approval. If revisions are needed, staff return the request with guidance in the system; once revised, submit again as in step 2",
+  "<b>ส่งหน้าลงนาม</b> เมื่อรูปเล่มได้รับอนุมัติแล้ว ให้เวียนลงนามหน้าเสนอและหน้าอนุมัติให้ครบถ้วน (เว้นส่วนของคณบดีบัณฑิตวิทยาลัย) แล้วส่งผ่านระบบในขั้นตอนต่อไป":"<b>Submit the signature pages</b>: after the thesis is approved, collect all signatures on the signature and approval pages (leave the Dean’s part blank) and submit them in the system in the next step",
+  "หลังส่งรูปเล่มแล้ว ต้องรอบัณฑิตวิทยาลัยตรวจสอบนานเท่าไร":"How long does the Faculty take to review my submitted thesis?",
+  "เจ้าหน้าที่ตรวจสอบและแจ้งผลการพิจารณา<b>ภายใน 5 วันทำการ</b> นับจากวันที่ประธานหลักสูตรอนุมัติการส่งรูปเล่มอิเล็กทรอนิกส์ผ่านระบบ":"Staff review and reply <b>within 5 working days</b> of the program chair approving your electronic submission in the system",
+  "ติดตามสถานะการตรวจได้จาก Tracking ในระบบ e-Thesis Submission":"Track the review status under Tracking in e-Thesis Submission",
+  "ระหว่างรอตรวจสอบ <b>จะไม่มีการคิดค่าปรับเพิ่ม</b>":"<b>No additional fine is charged</b> while you wait for the review",
+  "ชำระค่าปรับส่งเล่มล่าช้าอย่างไร":"How do I pay the late submission fine?",
+  "เมื่อเจ้าหน้าที่บัณฑิตวิทยาลัยตรวจว่า e-Thesis ผ่านแล้ว จะส่ง <b>invoice</b> ให้นักศึกษาผ่านระบบ e-Thesis Submission นักศึกษาพิมพ์ invoice จากระบบเพื่อชำระค่าปรับได้ทันที":"Once Faculty staff confirm that your e-Thesis has passed, they send an <b>invoice</b> through e-Thesis Submission. Print it from the system to pay the fine",
+  "ชำระได้ 3 ช่องทาง: <b>QR code, Invoice หรือบัตรเครดิต</b>":"Pay by one of 3 methods: <b>QR code, invoice or credit card</b>",
+  "หลังชำระแล้ว ระบบตรวจสอบการชำระภายใน <b>48 ชั่วโมง</b> และปรับสถานะในระบบ e-Thesis เป็นเสร็จสิ้นขั้นตอน ติดตามได้จาก Tracking ในระบบ":"After payment, the system verifies it within <b>48 hours</b> and marks the step as complete in e-Thesis. Follow it under Tracking",
+  "ชื่อคณบดีบัณฑิตวิทยาลัยในหน้าอนุมัติ ใช้รูปแบบอย่างไร":"How should the Dean’s name appear on the approval page?",
+  "<b>ภาษาอังกฤษ</b><br>Prof. Chartchalerm Isarankura-Na-Ayudhya,<br>Ph.D. (Medical Technology)<br>Dean<br>Faculty of Graduate Studies, Mahidol University":"<b>English</b><br>Prof. Chartchalerm Isarankura-Na-Ayudhya,<br>Ph.D. (Medical Technology)<br>Dean<br>Faculty of Graduate Studies, Mahidol University",
+  "<b>ภาษาไทย</b><br>ศาสตราจารย์ ฉัตรเฉลิม อิศรางกูร ณ อยุธยา,<br>ปร.ด. (เทคนิคการแพทย์)<br>คณบดี<br>บัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล":"<b>Thai</b>: for theses written in Thai, use the Dean’s name in Thai exactly as shown on the Thai version of this page",
   "คัดลอกลิงก์ข้อนี้":"Copy link to this question",
   "คัดลอกลิงก์แล้ว":"Link copied",
   "คัดลอกลิงก์นี้":"Copy this link",
@@ -1723,7 +1761,6 @@ const EN = {
   "<b>บุคคลภายนอก</b> ทำหนังสือจากส่วนงานของผู้ขอใช้ เรียนคณบดีบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล ส่งถึง งานบริการการศึกษา (เรื่องขอใช้เครื่องมือวิจัย) 25/25 หมู่ 5 อาคารบัณฑิตวิทยาลัย ถ.พุทธมณฑลสาย 4 ต.ศาลายา อ.พุทธมณฑล จ.นครปฐม 73170 พร้อมระบุเบอร์โทรศัพท์และอีเมลของผู้ขอใช้":"<b>External applicants</b>: send an official letter from your institution to the Dean, Faculty of Graduate Studies, Mahidol University, attn. Academic Service Section (research instrument request), 25/25 Moo 5, Phutthamonthon Sai 4 Rd., Salaya, Phutthamonthon, Nakhon Pathom 73170, including your phone number and email.",
   "หากเครื่องมืออยู่ที่ต้นสังกัดของเจ้าของเครื่องมือ บัณฑิตวิทยาลัยจะแจ้งกลับเมื่อได้รับอนุญาตจากต้นสังกัดแล้ว":"If the instrument belongs to the owner's home institution, the Faculty will reply once that institution grants permission.",
   "<b>นักศึกษามหาวิทยาลัยมหิดล</b> ติดต่อเจ้าหน้าที่หลักสูตรให้ทำหนังสือขอใช้เครื่องมือมายังบัณฑิตวิทยาลัย ผ่านระบบ e-document":"<b>Mahidol University students</b>: ask your program officer to send the request letter to the Faculty via the e-document system.",
-  "ต้องส่งรูปเล่มภายในกี่วัน และดูขั้นตอนการส่งรูปเล่มผ่านระบบ e-Thesis Submission ได้ที่ไหน":"How many days do I have to submit my thesis, and where can I see the e-Thesis Submission steps?",
   "ดูขั้นตอนและรายละเอียดการส่งรูปเล่มในรูปแบบดิจิทัลได้ที่ลิงก์ด้านล่าง":"See the steps and details for digital submission at the links below.",
   "ขั้นตอนการส่งรูปเล่ม":"Submission steps",
   "ส่งไฟล์รูปเล่มในระบบ e-Thesis Submission ต้องอัปโหลดอะไรบ้าง":"What files do I upload to e-Thesis Submission?",
@@ -1750,8 +1787,6 @@ const EN = {
   "หากเป็นแบบผสม ให้อาจารย์ที่ลงนามจริงลงนามเป็นกลุ่มสุดท้าย":"If mixed, those signing by hand should sign last.",
   "ตรวจสอบว่าหน้าลงนามถูกอัปโหลดแล้วได้อย่างไร":"How can I check that my signature pages were uploaded?",
   "ระบบจะส่งอีเมลแจ้งเตือน หรือเข้าระบบ e-Thesis submission → แท็บ Status → หัวข้อ Sign-off page → กด Preview":"The system sends an email, or go to e-Thesis submission → Status tab → Sign-off page → Preview.",
-  "ดาวน์โหลด Format / Template ตัวอย่างรูปเล่มได้ที่ไหน":"Where can I download the thesis format / template?",
-  "ดาวน์โหลดได้ที่เว็บไซต์บัณฑิตวิทยาลัย":"Download it from the Faculty website.",
   "รูปแบบการเขียนอ้างอิงในเล่มเป็นอย่างไร และหน้า Reference / Bibliography ควรใช้ APA หรือ Vancouver":"What citation style should the thesis use, and should the Reference / Bibliography follow APA or Vancouver?",
   "รูปแบบในหน้า Reference / Bibliography ขึ้นอยู่กับระบบการอ้างอิงในเนื้อหา":"The Reference / Bibliography format depends on the in-text citation system:",
   "ใช้หัวข้อ “รายการอ้างอิง” (Reference) สำหรับสายวิทยาศาสตร์ และ “บรรณานุกรม” (Bibliography) สำหรับสายสังคมศาสตร์":"Use \"References\" for science theses and \"Bibliography\" for social science theses.",
@@ -2830,7 +2865,7 @@ setTimeout(faqFromHash, 200);
 <script>
 /* ===== ผู้ช่วยค้นหา: ค้นจาก FAQ / รายละเอียด บฑ. / แบบฟอร์ม / ประกาศ ที่อยู่ในหน้านี้ (ไม่ใช้เซิร์ฟเวอร์) ===== */
 const askTx = (th, en) => lang === "en" ? en : th;
-const askPlain = x => String(x==null?"":x).replace(/<[^>]*>/g,"").replace(/\s+/g," ").trim();
+const askPlain = x => String(x==null?"":x).replace(/<br\s*\/?>/gi," ").replace(/<[^>]*>/g,"").replace(/\s+/g," ").trim();
 const askEN = s => { const L = lang; lang = "en"; const r = t(s); lang = L; return r; };
 const askPair = (th, en) => ({th:askPlain(th), en:askPlain(en===undefined ? askEN(th) : en)});
 function askFlat(b){                              /* บล็อกเนื้อหา → บรรทัดข้อความ {th,en} */
@@ -2859,7 +2894,7 @@ function askBuild(){
 }
 
 /* ---------- ตัดคำ + คำพ้อง ---------- */
-const ASK_STOP = new Set(("ต้อง ภายใน กี่ อย่างไร ยังไง ไหม มั้ย ได้ ที่ การ ความ ของ และ หรือ ใน จะ คือ อะไร เท่าไร เท่าไหร่ ไหน ครับ ค่ะ คะ บ้าง ทำ ให้ เป็น มี ไม่ ก็ แล้ว เมื่อ ถ้า นะ หรอ เหรอ ยัง ไป มา กับ จาก ต่อ ว่า ช่วย อยาก ขอ หน่อย เรา ผม หนู ดิฉัน นักศึกษา ค่า " +
+const ASK_STOP = new Set(("ต้อง ภายใน กี่ อย่างไร ยังไง ไหม มั้ย ได้ ที่ การ ความ ของ และ หรือ ใน จะ คือ อะไร เท่าไร เท่าไหร่ ไหน ครับ ค่ะ คะ บ้าง ทำ ให้ เป็น มี ไม่ ก็ แล้ว เมื่อ ถ้า นะ หรอ เหรอ ยัง ไป มา กับ จาก ต่อ ว่า ช่วย อยาก ขอ หน่อย เรา ผม หนู ดิฉัน นักศึกษา ค่า ไง ยังไง แบบไหน อะไรบ้าง หรือเปล่า เปล่า อ่ะ อะ จ้า " +
   "the a an to of in on for and or how what when where which who why do does did is are was be can could should i my me we our you your it this that with within about many much any need must").split(" "));
 const ASK_SYN = [
   ["thesis","วิทยานิพนธ์","เล่ม","รูปเล่ม","ethesis","dissertation"],["ส่ง","submit","ยื่น","นำส่ง","submission"],["ออนไลน์","online","สื่ออิเล็กทรอนิกส์"],
@@ -2948,7 +2983,7 @@ function askReply(q){
   hits.forEach((h,i)=>{
     if(best.length >= 3 || (h.lineHits < full && h.tHits < full)) return;
     const ans = h.d.k === "faq" && h.tHits === full ? h.d.lines.map(askL).join(" ") : (h.line >= 0 ? askL(h.d.lines[h.line]) : h.d.lines.map(askL).join(" "));
-    const b = bi(ans);
+    const b = bi(ans.slice(0, 240));                 /* เทียบเฉพาะส่วนที่แสดงในการ์ด */
     if(best.some(x=>sim(x.b, b) > .6)) return;
     best.push({i, h, ans, b});
   });
