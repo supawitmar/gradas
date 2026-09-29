@@ -1114,6 +1114,27 @@ const INFO = {
         {sub:"การสำเร็จการศึกษา"},
         {ul:["ส่งรูปเล่มฉบับสมบูรณ์ และมีผลงานตีพิมพ์ตามเกณฑ์สำเร็จการศึกษา",
              "ยื่น บฑ.5 ขอสำเร็จการศึกษา แล้วบัณฑิตวิทยาลัยเสนอสภามหาวิทยาลัยอนุมัติปริญญา"]}]}
+    ]},
+  gras02: {code:"GRAS.02", title:"แบบเสนอผู้มีความรู้ความเชี่ยวชาญและประสบการณ์สูง",
+    sub:"การเสนอแต่งตั้งผู้มีความรู้ความเชี่ยวชาญและประสบการณ์สูง",
+    link:{label:"เปิดคู่มือแนวปฏิบัติ GRAS.02",href:{th:"https://drive.google.com/file/d/1s26Tt9DmPBWTcgMZHajQ6IpcNGRmM1Me/view?usp=sharing",en:"https://drive.google.com/file/d/1s26Tt9DmPBWTcgMZHajQ6IpcNGRmM1Me/view?usp=sharing"}},
+    sections:[
+      {ic:"help",h:"ผู้ที่เสนอแต่งตั้งได้",body:[
+        {p:"บุคคลที่มีความเชี่ยวชาญเฉพาะด้านและประสบการณ์สูง แต่คุณวุฒิและผลงานทางวิชาการไม่เป็นไปตามข้อบังคับบัณฑิตศึกษาของมหาวิทยาลัยมหิดล โดยต้องไม่เป็นบุคลากรสายวิชาการ"}]},
+      {ic:"check",h:"หน้าที่ที่เสนอแต่งตั้งได้",body:[
+        {sub:"คณะกรรมการและอาจารย์ที่ปรึกษา"},
+        {ul:["กรรมการสอบวัดคุณสมบัติ ระดับปริญญาเอก", "กรรมการสอบประมวลความรู้ ระดับปริญญาโท แผน 2", "อาจารย์ที่ปรึกษาร่วมวิทยานิพนธ์ สารนิพนธ์ หรือการค้นคว้าอิสระ", "กรรมการสอบป้องกันวิทยานิพนธ์ สารนิพนธ์ หรือการค้นคว้าอิสระ"]},
+        {sub:"หน้าที่อื่น"},
+        {ul:["อาจารย์ผู้สอนระดับปริญญาเอก ปริญญาโท ประกาศนียบัตรบัณฑิตชั้นสูง หรือประกาศนียบัตรบัณฑิต", "กรรมการประเมินผลงานนวัตกรรมหรือผลงานสร้างสรรค์เพื่อสำเร็จการศึกษา"]}]},
+      {ic:"clipboard",h:"เอกสารประกอบ",body:[
+        {ul:["แบบเสนอผู้มีความรู้ความเชี่ยวชาญและประสบการณ์สูง (GRAS.02)", "ประวัติและผลงานของผู้ที่เสนอแต่งตั้ง", "รายงานการประชุมคณะกรรมการประจำคณะหรือสถาบัน"]}]},
+      {ic:"route",h:"การยื่นและการพิจารณา",body:[
+        {p:"ยื่นแบบเสนอพร้อมเอกสารประกอบผ่านระบบ <a class=\"im-btn\" href=\"https://grdoc.mahidol.ac.th/\" target=\"_blank\" rel=\"noopener\">e-Document</a>"},
+        {ol:["บัณฑิตวิทยาลัยตรวจความครบถ้วนของข้อมูล", "คณะกรรมการบัณฑิตศึกษาประจำคณะพิจารณา (วันพุธที่ 3 ของทุกเดือน)", "คณะกรรมการมหาวิทยาลัยมหิดลพิจารณา (รอบเดือนเมษายน สิงหาคม และธันวาคม)", "สภามหาวิทยาลัยพิจารณา (รอบเดือนเมษายน สิงหาคม และธันวาคม)"]}]},
+      {ic:"arrow",h:"ผลการอนุมัติ",body:[
+        {p:"เมื่อได้รับอนุมัติครบทั้ง 3 ระดับ ผู้ที่ได้รับแต่งตั้งสามารถปฏิบัติหน้าที่ได้ 5 ปีการศึกษา นับจากวันที่ได้รับอนุมัติ"},
+        {p:"บัณฑิตวิทยาลัยแจ้งผลแก่หน่วยงานที่เสนอชื่อและเพิ่มรายชื่อในฐานข้อมูลสำหรับตรวจสอบ"},
+        {p:"ตรวจสอบรายชื่อได้ใน<a class=\"im-btn\" href=\"https://datastudio.google.com/u/0/reporting/901e903e-65f2-49c3-9654-55b731796e26\" target=\"_blank\" rel=\"noopener\">ฐานข้อมูลผู้มีความรู้ความเชี่ยวชาญและประสบการณ์สูง</a>"}]}
     ]}
 };
 
@@ -1502,8 +1523,8 @@ const FORMS = {type:"forms",
        desc:"เสนอรายชื่อผู้ทรงคุณวุฒิเพื่อแต่งตั้งเป็นอาจารย์พิเศษ",
        th:DL+"GRAS.01-TH.pdf", en:DL+"GRAS.01-EN.pdf", manual:"https://canva.link/gr-31"},
       {code:"GRAS.02", name:"แบบเสนอผู้มีความรู้ความเชี่ยวชาญและประสบการณ์สูง",
-       desc:"เสนอผู้มีความรู้ ความเชี่ยวชาญ และประสบการณ์สูง เพื่อขออนุมัติตามข้อบังคับ",
-       th:DL+"GRAS.02_Th.pdf", en:DL+"GRAS.02_En.pdf", manual:"https://canva.link/gr-31"}
+       desc:"เสนอแต่งตั้งผู้เชี่ยวชาญเฉพาะด้านที่คุณวุฒิและผลงานไม่เป็นไปตามข้อบังคับ",
+       th:DL+"GRAS.02_Th.pdf", en:DL+"GRAS.02_En.pdf", online:"https://grdoc.mahidol.ac.th/", manual:"https://drive.google.com/file/d/1s26Tt9DmPBWTcgMZHajQ6IpcNGRmM1Me/view?usp=sharing"}
     ]}
   ]};
 
@@ -2216,6 +2237,34 @@ const EN = {
   "เสนอรายชื่อผู้ทรงคุณวุฒิเพื่อแต่งตั้งเป็นอาจารย์พิเศษ":"Nominate a qualified expert for appointment as a special lecturer.",
   "แบบเสนอผู้มีความรู้ความเชี่ยวชาญและประสบการณ์สูง":"Nomination of a highly experienced expert",
   "เสนอผู้มีความรู้ ความเชี่ยวชาญ และประสบการณ์สูง เพื่อขออนุมัติตามข้อบังคับ":"Nominate a person with high expertise and experience for approval under the regulations.",
+  "เสนอแต่งตั้งผู้เชี่ยวชาญเฉพาะด้านที่คุณวุฒิและผลงานไม่เป็นไปตามข้อบังคับ":"Nominate a specialist whose qualifications and publications do not meet the regulations.",
+  "การเสนอแต่งตั้งผู้มีความรู้ความเชี่ยวชาญและประสบการณ์สูง":"Nomination of a highly knowledgeable and experienced expert",
+  "เปิดคู่มือแนวปฏิบัติ GRAS.02":"Open the GRAS.02 guide",
+  "ผู้ที่เสนอแต่งตั้งได้":"Who may be nominated",
+  "บุคคลที่มีความเชี่ยวชาญเฉพาะด้านและประสบการณ์สูง แต่คุณวุฒิและผลงานทางวิชาการไม่เป็นไปตามข้อบังคับบัณฑิตศึกษาของมหาวิทยาลัยมหิดล โดยต้องไม่เป็นบุคลากรสายวิชาการ":"A person with specialized expertise and extensive experience whose qualifications and academic work do not meet Mahidol University's graduate regulations. The person must not be academic-track staff.",
+  "หน้าที่ที่เสนอแต่งตั้งได้":"Eligible roles",
+  "คณะกรรมการและอาจารย์ที่ปรึกษา":"Committees and advisors",
+  "กรรมการสอบวัดคุณสมบัติ ระดับปริญญาเอก":"Qualifying examination committee member (doctoral level)",
+  "กรรมการสอบประมวลความรู้ ระดับปริญญาโท แผน 2":"Comprehensive examination committee member (Master's Plan 2)",
+  "อาจารย์ที่ปรึกษาร่วมวิทยานิพนธ์ สารนิพนธ์ หรือการค้นคว้าอิสระ":"Co-advisor for a thesis, thematic paper, or independent study",
+  "กรรมการสอบป้องกันวิทยานิพนธ์ สารนิพนธ์ หรือการค้นคว้าอิสระ":"Defense examination committee member for a thesis, thematic paper, or independent study",
+  "หน้าที่อื่น":"Other roles",
+  "อาจารย์ผู้สอนระดับปริญญาเอก ปริญญาโท ประกาศนียบัตรบัณฑิตชั้นสูง หรือประกาศนียบัตรบัณฑิต":"Instructor in a doctoral, master's, higher graduate diploma, or graduate diploma program",
+  "กรรมการประเมินผลงานนวัตกรรมหรือผลงานสร้างสรรค์เพื่อสำเร็จการศึกษา":"Evaluator of innovation or creative work for graduation",
+  "เอกสารประกอบ":"Required documents",
+  "แบบเสนอผู้มีความรู้ความเชี่ยวชาญและประสบการณ์สูง (GRAS.02)":"GRAS.02 nomination form",
+  "ประวัติและผลงานของผู้ที่เสนอแต่งตั้ง":"Nominee's curriculum vitae and work record",
+  "รายงานการประชุมคณะกรรมการประจำคณะหรือสถาบัน":"Minutes of the faculty or institute standing committee meeting",
+  "การยื่นและการพิจารณา":"Submission and review",
+  "ยื่นแบบเสนอพร้อมเอกสารประกอบผ่านระบบ <a class=\"im-btn\" href=\"https://grdoc.mahidol.ac.th/\" target=\"_blank\" rel=\"noopener\">e-Document</a>":"Submit the nomination and supporting documents through <a class=\"im-btn\" href=\"https://grdoc.mahidol.ac.th/\" target=\"_blank\" rel=\"noopener\">e-Document</a>.",
+  "บัณฑิตวิทยาลัยตรวจความครบถ้วนของข้อมูล":"The Faculty of Graduate Studies checks that the information is complete.",
+  "คณะกรรมการบัณฑิตศึกษาประจำคณะพิจารณา (วันพุธที่ 3 ของทุกเดือน)":"The faculty graduate committee reviews it (third Wednesday of each month).",
+  "คณะกรรมการมหาวิทยาลัยมหิดลพิจารณา (รอบเดือนเมษายน สิงหาคม และธันวาคม)":"The Mahidol University committee reviews it (April, August, and December rounds).",
+  "สภามหาวิทยาลัยพิจารณา (รอบเดือนเมษายน สิงหาคม และธันวาคม)":"The University Council reviews it (April, August, and December rounds).",
+  "ผลการอนุมัติ":"After approval",
+  "เมื่อได้รับอนุมัติครบทั้ง 3 ระดับ ผู้ที่ได้รับแต่งตั้งสามารถปฏิบัติหน้าที่ได้ 5 ปีการศึกษา นับจากวันที่ได้รับอนุมัติ":"After approval at all three levels, the appointee may serve for five academic years from the approval date.",
+  "บัณฑิตวิทยาลัยแจ้งผลแก่หน่วยงานที่เสนอชื่อและเพิ่มรายชื่อในฐานข้อมูลสำหรับตรวจสอบ":"The Faculty of Graduate Studies notifies the nominating unit and adds the appointee to the searchable database.",
+  "ตรวจสอบรายชื่อได้ใน<a class=\"im-btn\" href=\"https://datastudio.google.com/u/0/reporting/901e903e-65f2-49c3-9654-55b731796e26\" target=\"_blank\" rel=\"noopener\">ฐานข้อมูลผู้มีความรู้ความเชี่ยวชาญและประสบการณ์สูง</a>":"Check the appointee in the <a class=\"im-btn\" href=\"https://datastudio.google.com/u/0/reporting/901e903e-65f2-49c3-9654-55b731796e26\" target=\"_blank\" rel=\"noopener\">expert database</a>.",
 
   /* ---------- ขั้นตอนที่ใช้ร่วมกัน / แผน ก / แผน ข ---------- */
   "การได้มาซึ่งหัวข้อ (Optional)":"Obtaining the topic (Optional)",
