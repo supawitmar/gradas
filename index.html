@@ -326,6 +326,7 @@ footer{background:#102d69;color:#fff;border-radius:30px 30px 0 0;padding:26px 0}
 .f-row:hover{box-shadow:0 12px 26px -14px rgba(16,45,105,.35);transform:translateY(-1px)}
 .f-no{color:var(--muted);font-size:.9rem;text-align:center}
 .f-code{font-family:'Inter','IBM Plex Sans Thai',sans-serif;font-weight:600;font-size:1.35rem;color:var(--navy);white-space:nowrap}
+.f-code.f-memo{font-size:.95rem}
 .f-desc b{display:block;color:var(--navy);font-weight:600;font-size:1rem;line-height:1.45}
 .f-desc span{display:block;color:var(--muted);font-size:.86rem;line-height:1.55;margin-top:3px}
 .f-cell{text-align:center}
@@ -1175,6 +1176,20 @@ const INFO = {
       {ic:"help",h:"คืออะไร",body:[{p:"แบบคำร้องที่นักศึกษาระดับบัณฑิตศึกษาใช้เพื่อขออนุมัติและขอความอนุเคราะห์ในการเชิญผู้เชี่ยวชาญที่มีความรู้และประสบการณ์ในสาขาวิชาที่เกี่ยวข้อง ตรวจสอบและประเมินคุณภาพของเครื่องมือที่ใช้ในการวิจัย เพื่อให้เครื่องมือวิจัยมีความเหมาะสมและสอดคล้องกับวัตถุประสงค์ของการวิจัยก่อนนำไปใช้เก็บรวบรวมข้อมูล"}]},
       {ic:"clipboard",h:"เอกสารประกอบคำร้อง",body:[{p:"ไม่มี"}]},
       {ic:"route",h:"ใครเป็นผู้ยื่น",body:[{p:"เจ้าหน้าที่หลักสูตร / นักศึกษา"}]}
+    ]},
+  memoInstrument: {code:"บันทึกข้อความ", title:"ขออนุญาตใช้เครื่องมือวิจัย",
+    sub:"เอกสารที่ออกจากหลักสูตรโดยไม่ต้องใช้แบบฟอร์ม",
+    sections:[
+      {ic:"help",h:"คืออะไร",body:[{p:"คำร้องที่นักศึกษาระดับบัณฑิตศึกษาใช้เพื่อขออนุญาตนำเครื่องมือวิจัยของบุคคล หน่วยงาน หรือแหล่งข้อมูลที่เกี่ยวข้องมาใช้ในการดำเนินการวิจัยของตนเอง โดยต้องได้รับอนุญาตจากเจ้าของเครื่องมือหรือผู้มีสิทธิอนุญาตตามเงื่อนไขที่กำหนด ก่อนนำเครื่องมือดังกล่าวไปใช้ในการเก็บรวบรวมข้อมูล"}]},
+      {ic:"clipboard",h:"เอกสารประกอบคำร้อง",body:[{p:"ทำบันทึกข้อความโดยออกจากต้นสังกัดของนักศึกษาที่กำลังศึกษาอยู่"}]},
+      {ic:"route",h:"ใครเป็นผู้ยื่น",body:[{p:"เจ้าหน้าที่หลักสูตร / นักศึกษา (กรณีบุคคลภายนอก)"}]}
+    ]},
+  memoTravel: {code:"บันทึกข้อความ", title:"ขออนุมัติให้นักศึกษาเดินทาง ในประเทศ และต่างประเทศ",
+    sub:"เอกสารที่ออกจากหลักสูตรโดยไม่ต้องใช้แบบฟอร์ม",
+    sections:[
+      {ic:"help",h:"คืออะไร",body:[{p:"การดำเนินการของนักศึกษาระดับบัณฑิตศึกษาเพื่อขออนุมัติเดินทางไปปฏิบัติงาน ศึกษา เข้าร่วมกิจกรรมทางวิชาการ การประชุม การนำเสนอผลงานวิจัย หรือกิจกรรมอื่นที่เกี่ยวข้องกับการศึกษาและการวิจัย ทั้งภายในประเทศและต่างประเทศ โดยเสนอรายละเอียดและเอกสารประกอบตามหลักเกณฑ์และขั้นตอนที่มหาวิทยาลัยหรือบัณฑิตวิทยาลัยกำหนด ก่อนการเดินทาง"}]},
+      {ic:"clipboard",h:"เอกสารที่ใช้",body:[{ul:["ทำบันทึกข้อความโดยออกจากต้นสังกัดของนักศึกษาที่กำลังศึกษาอยู่ (เดินทางในประเทศไม่ต้องมีเอกสารประกอบ)", "กรณีเดินทางไปต่างประเทศ ต้องมีเอกสารตอบรับจากต่างประเทศ แนบไฟล์เข้าระบบพร้อมกับบันทึกข้อความขออนุมัติเดินทางทุกครั้ง"]}]},
+      {ic:"route",h:"ใครเป็นผู้ยื่น",body:[{p:"เจ้าหน้าที่หลักสูตร"}]}
     ]}
 };
 
@@ -1348,8 +1363,9 @@ const FAQS = {type:"faqx",
        a:["ต้องแนบหลังจากคำร้อง บฑ.1 ได้รับอนุมัติ โดยนำไฟล์จาก IRB มาแนบ",
           "หากไม่ต้องผ่านจริยธรรมในคน/สัตว์ ให้แนบแบบประเมินตนเองของ CIRB",
           "<b>ต้องถอดรหัสผ่านของไฟล์ PDF ออกก่อน</b>"]},
-      {id:"research-instrument", q:"ขอใช้เครื่องมือวิจัย ทำอย่างไร", kw:["แบบสอบถาม","questionnaire","instrument","ขออนุญาตใช้เครื่องมือ"],
-       a:[{ul:["<b>บุคคลภายนอก</b> ทำหนังสือจากส่วนงานของผู้ขอใช้ เรียนคณบดีบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล ส่งถึง งานบริการการศึกษา (เรื่องขอใช้เครื่องมือวิจัย) 25/25 หมู่ 5 อาคารบัณฑิตวิทยาลัย ถ.พุทธมณฑลสาย 4 ต.ศาลายา อ.พุทธมณฑล จ.นครปฐม 73170 พร้อมระบุเบอร์โทรศัพท์และอีเมลของผู้ขอใช้",
+      {id:"research-instrument", q:"ขอใช้เครื่องมือวิจัย ทำอย่างไร", kw:["แบบสอบถาม","questionnaire","instrument","ขออนุญาตใช้เครื่องมือ","บันทึกข้อความ","memo"],
+       a:["คือการขออนุญาตนำเครื่องมือวิจัยของบุคคล หน่วยงาน หรือแหล่งข้อมูลอื่นมาใช้ในงานวิจัยของตนเอง ต้องได้รับอนุญาตจากเจ้าของเครื่องมือหรือผู้มีสิทธิอนุญาตก่อนนำไปเก็บรวบรวมข้อมูล ไม่ต้องใช้แบบฟอร์ม ใช้บันทึกข้อความที่ออกจากต้นสังกัดของนักศึกษา",
+          {ul:["<b>บุคคลภายนอก</b> ทำหนังสือจากส่วนงานของผู้ขอใช้ เรียนคณบดีบัณฑิตวิทยาลัย มหาวิทยาลัยมหิดล ส่งถึง งานบริการการศึกษา (เรื่องขอใช้เครื่องมือวิจัย) 25/25 หมู่ 5 อาคารบัณฑิตวิทยาลัย ถ.พุทธมณฑลสาย 4 ต.ศาลายา อ.พุทธมณฑล จ.นครปฐม 73170 พร้อมระบุเบอร์โทรศัพท์และอีเมลของผู้ขอใช้",
                "หากเครื่องมืออยู่ที่ต้นสังกัดของเจ้าของเครื่องมือ บัณฑิตวิทยาลัยจะแจ้งกลับเมื่อได้รับอนุญาตจากต้นสังกัดแล้ว",
                "<b>นักศึกษามหาวิทยาลัยมหิดล</b> ติดต่อเจ้าหน้าที่หลักสูตรให้ทำหนังสือขอใช้เครื่องมือมายังบัณฑิตวิทยาลัย ผ่านระบบ e-document"]}]}
     ]},
@@ -1492,7 +1508,11 @@ const FAQS = {type:"faqx",
       {id:"return-to-employer", q:"ขอหนังสือส่งตัวกลับไปปฏิบัติงาน ณ ต้นสังกัด ทำอย่างไร", kw:["ส่งตัวกลับ","บฑ.24","GR.24","กลับต้นสังกัด","ข้าราชการ","return to work"],
        a:["ยื่นคำร้อง <b>บฑ.24</b> สำหรับนักศึกษาที่เป็นข้าราชการหรือพนักงานรัฐวิสาหกิจที่ลาศึกษาต่อ และต้องการให้บัณฑิตวิทยาลัยทำหนังสือส่งตัวกลับต้นสังกัดเดิม",
           "ดาวน์โหลดแบบฟอร์ม แล้วยื่นผ่านระบบส่งเอกสารสำหรับนักศึกษา (e-document)"],
-       links:[{l:"ดาวน์โหลดแบบฟอร์ม", u:"https://graduate.mahidol.ac.th/thai/current-students/?g=10"}, {l:"ระบบ e-document", u:"EDOC"}]}
+       links:[{l:"ดาวน์โหลดแบบฟอร์ม", u:"https://graduate.mahidol.ac.th/thai/current-students/?g=10"}, {l:"ระบบ e-document", u:"EDOC"}]},
+      {id:"student-travel", q:"ขออนุมัติเดินทางไปประชุม / นำเสนอผลงาน ทั้งในประเทศและต่างประเทศ ทำอย่างไร", kw:["เดินทาง","ต่างประเทศ","ในประเทศ","ประชุมวิชาการ","นำเสนอผลงาน","conference","travel","abroad","บันทึกข้อความ","เอกสารตอบรับ"],
+       a:["ไม่ต้องใช้แบบฟอร์ม <b>เจ้าหน้าที่หลักสูตร</b>เป็นผู้ยื่นขออนุมัติก่อนการเดินทาง โดยใช้บันทึกข้อความที่ออกจากต้นสังกัดของนักศึกษา",
+          {ul:["ทำบันทึกข้อความโดยออกจากต้นสังกัดของนักศึกษาที่กำลังศึกษาอยู่ (เดินทางในประเทศไม่ต้องมีเอกสารประกอบ)",
+               "กรณีเดินทางไปต่างประเทศ ต้องมีเอกสารตอบรับจากต่างประเทศ แนบไฟล์เข้าระบบพร้อมกับบันทึกข้อความขออนุมัติเดินทางทุกครั้ง"]}]}
     ]}
   ]};
 const DL = "https://graduate.mahidol.ac.th/download/current-student/form/";
@@ -1565,6 +1585,12 @@ const FORMS = {type:"forms",
       {code:"GRAS.02", name:"แบบเสนอผู้มีความรู้ความเชี่ยวชาญและประสบการณ์สูง",
        desc:"เสนอผู้มีความรู้ ความเชี่ยวชาญ และประสบการณ์สูง เพื่อขออนุมัติตามข้อบังคับ",
        th:DL+"GRAS.02_Th.pdf", en:DL+"GRAS.02_En.pdf", manual:"https://canva.link/gr-31"}
+    ]},
+    {name:"เอกสารที่ออกจากหลักสูตรโดยไม่ต้องใช้แบบฟอร์ม", rows:[
+      {code:"บันทึกข้อความ", name:"ขออนุญาตใช้เครื่องมือวิจัย",
+       desc:"ขออนุญาตนำเครื่องมือวิจัยของบุคคลหรือหน่วยงานอื่นมาใช้ในงานวิจัย โดยทำบันทึกข้อความจากต้นสังกัดของนักศึกษา", info:"memoInstrument"},
+      {code:"บันทึกข้อความ", name:"ขออนุมัติให้นักศึกษาเดินทาง ในประเทศ และต่างประเทศ",
+       desc:"ขออนุมัติเดินทางไปศึกษา ประชุม หรือนำเสนอผลงาน ทั้งในประเทศและต่างประเทศ โดยทำบันทึกข้อความจากต้นสังกัดของนักศึกษา", info:"memoTravel"}
     ]}
   ]};
 
@@ -1923,6 +1949,22 @@ const EN = {
   "คำร้องขอเชิญผู้เชี่ยวชาญตรวจสอบเครื่องมือวิจัย":"Request to invite experts to review research instruments",
   "ดาวน์โหลดแบบฟอร์ม บฑ.30":"Download form GR.30",
   "แบบคำร้องที่นักศึกษาระดับบัณฑิตศึกษาใช้เพื่อขออนุมัติและขอความอนุเคราะห์ในการเชิญผู้เชี่ยวชาญที่มีความรู้และประสบการณ์ในสาขาวิชาที่เกี่ยวข้อง ตรวจสอบและประเมินคุณภาพของเครื่องมือที่ใช้ในการวิจัย เพื่อให้เครื่องมือวิจัยมีความเหมาะสมและสอดคล้องกับวัตถุประสงค์ของการวิจัยก่อนนำไปใช้เก็บรวบรวมข้อมูล":"A request form graduate students use to invite experts with relevant knowledge and experience to review and assess their research instruments, so the instruments are appropriate and aligned with the research objectives before data collection",
+  /* เอกสารที่ออกจากหลักสูตรโดยไม่ต้องใช้แบบฟอร์ม */
+  "บันทึกข้อความ":"Memo",
+  "เอกสารที่ออกจากหลักสูตรโดยไม่ต้องใช้แบบฟอร์ม":"Documents issued by the program without a form",
+  "ทำบันทึกข้อความโดยออกจากต้นสังกัดของนักศึกษาที่กำลังศึกษาอยู่":"Prepare a memo issued by the student’s current home unit",
+  "ขออนุญาตใช้เครื่องมือวิจัย":"Permission to use a research instrument",
+  "คำร้องที่นักศึกษาระดับบัณฑิตศึกษาใช้เพื่อขออนุญาตนำเครื่องมือวิจัยของบุคคล หน่วยงาน หรือแหล่งข้อมูลที่เกี่ยวข้องมาใช้ในการดำเนินการวิจัยของตนเอง โดยต้องได้รับอนุญาตจากเจ้าของเครื่องมือหรือผู้มีสิทธิอนุญาตตามเงื่อนไขที่กำหนด ก่อนนำเครื่องมือดังกล่าวไปใช้ในการเก็บรวบรวมข้อมูล":"A request graduate students use to seek permission to use a research instrument owned by a person, organization or other source in their own research. Permission from the instrument’s owner or rights holder is required before using it to collect data",
+  "เจ้าหน้าที่หลักสูตร / นักศึกษา (กรณีบุคคลภายนอก)":"Program staff / student (for external persons)",
+  "ขออนุมัติให้นักศึกษาเดินทาง ในประเทศ และต่างประเทศ":"Approval for student travel, domestic and abroad",
+  "การดำเนินการของนักศึกษาระดับบัณฑิตศึกษาเพื่อขออนุมัติเดินทางไปปฏิบัติงาน ศึกษา เข้าร่วมกิจกรรมทางวิชาการ การประชุม การนำเสนอผลงานวิจัย หรือกิจกรรมอื่นที่เกี่ยวข้องกับการศึกษาและการวิจัย ทั้งภายในประเทศและต่างประเทศ โดยเสนอรายละเอียดและเอกสารประกอบตามหลักเกณฑ์และขั้นตอนที่มหาวิทยาลัยหรือบัณฑิตวิทยาลัยกำหนด ก่อนการเดินทาง":"The process for graduate students to seek approval, before travelling, to work, study, attend academic activities or conferences, present research, or take part in other study- or research-related activities in Thailand or abroad, submitting details and documents as required by the University or the Faculty of Graduate Studies",
+  "ทำบันทึกข้อความโดยออกจากต้นสังกัดของนักศึกษาที่กำลังศึกษาอยู่ (เดินทางในประเทศไม่ต้องมีเอกสารประกอบ)":"Prepare a memo issued by the student’s current home unit (no supporting documents for domestic travel)",
+  "กรณีเดินทางไปต่างประเทศ ต้องมีเอกสารตอบรับจากต่างประเทศ แนบไฟล์เข้าระบบพร้อมกับบันทึกข้อความขออนุมัติเดินทางทุกครั้ง":"For travel abroad, always upload the acceptance document from abroad together with the travel approval memo",
+  "ขออนุญาตนำเครื่องมือวิจัยของบุคคลหรือหน่วยงานอื่นมาใช้ในงานวิจัย โดยทำบันทึกข้อความจากต้นสังกัดของนักศึกษา":"Permission to use another person’s or organization’s research instrument, requested by memo from the student’s home unit",
+  "ขออนุมัติเดินทางไปศึกษา ประชุม หรือนำเสนอผลงาน ทั้งในประเทศและต่างประเทศ โดยทำบันทึกข้อความจากต้นสังกัดของนักศึกษา":"Approval to travel for study, conferences or presentations in Thailand or abroad, requested by memo from the student’s home unit",
+  "คือการขออนุญาตนำเครื่องมือวิจัยของบุคคล หน่วยงาน หรือแหล่งข้อมูลอื่นมาใช้ในงานวิจัยของตนเอง ต้องได้รับอนุญาตจากเจ้าของเครื่องมือหรือผู้มีสิทธิอนุญาตก่อนนำไปเก็บรวบรวมข้อมูล ไม่ต้องใช้แบบฟอร์ม ใช้บันทึกข้อความที่ออกจากต้นสังกัดของนักศึกษา":"This means asking permission to use a research instrument owned by another person, organization or source in your own research. You need permission from the owner or rights holder before collecting data. No form is needed; use a memo issued by your home unit",
+  "ขออนุมัติเดินทางไปประชุม / นำเสนอผลงาน ทั้งในประเทศและต่างประเทศ ทำอย่างไร":"How do I get approval to travel for a conference or presentation, in Thailand or abroad?",
+  "ไม่ต้องใช้แบบฟอร์ม <b>เจ้าหน้าที่หลักสูตร</b>เป็นผู้ยื่นขออนุมัติก่อนการเดินทาง โดยใช้บันทึกข้อความที่ออกจากต้นสังกัดของนักศึกษา":"No form is needed. <b>Program staff</b> request approval before you travel, using a memo issued by your home unit",
   /* FAQ ส่งเล่ม: ข้อเพิ่มเติม (ก.ย. 2569) */
   "Template ปี 2569 บังคับใช้กับนักศึกษาทุกคน ทันทีที่ประกาศเริ่มใช้ <b>2 มีนาคม 2569</b>":"The 2026 template is mandatory for all students from the effective date, <b>2 March 2026</b>",
   "วิทยานิพนธ์ สารนิพนธ์ และการค้นคว้าอิสระ ใช้ Template ในลักษณะเดียวกัน แต่ข้อความมาตรฐานบนเล่มจะเปลี่ยนไปตามแผนการศึกษา":"Theses, thematic papers and independent studies use the same template style; the standard wording in the book changes according to the study plan",
@@ -2986,12 +3028,12 @@ function renderContent(c){
           ${g.rows.map(r=>`
             <div class="f-row" data-q="${fq([r.code,t(r.code),EN[r.code]||"",r.name,t(r.name),r.desc,t(r.desc)])}">
               <span class="f-no">${++n}</span>
-              <span class="f-code">${t(r.code)}</span>
+              <span class="f-code${r.info ? " f-memo" : ""}">${t(r.code)}</span>
               <div class="f-desc"><b>${t(r.name)}</b><span>${t(r.desc)}</span></div>
               ${cell("ภาษาไทย", r.th ? `<a class="f-pill th" href="${r.th}" target="_blank" rel="noopener">${flagTH}${t("ภาษาไทย")}</a>` : none)}
               ${cell("ภาษาอังกฤษ", r.en ? `<a class="f-pill en" href="${r.en}" target="_blank" rel="noopener">${flagEN}English</a>` : none)}
               ${cell("ออนไลน์", r.online ? `<a class="f-pill on" href="${typeof r.online==="string"?r.online:EFORM.href.th}" target="_blank" rel="noopener">${svg("check")}Online</a>` : none)}
-              ${cell("คู่มือ", INFO_BY_CODE[r.code] ? `<button class="f-pill man" onclick="openInfo('${INFO_BY_CODE[r.code]}')">${svg("book")}${t("แนวปฏิบัติ")}</button>` : r.manual ? `<a class="f-pill man" href="${r.manual}" target="_blank" rel="noopener">${svg("book")}${t("แนวปฏิบัติ")}</a>` : none)}
+              ${cell("คู่มือ", (r.info || INFO_BY_CODE[r.code]) ? `<button class="f-pill man" onclick="openInfo('${r.info || INFO_BY_CODE[r.code]}')">${svg("book")}${t("แนวปฏิบัติ")}</button>` : r.manual ? `<a class="f-pill man" href="${r.manual}" target="_blank" rel="noopener">${svg("book")}${t("แนวปฏิบัติ")}</a>` : none)}
             </div>`).join("")}</div>`).join("")}
         <p class="f-empty hide">${t("ไม่พบแบบฟอร์มที่ค้นหา")}</p>
       </div>`;
