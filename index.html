@@ -2798,7 +2798,8 @@ const NOBREAK = ["และแนวปฏิบัติ","เส้นทา�
   "ประธานหลักสูตร","อาจารย์ที่ปรึกษา","อาจารย์ผู้สอน","เจ้าหน้าที่หลักสูตร","ระบบสำคัญ"]
   .sort((a,b)=>b.length-a.length);
 const NB_RE = new RegExp(NOBREAK.map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|"),"g");
-const nb = s => lang === "th" ? s.replace(NB_RE, m => `<span class="nw">${m}</span>`) : s;
+/* <wbr> รอบคำที่ห้ามตัด: Safari (iPhone) ไม่ตัดบรรทัดระหว่าง span ที่ติดกัน ถ้าไม่มีจุดตัดบอกไว้ */
+const nb = s => lang === "th" ? s.replace(NB_RE, m => `<wbr><span class="nw">${m}</span><wbr>`) : s;
 /* ตารางเทียบคุณสมบัติ: ไม่ให้ตัดกลางคำ (เช่น รอง|ศาสตราจารย์) และไม่แยกตัวเลขออกจากหน่วย (3 | รายการ) */
 const TBL_NOBREAK = ["รองศาสตราจารย์","ผู้ช่วยศาสตราจารย์","ศาสตราจารย์วุฒิคุณ","ศาสตราจารย์","ปริญญาเอก","ปริญญาโท",
   "เทียบเท่า","ย้อนหลัง","ฐานข้อมูล","ผลงานวิจัย","ผลงานวิชาการ","ผลงานตีพิมพ์","นานาชาติ","ประสบการณ์","ส่วนหนึ่ง",
@@ -2806,7 +2807,7 @@ const TBL_NOBREAK = ["รองศาสตราจารย์","ผู้ช�
   "ผู้ทรงคุณวุฒิภายนอก","ที่ยอมรับ","ก.พ.อ.","อาจารย์บรรจุใหม่","(อว., วว.)"].sort((a,b)=>b.length-a.length);
 const TBL_RE = new RegExp("\\d+\\s(?:รายการ|ปีย้อนหลัง|ปี|ท่าน|คน|วัน|เรื่อง)|พ\\.ศ\\.\\s\\d{4}|" +
   TBL_NOBREAK.map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|"), "g");
-const nbT = s => lang === "th" ? String(s).replace(TBL_RE, m => `<span class="nw">${m}</span>`) : String(s).replace(/(\d+) (items?|years?|persons?|days?)/g, "$1&nbsp;$2");
+const nbT = s => lang === "th" ? String(s).replace(TBL_RE, m => `<wbr><span class="nw">${m}</span><wbr>`) : String(s).replace(/(\d+) (items?|years?|persons?|days?)/g, "$1&nbsp;$2");
 function renderQuick(){
   $("quick").classList.toggle("hide", !role);
   if(!role){ $("bento").innerHTML = ""; return; }
