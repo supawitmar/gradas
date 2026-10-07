@@ -687,6 +687,21 @@ body.lock{overflow:hidden}
   .ask,.ask.big{left:0;right:0;bottom:0;width:100%;max-width:100%;height:88vh;border-radius:24px 24px 0 0}
 }
 @media(prefers-reduced-motion:reduce){.ask,.ask.hide,.ask-fab{transition:none}}
+/* ---------- ฝังในกรอบที่สูงเท่าทั้งหน้า (เช่น Canva Code) ----------
+   กรอบสูงเท่าเนื้อหา หน้าเว็บภายนอกเป็นตัวเลื่อน ทำให้ position:fixed / sticky / 100vh อิงทั้งกรอบแทนหน้าจอ
+   สคริปต์ embed วัดส่วนที่มองเห็นแล้วตั้ง --vis-top / --vis-h (ใช้เฉพาะเมื่อ html มีคลาส embed) */
+html.embed .site-header{top:var(--vis-top,0px)}
+html.embed .im{inset:auto;left:0;right:0;top:var(--vis-top,0px);height:var(--vis-h,100vh)}
+html.embed .im-box{height:min(760px,calc(var(--vis-h,100vh) - 48px))}
+html.embed .ask-fab{bottom:auto;top:calc(var(--vis-top,0px) + var(--vis-h,100vh) - 78px)}
+html.embed .ask{bottom:auto;height:min(620px,calc(var(--vis-h,100vh) - 44px));top:calc(var(--vis-top,0px) + var(--vis-h,100vh) - 22px - min(620px,calc(var(--vis-h,100vh) - 44px)))}
+html.embed .ask.big{height:calc(var(--vis-h,100vh) - 44px);top:calc(var(--vis-top,0px) + 22px)}
+html.embed .q-copy{display:none}
+@media(max-width:640px){html.embed .im-box{height:calc(var(--vis-h,100vh) * .92)}}
+@media(max-width:520px){
+  html.embed .ask-fab{top:calc(var(--vis-top,0px) + var(--vis-h,100vh) - 70px)}
+  html.embed .ask,html.embed .ask.big{height:calc(var(--vis-h,100vh) * .88);top:calc(var(--vis-top,0px) + var(--vis-h,100vh) * .12)}
+}
 </style>
 </head>
 <body>
@@ -3389,6 +3404,56 @@ function askGo(i){
   }, 350);
 }
 askI18n();
+</script>
+<script>
+/* ---------- โหมดฝังในกรอบ (เช่น Canva Code) ----------
+   ทำงานเฉพาะเมื่ออยู่ในกรอบที่ถูกยืดให้สูงเท่าเนื้อหา (กรอบไม่เลื่อนเอง หน้าเว็บภายนอกเป็นตัวเลื่อน)
+   วางแถบบาง ๆ ทุก 40px แล้วใช้ IntersectionObserver หาขอบบน-ล่างของส่วนที่มองเห็นบนจอ */
+(function(){
+  let framed = false;
+  try { framed = window.self !== window.top; } catch(e) { framed = true; }
+  if(!framed) return;
+  const root = document.documentElement, STEP = 40, TH = Array.from({length:21}, (_, i) => i / 20);
+  const seen = new Map();
+  let probe = null, io = null, count = 0, raf = 0;
+  const apply = () => {
+    raf = 0;
+    let top = Infinity, bot = -Infinity;
+    seen.forEach(r => { if(r.top < top) top = r.top; if(r.bottom > bot) bot = r.bottom; });
+    if(top === Infinity) return;
+    root.style.setProperty("--vis-top", Math.round(top) + "px");
+    root.style.setProperty("--vis-h", Math.round(bot - top) + "px");
+  };
+  const onIO = es => {
+    es.forEach(e => { if(e.isIntersecting && e.intersectionRect.height > 0) seen.set(e.target, e.intersectionRect); else seen.delete(e.target); });
+    if(!raf) raf = requestAnimationFrame(apply);
+  };
+  const sync = () => {
+    /* กรอบสูงกว่าจอของเครื่อง = มองเห็นไม่หมดในจอเดียว แปลว่าหน้าเว็บภายนอกเป็นตัวเลื่อน */
+    const H = innerHeight;
+    const tall = H > (screen.height || 900) + 20;
+    root.classList.toggle("embed", tall);
+    if(!tall){ if(io){ io.disconnect(); seen.clear(); } return; }
+    if(!probe){
+      probe = document.createElement("div");
+      probe.setAttribute("aria-hidden", "true");
+      probe.style.cssText = "position:absolute;left:0;top:0;width:1px;pointer-events:none;opacity:0;z-index:-1";   /* สูงเท่ากรอบพอดี จึงไม่ทำให้หน้ายาวขึ้น */
+      document.body.appendChild(probe);
+      io = new IntersectionObserver(onIO, {threshold: TH});
+    }
+    const need = Math.ceil(H / STEP);
+    while(count < need){
+      const d = document.createElement("div");
+      d.style.cssText = "position:absolute;left:0;width:1px;height:" + STEP + "px;top:" + (count * STEP) + "px";
+      probe.appendChild(d); io.observe(d); count++;
+    }
+    while(count > need){ const d = probe.lastChild; io.unobserve(d); seen.delete(d); d.remove(); count--; }
+    probe.style.height = H + "px";
+  };
+  sync();
+  new ResizeObserver(sync).observe(document.body);
+  addEventListener("resize", sync);
+})();
 </script>
 </body>
 </html>
