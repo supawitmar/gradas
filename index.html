@@ -696,7 +696,7 @@ html.embed .im-box{height:min(760px,calc(var(--vis-h,100vh) - 48px))}
 html.embed .ask-fab{bottom:auto;top:calc(var(--vis-top,0px) + var(--vis-h,100vh) - 78px)}
 html.embed .ask{bottom:auto;height:min(620px,calc(var(--vis-h,100vh) - 44px));top:calc(var(--vis-top,0px) + var(--vis-h,100vh) - 22px - min(620px,calc(var(--vis-h,100vh) - 44px)))}
 html.embed .ask.big{height:calc(var(--vis-h,100vh) - 44px);top:calc(var(--vis-top,0px) + 22px)}
-html.embed .q-copy{display:none}
+html.embed #role,html.embed #quick,html.embed #contact,html.embed .contact{scroll-margin-top:150px}
 @media(max-width:640px){html.embed .im{padding-top:calc(var(--vis-top,0px) + var(--vis-h,100vh) * .08)}html.embed .im-box{height:calc(var(--vis-h,100vh) * .92)}}
 @media(max-width:520px){
   html.embed .ask-fab{top:calc(var(--vis-top,0px) + var(--vis-h,100vh) - 70px)}
@@ -3008,13 +3008,18 @@ function filterFaq(inp){
   box.querySelector(".f-count").textContent = (q || cat) ? shown + " " + t("รายการ") : "";
 }
 /* ลิงก์ตรงไปยัง FAQ แต่ละข้อ: …/#faq-late-fee (รหัสกำหนดใน FAQS แต่ละข้อ) */
+/* อยู่ในกรอบ (เช่น Canva) ที่อยู่ของกรอบไม่ใช่ที่อยู่หน้าเว็บ — ใช้ลิงก์เว็บหลักแทน */
+const SITE_URL = "https://supawitmar.github.io/gradas/";
+const IN_FRAME = (() => { try { return window.self !== window.top; } catch(e) { return true; } })();
 function faqCopy(id, btn){
-  const link = location.origin + location.pathname + "#faq-" + id;
+  const link = (IN_FRAME ? SITE_URL : location.origin + location.pathname) + "#faq-" + id;
   const done = () => { const sp = btn.querySelector("span"); btn.classList.add("done"); sp.textContent = t("คัดลอกลิงก์แล้ว");
     setTimeout(()=>{ btn.classList.remove("done"); sp.textContent = t("คัดลอกลิงก์ข้อนี้"); }, 2000); };
-  if(navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(link).then(done, ()=>prompt(t("คัดลอกลิงก์นี้"), link));
-  else { const ta = document.createElement("textarea"); ta.value = link; document.body.appendChild(ta); ta.select();
-    try{ document.execCommand("copy"); done(); }catch(e){ prompt(t("คัดลอกลิงก์นี้"), link); } ta.remove(); }
+  const legacy = () => { const ta = document.createElement("textarea"); ta.value = link; document.body.appendChild(ta); ta.select();
+    let ok = false; try{ ok = document.execCommand("copy"); }catch(e){} ta.remove();
+    if(ok) done(); else prompt(t("คัดลอกลิงก์นี้"), link); };
+  if(navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(link).then(done, legacy);
+  else legacy();
 }
 function faqFromHash(){
   const m = location.hash.match(/^#faq-([\w-]+)$/); if(!m) return;
@@ -3455,6 +3460,16 @@ askI18n();
   sync();
   new ResizeObserver(sync).observe(document.body);
   addEventListener("resize", sync);
+  /* ลิงก์ # (เมนู / โลโก้) ในกรอบที่ไม่เลื่อนเอง จะไม่พาหน้าเว็บภายนอกเลื่อนตาม — เลื่อนเองด้วย scrollIntoView */
+  document.addEventListener("click", e => {
+    if(e.defaultPrevented || !root.classList.contains("embed")) return;
+    const a = e.target.closest('a[href^="#"]'); if(!a) return;
+    const id = a.getAttribute("href").slice(1);
+    const el = id ? document.getElementById(id) : root;
+    if(!el) return;
+    e.preventDefault();
+    el.scrollIntoView({behavior:"smooth", block:"start"});
+  });
 })();
 </script>
 </body>
