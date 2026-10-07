@@ -2778,6 +2778,8 @@ const REVEAL_SEL = ".hero-pill,.hero h1,.hero p,.sec-head,.ql-head,.role,.qcard,
 const io = ("IntersectionObserver" in window)
   ? new IntersectionObserver((es,o)=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); o.unobserve(e.target); } }),{rootMargin:"0px 0px -8% 0px",threshold:.08})
   : null;
+/* หน้าที่ถูกบันทึกหลังสคริปต์ทำงานแล้ว (เช่น นำเข้า Canva) อาจมีคลาส reveal ค้างโดยไม่มี in ทำให้มองไม่เห็น — ล้างสถานะเดิมก่อนเริ่ม */
+document.querySelectorAll(".reveal").forEach(e => { e.classList.remove("reveal", "in"); e.style.transitionDelay = ""; });
 function reveal(root){
   /* ถ้าไม่มี IntersectionObserver หรือแท็บไม่ได้เปิดอยู่ ให้แสดงเนื้อหาตามปกติ ไม่ต้องมีอนิเมชัน */
   if(!io || document.visibilityState !== "visible") return;
