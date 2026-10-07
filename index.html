@@ -691,13 +691,13 @@ body.lock{overflow:hidden}
    กรอบสูงเท่าเนื้อหา หน้าเว็บภายนอกเป็นตัวเลื่อน ทำให้ position:fixed / sticky / 100vh อิงทั้งกรอบแทนหน้าจอ
    สคริปต์ embed วัดส่วนที่มองเห็นแล้วตั้ง --vis-top / --vis-h (ใช้เฉพาะเมื่อ html มีคลาส embed) */
 html.embed .site-header{top:var(--vis-top,0px)}
-html.embed .im{inset:auto;left:0;right:0;top:var(--vis-top,0px);height:var(--vis-h,100vh)}
+html.embed .im{align-items:flex-start;padding-top:calc(var(--vis-top,0px) + max(24px, (var(--vis-h,100vh) - 760px) / 2))}
 html.embed .im-box{height:min(760px,calc(var(--vis-h,100vh) - 48px))}
 html.embed .ask-fab{bottom:auto;top:calc(var(--vis-top,0px) + var(--vis-h,100vh) - 78px)}
 html.embed .ask{bottom:auto;height:min(620px,calc(var(--vis-h,100vh) - 44px));top:calc(var(--vis-top,0px) + var(--vis-h,100vh) - 22px - min(620px,calc(var(--vis-h,100vh) - 44px)))}
 html.embed .ask.big{height:calc(var(--vis-h,100vh) - 44px);top:calc(var(--vis-top,0px) + 22px)}
 html.embed .q-copy{display:none}
-@media(max-width:640px){html.embed .im-box{height:calc(var(--vis-h,100vh) * .92)}}
+@media(max-width:640px){html.embed .im{padding-top:calc(var(--vis-top,0px) + var(--vis-h,100vh) * .08)}html.embed .im-box{height:calc(var(--vis-h,100vh) * .92)}}
 @media(max-width:520px){
   html.embed .ask-fab{top:calc(var(--vis-top,0px) + var(--vis-h,100vh) - 70px)}
   html.embed .ask,html.embed .ask.big{height:calc(var(--vis-h,100vh) * .88);top:calc(var(--vis-top,0px) + var(--vis-h,100vh) * .12)}
