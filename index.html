@@ -3008,11 +3008,13 @@ function filterFaq(inp){
   box.querySelector(".f-count").textContent = (q || cat) ? shown + " " + t("รายการ") : "";
 }
 /* ลิงก์ตรงไปยัง FAQ แต่ละข้อ: …/#faq-late-fee (รหัสกำหนดใน FAQS แต่ละข้อ) */
-/* อยู่ในกรอบ (เช่น Canva) ที่อยู่ของกรอบไม่ใช่ที่อยู่หน้าเว็บ — ใช้ลิงก์เว็บหลักแทน */
+/* หน้าเว็บที่ผู้ใช้เปิดอยู่จริง: ปกติคือหน้านี้เอง / ในกรอบโดเมนเดียวกัน (เว็บที่เผยแพร่บน Canva) คือหน้าภายนอก
+   กรอบต่างโดเมน (หน้าแก้ไข/พรีวิวของ Canva) อ่านที่อยู่ภายนอกไม่ได้ → ใช้ลิงก์เว็บหลักแทน */
 const SITE_URL = "https://supawitmar.github.io/gradas/";
-const IN_FRAME = (() => { try { return window.self !== window.top; } catch(e) { return true; } })();
+const HOST = (() => { try { const w = window.top; return w.location.href ? w : null; } catch(e) { return null; } })();
+const pageBase = () => HOST ? HOST.location.origin + HOST.location.pathname : SITE_URL;
 function faqCopy(id, btn){
-  const link = (IN_FRAME ? SITE_URL : location.origin + location.pathname) + "#faq-" + id;
+  const link = pageBase() + "#faq-" + id;
   const done = () => { const sp = btn.querySelector("span"); btn.classList.add("done"); sp.textContent = t("คัดลอกลิงก์แล้ว");
     setTimeout(()=>{ btn.classList.remove("done"); sp.textContent = t("คัดลอกลิงก์ข้อนี้"); }, 2000); };
   const legacy = () => { const ta = document.createElement("textarea"); ta.value = link; document.body.appendChild(ta); ta.select();
@@ -3022,7 +3024,7 @@ function faqCopy(id, btn){
   else legacy();
 }
 function faqFromHash(){
-  const m = location.hash.match(/^#faq-([\w-]+)$/); if(!m) return;
+  const m = (HOST || window).location.hash.match(/^#faq-([\w-]+)$/); if(!m) return;
   if(!role) setRole("student");
   const li = role.links.findIndex(l=>l.content===FAQS); if(li < 0) return;
   if(activeLink !== role.links[li]) openLink(li);
@@ -3035,6 +3037,7 @@ function faqFromHash(){
   }, 450);
 }
 window.addEventListener("hashchange", faqFromHash);
+if(HOST && HOST !== window) HOST.addEventListener("hashchange", faqFromHash);
 function goRoles(){ $("role").scrollIntoView({behavior:"smooth"}); }
 function goQuick(){
   activeLink = null;
