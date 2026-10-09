@@ -1608,7 +1608,7 @@ const FORMS = {type:"forms",
        th:DL+"GR-30.pdf", en:DL+"GR-30-En.pdf"},
       {code:"บฑ.29", name:"ขอไปศึกษาชมกิจการ / ขอไปฝึกปฏิบัติงาน",
        desc:"กรณีต้องการให้บัณฑิตวิทยาลัยออกหนังสือขอความอนุเคราะห์ให้นักศึกษาไปศึกษาชมกิจการ/ฝึกปฏิบัติงาน ณ หน่วยงานต่าง ๆ",
-       th:DL+"GR-29.pdf", en:DL+"GR-29E.pdf"}
+       th:DL+"GR-29.pdf", en:DL+"GR-29E.pdf", kw:["ศึกษาดูงาน","ดูงาน","study visit"]}
     ]},
     {name:"การเชิญอาจารย์ผู้สอน", rows:[
       {code:"บฑ.31", name:"คำร้องขอเชิญอาจารย์จากภายนอกเป็นอาจารย์พิเศษสอนในรายวิชา",
@@ -3231,7 +3231,7 @@ function askBuild(){
   Object.entries(INFO).forEach(([key,d])=>d.sections.forEach((s,si)=>idx.push({k:"info",
     title:{th:d.code+" › "+askPlain(s.h), en:askEN(d.code)+" › "+askPlain(askEN(s.h))}, sub:askPair(d.title), lines:s.body.flatMap(askFlat), go:{info:key, sec:si}})));
   FORMS.groups.forEach(g=>g.rows.forEach(r=>idx.push({k:"form",
-    title:{th:r.code+" "+askPlain(r.name), en:askEN(r.code)+" "+askPlain(askEN(r.name))}, sub:{th:"แบบฟอร์ม", en:"Forms"}, lines:[askPair(r.desc)], go:{form:r.code}})));
+    title:{th:r.code+" "+askPlain(r.name), en:askEN(r.code)+" "+askPlain(askEN(r.name))}, sub:{th:"แบบฟอร์ม", en:"Forms"}, lines:[askPair(r.desc)], kw:r.kw||[], go:{form:r.code}})));
   RULES.groups.flatMap(g=>g.rows).forEach(r=>idx.push({k:"rule", title:askPair(r.name),
     sub:{th:r.kind+" · "+r.year, en:askEN(r.kind)+" · "+r.year}, lines:[...(r.kw||[]).map(k=>askPair(k)), ...(r.by?[askPair(r.by)]:[])], go:{url:r.th, urlEn:r.en}}));
   idx.forEach(d=>{ d.nt = [fnorm(d.title.th), fnorm(d.title.en), ...(d.kw && d.kw.length ? [fnorm(d.kw.join(" "))] : [])]; d.nl = d.lines.map(l=>[fnorm(l.th), fnorm(l.en)]); });
